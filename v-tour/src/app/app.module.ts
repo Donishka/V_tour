@@ -7,6 +7,7 @@ import { HeaderBarComponent } from './header-bar/header-bar.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { QuickAccessComponent } from './quick-access/quick-access.component';
 import { DraftedItenarariesComponent } from './drafted-itenararies/drafted-itenararies.component';
+import { GridViewComponent } from './grid-view/grid-view.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { DraftedItenarariesComponent } from './drafted-itenararies/drafted-itena
     HeaderBarComponent,
     SearchBarComponent,
     QuickAccessComponent,
-    DraftedItenarariesComponent
+    DraftedItenarariesComponent,
+    GridViewComponent
   ],
   imports: [
     BrowserModule
