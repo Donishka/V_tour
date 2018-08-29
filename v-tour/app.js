@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 var routes = require('./api/routes');
 
 // Define the port to run on
-app.set('port', 4200);
+app.set('port', 4201);
 
 // Add middleware to console log every request
 app.use(function(req, res, next) {
