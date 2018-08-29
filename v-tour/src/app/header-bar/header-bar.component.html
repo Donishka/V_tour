@@ -34,8 +34,8 @@
                             <i class="fas fa-users"></i>
                             <span class="bot-line"></span>Users</a>
                         <ul class="header3-sub-list list-unstyled">
-                          <li>
-                            <a href="#">OP1</a>
+                          <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                            <a  [routerLink]="['/addnewuser']">Add New User</a>
                           </li>
                           <li>
                             <a href="#">OP2</a>

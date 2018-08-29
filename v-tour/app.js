@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
 });
 
 // Set static directory before defining routes
-app.use(express.static('src'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Add some routing
