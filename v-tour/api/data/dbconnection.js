@@ -1,46 +1,10 @@
-var mongoose = require('mongoose');
-var dburl = 'mongodb://localhost:27017/meantest';
-var retry = null;
-mongoose.connect(dburl);
+const mongoose = require('mongoose');
 
-// CONNECTION EVENTS
-mongoose.connection.on('connected', function() {
-  console.log('Mongoose connected to ' + dburl);
-});
-mongoose.connection.on('error', function(err) {
-  console.log('Mongoose connection error: ' + err);
-});
-mongoose.connection.on('disconnected', function() {
-  console.log('Mongoose disconnected');
+mongoose.connect('mongodb://localhost:27017/meantest', (err) => {
+    if (!err)
+        console.log('MongoDB connection succeeded.');
+    else
+        console.log('Error in DB connection : ' + JSON.stringify(err, undefined, 2));
 });
 
-// CAPTURE APP TERMINATION / RESTART EVENTS
-// To be called when process is restarted or terminated
-function gracefulShutdown(msg, callback) {
-  mongoose.connection.close(function() {
-    console.log('Mongoose disconnected through ' + msg);
-    callback();
-  });
-}
-
-// For app restarts
-process.once('SIGUSR2', function() {
-  gracefulShutdown('app restart', function() {
-    process.kill(process.pid, 'SIGUSR2');
-  });
-});
-// For app termination
-process.on('SIGINT', function() {
-  gracefulShutdown('App termination (SIGINT)', function() {
-    process.exit(0);
-  });
-});
-// For Heroku app termination
-process.on('SIGTERM', function() {
-  gracefulShutdown('App termination (SIGTERM)', function() {
-    process.exit(0);
-  });
-});
-
-// BRING IN YOUR SCHEMAS & MODELS
-require('./users.model');
+module.exports = mongoose;

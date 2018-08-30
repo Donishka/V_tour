@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ValidateService } from '../services/validate.service';
+import { AuthService } from '../services/auth.service';
+import { Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-add-new-user',
@@ -10,30 +13,32 @@ export class AddNewUserComponent implements OnInit {
 
   fname:String;
   lname:String;
+  userid:String;
   username:String;
   password:String;
-  email:String;
   telephone:String;
 
 
-  constructor(private validateService : ValidateService) { }
+  constructor(private validateService : ValidateService,
+              private authService : AuthService,
+              private router : Router         
+  ) { }
 
   ngOnInit() {
   }
 
   onRegisterSubmit(){
     const user={
-      fname:this.fname,
-      lname:this.lname,
-      username:this.username,
+      Fname:this.fname,
+      Lname:this.lname,
+      userID:this.userid,
+      userName:this.username,
       password:this.password,
-      email:this.email,
       telephone:this.telephone
     }
 
-    //required fields
-    if(!this.validateService.validateUserRegister(user)){
-      return false;
-    }
+    this.authService.addNewUser(user).subscribe(data=>{
+
+    });
   }
 }
