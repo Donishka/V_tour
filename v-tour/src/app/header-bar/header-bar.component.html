@@ -9,9 +9,16 @@
                 <ul class="list-unstyled">
                     <li class="has-sub">
                         <a href="#">
-                            <i class="fas fa-tachometer-alt"></i>Dashboard
-                            <span class="bot-line"></span>
-                        </a>
+                            <i class="fas fa-user"></i>
+                            <span class="bot-line"></span>Travel Agents</a>
+                        <ul class="header3-sub-list list-unstyled">
+                          <li>
+                            <a href="#">Add New Agent</a>
+                          </li>
+                          <li>
+                            <a href="#">View Agents</a>
+                          </li>
+                        </ul>
                     </li>
                     <li class="has-sub">
                         <a href="#">
@@ -19,29 +26,10 @@
                             <span class="bot-line"></span>Service Providers</a>
                         <ul class="header3-sub-list list-unstyled">
                           <li>
-                            <a href="#">OP1</a>
+                            <a href="#">Add New Service Provider</a>
                           </li>
                           <li>
-                            <a href="#">OP2</a>
-                          </li>
-                          <li>
-                            <a href="#l">OP3</a>
-                          </li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="#">
-                            <i class="fas fa-users"></i>
-                            <span class="bot-line"></span>Users</a>
-                        <ul class="header3-sub-list list-unstyled">
-                          <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                            <a  [routerLink]="['/addnewuser']">Add New User</a>
-                          </li>
-                          <li>
-                            <a href="#">OP2</a>
-                          </li>
-                          <li>
-                            <a href="#l">OP3</a>
+                            <a href="#">View Service Providers</a>
                           </li>
                         </ul>
                     </li>
@@ -51,39 +39,45 @@
                             <span class="bot-line"></span>Itineraries</a>
                         <ul class="header3-sub-list list-unstyled">
                           <li>
-                            <a href="#">OP1</a>
+                            <a href="#">Create New</a>
                           </li>
                           <li>
-                            <a href="#">OP2</a>
+                            <a href="#">View Drafted</a>
                           </li>
                           <li>
-                            <a href="#l">OP3</a>
+                            <a href="#l">View Completed</a>
                           </li>
                         </ul>
                     </li>
                     <li class="has-sub">
                         <a href="#">
-                            <i class="fas fa-wrench"></i>
-                            <span class="bot-line"></span>Tools</a>
+                            <i class="fas fa-users"></i>
+                            <span class="bot-line"></span>Clients</a>
                         <ul class="header3-sub-list list-unstyled">
                             <li>
-                                <a href="#">Payments</a>
-                            </li>
-                            <li>
-                                <a href="#">Bookings</a>
-                            </li>
+                                <a href="#">Add New Client</a>
+                              </li>
+                              <li>
+                                <a href="#">View Clients</a>
+                              </li>
                         </ul>
                     </li>
                     <li class="has-sub">
                         <a href="#">
-                            <i class="far fa-bell"></i>
-                            <span class="bot-line"></span>Notifications</a>
+                            <i class="fas fa-dollar-sign"></i>
+                            <span class="bot-line"></span>Payments & Bookings</a>
                         <ul class="header3-sub-list list-unstyled">
                             <li>
-                                <a href="#">OP1</a>
+                                <a href="#">Make Payments</a>
                             </li>
                             <li>
-                                <a href="#">OP2</a>
+                                <a href="#">Make Bookings</a>
+                            </li>
+                            <li>
+                                <a href="#">View Payment Status</a>
+                            </li>
+                            <li>
+                                <a href="#">View Booking Status</a>
                             </li>
                         </ul>
                     </li>
@@ -93,10 +87,13 @@
                             <span class="bot-line"></span>Profile</a>
                         <ul class="header3-sub-list list-unstyled">
                             <li>
-                                <a href="#">OP1</a>
+                                <a href="#">Account</a>
                             </li>
                             <li>
-                                <a href="#">OP2</a>
+                                <a href="#">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#">Logout</a>
                             </li>
                         </ul>
                     </li>

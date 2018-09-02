@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderBarComponent } from './header-bar/header-bar.component';
@@ -13,13 +12,6 @@ import { GridViewComponent } from './grid-view/grid-view.component';
 import { LoginComponent } from './login/login.component';
 import { AddNewUserComponent } from './add-new-user/add-new-user.component';
 
-import {ValidateService} from './services/validate.service';
-import {AuthService} from './services/auth.service';
-
-const appRoutes: Routes =[
-  {path:'login',component:LoginComponent},
-  {path:'addnewuser',component:AddNewUserComponent},
-]
 
 @NgModule({
   declarations: [
@@ -35,10 +27,9 @@ const appRoutes: Routes =[
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
-    RouterModule.forRoot(appRoutes)
+    HttpClientModule
   ],
-  providers: [ValidateService,AuthService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

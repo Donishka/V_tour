@@ -4,38 +4,57 @@
         <div class="card-content white-text">
           <div class="row">
             <div class="col s5">
-              <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
-                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
+              <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
                 <div class="row">
                   <div class="input-field col s12">
-                    <input type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Enter full name" required>
-                    <label>Name :
+                    <input type="text" name="Fname" #name="ngModel" [(ngModel)]="userService.selectedUser.Fname" placeholder="Enter First name" required>
+                    <label>First Name :
                       <label class="red-text">*</label>
                     </label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="input-field col s12">
-                    <input type="text" name="position" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.position" placeholder="Eg : Snr. Developer">
-                    <label>Position :</label>
+                    <input type="text" name="Lname" #name="ngModel" [(ngModel)]="userService.selectedUser.Lname" placeholder="Enter Last name" required>
+                    <label>Last Name :
+                      <label class="red-text">*</label>
+                    </label>
+                  </div>
+                </div><div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="userID" #name="ngModel" [(ngModel)]="userService.selectedUser.userID" placeholder="Enter User ID" required>
+                    <label>User ID :
+                      <label class="red-text">*</label>
+                    </label>
+                  </div>
+                </div><div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="userName" #name="ngModel" [(ngModel)]="userService.selectedUser.userName" placeholder="Enter User name" required>
+                    <label>User Name :
+                      <label class="red-text">*</label>
+                    </label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="input-field col s12">
-                    <input type="text" name="office" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.office" placeholder="Enter office location">
-                    <label>Office :</label>
+                    <input type="text" name="password" #name="ngModel" [(ngModel)]="userService.selectedUser.password" placeholder="Enter Passward" required>
+                    <label>Password :
+                      <label class="red-text">*</label>
+                    </label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="input-field col s12">
-                    <input type="text" name="salary" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary" placeholder="Salary per annum">
-                    <label>Salary :</label>
+                    <input type="text" name="telephone" #name="ngModel" [(ngModel)]="userService.selectedUser.telephone" placeholder="Enter TP No" >
+                    <label>Telephone No :
+                    </label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="input-field col s12">
-                    <button class="btn btn-custom right" type="button" (click)="resetForm(employeeForm)">Reset</button>
-                    <button class="btn btn-custom right" type="submit" [disabled]="!employeeForm.valid">Submit</button>
+                    <button class="btn btn-custom right" type="button" (click)="resetForm(userForm)">Reset</button>
+                    <button class="btn btn-custom right" type="submit" [disabled]="!userForm.valid">Submit</button>
                   </div>
                 </div>
               </form>
@@ -44,21 +63,27 @@
                 <table class="responsive-table highlight">
                     <thead>
                       <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>User ID</th>
+                        <th>User Name</th>
+                        <th>Password</th>
+                        <th>Telephone</th>
                         <th></th>
                       </tr>
                     </thead>
-                    <tr *ngFor="let emp of employeeService.employees">
-                      <td>{{emp.name}}</td>
-                      <td>{{emp.position}}</td>
-                      <td>{{emp.office}}</td>
+                    <tr *ngFor="let usr of userService.users">
+                      <td>{{usr.Fname}}</td>
+                      <td>{{usr.Lname}}</td>
+                      <td>{{usr.userID}}</td>
+                      <td>{{usr.userName}}</td>
+                      <td>{{usr.password}}</td>
+                      <td>{{usr.telephone}}</td>
                       <td>
-                          <a class="action-btn" (click)="onEdit(emp)">
+                          <a class="action-btn" (click)="onEdit(usr)">
                             <i class="material-icons">edit</i>
                           </a>
-                          <a class="action-btn" (click)="onDelete(emp._id,employeeForm)">
+                          <a class="action-btn" (click)="onDelete(usr._id,userForm)">
                             <i class="material-icons">delete</i>
                           </a>
                         </td>
