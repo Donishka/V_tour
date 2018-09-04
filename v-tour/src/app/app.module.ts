@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalModule } from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HeaderBarComponent } from './header-bar/header-bar.component';
@@ -11,6 +12,12 @@ import { DraftedItenarariesComponent } from './drafted-itenararies/drafted-itena
 import { GridViewComponent } from './grid-view/grid-view.component';
 import { LoginComponent } from './login/login.component';
 import { AddNewUserComponent } from './add-new-user/add-new-user.component';
+import { ViewTravelAgentsComponent } from './travelAgent/view-travel-agents/view-travel-agents.component';
+
+import { ViewClientsComponent } from './client/view-clients/view-clients.component';
+import { ServiceproviderComponent } from './service/serviceProvider/serviceprovider/serviceprovider.component';
+
+import { DemoModalServiceStaticComponent } from './popup/y';
 
 
 @NgModule({
@@ -22,12 +29,17 @@ import { AddNewUserComponent } from './add-new-user/add-new-user.component';
     DraftedItenarariesComponent,
     GridViewComponent,
     LoginComponent,
-    AddNewUserComponent
+    AddNewUserComponent,
+    ViewTravelAgentsComponent,
+    ViewClientsComponent,
+    ServiceproviderComponent,
+    DemoModalServiceStaticComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

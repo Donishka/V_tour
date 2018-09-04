@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "angular-5-popup": "0.0.6",
     "angular2-flash-messages": "^3.0.1",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.1",
