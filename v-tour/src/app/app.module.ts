@@ -14,8 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { AddNewUserComponent } from './add-new-user/add-new-user.component';
 import { ViewTravelAgentsComponent } from './travelAgent/view-travel-agents/view-travel-agents.component';
 import { ViewClientsComponent } from './client/view-clients/view-clients.component';
-
 import { DemoModalServiceStaticComponent } from './popup/y';
+
 
 
 @NgModule({
@@ -30,7 +30,7 @@ import { DemoModalServiceStaticComponent } from './popup/y';
     AddNewUserComponent,
     ViewTravelAgentsComponent,
     ViewClientsComponent,
-    DemoModalServiceStaticComponent
+    DemoModalServiceStaticComponent,
   ],
   imports: [
     BrowserModule,
