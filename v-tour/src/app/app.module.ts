@@ -13,9 +13,7 @@ import { GridViewComponent } from './grid-view/grid-view.component';
 import { LoginComponent } from './login/login.component';
 import { AddNewUserComponent } from './add-new-user/add-new-user.component';
 import { ViewTravelAgentsComponent } from './travelAgent/view-travel-agents/view-travel-agents.component';
-
 import { ViewClientsComponent } from './client/view-clients/view-clients.component';
-import { ServiceproviderComponent } from './service/serviceProvider/serviceprovider/serviceprovider.component';
 
 import { DemoModalServiceStaticComponent } from './popup/y';
 
@@ -32,7 +30,6 @@ import { DemoModalServiceStaticComponent } from './popup/y';
     AddNewUserComponent,
     ViewTravelAgentsComponent,
     ViewClientsComponent,
-    ServiceproviderComponent,
     DemoModalServiceStaticComponent
   ],
   imports: [
