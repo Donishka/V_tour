@@ -1,4 +1,4 @@
-export class TravelAgent {
+export class Client {
     _id:string;
     fname:string;
     lname:string;
@@ -7,5 +7,8 @@ export class TravelAgent {
     email:string;
     telephone:[string];
     address:string;
-    isadmin:boolean
+    noofvisitors:number;
+    foodperfer:string;
+    intactivities:[string];
+    agegroup:string;
 }

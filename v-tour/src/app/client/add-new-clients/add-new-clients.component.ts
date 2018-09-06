@@ -1,25 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
- 
+
 import { ClientService } from '../../service/client/client.service';
 import { Client } from '../../service/client/client.model';
 
-declare var M:any;
-
+declare var M: any;
 @Component({
-  selector: 'app-view-clients',
-  templateUrl: './view-clients.component.html',
-  styleUrls: ['./view-clients.component.css'],
-  providers: [ClientService]
+  selector: 'app-add-new-clients',
+  templateUrl: './add-new-clients.component.html',
+  styleUrls: ['./add-new-clients.component.css'],
+  providers:[ClientService]
 })
-export class ViewClientsComponent implements OnInit {
+export class AddNewClientsComponent implements OnInit {
 
-  constructor(public clientService:ClientService) { }
+  constructor(public clientService: ClientService) { }
 
   ngOnInit() {
-    this.refreshClientList();
     this.resetForm();
   }
+
   resetForm(form?: NgForm) {
     if (form)
       form.reset();
@@ -42,7 +41,7 @@ export class ViewClientsComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
       this.clientService.postClient(form.value).subscribe((res) => {
-        this.refreshClientList();
+        
         this.resetForm(form);
         M.toast({ html: 'Saved successfully', classes: 'rounded' });
       });
@@ -50,29 +49,8 @@ export class ViewClientsComponent implements OnInit {
     else {
       this.clientService.putClient(form.value).subscribe((res) => {
         this.resetForm(form);
-        this.refreshClientList();
         M.toast({ html: 'Updated successfully', classes: 'rounded' });
       });
     }
   }
-
-  refreshClientList() {
-    this.clientService.getClientList().subscribe((res) => {
-      this.clientService.client = res as Client[];
-    });
-  }
-
-  onEdit(client: Client) {
-    this.clientService.selectedClient= client;
-  }
-
-  onDelete(_id: string) {
-    if (confirm('Are you sure to delete this record ?') == true) {
-      this.clientService.deleteClient(_id).subscribe((res) => {
-        this.refreshClientList();
-        M.toast({ html: 'Deleted successfully', classes: 'rounded' });
-      });
-    }
-  }
 }
-  

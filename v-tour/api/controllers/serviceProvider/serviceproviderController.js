@@ -28,6 +28,7 @@ router.post('/', (req, res) => {
         lname:req.body.lname,
         username: req.body.username,
         password: req.body.password,
+        email:req.body.email,
         telephone: req.body.telephone,
         address: req.body.address,
         type: req.body.type,
@@ -43,16 +44,17 @@ router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
 
-    var serviceprovider = new ServiceProvider({
+    var serviceprovider = {
         fname: req.body.fname,
         lname:req.body.lname,
         username: req.body.username,
         password: req.body.password,
+        email:req.body.email,
         telephone: req.body.telephone,
         address: req.body.address,
         type: req.body.type,
         discription:req.body.discription,
-    });
+    };
     ServiceProvider.findByIdAndUpdate(req.params.id, { $set: serviceprovider }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Service Provider Update :' + JSON.stringify(err, undefined, 2)); }

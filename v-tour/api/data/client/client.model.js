@@ -10,9 +10,12 @@ var Client =  mongoose.model('Client', {
     },
     username:{
         type:String,
-        required:true
     },
     password : {
+        type:String,
+        required:true
+    },
+    email: {
         type:String,
         required:true
     },
@@ -23,7 +26,7 @@ var Client =  mongoose.model('Client', {
     noofvisitors:{
         type:Number,
     },
-    foodprefer : [String],
+    foodprefer : String,
     intactivities : [String],
     agegroup:{
         type:String,

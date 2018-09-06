@@ -15,18 +15,22 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   postUser(user: User) {
+    console.log("Post");
     return this.http.post(this.baseURL, user);
   }
 
   getUserList() {
+    console.log("Get");
     return this.http.get(this.baseURL);
   }
 
   putUser(user: User) {
+    console.log("Put");
     return this.http.put(this.baseURL + `/${user._id}`, user);
   }
 
   deleteUser(_id: string) {
+    console.log("Delete");
     return this.http.delete(this.baseURL + `/${_id}`);
   }
 

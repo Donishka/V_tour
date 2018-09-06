@@ -59,7 +59,9 @@ export class AddNewUserComponent implements OnInit {
   }
 
   onEdit(user: User) {
+    console.log("StartOnEdit");
     this.userService.selectedUser = user;
+    console.log("EndOnEdit");
   }
 
   onDelete(_id: string, form: NgForm) {

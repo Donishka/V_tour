@@ -28,6 +28,7 @@ router.post('/', (req, res) => {
         lname:req.body.lname,
         username: req.body.username,
         password: req.body.password,
+        email:req.body.email,
         telephone: req.body.telephone,
         address: req.body.address,
         noofvisitors: req.body.noofvisitors,
@@ -45,18 +46,19 @@ router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
 
-    var client = new Client({
+    var client = {
         fname: req.body.fname,
         lname:req.body.lname,
         username: req.body.username,
         password: req.body.password,
+        email:req.body.email,
         telephone: req.body.telephone,
         address: req.body.address,
         noofvisitors: req.body.noofvisitors,
         foodprefer:req.body.foodprefer,
         intactivities:req.body.intactivities,
         agegroup:req.body.agegroup,
-    });
+    };
         Client.findByIdAndUpdate(req.params.id, { $set: client }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Client Update :' + JSON.stringify(err, undefined, 2)); }

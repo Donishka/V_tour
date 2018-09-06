@@ -15,7 +15,7 @@ export class TravelAgentService {
   constructor(private http: HttpClient) { }
 
 
-  postTravelAgent(tagent: TravelAgent) {
+  postTravelAgent(tagent: TravelAgent) { 
     return this.http.post(this.baseURL, tagent);
   }
 
@@ -29,6 +29,18 @@ export class TravelAgentService {
 
   deleteTravelAgent(_id: string) {
     return this.http.delete(this.baseURL + `/${_id}`);
+  }
+
+  /// Pop Up Model
+
+
+  editContact(tagent: TravelAgent) {
+    const index = this.tagent.findIndex(c => c._id === tagent._id);
+    this.tagent[index] = tagent;
+  }
+
+  getAllContacts() {
+    return this.tagent;
   }
 
 }

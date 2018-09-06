@@ -1,3 +1,178 @@
-<p>
-  view-clients works!
-</p>
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+      <div class="col s15">
+        <div class="card">
+          <div class="card-content white-text">
+            <div class="row">
+              <div class="col s7">
+                <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>User Name</th>
+                        <th>Password</th>
+                        <th>Email</th>
+                        <th>Telephone</th>
+                        <th>Address</th>
+                        <th>No Of Visitors</th>
+                        <th>Food Prefered</th>
+                        <th>Activities</th>
+                        <th>Age Group</th>
+                        <th></th>
+                      </tr>                      
+                    </thead>
+                    <tr *ngFor="let client of clientService.client">
+                      <td>{{client.fname}}</td>
+                      <td>{{client.lname}}</td>
+                      <td>{{client.username}}</td>
+                      <td>{{client.password}}</td>
+                      <td>{{client.email}}</td>
+                      <td>{{client.telephone}}</td>
+                      <td>{{client.address}}</td>
+                      <td>{{client.noofvisitors}}</td>
+                      <td>{{client.foodperfer}}</td>
+                      <td>{{client.intactivities}}</td>
+                      <td>{{client.agegroup}}</td>
+                      <td>
+                        <a class="action-btn" >
+                          <i class="material-icons" (click)="onEdit(client)">edit</i>
+                        </a>
+                        <a class="action-btn" (click)="onDelete(client._id)">
+                          <i class="material-icons">delete</i>
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class = "container">
+            <div class="row">
+              <div class ="col"></div>  
+              <div class="col-6">
+                <div class="main-login main-center">
+                      <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+                        <fieldset>
+                          <legend>Add Client :</legend>
+                        <br>
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="clientService.selectedClient._id">
+                        <div class="form-group">
+                          <label for="fname" class="cols-sm-2 control-label">First Name</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="fname" #name="ngModel" [(ngModel)]="clientService.selectedClient.fname"  required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="lname" class="cols-sm-2 control-label">Last Name</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="lname" #name="ngModel" [(ngModel)]="clientService.selectedClient.lname"  required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="username" class="cols-sm-2 control-label">User Name</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="username" #name="ngModel" [(ngModel)]="clientService.selectedClient.username"  required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="password" class="cols-sm-2 control-label">Password</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+                              <input type="password" class="form-control" name="password" #name="ngModel" [(ngModel)]="clientService.selectedClient.password"  required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="email" class="cols-sm-2 control-label">Email</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                              <input type="email" class="form-control" name="email" #name="ngModel" [(ngModel)]="clientService.selectedClient.email" >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="telephone" class="cols-sm-2 control-label">Telephone No</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="clientService.selectedClient.telephone"  >
+                            </div>
+                          </div>
+                        </div>                
+                        <div class="form-group">
+                          <label for="address" class="cols-sm-2 control-label">Address</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="clientService.selectedClient.address"  >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="noofvisitors" class="cols-sm-2 control-label">No of Visitors</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="noofvisitors" #name="ngModel" [(ngModel)]="clientService.selectedClient.noofvisitors"  >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="foodperfer" class="cols-sm-2 control-label">Food Prefered</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="foodperfer" #name="ngModel" [(ngModel)]="clientService.selectedClient.foodperfer"  >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="intactivities" class="cols-sm-2 control-label">Intrested Activities</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="intactivities" #name="ngModel" [(ngModel)]="clientService.selectedClient.intactivities"  >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="agegroup" class="cols-sm-2 control-label">Age Group</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="agegroup" #name="ngModel" [(ngModel)]="clientService.selectedClient.agegroup"  >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group ">
+                            <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid"> Update Client</button>
+        
+                            <button class="btn btn-primary right" type="button" (click)="resetForm(userForm)">Reset</button>
+                        </div>
+                        </fieldset>
+                      </form>
+                    </div>
+                  </div>
+                    <div class="col"></div>
+                </div>
+              </div>
+        
+  </body>
+</html>
