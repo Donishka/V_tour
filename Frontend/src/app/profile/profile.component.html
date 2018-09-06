@@ -1,0 +1,9 @@
+<app-header-bar></app-header-bar>
+
+<div *ngIf = "user" >
+  <h1> Username : {{user.username}} </h1><h1></h1>
+  <h2>Name: {{user.fname}} {{user.lname}}</h2>
+  <h2>Email: {{user.email}} </h2>
+  <h2>Address : {{user.address}}</h2>
+</div>
+<flash-messages></flash-messages>

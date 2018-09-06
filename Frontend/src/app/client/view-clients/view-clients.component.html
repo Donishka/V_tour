@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col s12">
+        <div class="card">
+          <div class="card-content white-text">
+            <div class="row">
+              <div class="col s7">
+                <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>User Name</th>
+                        <th>Password</th>
+                        <th>Email</th>
+                        <th>Telephone</th>
+                        <th>Address</th>
+                        <th>No Of Visitors</th>
+                        <th>Food Prefered</th>
+                        <th>Activities</th>
+                        <th>Age Group</th>
+
+                        <th></th>
+                      </tr>                      
+                    </thead>
+                    <tr *ngFor="let client of clientService.client">
+                      <td>{{client.fname}}</td>
+                      <td>{{client.lname}}</td>
+                      <td>{{client.username}}</td>
+                      <td>{{client.password}}</td>
+                      <td>{{client.email}}</td>
+                      <td>{{client.telephone}}</td>
+                      <td>{{client.address}}</td>
+                      <td>{{client.noofvisitors}}</td>
+                      <td>{{client.foodperfer}}</td>
+                      <td>{{client.intactivities}}</td>
+                      <td>{{client.agegroup}}</td>
+                      <td>
+                        <a class="action-btn" >
+                          <i class="material-icons">edit</i>
+                        </a>
+                        <a class="action-btn" (click)="onDelete(client._id)">
+                          <i class="material-icons">delete</i>
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>

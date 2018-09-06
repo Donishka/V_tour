@@ -1,0 +1,81 @@
+<h1>Add New Travel Agent</h1>
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content white-text">
+          <div class="row">
+            <div class="col s5">
+              <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent._id">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="fname" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.fname"  required>
+                    <label>First Name :
+                      <label class="red-text">*</label>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="lname" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.lname"  >
+                    <label>Last Name :
+                      <label class="red-text">*</label>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="username" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.username"  required>
+                    <label>User Name :
+                      <label class="red-text">*</label>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="password" name="password" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.password"  required>
+                    <label>Password :
+                      <label class="red-text">*</label>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                      <input type="text" name="email" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.email" >
+                      <label>E mail :
+                      </label>
+                    </div>
+                  </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="telephone" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.telephone"  >
+                    <label>Telephone No :
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                      <input type="text" name="address" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.address" >
+                      <label>Address :
+                      </label>
+                    </div>
+                  </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                      <input type="dropdown" name="isadmin" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.isadmin" >
+                      <label>Admin Previlages :
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <button class="btn btn-custom right" type="button" (click)="resetForm(userForm)">Reset</button>
+                    <button class="btn btn-custom right" type="submit" [disabled]="!userForm.valid">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  

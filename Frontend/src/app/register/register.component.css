@@ -1,0 +1,7 @@
+.container {
+    width: 50%;
+    margin-top: 50px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color:rgb(0, 119, 255);
+}
