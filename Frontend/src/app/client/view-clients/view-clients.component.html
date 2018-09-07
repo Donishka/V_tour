@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  </head>
-  <body>
-      <div class="col s15">
-        <div class="card">
-          <div class="card-content white-text">
-            <div class="row">
-              <div class="col s7">
-                <table class="responsive-table highlight">
-                    <thead>
+<div class = "container">
+  <div class="row">
+    <div class ="col"></div>  
+    <div class="col-12">
+      <div >
+                <table class="table table-responsive-md	">
+                    <thead class="thead-dark">
                       <tr>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>User Name</th>
-                        <th>Password</th>
                         <th>Email</th>
                         <th>Telephone</th>
                         <th>Address</th>
@@ -29,7 +23,6 @@
                       <td>{{client.fname}}</td>
                       <td>{{client.lname}}</td>
                       <td>{{client.username}}</td>
-                      <td>{{client.password}}</td>
                       <td>{{client.email}}</td>
                       <td>{{client.telephone}}</td>
                       <td>{{client.address}}</td>
@@ -39,19 +32,19 @@
                       <td>{{client.agegroup}}</td>
                       <td>
                         <a class="action-btn" >
-                          <i class="material-icons" (click)="onEdit(client)">edit</i>
+                          <i class="fas fa-pencil-alt" (click)="onEdit(client)">edit</i>
                         </a>
                         <a class="action-btn" (click)="onDelete(client._id)">
-                          <i class="material-icons">delete</i>
+                          <i class="fas fa-trash-alt">delete</i>
                         </a>
                       </td>
                     </tr>
                   </table>
                 </div>
               </div>
+                <div class="col"></div>
             </div>
           </div>
-        </div>
         <div class = "container">
             <div class="row">
               <div class ="col"></div>  
@@ -173,6 +166,3 @@
                     <div class="col"></div>
                 </div>
               </div>
-        
-  </body>
-</html>

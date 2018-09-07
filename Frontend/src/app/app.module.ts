@@ -37,9 +37,11 @@ import { ViewServiceProvidersComponent } from './serviceProvider/view-service-pr
 import { AddNewTravelAgentComponent } from './travelAgent/add-new-travel-agent/add-new-travel-agent.component';
 import { AddNewServiceProviderComponent } from './serviceProvider/add-new-service-provider/add-new-service-provider.component';
 import { AddNewClientsComponent } from './client/add-new-clients/add-new-clients.component';
-import { GenaralProfileInfoComponent } from './genaral-profile-info/genaral-profile-info.component';
 import { TravelAgentAccountComponent } from './travelAgent/travel-agent-account/travel-agent-account.component';
 import { EditTravelAgentComponent } from './travelAgent/edit-travel-agent/edit-travel-agent.component';
+import { ServiceProviderAccountComponent } from './serviceProvider/service-provider-account/service-provider-account.component';
+import { ClientAccountComponent } from './client/client-account/client-account.component';
+import { EditServiceProviderComponent } from './serviceProvider/edit-service-provider/edit-service-provider.component';
 ;
 
 
@@ -79,9 +81,11 @@ const applicationRoutes:Routes = [
     AddNewTravelAgentComponent,
     AddNewServiceProviderComponent,
     AddNewClientsComponent,
-    GenaralProfileInfoComponent,
     TravelAgentAccountComponent,
     EditTravelAgentComponent,
+    ServiceProviderAccountComponent,
+    ClientAccountComponent,
+    EditServiceProviderComponent,
 
     
 

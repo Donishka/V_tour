@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  </head>
-  <body>
-    <div class="row">
-      <div class="col s12">
-        <div class="card card-deck">
-          <div class="card-content white-text">
-            <div class="row">
-              <div class="col s7">
-                <table class="responsive-table highlight">
-                    <thead>
+<div class = "container">
+  <div class="row">
+    <div class ="col"></div>  
+    <div class="col-12">
+      <div >
+                <table class="table table-responsive-md	">
+                    <thead class="thead-dark">
                       <tr>
                         <th>Name</th>
                         <th>User Name</th>
-                        <th>Password</th>
                         <th>Email</th>
                         <th>Telephone</th>
                         <th>Address</th>
@@ -26,7 +19,6 @@
                     <tr *ngFor="let sp of serviceProviderService.sp">
                       <td>{{sp.fname}}</td>
                       <td>{{sp.username}}</td>
-                      <td>{{sp.password}}</td>
                       <td>{{sp.email}}</td>
                       <td>{{sp.telephone}}</td>
                       <td>{{sp.address}}</td>
@@ -34,20 +26,19 @@
                       <td>{{sp.discription}}</td>
                       <td>
                         <a class="action-btn">
-                          <i class="material-icons" (click)="onEdit(sp)">edit</i>
+                          <i class="fas fa-pencil-alt"(click)="onEdit(sp)">edit</i>
                         </a>
                         <a class="action-btn" (click)="onDelete(sp._id)">
-                          <i class="material-icons">delete</i>
+                          <i class="fas fa-trash-alt">delete</i>
                         </a>
                       </td>
                     </tr>
                   </table>
                 </div>
               </div>
+                <div class="col"></div>
             </div>
           </div>
-        </div>
-      </div>
       <div class = "container">
           <div class="row">
             <div class ="col"></div>  
@@ -142,5 +133,3 @@
               </div>
             </div>
       
-  </body>
-</html>
