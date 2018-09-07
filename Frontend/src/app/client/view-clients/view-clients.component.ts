@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
- 
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router } from '@angular/router';
+
 import { ClientService } from '../../service/client/client.service';
 import { Client } from '../../service/client/client.model';
 
@@ -14,7 +16,9 @@ declare var M:any;
 })
 export class ViewClientsComponent implements OnInit {
 
-  constructor(public clientService:ClientService) { }
+  constructor(public clientService:ClientService,
+    private flashMessage:FlashMessagesService,
+    private router:Router) { }
 
   ngOnInit() {
     this.refreshClientList();
@@ -44,14 +48,14 @@ export class ViewClientsComponent implements OnInit {
       this.clientService.postClient(form.value).subscribe((res) => {
         this.refreshClientList();
         this.resetForm(form);
-        M.toast({ html: 'Saved successfully', classes: 'rounded' });
+        this.flashMessage.show('Client Saved', { cssClass: 'alert-success', timeout: 4000 });
       });
     }
     else {
       this.clientService.putClient(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refreshClientList();
-        M.toast({ html: 'Updated successfully', classes: 'rounded' });
+        this.flashMessage.show('Client Updated', { cssClass: 'alert-success', timeout: 4000 });
       });
     }
   }

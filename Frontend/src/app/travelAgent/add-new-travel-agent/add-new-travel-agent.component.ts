@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router } from '@angular/router';
 
 import { TravelAgentService } from '../../service/travelAgent/travelagent.service';
 import { TravelAgent } from '../../service/travelAgent/travelagent.model';
@@ -13,7 +15,9 @@ declare var M: any;
   providers:[TravelAgentService]
 })
 export class AddNewTravelAgentComponent implements OnInit {
-  constructor(public travelAgentService: TravelAgentService) { }
+  constructor(public travelAgentService: TravelAgentService,
+    private flashMessage:FlashMessagesService,
+    private router:Router) { }
 
   ngOnInit() {
     this.resetForm();
@@ -38,15 +42,16 @@ export class AddNewTravelAgentComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
       this.travelAgentService.postTravelAgent(form.value).subscribe((res) => {
-        
+        this.flashMessage.show('Travel Agent Saved', { cssClass: 'alert-success', timeout: 4000 });
         this.resetForm(form);
-        M.toast({ html: 'Saved successfully', classes: 'rounded' });
+        console.log("Saved");
       });
     }
     else {
       this.travelAgentService.putTravelAgent(form.value).subscribe((res) => {
         this.resetForm(form);
-        M.toast({ html: 'Updated successfully', classes: 'rounded' });
+        this.flashMessage.show('Travel Agent Updated', { cssClass: 'alert-success', timeout: 4000 });
+        console.log("Updated");
       });
     }
   }
