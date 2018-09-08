@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 import { TravelAgentService } from '../../service/travelAgent/travelagent.service';
 import { TravelAgent } from '../../service/travelAgent/travelagent.model';
@@ -14,11 +16,19 @@ declare var M: any;
   providers:[TravelAgentService]
 })
 export class EditTravelAgentComponent implements OnInit {
-
-  constructor(public travelAgentService: TravelAgentService) { }
+  user:any;
+  constructor(public travelAgentService: TravelAgentService,
+    private authService:AuthService,
+    private flashMessage:FlashMessagesService
+  ) { }
 
   ngOnInit() {
     this.resetForm();
+    this.authService.getProfile().subscribe(res=>{
+      this.user = res.data.user;
+      console.log(this.user);
+
+    })
   }
 
   resetForm(form?: NgForm) {
@@ -40,16 +50,24 @@ export class EditTravelAgentComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
       this.travelAgentService.postTravelAgent(form.value).subscribe((res) => {
-        
+        console.log("submitpost");
         this.resetForm(form);
-        M.toast({ html: 'Saved successfully', classes: 'rounded' });
+        this.flashMessage.show('Travel Agent Saved', { cssClass: 'alert-success', timeout: 4000 });
+        this.refreshTravelAgentList();
       });
     }
     else {
       this.travelAgentService.putTravelAgent(form.value).subscribe((res) => {
+        console.log("submitput");
         this.resetForm(form);
-        M.toast({ html: 'Updated successfully', classes: 'rounded' });
+        this.flashMessage.show('Travel Agent Updated', { cssClass: 'alert-success', timeout: 4000 });
+        this.refreshTravelAgentList();
       });
     }
+  }
+  refreshTravelAgentList() {
+    this.travelAgentService.getTravelAgentList().subscribe((res) => {
+      this.travelAgentService.tagent = res as TravelAgent[];
+    });
   }
 }

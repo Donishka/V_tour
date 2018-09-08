@@ -75,7 +75,6 @@ export class ViewTravelAgentsComponent implements OnInit {
     if (confirm('Are you sure to delete this record ?') == true) {
       this.travelAgentService.deleteTravelAgent(_id).subscribe((res) => {
         this.refreshTravelAgentList();
-        M.toast({ html: 'Deleted successfully', classes: 'rounded' });
       });
     }
   }
