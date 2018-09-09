@@ -58,7 +58,11 @@ const applicationRoutes:Routes = [
   {path:'addnewserviceprovider',component:AddNewServiceProviderComponent,canActivate: [AuthGuard]},
   {path:'addnewclient',component:AddNewClientsComponent,canActivate: [AuthGuard]},
   {path:'edittravelagent',component:EditTravelAgentComponent,canActivate: [AuthGuard]},
-  {path:'editserviceprovider',component:EditServiceProviderComponent,canActivate: [AuthGuard]}
+  {path:'editserviceprovider',component:EditServiceProviderComponent,canActivate: [AuthGuard]},
+  {path:'travelagentaccount',component:TravelAgentAccountComponent,canActivate: [AuthGuard]},
+  {path:'serviceprovideraccount',component:ServiceProviderAccountComponent,canActivate: [AuthGuard]},
+  {path:'clientaccount',component:ClientAccountComponent,canActivate: [AuthGuard]},
+
 ];
 
 

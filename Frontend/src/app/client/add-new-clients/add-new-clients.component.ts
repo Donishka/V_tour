@@ -46,12 +46,14 @@ export class AddNewClientsComponent implements OnInit {
       this.clientService.postClient(form.value).subscribe((res) => {
         
         this.resetForm(form);
+        confirm('Client Saved');
         this.flashMessage.show('Client Saved', { cssClass: 'alert-success', timeout: 4000 });
       });
     }
     else {
       this.clientService.putClient(form.value).subscribe((res) => {
         this.resetForm(form);
+        confirm('Client Updated');
         this.flashMessage.show('Client Updated', { cssClass: 'alert-success', timeout: 4000 });
       });
     }

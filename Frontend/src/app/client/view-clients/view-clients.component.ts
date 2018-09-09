@@ -75,6 +75,7 @@ export class ViewClientsComponent implements OnInit {
       this.clientService.deleteClient(_id).subscribe((res) => {
         this.refreshClientList();
         M.toast({ html: 'Deleted successfully', classes: 'rounded' });
+        this.flashMessage.show('Service Provider Updated', { cssClass: 'alert-success', timeout: 4000 });
       });
     }
   }

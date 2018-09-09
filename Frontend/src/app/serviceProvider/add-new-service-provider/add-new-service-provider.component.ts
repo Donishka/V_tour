@@ -44,12 +44,14 @@ export class AddNewServiceProviderComponent implements OnInit {
     if (form.value._id == "") {
       this.serviceProviderService.postServiceProvider(form.value).subscribe((res) => {        
         this.resetForm(form);
+        alert('Service Provider Saved');
         this.flashMessage.show('Service Provider Saved', { cssClass: 'alert-success', timeout: 4000 });
       });
     }
     else {
       this.serviceProviderService.putServiceProvider(form.value).subscribe((res) => {
         this.resetForm(form);
+        alert('Service Provider Updated');
         this.flashMessage.show('Service Provider Updated', { cssClass: 'alert-success', timeout: 4000 });
       });
     }

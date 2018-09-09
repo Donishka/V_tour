@@ -1,3 +1,5 @@
+<flash-messages></flash-messages>
+
 <div class = "container">
   <div class="row">
     <div class ="col"></div>  
@@ -82,7 +84,7 @@
               </div>  
               <flash-messages></flash-messages>
               <div class="form-group ">
-                  <button class="btn btn-primary " type="submit">Update Service Provider</button>
+                  <button class="btn btn-primary " type="submit" [routerLink]='["/serviceprovideraccount"]'>Update Service Provider</button>
                   <button class="btn btn-primary " type="button" (click)="resetForm(userForm)">Reset</button>
               </div>
               </fieldset>

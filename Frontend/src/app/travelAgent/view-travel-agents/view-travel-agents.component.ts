@@ -75,6 +75,7 @@ export class ViewTravelAgentsComponent implements OnInit {
     if (confirm('Are you sure to delete this record ?') == true) {
       this.travelAgentService.deleteTravelAgent(_id).subscribe((res) => {
         this.refreshTravelAgentList();
+        this.flashMessage.show('Travel Agent Updated', { cssClass: 'alert-success', timeout: 4000 });
       });
     }
   }

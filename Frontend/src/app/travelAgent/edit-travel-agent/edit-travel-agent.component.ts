@@ -50,6 +50,7 @@ export class EditTravelAgentComponent implements OnInit {
     if (form.value._id == "") {
       this.travelAgentService.postTravelAgent(form.value).subscribe((res) => {
         console.log("submitpost");
+        alert(' Travel Agent Saved');
         this.flashMessage.show('Travel Agent Saved', { cssClass: 'alert-success', timeout: 4000 });
         this.resetForm(form);
       });
@@ -57,6 +58,7 @@ export class EditTravelAgentComponent implements OnInit {
     else {
       this.travelAgentService.putTravelAgent(form.value).subscribe((res) => {
         console.log("submitput");
+        alert(' Travel Agent Updated');
         this.flashMessage.show('Travel Agent Updated', { cssClass: 'alert-success', timeout: 4000 });
         this.resetForm(form);
       });

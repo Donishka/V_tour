@@ -42,6 +42,7 @@ export class AddNewTravelAgentComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
       this.travelAgentService.postTravelAgent(form.value).subscribe((res) => {
+        alert(' Travel Agent Saved');
         this.flashMessage.show('Travel Agent Saved', { cssClass: 'alert-success', timeout: 4000 });
         this.resetForm(form);
         console.log("Saved");
@@ -50,6 +51,7 @@ export class AddNewTravelAgentComponent implements OnInit {
     else {
       this.travelAgentService.putTravelAgent(form.value).subscribe((res) => {
         this.resetForm(form);
+        alert(' Travel Agent Updated');
         this.flashMessage.show('Travel Agent Updated', { cssClass: 'alert-success', timeout: 4000 });
         console.log("Updated");
       });
