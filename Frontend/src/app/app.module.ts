@@ -37,6 +37,8 @@ import { ViewServiceProvidersComponent } from './serviceProvider/view-service-pr
 import { AddNewTravelAgentComponent } from './travelAgent/add-new-travel-agent/add-new-travel-agent.component';
 import { AddNewServiceProviderComponent } from './serviceProvider/add-new-service-provider/add-new-service-provider.component';
 import { AddNewClientsComponent } from './client/add-new-clients/add-new-clients.component';
+import { HeaderBarComponent2 } from './header-bar-2/header-bar.component';
+import { BodySplitComponent } from './body-split/body-split.component';
 
 ;
 
@@ -75,7 +77,9 @@ const applicationRoutes:Routes = [
     ViewServiceProvidersComponent,
     AddNewTravelAgentComponent,
     AddNewServiceProviderComponent,
-    AddNewClientsComponent
+    AddNewClientsComponent,
+    HeaderBarComponent2,
+    BodySplitComponent
 
     
 
