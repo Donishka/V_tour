@@ -1,27 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { FlashMessagesService } from 'angular2-flash-messages';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
+
 import { ServiceProviderService } from '../../service/serviceProvider/serviceprovider.service';
 import { ServiceProvider } from '../../service/serviceProvider/serviceprovider.model';
 
-declare var M:any;
+declare var M: any;
 
 @Component({
-  selector: 'app-add-new-service-provider',
-  templateUrl: './add-new-service-provider.component.html',
-  styleUrls: ['./add-new-service-provider.component.css'],
+  selector: 'app-edit-service-provider',
+  templateUrl: './edit-service-provider.component.html',
+  styleUrls: ['./edit-service-provider.component.css'],
   providers:[ServiceProviderService]
 })
-export class AddNewServiceProviderComponent implements OnInit {
-
-
+export class EditServiceProviderComponent implements OnInit {
+user:any;
   constructor(public serviceProviderService:ServiceProviderService,
-    private flashMessage:FlashMessagesService,
-    private router:Router) { }
+    private authService:AuthService,
+    private router:Router,
+    private flashMessage:FlashMessagesService
+  ) { }
 
   ngOnInit() {
     this.resetForm();
+    this.authService.getProfile().subscribe(res=>{
+      this.user = res.data.user;
+      console.log(this.user);
+    });
   }
 
   resetForm(form?: NgForm) {
@@ -44,15 +51,14 @@ export class AddNewServiceProviderComponent implements OnInit {
     if (form.value._id == "") {
       this.serviceProviderService.postServiceProvider(form.value).subscribe((res) => {        
         this.resetForm(form);
-        this.flashMessage.show('Service Provider Saved', { cssClass: 'alert-success', timeout: 4000 });
+        this.flashMessage.show('Account Saved', { cssClass: 'alert-success', timeout: 4000 });
       });
     }
     else {
       this.serviceProviderService.putServiceProvider(form.value).subscribe((res) => {
         this.resetForm(form);
-        this.flashMessage.show('Service Provider Updated', { cssClass: 'alert-success', timeout: 4000 });
+        this.flashMessage.show('Account Updated', { cssClass: 'alert-success', timeout: 4000 });
       });
     }
   }
 }
-  

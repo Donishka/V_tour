@@ -1,0 +1,81 @@
+
+<div class="container-fluid" id="body-container-fluid">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card" style="width:100%">
+          <img class="card-img-top" src="https://lh3.googleusercontent.com/a8_ujXr3VWHstGkxgJL1TkqfrytP4r_52QhcvqRQVaQPRQ9DHdQ6seI99qc4jLjC0WDM=h900" alt="Card image"  style="width:100%">
+            <div class="card-body">
+              <h4 class="card-title">{{user.fname}} {{user.lname}}</h4>
+              <ul class="list-inline" id="courses">
+                <li class="list-inline-item">
+                  <i class="fa fa-user"></i>User Name :  {{user.username}}
+                </li>            
+              </ul>
+              <div class="address">								
+                <ul class="w3-ul w3-small">
+                  <br>
+                  <li><i class="fa fa-user" aria-hidden="true"></i>Email : {{user.email}}</li><br>
+                  <li><i class="fa fa-user" aria-hidden="true"></i>Telephone : {{user.telephone}}</li><br>
+                  <li><i class="fa fa-user" aria-hidden="true"></i>Address : {{user.address}}</li><br>
+                  <li><i class="fa fa-user" aria-hidden="true"></i>Type : {{user.type}}</li><br>
+                  <li><i class="fa fa-user" aria-hidden="true"></i>Discription : {{user.discription}}</li><br>
+                </ul>
+                <button class="btn btn-primary" type="button" [routerLink]='["/editserviceprovider"]'>Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="col-lg-8" style="background-color:lightblue;">
+          <div class = "container-fluid">
+              <div class="row body_split">
+                <div class="col-md-8 view_pack">
+                  <br>
+                  <h5>Packages offered</h5>
+                  <br>
+                  <div class="table-wrapper-scroll-y">
+                    <table class="table">
+            
+                      <thead>
+                      <tr>
+                        <th scope="col">Package name</th>
+                        <th scope="col">Package type</th>
+                        <th scope="col">Price</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr class='clickable-row' data-href='url://'>
+                        <th scope="row">1</th>
+                        <td>Test</td>
+                        <td>Test</td>
+                        <td>9999</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="col-md-4 add_pack">
+                  <br>
+                  <h5>Add new package</h5>
+                  <br>
+                  <form>
+                    <div class="form-group">
+                      <input type="email" class="form-control" id="packageName" aria-describedby="emailHelp" placeholder="Enter Package Name">
+                      
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control" id="packageType" placeholder="Enter Package Type">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                      <input type="password" class="form-control" id="packagePrice" placeholder="Enter Price">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Package</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            
+      </div>
+    </div>
+  </div>
+  

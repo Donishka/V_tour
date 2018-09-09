@@ -1,105 +1,122 @@
-
-<h1>Add New Client</h1>
-<div class="row">
-    <div class="col s12">
-      <div class="card">
-        <div class="card-content white-text">
-          <div class="row">
-            <div class="col s5">
+<div class = "container">
+    <div class="row">
+      <div class ="col"></div>  
+      <div class="col-6">
+        <div class="main-login main-center">
               <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+                <fieldset>
+                  <legend>Add Client :</legend>
+                <br>
                 <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="clientService.selectedClient._id">
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input type="text" name="fname" #name="ngModel" [(ngModel)]="clientService.selectedClient.fname"  required>
-                    <label>First Name :
-                      <label class="red-text">*</label>
-                    </label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input type="text" name="lname" #name="ngModel" [(ngModel)]="clientService.selectedClient.lname"  required>
-                    <label>Last Name :
-                      <label class="red-text">*</label>
-                    </label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input type="text" name="username" #name="ngModel" [(ngModel)]="clientService.selectedClient.username"  required>
-                    <label>User Name :
-                      <label class="red-text">*</label>
-                    </label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input type="password" name="password" #name="ngModel" [(ngModel)]="clientService.selectedClient.password"  required>
-                    <label>Password :
-                      <label class="red-text">*</label>
-                    </label>
-                  </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                      <input type="text" name="email" #name="ngModel" [(ngModel)]="clientService.selectedClient.email"  >
-                      <label>E mail :
-                      </label>
+                <div class="form-group">
+                  <label for="fname" class="cols-sm-2 control-label">First Name</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="fname" #name="ngModel" [(ngModel)]="clientService.selectedClient.fname"  required>
                     </div>
                   </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input type="text" name="telephone" #name="ngModel" [(ngModel)]="clientService.selectedClient.telephone" >
-                    <label>Telephone No :
-                    </label>
+                </div>
+                <div class="form-group">
+                  <label for="lname" class="cols-sm-2 control-label">Last Name</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="lname" #name="ngModel" [(ngModel)]="clientService.selectedClient.lname"  required>
+                    </div>
                   </div>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                      <input type="text" name="address" #name="ngModel" [(ngModel)]="clientService.selectedClient.address" >
-                      <label>Address :
-                      </label>
+                <div class="form-group">
+                  <label for="username" class="cols-sm-2 control-label">User Name</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="username" #name="ngModel" [(ngModel)]="clientService.selectedClient.username"  required>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input type="text" name="noofvisitors" #name="ngModel" [(ngModel)]="clientService.selectedClient.noofvisitors" >
-                      <label>No of Visitors :
-                      </label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input type="text" name="foodperfer" #name="ngModel" [(ngModel)]="clientService.selectedClient.foodperfer" >
-                      <label>Prefered Food :
-                      </label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input type="text" name="intactivities" #name="ngModel" [(ngModel)]="clientService.selectedClient.intactivities" >                        
-                      <label>Intrested Activities :
-                      </label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input type="text" name="agegroup" #name="ngModel" [(ngModel)]="clientService.selectedClient.agegroup" >                        
-                      <label>Age Group :
-                      </label>
-                    </div>
-                  </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <button class="btn btn-custom right" type="button" (click)="resetForm(userForm)">Reset</button>
-                    <button class="btn btn-custom right" type="submit" [disabled]="!userForm.valid">Submit</button>
                   </div>
                 </div>
+                <div class="form-group">
+                  <label for="password" class="cols-sm-2 control-label">Password</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+                      <input type="password" class="form-control" name="password" #name="ngModel" [(ngModel)]="clientService.selectedClient.password"  required>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="cols-sm-2 control-label">Email</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                      <input type="email" class="form-control" name="email" #name="ngModel" [(ngModel)]="clientService.selectedClient.email" >
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="telephone" class="cols-sm-2 control-label">Telephone No</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="clientService.selectedClient.telephone"  >
+                    </div>
+                  </div>
+                </div>                
+                <div class="form-group">
+                  <label for="address" class="cols-sm-2 control-label">Address</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="clientService.selectedClient.address"  >
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="noofvisitors" class="cols-sm-2 control-label">No of Visitors</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="noofvisitors" #name="ngModel" [(ngModel)]="clientService.selectedClient.noofvisitors"  >
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="foodperfer" class="cols-sm-2 control-label">Food Prefered</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="foodperfer" #name="ngModel" [(ngModel)]="clientService.selectedClient.foodperfer"  >
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="intactivities" class="cols-sm-2 control-label">Intrested Activities</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="intactivities" #name="ngModel" [(ngModel)]="clientService.selectedClient.intactivities"  >
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="agegroup" class="cols-sm-2 control-label">Age Group</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="agegroup" #name="ngModel" [(ngModel)]="clientService.selectedClient.agegroup"  >
+                    </div>
+                  </div>
+                </div>
+                <flash-messages></flash-messages>
+                <div class="form-group ">
+                    <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Add Service Provider</button>
+
+                    <button class="btn btn-primary right" type="button" (click)="resetForm(userForm)">Reset</button>
+                </div>
+                </fieldset>
               </form>
             </div>
           </div>
+            <div class="col"></div>
         </div>
       </div>
-    </div>
-  
-  </div>

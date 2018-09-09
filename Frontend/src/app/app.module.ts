@@ -37,9 +37,11 @@ import { ViewServiceProvidersComponent } from './serviceProvider/view-service-pr
 import { AddNewTravelAgentComponent } from './travelAgent/add-new-travel-agent/add-new-travel-agent.component';
 import { AddNewServiceProviderComponent } from './serviceProvider/add-new-service-provider/add-new-service-provider.component';
 import { AddNewClientsComponent } from './client/add-new-clients/add-new-clients.component';
-import { HeaderBarComponent2 } from './header-bar-2/header-bar.component';
-import { BodySplitComponent } from './body-split/body-split.component';
-
+import { TravelAgentAccountComponent } from './travelAgent/travel-agent-account/travel-agent-account.component';
+import { EditTravelAgentComponent } from './travelAgent/edit-travel-agent/edit-travel-agent.component';
+import { ServiceProviderAccountComponent } from './serviceProvider/service-provider-account/service-provider-account.component';
+import { ClientAccountComponent } from './client/client-account/client-account.component';
+import { EditServiceProviderComponent } from './serviceProvider/edit-service-provider/edit-service-provider.component';
 ;
 
 
@@ -55,6 +57,11 @@ const applicationRoutes:Routes = [
   {path:'addnewtravelagent',component:AddNewTravelAgentComponent,canActivate: [AuthGuard]},
   {path:'addnewserviceprovider',component:AddNewServiceProviderComponent,canActivate: [AuthGuard]},
   {path:'addnewclient',component:AddNewClientsComponent,canActivate: [AuthGuard]},
+  {path:'edittravelagent',component:EditTravelAgentComponent,canActivate: [AuthGuard]},
+  {path:'editserviceprovider',component:EditServiceProviderComponent,canActivate: [AuthGuard]},
+  {path:'service-provider-account',component:ServiceProviderAccountComponent,canActivate: [AuthGuard]},
+  {path:'client-account',component:ClientAccountComponent,canActivate: [AuthGuard]},
+  {path:'travelagent-account',component:TravelAgentAccountComponent,canActivate: [AuthGuard]}
 ];
 
 
@@ -78,11 +85,11 @@ const applicationRoutes:Routes = [
     AddNewTravelAgentComponent,
     AddNewServiceProviderComponent,
     AddNewClientsComponent,
-    HeaderBarComponent2,
-    BodySplitComponent
-
-    
-
+    TravelAgentAccountComponent,
+    EditTravelAgentComponent,
+    ServiceProviderAccountComponent,
+    ClientAccountComponent,
+    EditServiceProviderComponent
   ],
   imports: [
     BrowserModule,
