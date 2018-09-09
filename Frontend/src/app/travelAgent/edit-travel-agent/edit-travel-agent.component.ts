@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
 import { TravelAgentService } from '../../service/travelAgent/travelagent.service';
 import { TravelAgent } from '../../service/travelAgent/travelagent.model';
 
 declare var M: any;
-
 
 @Component({
   selector: 'app-edit-travel-agent',
@@ -19,6 +19,7 @@ export class EditTravelAgentComponent implements OnInit {
   user:any;
   constructor(public travelAgentService: TravelAgentService,
     private authService:AuthService,
+    private router:Router,
     private flashMessage:FlashMessagesService
   ) { }
 
@@ -27,7 +28,6 @@ export class EditTravelAgentComponent implements OnInit {
     this.authService.getProfile().subscribe(res=>{
       this.user = res.data.user;
       console.log(this.user);
-
     })
   }
 
@@ -46,28 +46,21 @@ export class EditTravelAgentComponent implements OnInit {
     isadmin:false
     }
   }
-
   onSubmit(form: NgForm) {
-    if (form.value._id == "") {
+    /*if (form.value._id == "") {
       this.travelAgentService.postTravelAgent(form.value).subscribe((res) => {
         console.log("submitpost");
-        this.resetForm(form);
         this.flashMessage.show('Travel Agent Saved', { cssClass: 'alert-success', timeout: 4000 });
-        this.refreshTravelAgentList();
+        this.resetForm(form);
       });
     }
-    else {
+    else {*/
       this.travelAgentService.putTravelAgent(form.value).subscribe((res) => {
         console.log("submitput");
-        this.resetForm(form);
         this.flashMessage.show('Travel Agent Updated', { cssClass: 'alert-success', timeout: 4000 });
-        this.refreshTravelAgentList();
+        this.resetForm(form);
       });
-    }
+    //}
   }
-  refreshTravelAgentList() {
-    this.travelAgentService.getTravelAgentList().subscribe((res) => {
-      this.travelAgentService.tagent = res as TravelAgent[];
-    });
-  }
+
 }
