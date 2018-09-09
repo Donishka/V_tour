@@ -47,20 +47,20 @@ export class EditTravelAgentComponent implements OnInit {
     }
   }
   onSubmit(form: NgForm) {
-    /*if (form.value._id == "") {
+    if (form.value._id == "") {
       this.travelAgentService.postTravelAgent(form.value).subscribe((res) => {
         console.log("submitpost");
         this.flashMessage.show('Travel Agent Saved', { cssClass: 'alert-success', timeout: 4000 });
         this.resetForm(form);
       });
     }
-    else {*/
+    else {
       this.travelAgentService.putTravelAgent(form.value).subscribe((res) => {
         console.log("submitput");
         this.flashMessage.show('Travel Agent Updated', { cssClass: 'alert-success', timeout: 4000 });
         this.resetForm(form);
       });
-    //}
+    }
   }
 
 }

@@ -82,7 +82,7 @@
                 </div>  
                 <flash-messages></flash-messages>
                 <div class="form-group ">
-                    <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Add Service Provider</button>
+                    <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid" [routerLink]='["/viewserviceproviders"]'>Add Service Provider</button>
 
                     <button class="btn btn-primary right" type="button" (click)="resetForm(userForm)">Reset</button>
                 </div>

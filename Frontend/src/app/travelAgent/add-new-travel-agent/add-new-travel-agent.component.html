@@ -91,7 +91,7 @@
                 </div>
                 <flash-messages></flash-messages>
                 <div class="form-group ">
-                    <button class="btn btn-primary btn-lg btn-block login-button" [routerLink]='["/addnewtravelagent"]' type="submit" [disabled]="!userForm.valid">Add Travel Agent</button>
+                    <button class="btn btn-primary btn-lg btn-block login-button"  type="submit" [disabled]="!userForm.valid" [routerLink]='["/viewtravelagents"]'>Add Travel Agent</button>
 
                     <button class="btn btn-primary right" type="button" (click)="resetForm(userForm)">Reset</button>
                 </div>          
