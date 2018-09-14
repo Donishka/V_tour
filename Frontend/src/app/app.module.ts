@@ -45,7 +45,7 @@ import { AppRoutingModule } from './modules/app-routing.module'
     SearchBarComponent,
     QuickAccessComponent,
     DraftedItenarariesComponent,
-    GridViewComponent,
+    //GridViewComponent,
     NavbarComponent,
     RegisterComponent,
     HomeComponent,
