@@ -41,7 +41,7 @@ import { EditTravelAgentComponent } from './components/travelAgent/edit-travel-a
 import { ServiceProviderAccountComponent } from './components/serviceProvider/service-provider-account/service-provider-account.component';
 import { ClientAccountComponent } from './components/client/client-account/client-account.component';
 import { EditServiceProviderComponent } from './components/serviceProvider/edit-service-provider/edit-service-provider.component';
-;
+import { SigninModule } from './modules/signin/signin.module';
 
 
 const applicationRoutes:Routes = [
@@ -95,7 +95,8 @@ const applicationRoutes:Routes = [
     HttpModule,
     HttpClientModule,
     FlashMessagesModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    SigninModule
   ],
   providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent]
