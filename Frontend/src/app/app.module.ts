@@ -7,6 +7,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { RouterModule, Routes }  from '@angular/router';
+
 
 import { AuthService } from './services/auth.service';
 
@@ -32,6 +34,8 @@ import { EditTravelAgentComponent } from './components/travelAgent/edit-travel-a
 import { ServiceProviderAccountComponent } from './components/serviceProvider/service-provider-account/service-provider-account.component';
 import { ClientAccountComponent } from './components/client/client-account/client-account.component';
 import { EditServiceProviderComponent } from './components/serviceProvider/edit-service-provider/edit-service-provider.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { LoginComponent } from './components/login/login.component';
 
 import { SigninModule } from './modules/signin/signin.module';
 import { SignupModule } from './modules/signup/signup.module';
@@ -39,10 +43,11 @@ import { UserAccountModule } from './modules/user-account/user-account.module';
 import { AppRoutingModule } from './modules/app-routing.module'
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    ProfileComponent,
     HeaderBarComponent,
     SearchBarComponent,
     QuickAccessComponent,
@@ -75,7 +80,7 @@ import { AppRoutingModule } from './modules/app-routing.module'
     SignupModule,
     UserAccountModule
   ],
-  providers: [AuthService,AuthGuard],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

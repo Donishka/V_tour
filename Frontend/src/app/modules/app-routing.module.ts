@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes }  from '@angular/router';
-import { AuthService } from '../services/auth.service';
 import { AuthGuard } from '../services/auth.guard';
 
-import { NavbarComponent } from '../components/navbar/navbar.component';
 import { ProfileComponent } from '../components/profile/profile.component';
 import { HomeComponent } from '../components/home/home.component';
 import { HeaderBarComponent } from '../components/header-bar/header-bar.component';
@@ -41,7 +39,9 @@ const applicationRoutes:Routes = [
   imports: [
     RouterModule.forRoot(applicationRoutes)
   ],
-  declarations: [],
-  providers: [AuthService,AuthGuard],
+  exports: [
+    RouterModule
+  ],
+  providers: [AuthGuard],
 })
 export class AppRoutingModule { }
