@@ -26,9 +26,6 @@ import { HeaderBarComponent } from './components/header-bar/header-bar.component
 import { ViewTravelAgentsComponent } from './components/travelAgent/view-travel-agents/view-travel-agents.component';
 import { ViewClientsComponent } from './components/client/view-clients/view-clients.component';
 import { ViewServiceProvidersComponent } from './components/serviceProvider/view-service-providers/view-service-providers.component';
-import { AddNewTravelAgentComponent } from './components/travelAgent/add-new-travel-agent/add-new-travel-agent.component';
-import { AddNewServiceProviderComponent } from './components/serviceProvider/add-new-service-provider/add-new-service-provider.component';
-//import { AddNewClientsComponent } from './components/client/add-new-clients/add-new-clients.component';
 import { TravelAgentAccountComponent } from './components/travelAgent/travel-agent-account/travel-agent-account.component';
 import { EditTravelAgentComponent } from './components/travelAgent/edit-travel-agent/edit-travel-agent.component';
 import { ServiceProviderAccountComponent } from './components/serviceProvider/service-provider-account/service-provider-account.component';
@@ -61,7 +58,6 @@ import { AppRoutingModule } from './modules/app-routing.module'
     ViewServiceProvidersComponent,
     AddNewTravelAgentComponent,
     AddNewServiceProviderComponent,
-    //AddNewClientsComponent,
     TravelAgentAccountComponent,
     EditTravelAgentComponent,
     ServiceProviderAccountComponent,
