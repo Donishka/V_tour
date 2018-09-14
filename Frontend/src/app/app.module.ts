@@ -7,9 +7,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-
-
-
 import { AuthService } from './services/auth.service';
 
 import { RegisterComponent } from './register/register.component';
@@ -17,7 +14,6 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { QuickAccessComponent } from './quick-access/quick-access.component';
 import { DraftedItenarariesComponent } from './drafted-itenararies/drafted-itenararies.component';
 import { GridViewComponent } from './grid-view/grid-view.component';
-
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
