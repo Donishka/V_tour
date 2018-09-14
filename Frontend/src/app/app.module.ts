@@ -6,32 +6,26 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthGuard } from './services/auth.guard';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
-
-
-
-import { AppComponent } from './app.component';
-
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { AuthService } from './services/auth.service';
 
 import { RegisterComponent } from './register/register.component';
-import { FormsModule } from '@angular/forms';
-import { AuthService } from './services/auth.service';
-import { ProfileComponent } from './components/profile/profile.component';
-import { HomeComponent } from './components/home/home.component';
-
-
-import { HeaderBarComponent } from './components/header-bar/header-bar.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { QuickAccessComponent } from './quick-access/quick-access.component';
 import { DraftedItenarariesComponent } from './drafted-itenararies/drafted-itenararies.component';
 import { GridViewComponent } from './grid-view/grid-view.component';
-import { LoginComponent } from './components/login/login.component';
 
+
+import { AppComponent } from './app.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { HomeComponent } from './components/home/home.component';
+import { HeaderBarComponent } from './components/header-bar/header-bar.component';
+import { LoginComponent } from './components/login/login.component';
 import { ViewTravelAgentsComponent } from './components/travelAgent/view-travel-agents/view-travel-agents.component';
 import { ViewClientsComponent } from './components/client/view-clients/view-clients.component';
-
 import { ViewServiceProvidersComponent } from './components/serviceProvider/view-service-providers/view-service-providers.component';
 import { AddNewTravelAgentComponent } from './components/travelAgent/add-new-travel-agent/add-new-travel-agent.component';
 import { AddNewServiceProviderComponent } from './components/serviceProvider/add-new-service-provider/add-new-service-provider.component';
