@@ -43,7 +43,7 @@ import { ClientAccountComponent } from './components/client/client-account/clien
 import { EditServiceProviderComponent } from './components/serviceProvider/edit-service-provider/edit-service-provider.component';
 import { SigninModule } from './modules/signin/signin.module';
 import { SignupModule } from './modules/signup/signup.module';
-
+import { UserAccountModule } from './modules/user-account/user-account.module';
 
 const applicationRoutes:Routes = [
   {path:'login',component:LoginComponent},
@@ -98,7 +98,8 @@ const applicationRoutes:Routes = [
     FlashMessagesModule.forRoot(),
     ModalModule.forRoot(),
     SigninModule,
-    SignupModule
+    SignupModule,
+    UserAccountModule
   ],
   providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent]
