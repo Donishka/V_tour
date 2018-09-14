@@ -42,6 +42,7 @@ import { ServiceProviderAccountComponent } from './components/serviceProvider/se
 import { ClientAccountComponent } from './components/client/client-account/client-account.component';
 import { EditServiceProviderComponent } from './components/serviceProvider/edit-service-provider/edit-service-provider.component';
 import { SigninModule } from './modules/signin/signin.module';
+import { SignupModule } from './modules/signup/signup.module';
 
 
 const applicationRoutes:Routes = [
@@ -96,7 +97,8 @@ const applicationRoutes:Routes = [
     HttpClientModule,
     FlashMessagesModule.forRoot(),
     ModalModule.forRoot(),
-    SigninModule
+    SigninModule,
+    SignupModule
   ],
   providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent]
