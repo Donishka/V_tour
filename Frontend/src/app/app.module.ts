@@ -13,21 +13,21 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
-import { ProfileComponent } from './profile/profile.component';
-import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { HomeComponent } from './components/home/home.component';
 
 
-import { HeaderBarComponent } from './header-bar/header-bar.component';
+import { HeaderBarComponent } from './components/header-bar/header-bar.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { QuickAccessComponent } from './quick-access/quick-access.component';
 import { DraftedItenarariesComponent } from './drafted-itenararies/drafted-itenararies.component';
 import { GridViewComponent } from './grid-view/grid-view.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
 
 import { ViewTravelAgentsComponent } from './components/travelAgent/view-travel-agents/view-travel-agents.component';
 import { ViewClientsComponent } from './components/client/view-clients/view-clients.component';
