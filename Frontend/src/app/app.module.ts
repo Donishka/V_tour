@@ -7,7 +7,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { RouterModule, Routes }  from '@angular/router';
+
 
 
 import { AuthService } from './services/auth.service';
@@ -56,8 +56,6 @@ import { AppRoutingModule } from './modules/app-routing.module'
     ViewTravelAgentsComponent,
     ViewClientsComponent,
     ViewServiceProvidersComponent,
-    AddNewTravelAgentComponent,
-    AddNewServiceProviderComponent,
     TravelAgentAccountComponent,
     EditTravelAgentComponent,
     ServiceProviderAccountComponent,
