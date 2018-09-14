@@ -3,8 +3,8 @@ import { NgForm } from '@angular/forms';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 
-import { TravelAgentService } from '../../service/travelAgent/travelagent.service';
-import { TravelAgent } from '../../service/travelAgent/travelagent.model';
+import { TravelAgentService } from '../../../services/user-service/travelAgent/travelagent.service';
+import { TravelAgent } from '../../../services/user-service/travelAgent/travelagent.model';
 
 declare var M: any;
 

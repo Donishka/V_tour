@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
-import { ServiceProviderService } from '../../service/serviceProvider/serviceprovider.service';
-import { ServiceProvider } from '../../service/serviceProvider/serviceprovider.model';
+import { ServiceProviderService } from '../../../services/user-service/serviceProvider/serviceprovider.service';
+import { ServiceProvider } from '../../../services/user-service/serviceProvider/serviceprovider.model';
 
 declare var M:any;
 

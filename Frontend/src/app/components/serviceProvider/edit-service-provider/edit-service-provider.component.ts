@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
-import { ServiceProviderService } from '../../service/serviceProvider/serviceprovider.service';
-import { ServiceProvider } from '../../service/serviceProvider/serviceprovider.model';
+import { ServiceProviderService } from '../../../services/user-service/serviceProvider/serviceprovider.service';
+import { ServiceProvider } from '../../../services/user-service/serviceProvider/serviceprovider.model';
 
 declare var M: any;
 

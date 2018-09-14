@@ -19,7 +19,6 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { ProfileComponent } from './profile/profile.component';
-import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { HomeComponent } from './home/home.component';
 
 
@@ -30,18 +29,18 @@ import { DraftedItenarariesComponent } from './drafted-itenararies/drafted-itena
 import { GridViewComponent } from './grid-view/grid-view.component';
 import { LoginComponent } from './login/login.component';
 
-import { ViewTravelAgentsComponent } from './travelAgent/view-travel-agents/view-travel-agents.component';
-import { ViewClientsComponent } from './client/view-clients/view-clients.component';
+import { ViewTravelAgentsComponent } from './components/travelAgent/view-travel-agents/view-travel-agents.component';
+import { ViewClientsComponent } from './components/client/view-clients/view-clients.component';
 
-import { ViewServiceProvidersComponent } from './serviceProvider/view-service-providers/view-service-providers.component';
-import { AddNewTravelAgentComponent } from './travelAgent/add-new-travel-agent/add-new-travel-agent.component';
-import { AddNewServiceProviderComponent } from './serviceProvider/add-new-service-provider/add-new-service-provider.component';
-import { AddNewClientsComponent } from './client/add-new-clients/add-new-clients.component';
-import { TravelAgentAccountComponent } from './travelAgent/travel-agent-account/travel-agent-account.component';
-import { EditTravelAgentComponent } from './travelAgent/edit-travel-agent/edit-travel-agent.component';
-import { ServiceProviderAccountComponent } from './serviceProvider/service-provider-account/service-provider-account.component';
-import { ClientAccountComponent } from './client/client-account/client-account.component';
-import { EditServiceProviderComponent } from './serviceProvider/edit-service-provider/edit-service-provider.component';
+import { ViewServiceProvidersComponent } from './components/serviceProvider/view-service-providers/view-service-providers.component';
+import { AddNewTravelAgentComponent } from './components/travelAgent/add-new-travel-agent/add-new-travel-agent.component';
+import { AddNewServiceProviderComponent } from './components/serviceProvider/add-new-service-provider/add-new-service-provider.component';
+import { AddNewClientsComponent } from './components/client/add-new-clients/add-new-clients.component';
+import { TravelAgentAccountComponent } from './components/travelAgent/travel-agent-account/travel-agent-account.component';
+import { EditTravelAgentComponent } from './components/travelAgent/edit-travel-agent/edit-travel-agent.component';
+import { ServiceProviderAccountComponent } from './components/serviceProvider/service-provider-account/service-provider-account.component';
+import { ClientAccountComponent } from './components/client/client-account/client-account.component';
+import { EditServiceProviderComponent } from './components/serviceProvider/edit-service-provider/edit-service-provider.component';
 ;
 
 
@@ -49,7 +48,6 @@ const applicationRoutes:Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'profile',component:ProfileComponent,canActivate: [AuthGuard]},
-  {path:'admin-profile',component:AdminProfileComponent},
   {path:'',component:HomeComponent},
   {path:'viewtravelagents',component:ViewTravelAgentsComponent,canActivate: [AuthGuard]},
   {path:'viewserviceproviders',component:ViewServiceProvidersComponent,canActivate: [AuthGuard]},
@@ -77,7 +75,6 @@ const applicationRoutes:Routes = [
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    AdminProfileComponent,
     HomeComponent,
     ViewTravelAgentsComponent,
     ViewClientsComponent,
