@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  user:any
   email:String;
   password:String;
 
@@ -34,12 +35,34 @@ export class LoginComponent implements OnInit {
         this.flashMessage.show('You are logged in', { cssClass: 'alert-success', timeout: 4000 });
         console.log("if");
         this.authService.storeData(res.token,res.user);
-        this.router.navigate(['/profile']);
+        this.selectProfile();
+        //this.router.navigate(['/profile']);
         }else{
           console.log("else");
           this.flashMessage.show(res.msg, { cssClass: 'alert-success', timeout: 4000 });
           this.router.navigate(['/login']);
         }
+    })
+  }
+
+  selectProfile(){
+    this.authService.getProfile().subscribe(res=>{
+      this.user = res.data.user;
+      console.log(this.user); 
+             
+      if(this.user.agegroup !== undefined ){
+        console.log("client age group "+this.user.agegroup); 
+        this.router.navigate(['/client-account']);
+      }
+      else if(this.user.discription !== undefined){
+        console.log("service proveide desi "+this.user.discription); 
+        this.router.navigate(['/service-provider-account']);
+      }else{
+        console.log("agent aadmin "+this.user.isadmin); 
+        this.router.navigate(['/travelagent-account']);
+      }
+
+      
     })
   }
   
