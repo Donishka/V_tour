@@ -49,14 +49,14 @@ export class LoginComponent implements OnInit {
       this.user = res.data.user;
       console.log(this.user); 
              
-      if(this.user.agegroup !== undefined ){
+      if(this.user.usertype === "client" ){
         console.log("client age group "+this.user.agegroup); 
         this.router.navigate(['/client-account']);
       }
-      else if(this.user.discription !== undefined){
+      else if(this.user.usertype === "serviceprovider"){
         console.log("service proveide desi "+this.user.discription); 
         this.router.navigate(['/service-provider-account']);
-      }else{
+      }else if(this.user.usertype === "travelagent"){
         console.log("agent aadmin "+this.user.isadmin); 
         this.router.navigate(['/travelagent-account']);
       }

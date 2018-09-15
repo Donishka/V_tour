@@ -38,6 +38,7 @@ router.post('/', (req, res) => {
         foodprefer:req.body.foodprefer,
         intactivities:req.body.intactivities,
         agegroup:req.body.agegroup,
+        usertype:"client"
     });
     ClientModel.saveUser(client,(err, doc) => {
         if(err){
@@ -66,6 +67,7 @@ router.put('/:id', (req, res) => {
         foodprefer:req.body.foodprefer,
         intactivities:req.body.intactivities,
         agegroup:req.body.agegroup,
+        usertype:"client"
     };
     bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(client.password, salt, function(err, hash) {

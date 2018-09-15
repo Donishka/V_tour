@@ -28,6 +28,10 @@ var TravelAgent =  mongoose.model('TravelAgent', {
     isadmin:{
         type:Boolean,
     },
+    usertype : {
+        type:String,
+        required:true
+    },
 
 },'travelagents');
 

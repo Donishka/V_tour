@@ -30,7 +30,10 @@ var ServiceProvider =  mongoose.model('ServiceProvider', {
     discription:{
         type:String,
     },
-
+    usertype : {
+        type:String,
+        required:true
+    },
 },'serviceproviders');
 
 module.exports = { ServiceProvider };

@@ -36,6 +36,7 @@ router.post('/', (req, res) => {
         telephone: req.body.telephone,
         address: req.body.address,
         isadmin: req.body.isadmin,
+        usertype:"travelagent"
     });
     TravelAgentModel.saveUser(travelagent,(err, doc) => {
         if(err){
@@ -60,6 +61,7 @@ router.put('/:id', (req, res) => {
         telephone: req.body.telephone,
         address: req.body.address,
         isadmin: req.body.isadmin,
+        usertype:"travelagent"
     };
     bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(travelagent.password, salt, function(err, hash) {
