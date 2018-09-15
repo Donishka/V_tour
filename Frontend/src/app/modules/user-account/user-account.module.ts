@@ -7,6 +7,7 @@ import { RouterModule, Routes }  from '@angular/router';
 import { TravelAgentAccountComponent } from '../../components/travelAgent/travel-agent-account/travel-agent-account.component';
 import { ServiceProviderAccountComponent } from '../../components/serviceProvider/service-provider-account/service-provider-account.component';
 import { ClientAccountComponent } from '../../components/client/client-account/client-account.component';
+import { HeaderBarModule } from '../header-bar/header-bar.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { ClientAccountComponent } from '../../components/client/client-account/c
     FormsModule,
     FlashMessagesModule,
     RouterModule,
+    HeaderBarModule
  ],
   declarations: [
     TravelAgentAccountComponent,
@@ -24,7 +26,7 @@ import { ClientAccountComponent } from '../../components/client/client-account/c
   exports:[
     TravelAgentAccountComponent,
     ServiceProviderAccountComponent,
-    ClientAccountComponent
+    ClientAccountComponent,
   ]
 })
 export class UserAccountModule { }

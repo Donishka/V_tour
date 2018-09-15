@@ -3,10 +3,9 @@ import { RouterModule, Routes }  from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { AuthGuard } from '../../services/auth.guard';
 
-import { NavbarComponent } from '../../components/navbar/navbar.component';
+
 import { ProfileComponent } from '../../components/profile/profile.component';
 import { HomeComponent } from '../../components/home/home.component';
-import { HeaderBarComponent } from '../../components/header-bar/header-bar.component';
 import { LoginComponent } from '../../components/login/login.component';
 import { ViewTravelAgentsComponent } from '../../components/travelAgent/view-travel-agents/view-travel-agents.component';
 import { ViewClientsComponent } from '../../components/client/view-clients/view-clients.component';

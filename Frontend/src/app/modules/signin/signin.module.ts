@@ -5,6 +5,8 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { RouterModule, Routes }  from '@angular/router';
 import { ProfileComponent } from '../../components/profile/profile.component';
 import { LoginComponent } from '../../components/login/login.component';
+import { UserAccountModule } from '../user-account/user-account.module';
+import { HeaderBarModule } from '../header-bar/header-bar.module';
 
 
 @NgModule({
@@ -13,6 +15,8 @@ import { LoginComponent } from '../../components/login/login.component';
     FormsModule,
     FlashMessagesModule,
     RouterModule,
+    UserAccountModule,
+    HeaderBarModule
  ],
   declarations: [
     ProfileComponent,
