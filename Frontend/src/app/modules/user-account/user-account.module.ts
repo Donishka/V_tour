@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { RouterModule, Routes }  from '@angular/router';
+
 import { TravelAgentAccountComponent } from '../../components/travelAgent/travel-agent-account/travel-agent-account.component';
 import { ServiceProviderAccountComponent } from '../../components/serviceProvider/service-provider-account/service-provider-account.component';
 import { ClientAccountComponent } from '../../components/client/client-account/client-account.component';
@@ -7,12 +11,15 @@ import { ClientAccountComponent } from '../../components/client/client-account/c
 
 @NgModule({
   imports: [
-    CommonModule
-  ],
+    CommonModule,
+    FormsModule,
+    FlashMessagesModule,
+    RouterModule,
+ ],
   declarations: [
     TravelAgentAccountComponent,
     ServiceProviderAccountComponent,
-    ClientAccountComponent
+    ClientAccountComponent,
   ],
   exports:[
     TravelAgentAccountComponent,
