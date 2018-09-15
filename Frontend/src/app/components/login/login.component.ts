@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
         console.log("if");
         this.authService.storeData(res.token,res.user);
         this.selectProfile();
-        //this.router.navigate(['/profile']);
         }else{
           console.log("else");
           this.flashMessage.show(res.msg, { cssClass: 'alert-success', timeout: 4000 });
