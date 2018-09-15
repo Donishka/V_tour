@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { AnimationStyleMetadata } from '@angular/core/src/animation/dsl';
 import { Router } from '@angular/router';
 
 @Component({
