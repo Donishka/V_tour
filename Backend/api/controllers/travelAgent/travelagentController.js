@@ -56,24 +56,16 @@ router.put('/:id', (req, res) => {
         fname: req.body.fname,
         lname:req.body.lname,
         username: req.body.username,
-        password: req.body.password,
         email:req.body.email,
         telephone: req.body.telephone,
         address: req.body.address,
         isadmin: req.body.isadmin,
         usertype:"travelagent"
     };
-    bcrypt.genSalt(10, function(err, salt) {
-        bcrypt.hash(travelagent.password, salt, function(err, hash) {
-            travelagent.password = hash;
-
-            if (err) throw err;
-            TravelAgent.findByIdAndUpdate(req.params.id, { $set: travelagent }, { new: true }, (err, doc) => {
-                if (!err) { res.send(doc); }
-                else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
-            });
-        });
-    });
+    TravelAgent.findByIdAndUpdate(req.params.id, { $set: travelagent }, { new: true }, (err, doc) => {
+                        if (!err) { res.send(doc); }
+                        else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
+                    });
 });
 
 router.delete('/:id', (req, res) => {

@@ -56,7 +56,6 @@ router.put('/:id', (req, res) => {
         fname: req.body.fname,
         lname:req.body.lname,
         username: req.body.username,
-        password: req.body.password,
         email:req.body.email,
         telephone: req.body.telephone,
         address: req.body.address,
@@ -64,16 +63,9 @@ router.put('/:id', (req, res) => {
         discription:req.body.discription,
         usertype:"serviceprovider"
     };
-    bcrypt.genSalt(10, function(err, salt) {
-        bcrypt.hash(serviceprovider.password, salt, function(err, hash) {
-            serviceprovider.password = hash;
-
-            if (err) throw err;
-            ServiceProvider.findByIdAndUpdate(req.params.id, { $set: serviceprovider }, { new: true }, (err, doc) => {
-                if (!err) { res.send(doc); }
-                else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
-            });
-        });
+                    ServiceProvider.findByIdAndUpdate(req.params.id, { $set: serviceprovider }, { new: true }, (err, doc) => {
+                        if (!err) { res.send(doc); }
+                        else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
     });
 });
 
