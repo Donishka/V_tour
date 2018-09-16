@@ -1,0 +1,94 @@
+<div class = "container">
+  <div class="row">
+    <div class ="col"></div>  
+    <div class="col-6">
+      <div class="main-login main-center">
+            <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+              <fieldset>
+                <legend>Edit Service Provider : {{user.fname}}</legend>
+              <br>
+              <input type="hidden" value={{user._id}} name="_id" #_id="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider._id">
+              <div class="form-group">
+                <label for="fname" class="cols-sm-2 control-label">First Name</label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                    <input type="text" value={{user.fname}} class="form-control" name="fname" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.fname"  required>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="username" class="cols-sm-2 control-label">User Name</label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                    <input type="text" value={{user.username}} class="form-control" name="username" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.username"  required>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password" class="cols-sm-2 control-label">Password</label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+                    <input type="password" value={{user.pasword}} class="form-control" name="password" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.password"  required>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                  <label for="email" class="cols-sm-2 control-label">Email</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                      <input type="email" value={{user.email}} class="form-control" name="email" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.email" >
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone" class="cols-sm-2 control-label">Telephone No</label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                    <input type="text" value={{user.telephone}} class="form-control" name="telephone" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.telephone"  >
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="address" class="cols-sm-2 control-label">Address</label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                    <input type="text" value={{user.address}} class="form-control" name="address" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.address"  >
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="type" class="cols-sm-2 control-label">Type</label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                    <input type="text" value={{user.type}} class="form-control" name="type" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.type"  >
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="discription" class="cols-sm-2 control-label">Discription</label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                    <input type="text" value={{user.discription}} class="form-control" name="discription" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.discription"  >
+                  </div>
+                </div>
+              </div>  
+              <flash-messages></flash-messages>
+              <div class="form-group ">
+                  <button class="btn btn-primary " type="submit">Update Service Provider</button>
+                  <button class="btn btn-primary " type="button" (click)="resetForm(userForm)">Reset</button>
+              </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+          <div class="col"></div>
+      </div>
+    </div>
