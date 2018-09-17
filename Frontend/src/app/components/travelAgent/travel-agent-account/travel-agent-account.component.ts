@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,NgZone } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -10,26 +10,27 @@ declare var M: any;
   selector: 'app-travel-agent-account',
   templateUrl: './travel-agent-account.component.html',
   styleUrls: ['./travel-agent-account.component.css'],
-  providers:[TravelAgentService]
+  providers: [TravelAgentService]
 
 })
 
 export class TravelAgentAccountComponent implements OnInit {
- user:any;
+  user: any;
   constructor(
     public travelAgentService: TravelAgentService,
-    private authService:AuthService,
-    private router:Router
+    private authService: AuthService,
+    private router: Router,
+    private zone:NgZone,
   ) { }
 
   ngOnInit() {
     this.getProfileDetails();
   }
 
-  getProfileDetails(){
-    this.authService.getProfile().subscribe(res=>{
+  getProfileDetails() {
+    this.authService.getProfile().subscribe(res => {
       this.user = res.data.user;
       console.log(this.user);
-    })
+    });
   }
 }

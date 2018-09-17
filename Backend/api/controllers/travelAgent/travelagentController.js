@@ -36,6 +36,7 @@ router.post('/', (req, res) => {
         telephone: req.body.telephone,
         address: req.body.address,
         isadmin: req.body.isadmin,
+        usertype:"travelagent"
     });
     TravelAgentModel.saveUser(travelagent,(err, doc) => {
         if(err){
@@ -46,7 +47,7 @@ router.post('/', (req, res) => {
         }}
 );
 });
-
+/*
 router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
@@ -60,6 +61,7 @@ router.put('/:id', (req, res) => {
         telephone: req.body.telephone,
         address: req.body.address,
         isadmin: req.body.isadmin,
+        usertype:"travelagent"
     };
     bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(travelagent.password, salt, function(err, hash) {
@@ -71,6 +73,25 @@ router.put('/:id', (req, res) => {
                 else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
             });
         });
+    });
+});
+*/
+router.put('/:id', (req, res) => {
+    if (!ObjectId.isValid(req.params.id))
+        return res.status(400).send(`No record with given id : ${req.params.id}`);
+
+    TravelAgent.findByIdAndUpdate(req.params.id, {
+        $set: {
+            fname: req.body.fname,
+            lname: req.body.lname,
+            username: req.body.username,
+            email: req.body.email,
+            telephone: req.body.telephone,
+            address: req.body.address,
+            isadmin: req.body.isadmin,
+            usertype: "travelagent"} }, { new: true }, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
     });
 });
 

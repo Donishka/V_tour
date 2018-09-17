@@ -36,6 +36,7 @@ router.post('/', (req, res) => {
         address: req.body.address,
         type: req.body.type,
         discription:req.body.discription,
+        usertype:"serviceprovider"
     });
     ServiceProviderModel.saveUser(serviceprovider,(err, doc) => {
         if(err){
@@ -61,6 +62,7 @@ router.put('/:id', (req, res) => {
         address: req.body.address,
         type: req.body.type,
         discription:req.body.discription,
+        usertype:"serviceprovider"
     };
     bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(serviceprovider.password, salt, function(err, hash) {

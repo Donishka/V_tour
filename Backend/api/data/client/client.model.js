@@ -32,6 +32,10 @@ var Client =  mongoose.model('Client', {
     agegroup:{
         type:String,
     },
+    usertype : {
+        type:String,
+        required:true
+    },
 },'clients');
 
 module.exports = { Client };
