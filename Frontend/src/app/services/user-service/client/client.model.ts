@@ -8,7 +8,7 @@ export class Client {
     telephone:[string];
     address:string;
     noofvisitors:number;
-    foodperfer:string;
+    foodprefer:[string];
     intactivities:[string];
     agegroup:string;
 }

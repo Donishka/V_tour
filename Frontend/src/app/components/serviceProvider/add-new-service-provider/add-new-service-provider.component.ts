@@ -47,7 +47,7 @@ export class AddNewServiceProviderComponent implements OnInit {
         this.flashMessage.show('Service Provider Saved', { cssClass: 'alert-success', timeout: 4000 });
         alert('Service Provider Saved');
         console.log("Saved");
-        this.router.navigateByUrl('/service-provider-account');
+        this.router.navigateByUrl('/travelagent-account');
       });
     }
     else {
@@ -56,7 +56,7 @@ export class AddNewServiceProviderComponent implements OnInit {
         this.flashMessage.show('Service Provider Updated', { cssClass: 'alert-success', timeout: 4000 });
         alert('Service Provider Updates');
         console.log("Updated");
-        this.router.navigateByUrl('/service-provider-account');
+        this.router.navigateByUrl('/travelagent-account');
       });
     }
   }

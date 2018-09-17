@@ -57,17 +57,17 @@ export class EditTravelAgentComponent implements OnInit {
     if (form.value._id == "") {
       this.travelAgentService.postTravelAgent(form.value).subscribe((res) => {
         console.log("submitpost");
-        alert('Travel Agent Saved');
+        alert('Details Saved');
         this.resetForm(form);
-        this.getProfileDetails();
+        this.zone.run(() => {        
         this.router.navigateByUrl('/travelagent-account');
+        });
       });
     }else {
       this.travelAgentService.putTravelAgent(form.value).subscribe((res) => {
         console.log("submitput");
         this.resetForm(form);
-        alert('Travel Agent Updated');
-        this.getProfileDetails();
+        alert('Details Updated');
         this.zone.run(() => {
         this.router.navigateByUrl('/travelagent-account');
         });

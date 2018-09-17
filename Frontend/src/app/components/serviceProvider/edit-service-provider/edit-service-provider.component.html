@@ -1,4 +1,6 @@
-<div class = "container">
+
+<div *ngFor="let sp of serviceProviderService.sp">
+  <div *ngIf="user._id==sp._id"><div class = "container">
   <div class="row">
     <div class ="col"></div>  
     <div class="col-6">
@@ -7,13 +9,13 @@
               <fieldset>
                 <legend>Edit Service Provider : {{user.fname}}</legend>
               <br>
-              <input type="hidden" value={{user._id}} name="_id" #_id="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider._id">
+              <input type="hidden" value={{user._id}} name="_id" #_id="ngModel" [(ngModel)]="sp._id">
               <div class="form-group">
                 <label for="fname" class="cols-sm-2 control-label">First Name</label>
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                    <input type="text" value={{user.fname}} class="form-control" name="fname" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.fname"  required>
+                    <input type="text" value={{user.fname}} class="form-control" name="fname" #name="ngModel" [(ngModel)]="sp.fname"  required>
                   </div>
                 </div>
               </div>
@@ -22,25 +24,25 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                    <input type="text" value={{user.username}} class="form-control" name="username" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.username"  required>
+                    <input type="text" value={{user.username}} class="form-control" name="username" #name="ngModel" [(ngModel)]="sp.username"  required>
                   </div>
                 </div>
               </div>
-              <div class="form-group">
+              <!--div class="form-group">
                 <label for="password" class="cols-sm-2 control-label">Password</label>
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
-                    <input type="password" value={{user.pasword}} class="form-control" name="password" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.password"  required>
+                    <input type="password" value={{user.pasword}} class="form-control" name="password" #name="ngModel" [(ngModel)]="sp.password"  required>
                   </div>
                 </div>
-              </div>
+              </div-->
               <div class="form-group">
                   <label for="email" class="cols-sm-2 control-label">Email</label>
                   <div class="cols-sm-10">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
-                      <input type="email" value={{user.email}} class="form-control" name="email" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.email" >
+                      <input type="email" value={{user.email}} class="form-control" name="email" #name="ngModel" [(ngModel)]="sp.email" >
                   </div>
                 </div>
               </div>
@@ -49,7 +51,7 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" value={{user.telephone}} class="form-control" name="telephone" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.telephone"  >
+                    <input type="text" value={{user.telephone}} class="form-control" name="telephone" #name="ngModel" [(ngModel)]="sp.telephone"  >
                   </div>
                 </div>
               </div>
@@ -58,7 +60,7 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" value={{user.address}} class="form-control" name="address" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.address"  >
+                    <input type="text" value={{user.address}} class="form-control" name="address" #name="ngModel" [(ngModel)]="sp.address"  >
                   </div>
                 </div>
               </div>
@@ -67,7 +69,7 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" value={{user.type}} class="form-control" name="type" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.type"  >
+                    <input type="text" value={{user.type}} class="form-control" name="type" #name="ngModel" [(ngModel)]="sp.type"  >
                   </div>
                 </div>
               </div>
@@ -76,7 +78,7 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" value={{user.discription}} class="form-control" name="discription" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.discription"  >
+                    <input type="text" value={{user.discription}} class="form-control" name="discription" #name="ngModel" [(ngModel)]="sp.discription"  >
                   </div>
                 </div>
               </div>  
@@ -92,3 +94,6 @@
           <div class="col"></div>
       </div>
     </div>
+  </div>
+</div>
+    

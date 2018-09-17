@@ -27,7 +27,7 @@
                       <td>{{client.telephone}}</td>
                       <td>{{client.address}}</td>
                       <td>{{client.noofvisitors}}</td>
-                      <td>{{client.foodperfer}}</td>
+                      <td>{{client.foodprefer}}</td>
                       <td>{{client.intactivities}}</td>
                       <td>{{client.agegroup}}</td>
                       <td>
@@ -82,7 +82,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="form-group">
+                        <!--div class="form-group">
                           <label for="password" class="cols-sm-2 control-label">Password</label>
                           <div class="cols-sm-10">
                             <div class="input-group">
@@ -90,7 +90,7 @@
                               <input type="password" class="form-control" name="password" #name="ngModel" [(ngModel)]="clientService.selectedClient.password"  required>
                             </div>
                           </div>
-                        </div>
+                        </div-->
                         <div class="form-group">
                           <label for="email" class="cols-sm-2 control-label">Email</label>
                           <div class="cols-sm-10">
@@ -128,11 +128,11 @@
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="foodperfer" class="cols-sm-2 control-label">Food Prefered</label>
+                          <label for="foodprefer" class="cols-sm-2 control-label">Food Prefered</label>
                           <div class="cols-sm-10">
                             <div class="input-group">
                               <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                              <input type="text" class="form-control" name="foodperfer" #name="ngModel" [(ngModel)]="clientService.selectedClient.foodperfer"  >
+                              <input type="text" class="form-control" name="foodprefer" #name="ngModel" [(ngModel)]="clientService.selectedClient.foodprefer"  >
                             </div>
                           </div>
                         </div>

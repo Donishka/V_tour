@@ -8,7 +8,7 @@
                 <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
                   <fieldset>
                       <legend>Add New Travel Agent:</legend>
-                
+                <br>
                 <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent._id">
                 <div class="form-group">
                   <label for="fname" class="cols-sm-2 control-label">First Name</label>

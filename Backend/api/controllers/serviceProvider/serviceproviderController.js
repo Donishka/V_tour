@@ -52,7 +52,7 @@ router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
 
-    var serviceprovider = {
+/*    var serviceprovider = {
         fname: req.body.fname,
         lname:req.body.lname,
         username: req.body.username,
@@ -68,13 +68,23 @@ router.put('/:id', (req, res) => {
         bcrypt.hash(serviceprovider.password, salt, function(err, hash) {
             serviceprovider.password = hash;
 
-            if (err) throw err;
-            ServiceProvider.findByIdAndUpdate(req.params.id, { $set: serviceprovider }, { new: true }, (err, doc) => {
+            if (err) throw err;*/
+    ServiceProvider.findByIdAndUpdate(req.params.id, {
+        $set: {
+            fname: req.body.fname,
+            lname: req.body.lname,
+            username: req.body.username,
+            email: req.body.email,
+            telephone: req.body.telephone,
+            address: req.body.address,
+            type: req.body.type,
+            discription: req.body.discription,
+            usertype: "serviceprovider"} }, { new: true }, (err, doc) => {
                 if (!err) { res.send(doc); }
                 else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
             });
-        });
-    });
+       /* });
+    });*/
 });
 
 router.delete('/:id', (req, res) => {

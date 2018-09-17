@@ -34,10 +34,10 @@ export class ViewClientsComponent implements OnInit {
       username: "",
       password: "",
       email:"",
-      telephone: null,
+      telephone: [""],
       address: "",
       noofvisitors: null,
-      foodperfer:"",
+      foodprefer:[""],
       intactivities:[""],
       agegroup:"",
     }
@@ -74,7 +74,6 @@ export class ViewClientsComponent implements OnInit {
     if (confirm('Are you sure to delete this record ?') == true) {
       this.clientService.deleteClient(_id).subscribe((res) => {
         this.refreshClientList();
-        M.toast({ html: 'Deleted successfully', classes: 'rounded' });
       });
     }
   }

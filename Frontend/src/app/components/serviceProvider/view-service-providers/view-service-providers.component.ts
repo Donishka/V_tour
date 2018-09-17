@@ -74,7 +74,6 @@ export class ViewServiceProvidersComponent implements OnInit {
     if (confirm('Are you sure to delete this record ?') == true) {
       this.serviceProviderService.deleteServiceProvider(_id).subscribe((res) => {
         this.refreshServiceProviderList();
-        M.toast({ html: 'Deleted successfully', classes: 'rounded' });
       });
     }
   }

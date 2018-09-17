@@ -25,9 +25,11 @@ export class TravelAgentAccountComponent implements OnInit {
 
   ngOnInit() {
     this.getProfileDetails();
+    console.log('init');
   }
 
   getProfileDetails() {
+    console.log('get details');
     this.authService.getProfile().subscribe(res => {
       this.user = res.data.user;
       console.log(this.user);

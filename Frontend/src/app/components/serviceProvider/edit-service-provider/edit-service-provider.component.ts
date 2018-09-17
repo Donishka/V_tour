@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
@@ -20,16 +20,23 @@ user:any;
   constructor(public serviceProviderService:ServiceProviderService,
     private authService:AuthService,
     private router:Router,
-    private flashMessage:FlashMessagesService
+    private flashMessage:FlashMessagesService,
+    private zone:NgZone,
   ) { }
 
   ngOnInit() {
     this.resetForm();
-    this.authService.getProfile().subscribe(res=>{
+    this.refreshServiceProviderList();
+    this.getProfileDetails();
+  }
+
+  getProfileDetails() {
+    this.authService.getProfile().subscribe(res => {
       this.user = res.data.user;
       console.log(this.user);
     });
   }
+
 
   resetForm(form?: NgForm) {
     if (form)
@@ -50,15 +57,33 @@ user:any;
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
       this.serviceProviderService.postServiceProvider(form.value).subscribe((res) => {        
+        alert('Details Saved');
         this.resetForm(form);
-        this.flashMessage.show('Account Saved', { cssClass: 'alert-success', timeout: 4000 });
+        this.zone.run(() => {
+          this.router.navigateByUrl('/service-provider-account');
+        });
       });
     }
     else {
       this.serviceProviderService.putServiceProvider(form.value).subscribe((res) => {
+        alert('Details Saved');
         this.resetForm(form);
-        this.flashMessage.show('Account Updated', { cssClass: 'alert-success', timeout: 4000 });
+        this.zone.run(() => {
+          this.router.navigateByUrl('/service-provider-account');
+        });
       });
     }
+  }
+
+
+  refreshServiceProviderList() {
+    this.serviceProviderService.getServiceProviderList().subscribe((res) => {
+      this.serviceProviderService.sp = res as ServiceProvider[];
+    });
+  }
+
+  onEdit(sp: ServiceProvider) {
+    this.serviceProviderService.selectedServiceProvider = sp;
+
   }
 }

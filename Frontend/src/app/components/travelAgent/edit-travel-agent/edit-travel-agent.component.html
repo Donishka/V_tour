@@ -1,8 +1,4 @@
 
-<div class = "container">
-  <div class="row">
-    <div class ="col"></div>  
-    <div class="col-12">
       <div *ngFor="let tagent of travelAgentService.tagent">
         <div *ngIf="user._id==tagent._id">
           <div class = "container">
@@ -96,23 +92,19 @@
                         </div>
                         <flash-messages></flash-messages>
                         <div class="form-group ">
-                            <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Update Agent</button>
-                            <button class="btn btn-primary right" type="button" (click)="resetForm(userForm)">Reset</button>
+                          <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Update Agent</button>
+                          <button class="btn btn-primary right" type="button" (click)="resetForm(userForm)">Reset</button>
                         </div>
-                        </fieldset>
-                      </form>
-                      <flash-messages></flash-messages>
-                    </div>
+                      </fieldset>
+                    </form>
+                    <flash-messages></flash-messages>
                   </div>
-                    <div class="col"></div>
                 </div>
+                <div class="col"></div>
               </div>
             </div>
-            <flash-messages></flash-messages>
-            </div>
           </div>
-          <div class="col"></div>
         </div>
-      </div>
+
           
 

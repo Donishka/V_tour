@@ -32,10 +32,10 @@ export class AddNewClientsComponent implements OnInit {
       username: "",
       password: "",
       email:"",
-      telephone: null,
+      telephone: [""],
       address: "",
       noofvisitors: null,
-      foodperfer:"",
+      foodprefer:[""],
       intactivities:[""],
       agegroup:"",
     }
@@ -48,7 +48,7 @@ export class AddNewClientsComponent implements OnInit {
         this.flashMessage.show('Client Saved', { cssClass: 'alert-success', timeout: 4000 });
         alert('Client Saved');
         console.log("Saved");
-        this.router.navigateByUrl('/client-account');
+        this.router.navigateByUrl('/travelagent-account');
       });
     }
     else {
@@ -57,7 +57,7 @@ export class AddNewClientsComponent implements OnInit {
         this.flashMessage.show('Client Updated', { cssClass: 'alert-success', timeout: 4000 });
         alert('Client Updated');
         console.log("Updated");
-        this.router.navigateByUrl('/client-account');
+        this.router.navigateByUrl('/travelagent-account');
       });
     }
   }
