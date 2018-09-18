@@ -22,10 +22,7 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
-<<<<<<< HEAD:Frontend/package.json
-=======
     "angular-bootstrap-md": "^6.2.3",
->>>>>>> d3781741f7c18321f7e55de499af5469f249c38b:Frontend/package.json
     "angular2-flash-messages": "^3.0.1",
     "angular2-jwt": "^0.2.3",
     "body-parser": "^1.18.3",

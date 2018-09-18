@@ -24,15 +24,12 @@ var Client =  mongoose.model('Client', {
     address:{
         type:String,
     },
-<<<<<<< HEAD
-=======
     city: {
         type: String,
     },
     country: {
         type: String,
     },
->>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
     noofvisitors:{
         type:Number,
     },
