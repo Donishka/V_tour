@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 <div class = "container">
   <div class="row">
     <div class ="col"></div>  
@@ -89,3 +90,114 @@
       <div class="col"></div>
   </div>
 </div>
+=======
+      <div *ngFor="let tagent of travelAgentService.tagent">
+        <div *ngIf="user._id==tagent._id">
+          <div class = "container">
+            <div class="row">
+              <div class ="col"></div>  
+                <div class="col-6">
+                  <div class="main-login main-center">
+                    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+                      <fieldset>
+                        <legend>Update Travel Agent:</legend>
+                        <br>
+                        <input type="hidden" value="" name="_id" #_id="ngModel" [(ngModel)]="tagent._id">
+                        <div class="form-group">
+                          <label for="fname" class="cols-sm-2 control-label">First Name</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="fname" #name="ngModel" [(ngModel)]="tagent.fname"  required>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="form-group">
+                          <label for="lname" class="cols-sm-2 control-label">Last Name</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="lname" #name="ngModel" [(ngModel)]="tagent.lname"  >
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="form-group">
+                          <label for="username" class="cols-sm-2 control-label">User Name</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="username" #name="ngModel" [(ngModel)]="tagent.username"  required>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <!--div class="form-group">
+                          <label for="password" class="cols-sm-2 control-label">Password</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+                              <input type="password" class="form-control" name="password" #name="ngModel" [(ngModel)]="user.password">
+                            </div>
+                          </div>
+                        </div-->
+            
+                        <div class="form-group">
+                          <label for="email" class="cols-sm-2 control-label">Email</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
+                              <input type="email" class="form-control" name="email" #name="ngModel" [(ngModel)]="tagent.email" >
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="form-group">
+                          <label for="telephone" class="cols-sm-2 control-label">Telephone No</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fas fa-phone-square" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="tagent.telephone"  >
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="form-group">
+                          <label for="address" class="cols-sm-2 control-label">Address</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fas fa-home" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="tagent.address"  >
+                            </div>
+                          </div>
+                        </div>
+                          
+                        <div class="form-group">
+                          <label for="isadmin" class="cols-sm-2 control-label">Admin Privilage</label>
+                          <div class="cols-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="isadmin" #name="ngModel" [(ngModel)]="tagent.isadmin"  >
+                            </div>
+                           </div>
+                        </div>
+                        <flash-messages></flash-messages>
+                        <div class="form-group ">
+                          <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Update Agent</button>
+                          <button class="btn btn-primary right" type="button" (click)="resetForm(userForm)">Reset</button>
+                        </div>
+                      </fieldset>
+                    </form>
+                    <flash-messages></flash-messages>
+                  </div>
+                </div>
+                <div class="col"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          
+
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b

@@ -22,6 +22,10 @@ import { EditUserModule } from './modules/user-account/edit-user.module';
 import { ViewUserModule } from './modules/user-account/view-user.module';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { HeaderBarModule } from './modules/header-bar/header-bar.module';
+<<<<<<< HEAD
+=======
+import { PaymentModule } from './modules/payment/payment.module';
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
 
 
 @NgModule({
@@ -32,6 +36,10 @@ import { HeaderBarModule } from './modules/header-bar/header-bar.module';
     DraftedItenarariesComponent,
     GridViewComponent,
     HomeComponent,
+<<<<<<< HEAD
+=======
+    
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
   ],
   imports: [
     BrowserModule,
@@ -45,7 +53,13 @@ import { HeaderBarModule } from './modules/header-bar/header-bar.module';
     UserAccountModule,
     EditUserModule,
     ViewUserModule,
+<<<<<<< HEAD
     HeaderBarModule
+=======
+    HeaderBarModule,
+    PaymentModule,
+    
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

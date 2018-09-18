@@ -1,0 +1,155 @@
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-6">
+      <div class="main-login main-center">
+        <form method="post" action="https://sandbox.payhere.lk/pay/checkout">
+          <input type="hidden" name="merchant_id" value="1211637">
+          <input type="hidden" name="return_url" value="http://localhost:4200/login">
+          <input type="hidden" name="cancel_url" value="http://sample.com/cancel">
+          <input type="hidden" name="notify_url" value="http://sample.com/notify">
+          <br>
+          <legend>Item Details</legend>
+          <br>
+          <div class="form-group">
+            <label for="fname" class="cols-sm-2 control-label">Order Id</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="fa fa-user fa" aria-hidden="true"></i>
+                </span>
+                <input type="text" class="form-control" name="order_id" value="ItemNo12345">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fname" class="cols-sm-2 control-label">Item Name</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="fa fa-user fa" aria-hidden="true"></i>
+                </span>
+                <input type="text" class="form-control" name="items" value="NuwaraEliya">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fname" class="cols-sm-2 control-label">Currency</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="fa fa-user fa" aria-hidden="true"></i>
+                </span>
+                <input type="text" class="form-control" name="currency" value="LKR">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fname" class="cols-sm-2 control-label">Amount</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="fa fa-user fa" aria-hidden="true"></i>
+                </span>
+                <input type="text" class="form-control" name="amount" value="500">
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <legend>Client Details</legend>
+          <br>
+
+          <div class="form-group">
+            <label for="fname" class="cols-sm-2 control-label">First Name</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="fa fa-user fa" aria-hidden="true"></i>
+                </span>
+                <input type="text" class="form-control" name="first_name" value="Saman">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="lname" class="cols-sm-2 control-label">Last Name</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="fa fa-user fa" aria-hidden="true"></i>
+                </span>
+                <input type="text" class="form-control" name="last_name" value="Perera">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="cols-sm-2 control-label">Email</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="fas fa-envelope" aria-hidden="true"></i>
+                </span>
+                <input type="email" class="form-control" name="email" value="samanp@gmail.com">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="telephone" class="cols-sm-2 control-label">Telephone No</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="fas fa-phone-square" aria-hidden="true"></i>
+                </span>
+                <input type="text" class="form-control" name="phone" value="0771234567">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address" class="cols-sm-2 control-label">Address</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="fas fa-home" aria-hidden="true"></i>
+                </span>
+                <input type="text" class="form-control" name="address" value="No.1, Galle Road">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address" class="cols-sm-2 control-label">City</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="fas fa-home" aria-hidden="true"></i>
+                </span>
+                <input type="text" class="form-control" name="city" value="Colombo">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address" class="cols-sm-2 control-label">Country</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="fas fa-home" aria-hidden="true"></i>
+                </span>
+                <input type="text" class="form-control" name="country" value="Sri Lanka">
+              </div>
+            </div>
+          </div>
+          <br>
+          <button class="btn btn-primary btn-lg btn-block login-button" type="submit" value="Buy Now">Buy Now</button>
+          <br>
+          <br>
+        </form>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

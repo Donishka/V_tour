@@ -22,6 +22,7 @@
                   <div class="cols-sm-10">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+<<<<<<< HEAD
                       <input type="text" class="form-control" name="lname" #name="ngModel" [(ngModel)]="clientService.selectedClient.lname"  required>
                     </div>
                   </div>
@@ -32,6 +33,9 @@
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
                       <input type="text" class="form-control" name="username" #name="ngModel" [(ngModel)]="clientService.selectedClient.username"  required>
+=======
+                      <input type="text" class="form-control" name="lname" #name="ngModel" [(ngModel)]="clientService.selectedClient.lname" >
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
                     </div>
                   </div>
                 </div>
@@ -72,6 +76,31 @@
                   </div>
                 </div>
                 <div class="form-group">
+<<<<<<< HEAD
+=======
+                  <label for="city" class="cols-sm-2 control-label">City</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
+                      </span>
+                      <input type="text" class="form-control" name="city" #name="ngModel" [(ngModel)]="clientService.selectedClient.city">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="country" class="cols-sm-2 control-label">Country</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
+                      </span>
+                      <input type="text" class="form-control" name="country" #name="ngModel" [(ngModel)]="clientService.selectedClient.country">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
                   <label for="noofvisitors" class="cols-sm-2 control-label">No of Visitors</label>
                   <div class="cols-sm-10">
                     <div class="input-group">
@@ -81,11 +110,19 @@
                   </div>
                 </div>
                 <div class="form-group">
+<<<<<<< HEAD
                   <label for="foodperfer" class="cols-sm-2 control-label">Food Prefered</label>
                   <div class="cols-sm-10">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                       <input type="text" class="form-control" name="foodperfer" #name="ngModel" [(ngModel)]="clientService.selectedClient.foodperfer"  >
+=======
+                  <label for="foodprefer" class="cols-sm-2 control-label">food Prefered</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="foodprefer" #name="ngModel" [(ngModel)]="clientService.selectedClient.foodprefer"  >
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
                     </div>
                   </div>
                 </div>
@@ -109,7 +146,11 @@
                 </div>
                 <flash-messages></flash-messages>
                 <div class="form-group ">
+<<<<<<< HEAD
                     <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Add Service Provider</button>
+=======
+                    <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Add Client</button>
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
 
                     <button class="btn btn-primary right" type="button" (click)="resetForm(userForm)">Reset</button>
                 </div>

@@ -45,12 +45,24 @@ export class AddNewServiceProviderComponent implements OnInit {
       this.serviceProviderService.postServiceProvider(form.value).subscribe((res) => {        
         this.resetForm(form);
         this.flashMessage.show('Service Provider Saved', { cssClass: 'alert-success', timeout: 4000 });
+<<<<<<< HEAD
+=======
+        alert('Service Provider Saved');
+        console.log("Saved");
+        this.router.navigateByUrl('/travelagent-account');
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
       });
     }
     else {
       this.serviceProviderService.putServiceProvider(form.value).subscribe((res) => {
         this.resetForm(form);
         this.flashMessage.show('Service Provider Updated', { cssClass: 'alert-success', timeout: 4000 });
+<<<<<<< HEAD
+=======
+        alert('Service Provider Updates');
+        console.log("Updated");
+        this.router.navigateByUrl('/travelagent-account');
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
       });
     }
   }
