@@ -44,7 +44,13 @@ export class AddNewTravelAgentComponent implements OnInit {
       this.travelAgentService.postTravelAgent(form.value).subscribe((res) => {
         this.flashMessage.show('Travel Agent Saved', { cssClass: 'alert-success', timeout: 4000 });
         this.resetForm(form);
+<<<<<<< HEAD
         console.log("Saved");
+=======
+        alert('Travel Agent Saved');
+        console.log("Saved");
+        this.router.navigateByUrl('/travelagent-account');
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
       });
     }
     else {
@@ -52,6 +58,11 @@ export class AddNewTravelAgentComponent implements OnInit {
         this.resetForm(form);
         this.flashMessage.show('Travel Agent Updated', { cssClass: 'alert-success', timeout: 4000 });
         console.log("Updated");
+<<<<<<< HEAD
+=======
+        alert('Travel Agent Updated');
+        this.router.navigateByUrl('/travelagent-account');
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
       });
     }
   }

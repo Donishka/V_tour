@@ -29,6 +29,7 @@ export class AddNewClientsComponent implements OnInit {
       _id:"",
       fname: "",
       lname:"",
+<<<<<<< HEAD
       username: "",
       password: "",
       email:"",
@@ -36,6 +37,16 @@ export class AddNewClientsComponent implements OnInit {
       address: "",
       noofvisitors: null,
       foodperfer:"",
+=======
+      password: "",
+      email:"",
+      telephone: [""],
+      address: "",
+      city:"",
+      country:"",
+      noofvisitors: null,
+      foodprefer:[""],
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
       intactivities:[""],
       agegroup:"",
     }
@@ -44,15 +55,29 @@ export class AddNewClientsComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
       this.clientService.postClient(form.value).subscribe((res) => {
+<<<<<<< HEAD
         
         this.resetForm(form);
         this.flashMessage.show('Client Saved', { cssClass: 'alert-success', timeout: 4000 });
+=======
+        this.resetForm(form);
+        this.flashMessage.show('Client Saved', { cssClass: 'alert-success', timeout: 4000 });
+        alert('Client Saved');
+        console.log("Saved");
+        this.router.navigateByUrl('/travelagent-account');
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
       });
     }
     else {
       this.clientService.putClient(form.value).subscribe((res) => {
         this.resetForm(form);
         this.flashMessage.show('Client Updated', { cssClass: 'alert-success', timeout: 4000 });
+<<<<<<< HEAD
+=======
+        alert('Client Updated');
+        console.log("Updated");
+        this.router.navigateByUrl('/travelagent-account');
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
       });
     }
   }

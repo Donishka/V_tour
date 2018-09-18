@@ -28,6 +28,7 @@ export class ViewClientsComponent implements OnInit {
     if (form)
       form.reset();
     this.clientService.selectedClient = {
+<<<<<<< HEAD
       _id:"",
       fname: "",
       lname:"",
@@ -40,6 +41,21 @@ export class ViewClientsComponent implements OnInit {
       foodperfer:"",
       intactivities:[""],
       agegroup:"",
+=======
+      _id: "",
+      fname: "",
+      lname: "",
+      password: "",
+      email: "",
+      telephone: [""],
+      address: "",
+      city: "",
+      country: "",
+      noofvisitors: null,
+      foodprefer: [""],
+      intactivities: [""],
+      agegroup: "",
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
     }
   }
 
@@ -74,7 +90,10 @@ export class ViewClientsComponent implements OnInit {
     if (confirm('Are you sure to delete this record ?') == true) {
       this.clientService.deleteClient(_id).subscribe((res) => {
         this.refreshClientList();
+<<<<<<< HEAD
         M.toast({ html: 'Deleted successfully', classes: 'rounded' });
+=======
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
       });
     }
   }
