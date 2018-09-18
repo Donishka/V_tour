@@ -22,6 +22,7 @@ import { EditUserModule } from './modules/user-account/edit-user.module';
 import { ViewUserModule } from './modules/user-account/view-user.module';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { HeaderBarModule } from './modules/header-bar/header-bar.module';
+import { ClientPaymentComponent } from './components/client/client-payment/client-payment.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { HeaderBarModule } from './modules/header-bar/header-bar.module';
     DraftedItenarariesComponent,
     GridViewComponent,
     HomeComponent,
+    ClientPaymentComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { HeaderBarModule } from './modules/header-bar/header-bar.module';
     UserAccountModule,
     EditUserModule,
     ViewUserModule,
-    HeaderBarModule
+    HeaderBarModule,
+    
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

@@ -28,18 +28,19 @@ export class ViewClientsComponent implements OnInit {
     if (form)
       form.reset();
     this.clientService.selectedClient = {
-      _id:"",
+      _id: "",
       fname: "",
-      lname:"",
-      username: "",
+      lname: "",
       password: "",
-      email:"",
+      email: "",
       telephone: [""],
       address: "",
+      city: "",
+      country: "",
       noofvisitors: null,
-      foodprefer:[""],
-      intactivities:[""],
-      agegroup:"",
+      foodprefer: [""],
+      intactivities: [""],
+      agegroup: "",
     }
   }
 

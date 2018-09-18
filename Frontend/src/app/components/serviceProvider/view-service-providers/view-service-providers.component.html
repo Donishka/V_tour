@@ -1,44 +1,41 @@
-<div class = "container">
+<div class="container bg-secondary">
   <div class="row">
-    <div class ="col"></div>  
-    <div class="col-12">
-      <div >
-                <table class="table table-responsive-md	">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th>Name</th>
-                        <th>User Name</th>
-                        <th>Email</th>
-                        <th>Telephone</th>
-                        <th>Address</th>
-                        <th>Type</th>
-                        <th>Discription</th>
-                        <th></th>
-                      </tr>                      
-                    </thead>
-                    <tr *ngFor="let sp of serviceProviderService.sp">
-                      <td>{{sp.fname}}</td>
-                      <td>{{sp.username}}</td>
-                      <td>{{sp.email}}</td>
-                      <td>{{sp.telephone}}</td>
-                      <td>{{sp.address}}</td>
-                      <td>{{sp.type}}</td>
-                      <td>{{sp.discription}}</td>
-                      <td>
-                        <a class="action-btn">
-                          <i class="fas fa-pencil-alt"(click)="onEdit(sp)">edit</i>
-                        </a>
-                        <a class="action-btn" (click)="onDelete(sp._id)">
-                          <i class="fas fa-trash-alt">delete</i>
-                        </a>
-                      </td>
-                    </tr>
-                  </table>
+    <div class="col"></div>
+    <div class="col-10">
+      <div>
+        <table class="table table-responsive-sm	">
+          <tr *ngFor="let sp of serviceProviderService.sp">
+            <td align="center">
+              <div class="col-md-12">
+                <div class="card bg-light flex-md-row mb-4 shadow-sm h-md-250">
+                  <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-primary">{{sp.fname}}</strong>
+                    <h6 class="mb-0"></h6>
+                    <div class="mb-1 text-muted small">{{sp.email}}</div>
+                    <br>
+                    <p class="card-text mb-auto">Telephone : {{sp.telephone}}
+                      <br>Address : {{sp.address}}
+                      <br>Type : {{sp.type}}
+                      <br><br>{{sp.discription}}</p>
+                    <a class="action-btn" (click)="onEdit(sp)">
+                      <i class="fas fa-pencil-alt  btn-outline-primary btn-sm"> edit</i>
+                    </a>
+                    <a class="action-btn" (click)="onDelete(sp._id)">
+                      <i class="fas fa-trash-alt  btn-outline-primary btn-sm"> delete</i>
+                    </a>
+                  </div>
+                  <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/arch" style="width: 200px; height: 250px;">
                 </div>
               </div>
-                <div class="col"></div>
-            </div>
-          </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+
       <div class = "container">
           <div class="row">
             <div class ="col"></div>  

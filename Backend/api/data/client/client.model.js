@@ -8,10 +8,10 @@ var Client =  mongoose.model('Client', {
     lname : {
         type:String,
     },
-    username:{
+    /*username:{
         type:String,
         required:true
-    },
+    },*/
     password : {
         type:String,
         required:true
@@ -23,6 +23,12 @@ var Client =  mongoose.model('Client', {
     telephone : [String],
     address:{
         type:String,
+    },
+    city: {
+        type: String,
+    },
+    country: {
+        type: String,
     },
     noofvisitors:{
         type:Number,

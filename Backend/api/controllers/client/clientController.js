@@ -29,11 +29,13 @@ router.post('/', (req, res) => {
     var client = new Client({
         fname: req.body.fname,
         lname:req.body.lname,
-        username: req.body.username,
+        /*username: req.body.username,*/
         password: req.body.password,
         email:req.body.email,
         telephone: req.body.telephone,
         address: req.body.address,
+        city: req.body.city,
+        country: req.body.country,
         noofvisitors: req.body.noofvisitors,
         foodprefer:req.body.foodprefer,
         intactivities:req.body.intactivities,
@@ -58,11 +60,12 @@ router.put('/:id', (req, res) => {
 /*    var client = {
         fname: req.body.fname,
         lname:req.body.lname,
-        username: req.body.username,
         password: req.body.password,
         email:req.body.email,
         telephone: req.body.telephone,
         address: req.body.address,
+        city: req.body.city,
+        country: req.body.country,
         noofvisitors: req.body.noofvisitors,
         foodpreferprefer:req.body.foodpreferprefer,
         intactivities:req.body.intactivities,
@@ -78,10 +81,12 @@ router.put('/:id', (req, res) => {
         $set: {
             fname: req.body.fname,
             lname: req.body.lname,
-            username: req.body.username,
+            /*username: req.body.username,*/
             email: req.body.email,
             telephone: req.body.telephone,
             address: req.body.address,
+            city: req.body.city,
+            country: req.body.country,
             noofvisitors: req.body.noofvisitors,
             foodprefer: req.body.foodprefer,
             intactivities: req.body.intactivities,
