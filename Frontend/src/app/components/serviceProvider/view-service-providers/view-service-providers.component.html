@@ -1,46 +1,3 @@
-<<<<<<< HEAD
-<div class = "container">
-  <div class="row">
-    <div class ="col"></div>  
-    <div class="col-12">
-      <div >
-                <table class="table table-responsive-md	">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th>Name</th>
-                        <th>User Name</th>
-                        <th>Email</th>
-                        <th>Telephone</th>
-                        <th>Address</th>
-                        <th>Type</th>
-                        <th>Discription</th>
-                        <th></th>
-                      </tr>                      
-                    </thead>
-                    <tr *ngFor="let sp of serviceProviderService.sp">
-                      <td>{{sp.fname}}</td>
-                      <td>{{sp.username}}</td>
-                      <td>{{sp.email}}</td>
-                      <td>{{sp.telephone}}</td>
-                      <td>{{sp.address}}</td>
-                      <td>{{sp.type}}</td>
-                      <td>{{sp.discription}}</td>
-                      <td>
-                        <a class="action-btn">
-                          <i class="fas fa-pencil-alt"(click)="onEdit(sp)">edit</i>
-                        </a>
-                        <a class="action-btn" (click)="onDelete(sp._id)">
-                          <i class="fas fa-trash-alt">delete</i>
-                        </a>
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-                <div class="col"></div>
-            </div>
-          </div>
-=======
 <div class="container bg-secondary">
   <div class="row">
     <div class="col"></div>
@@ -79,7 +36,6 @@
   </div>
 </div>
 
->>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
       <div class = "container">
           <div class="row">
             <div class ="col"></div>  
@@ -108,18 +64,6 @@
                           </div>
                         </div>
                       </div>
-<<<<<<< HEAD
-                      <!-- <div class="form-group">
-                        <label for="password" class="cols-sm-2 control-label">Password</label>
-                        <div class="cols-sm-10">
-                          <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
-                            <input type="password" class="form-control" name="password" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.password"  required>
-                          </div>
-                        </div>
-                      </div> -->
-=======
->>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
                       <div class="form-group">
                           <label for="email" class="cols-sm-2 control-label">Email</label>
                           <div class="cols-sm-10">

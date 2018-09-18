@@ -8,11 +8,7 @@
                 <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
                   <fieldset>
                       <legend>Add New Travel Agent:</legend>
-<<<<<<< HEAD
-                
-=======
                 <br>
->>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
                 <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent._id">
                 <div class="form-group">
                   <label for="fname" class="cols-sm-2 control-label">First Name</label>
@@ -95,11 +91,7 @@
                 </div>
                 <flash-messages></flash-messages>
                 <div class="form-group ">
-<<<<<<< HEAD
-                    <button class="btn btn-primary btn-lg btn-block login-button" [routerLink]='["/addnewtravelagent"]' type="submit" [disabled]="!userForm.valid">Add Travel Agent</button>
-=======
                     <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Add Travel Agent</button>
->>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
 
                     <button class="btn btn-primary right" type="button" (click)="resetForm(userForm)">Reset</button>
                 </div>          
