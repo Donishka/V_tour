@@ -38,6 +38,7 @@ export class ViewServiceProvidersComponent implements OnInit {
     address:"",
     type:"",
     discription:"",
+      profilepic: "",
     }
   }
 

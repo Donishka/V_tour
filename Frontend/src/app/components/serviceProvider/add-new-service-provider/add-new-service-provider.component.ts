@@ -37,6 +37,7 @@ export class AddNewServiceProviderComponent implements OnInit {
     address:"",
     type:"",
     discription:"",
+    profilepic: "",
     }
   }
 

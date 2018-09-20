@@ -36,6 +36,7 @@ router.post('/', (req, res) => {
         telephone: req.body.telephone,
         address: req.body.address,
         isadmin: req.body.isadmin,
+        profilepic: req.body.profilepic,
         usertype:"travelagent"
     });
     TravelAgentModel.saveUser(travelagent,(err, doc) => {
@@ -61,6 +62,7 @@ router.put('/:id', (req, res) => {
         telephone: req.body.telephone,
         address: req.body.address,
         isadmin: req.body.isadmin,
+        profilepic: req.body.profilepic,
         usertype:"travelagent"
     };
     bcrypt.genSalt(10, function(err, salt) {
@@ -89,6 +91,7 @@ router.put('/:id', (req, res) => {
             telephone: req.body.telephone,
             address: req.body.address,
             isadmin: req.body.isadmin,
+            profilepic: req.body.profilepic,
             usertype: "travelagent"} }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }

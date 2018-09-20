@@ -38,6 +38,7 @@ export class ViewTravelAgentsComponent implements OnInit {
     email:"",
     telephone:[""],
     address:"",
+    profilepic:"",
     isadmin:false
     }
   }

@@ -51,6 +51,7 @@ user:any;
     address:"",
     type:"",
     discription:"",
+      profilepic: "",
     }
   }
 
