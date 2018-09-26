@@ -9,11 +9,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-<<<<<<< HEAD
   user:any ;
   vroute:String = "Profile";
-=======
->>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
 
   constructor(
 
@@ -24,7 +21,6 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-<<<<<<< HEAD
     
   }
   
@@ -42,8 +38,6 @@ export class NavbarComponent implements OnInit {
       }else if(this.user.usertype === "travelagent"){ 
         this.router.navigate(['/travelagent-account']);
       }
-=======
->>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
   }
 
   logoutUser(){
