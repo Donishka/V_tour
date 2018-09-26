@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-payment',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientPaymentComponent implements OnInit {
 
-  constructor() { }
+  user: any;
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-  }
+    this.authService.getProfile().subscribe(res => {
+      this.user = res.data.user;
+      console.log(this.user);
 
+    })
+  }
 }

@@ -8,4 +8,5 @@ export class ServiceProvider {
     address:string;
     type:string;
     discription:string;
+    profilepic: string;
 }

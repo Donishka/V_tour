@@ -6,9 +6,6 @@ const bcrypt  = require('bcryptjs');
 var { TravelAgent }  = require('../../data/travelAgent/travelagent.model.js');
 var  TravelAgentModel  = require('../../data/travelAgent/travelagent.model.js');
 
-
-
-
 router.get('/', (req, res) => {
     TravelAgent.find((err, docs) => {
         if (!err) { res.send(docs); }
@@ -36,6 +33,7 @@ router.post('/', (req, res) => {
         telephone: req.body.telephone,
         address: req.body.address,
         isadmin: req.body.isadmin,
+        profilepic: req.body.profilepic,
         usertype:"travelagent"
     });
     TravelAgentModel.saveUser(travelagent,(err, doc) => {
@@ -59,12 +57,15 @@ router.put('/:id', (req, res) => {
         telephone: req.body.telephone,
         address: req.body.address,
         isadmin: req.body.isadmin,
+        profilepic: req.body.profilepic,
         usertype:"travelagent"
     };
+
     TravelAgent.findByIdAndUpdate(req.params.id, { $set: travelagent }, { new: true }, (err, doc) => {
                         if (!err) { res.send(doc); }
                         else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
                     });
+
 });
 
 router.delete('/:id', (req, res) => {

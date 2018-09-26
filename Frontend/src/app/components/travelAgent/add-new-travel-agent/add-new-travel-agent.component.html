@@ -1,10 +1,9 @@
  
-    <div class = "container">
+    <div class = "container-fluid">
         <div class="row">
           <div class ="col"></div>  
           <div class="col-6">
-            <div class="main-login main-center">
-            
+            <div class="main-login main-center">   
                 <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
                   <fieldset>
                       <legend>Add New Travel Agent:</legend>
@@ -89,7 +88,7 @@
                     </div>
                    </div>
                 </div>
-                <flash-messages></flash-messages>
+                <flash-messages></flash-messages>              
                 <div class="form-group ">
                     <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Add Travel Agent</button>
 

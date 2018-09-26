@@ -28,6 +28,9 @@ var TravelAgent =  mongoose.model('TravelAgent', {
     isadmin:{
         type:Boolean,
     },
+    profilepic:{
+        type:String,
+    },
     usertype : {
         type:String,
         required:true
