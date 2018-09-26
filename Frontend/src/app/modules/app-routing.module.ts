@@ -17,6 +17,7 @@ import { EditTravelAgentComponent } from '../components/travelAgent/edit-travel-
 import { ServiceProviderAccountComponent } from '../components/serviceProvider/service-provider-account/service-provider-account.component';
 import { ClientAccountComponent } from '../components/client/client-account/client-account.component';
 import { EditServiceProviderComponent } from '../components/serviceProvider/edit-service-provider/edit-service-provider.component';
+import { ClientPaymentComponent } from '../components/client/client-payment/client-payment.component';
 
 const applicationRoutes:Routes = [
   {path:'login',component:LoginComponent},
@@ -32,7 +33,9 @@ const applicationRoutes:Routes = [
   {path:'editserviceprovider',component:EditServiceProviderComponent,canActivate: [AuthGuard]},
   {path:'service-provider-account',component:ServiceProviderAccountComponent,canActivate: [AuthGuard]},
   {path:'client-account',component:ClientAccountComponent,canActivate: [AuthGuard]},
-  {path:'travelagent-account',component:TravelAgentAccountComponent,canActivate: [AuthGuard]}
+  {path:'travelagent-account',component:TravelAgentAccountComponent,canActivate: [AuthGuard]},
+  { path: 'client-payment', component: ClientPaymentComponent, canActivate: [AuthGuard] }
+
 ];
 
 @NgModule({

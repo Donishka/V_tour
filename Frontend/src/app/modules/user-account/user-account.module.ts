@@ -8,7 +8,7 @@ import { TravelAgentAccountComponent } from '../../components/travelAgent/travel
 import { ServiceProviderAccountComponent } from '../../components/serviceProvider/service-provider-account/service-provider-account.component';
 import { ClientAccountComponent } from '../../components/client/client-account/client-account.component';
 import { HeaderBarModule } from '../header-bar/header-bar.module';
-
+import { PackageModule } from '../../modules/package/package.module';
 
 @NgModule({
   imports: [
@@ -16,17 +16,23 @@ import { HeaderBarModule } from '../header-bar/header-bar.module';
     FormsModule,
     FlashMessagesModule,
     RouterModule,
-    HeaderBarModule
+    HeaderBarModule,
+    PackageModule
+    
+    
  ],
   declarations: [
     TravelAgentAccountComponent,
     ServiceProviderAccountComponent,
     ClientAccountComponent,
+    
+    
   ],
   exports:[
     TravelAgentAccountComponent,
     ServiceProviderAccountComponent,
     ClientAccountComponent,
+    
   ]
 })
 export class UserAccountModule { }

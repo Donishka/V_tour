@@ -6,9 +6,6 @@ const bcrypt  = require('bcryptjs');
 var { TravelAgent }  = require('../../data/travelAgent/travelagent.model.js');
 var  TravelAgentModel  = require('../../data/travelAgent/travelagent.model.js');
 
-
-
-
 router.get('/', (req, res) => {
     TravelAgent.find((err, docs) => {
         if (!err) { res.send(docs); }

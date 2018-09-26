@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AuthService } from './services/auth.service';
 
@@ -23,7 +24,7 @@ import { ViewUserModule } from './modules/user-account/view-user.module';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { HeaderBarModule } from './modules/header-bar/header-bar.module';
 import { PaymentModule } from './modules/payment/payment.module';
-
+import { ViewPackagesComponent } from './components/package/view-packages/view-packages.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { PaymentModule } from './modules/payment/payment.module';
     DraftedItenarariesComponent,
     GridViewComponent,
     HomeComponent,
+    ViewPackagesComponent
     
   ],
   imports: [
@@ -49,6 +51,7 @@ import { PaymentModule } from './modules/payment/payment.module';
     ViewUserModule,
     HeaderBarModule,
     PaymentModule,
+    FormsModule
     
   ],
   providers: [AuthService],
