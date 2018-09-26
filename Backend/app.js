@@ -9,6 +9,7 @@ var travelAgentController = require('./api/controllers/travelAgent/travelAgentCo
 var serviceproviderController = require('./api/controllers/serviceProvider/serviceproviderController.js');
 var clientController = require('./api/controllers/client/clientController.js');
 var loginController = require('./api/controllers/login/loginUserController');
+var packageController=require('./api/controllers/package/packageController.js')
 
 const port = process.env.PORT ||4201;
 
@@ -22,4 +23,5 @@ app.use('/users', userController);
 app.use('/travelagents', travelAgentController);
 app.use('/serviceproviders', serviceproviderController);
 app.use('/clients', clientController);
+app.use('/packages', packageController);
 app.use('', loginController);

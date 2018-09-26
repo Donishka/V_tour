@@ -7,5 +7,6 @@ export class TravelAgent {
     email:string;
     telephone:[string];
     address:string;
-    isadmin:boolean
+    isadmin:boolean;
+    profilepic:string;
 }

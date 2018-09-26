@@ -12,7 +12,7 @@
           <legend>Item Details</legend>
           <br>
           <div class="form-group">
-            <label for="fname" class="cols-sm-2 control-label">Order Id</label>
+            <label for="fname" class="cols-sm-2 control-label">Itenarary Id</label>
             <div class="cols-sm-10">
               <div class="input-group">
                 <span class="input-group-addon">
@@ -23,7 +23,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="fname" class="cols-sm-2 control-label">Item Name</label>
+            <label for="fname" class="cols-sm-2 control-label">Itenarary Name</label>
             <div class="cols-sm-10">
               <div class="input-group">
                 <span class="input-group-addon">
@@ -67,7 +67,7 @@
                 <span class="input-group-addon">
                   <i class="fa fa-user fa" aria-hidden="true"></i>
                 </span>
-                <input type="text" class="form-control" name="first_name" value="Saman">
+                <input type="text" class="form-control" name="first_name" value="{{user.fname}}">
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@
                 <span class="input-group-addon">
                   <i class="fa fa-user fa" aria-hidden="true"></i>
                 </span>
-                <input type="text" class="form-control" name="last_name" value="Perera">
+                <input type="text" class="form-control" name="last_name" value="{{user.lname}}">
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@
                 <span class="input-group-addon">
                   <i class="fas fa-envelope" aria-hidden="true"></i>
                 </span>
-                <input type="email" class="form-control" name="email" value="samanp@gmail.com">
+                <input type="email" class="form-control" name="email" value="{{user.email}}">
               </div>
             </div>
           </div>
@@ -103,7 +103,7 @@
                 <span class="input-group-addon">
                   <i class="fas fa-phone-square" aria-hidden="true"></i>
                 </span>
-                <input type="text" class="form-control" name="phone" value="0771234567">
+                <input type="text" class="form-control" name="phone" value="{{user.telephone}}">
               </div>
             </div>
           </div>
@@ -115,7 +115,7 @@
                 <span class="input-group-addon">
                   <i class="fas fa-home" aria-hidden="true"></i>
                 </span>
-                <input type="text" class="form-control" name="address" value="No.1, Galle Road">
+                <input type="text" class="form-control" name="address" value="{{user.address}}">
               </div>
             </div>
           </div>
@@ -127,7 +127,7 @@
                 <span class="input-group-addon">
                   <i class="fas fa-home" aria-hidden="true"></i>
                 </span>
-                <input type="text" class="form-control" name="city" value="Colombo">
+                <input type="text" class="form-control" name="city" value="{{user.city}}">
               </div>
             </div>
           </div>
@@ -139,12 +139,12 @@
                 <span class="input-group-addon">
                   <i class="fas fa-home" aria-hidden="true"></i>
                 </span>
-                <input type="text" class="form-control" name="country" value="Sri Lanka">
+                <input type="text" class="form-control" name="country" value="{{user.country}}">
               </div>
             </div>
           </div>
           <br>
-          <button class="btn btn-primary btn-lg btn-block login-button" type="submit" value="Buy Now">Buy Now</button>
+          <button class="btn btn-primary btn-lg btn-block login-button" type="submit" value="Buy Now">Pay Now</button>
           <br>
           <br>
         </form>

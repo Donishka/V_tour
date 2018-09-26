@@ -35,6 +35,7 @@ export class AddNewTravelAgentComponent implements OnInit {
     email:"",
     telephone:[""],
     address:"",
+    profilepic:"",
     isadmin:false
     }
   }

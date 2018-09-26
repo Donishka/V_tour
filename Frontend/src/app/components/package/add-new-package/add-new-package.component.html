@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-12">
+      <div class="main-login main-center">
+        <form #packageForm="ngForm" (ngSubmit)="onSubmit(packageForm)">
+          <fieldset>
+            <legend>Add New Package:</legend>
+            <br>
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="packageService.selectedPackage._id">
+            
+            <div class="form-group">
+              <label for="name" class="cols-sm-2 control-label">Name</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-user fa" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="packageService.selectedPackage.name"
+                    required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="availability" class="cols-sm-2 control-label">Availability</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-user fa" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" class="form-control" name="availability" #name="ngModel" [(ngModel)]="packageService.selectedPackage.availability">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="type" class="cols-sm-2 control-label">Type</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-user fa" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" class="form-control" name="type" #name="ngModel" [(ngModel)]="packageService.selectedPackage.type"
+                    required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="discription" class="cols-sm-2 control-label">Discription</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-lock fa" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" class="form-control" name="discription" #name="ngModel" [(ngModel)]="packageService.selectedPackage.discription"
+                    required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="price" class="cols-sm-2 control-label">Price</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                  </span>
+                  <input type="number" class="form-control" name="price" #name="ngModel" [(ngModel)]="packageService.selectedPackage.price">
+                </div>
+              </div>
+            </div>
+                  <input type="hidden" value="user._id" class="form-control" name="spid" #name="ngModel" [(ngModel)]="user._id">
+                  <input type="hidden"  class="form-control" name="spname" #name="ngModel" [(ngModel)]="user.fname">
+            <flash-messages></flash-messages>
+            <div class="form-group ">
+              <button class="btn btn-primary btn-lg btn-block login-button" type="submit"  >Add Package</button>
+
+              <button class="btn btn-primary right" type="button" (click)="resetForm(packageForm)">Reset</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

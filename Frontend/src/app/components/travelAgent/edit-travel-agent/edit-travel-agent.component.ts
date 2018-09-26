@@ -49,6 +49,7 @@ export class EditTravelAgentComponent implements OnInit {
       email: "",
       telephone: [""],
       address: "",
+      profilepic:"",
       isadmin: false
     }
   }

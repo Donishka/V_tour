@@ -30,6 +30,9 @@ var ServiceProvider =  mongoose.model('ServiceProvider', {
     discription:{
         type:String,
     },
+    profilepic:{
+        type:String,
+    },
     usertype : {
         type:String,
         required:true
