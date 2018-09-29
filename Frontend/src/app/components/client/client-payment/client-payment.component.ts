@@ -19,7 +19,6 @@ export class ClientPaymentComponent implements OnInit {
     this.authService.getProfile().subscribe(res => {
       this.user = res.data.user;
       console.log(this.user);
-
     })
   }
 }

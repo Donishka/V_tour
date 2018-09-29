@@ -12,12 +12,12 @@
                             <i class="fas fa-user"></i>
                             <span class="bot-line"></span>Travel Agents</a>
                         <ul class="header3-sub-list list-unstyled">
-                          <li>
-                            <a [routerLink]="['/addnewtravelagent']">Add New Agent</a>
-                          </li>
-                          <li>
-                            <a [routerLink]="['/viewtravelagents']">View Agents</a>
-                          </li>
+                            <li>
+                                <a [routerLink]="['/addnewtravelagent']">Add New Agent</a>
+                            </li>
+                            <li>
+                                <a [routerLink]="['/viewtravelagents']">View Agents</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="has-sub">
@@ -25,12 +25,12 @@
                             <i class="fab fa-servicestack"></i>
                             <span class="bot-line"></span>Service Providers</a>
                         <ul class="header3-sub-list list-unstyled">
-                          <li>
-                            <a [routerLink]="['/addnewserviceprovider']">Add New Service Provider</a>
-                          </li>
-                          <li>
-                            <a [routerLink]="['/viewserviceproviders']">View Service Providers</a>
-                          </li>
+                            <li>
+                                <a [routerLink]="['/addnewserviceprovider']">Add New Service Provider</a>
+                            </li>
+                            <li>
+                                <a [routerLink]="['/viewserviceproviders']">View Service Providers</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="has-sub">
@@ -38,15 +38,15 @@
                             <i class="fas fa-copy"></i>
                             <span class="bot-line"></span>Itineraries</a>
                         <ul class="header3-sub-list list-unstyled">
-                          <li>
-                            <a href="#">Create New</a>
-                          </li>
-                          <li>
-                            <a href="#">View Drafted</a>
-                          </li>
-                          <li>
-                            <a href="#l">View Completed</a>
-                          </li>
+                            <li>
+                                <a href="#">Create New</a>
+                            </li>
+                            <li>
+                                <a href="#">View Drafted</a>
+                            </li>
+                            <li>
+                                <a href="#l">View Completed</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="has-sub">
@@ -56,10 +56,10 @@
                         <ul class="header3-sub-list list-unstyled">
                             <li>
                                 <a [routerLink]="['/addnewclient']">Add New Client</a>
-                              </li>
-                              <li>
+                            </li>
+                            <li>
                                 <a [routerLink]="['/viewclients']">View Clients</a>
-                              </li>
+                            </li>
                         </ul>
                     </li>
                     <li class="has-sub">
@@ -94,7 +94,7 @@
                             </li>
                             <li>
                                 <!-- <a [routerLink]="['/']">Logout</a> -->
-                                <a *ngIf="authService.loggedIn()" class="nav-link"  href="" (click)="logoutUser()">Logout</a>
+                                <a *ngIf="authService.loggedIn()" class="nav-link" href="" (click)="logoutUser()">Logout</a>
                             </li>
                         </ul>
                     </li>
