@@ -28,7 +28,6 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     var serviceprovider = new ServiceProvider({
         fname: req.body.fname,
-        lname:req.body.lname,
         username: req.body.username,
         password: req.body.password,
         email:req.body.email,
@@ -55,7 +54,6 @@ router.put('/:id', (req, res) => {
 
 /*    var serviceprovider = {
         fname: req.body.fname,
-        lname:req.body.lname,
         username: req.body.username,
         password: req.body.password,
         email:req.body.email,
@@ -74,7 +72,6 @@ router.put('/:id', (req, res) => {
     ServiceProvider.findByIdAndUpdate(req.params.id, {
         $set: {
             fname: req.body.fname,
-            lname: req.body.lname,
             username: req.body.username,
             email: req.body.email,
             telephone: req.body.telephone,

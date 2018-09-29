@@ -5,10 +5,8 @@
       <div class="main-login main-center">
         <form #packageForm="ngForm" (ngSubmit)="onSubmit(packageForm)">
           <fieldset>
-            <legend>Add New Package:</legend>
-            <br>
+            <legend><h3>Add New Package</h3></legend>
             <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="packageService.selectedPackage._id">
-            
             <div class="form-group">
               <label for="name" class="cols-sm-2 control-label">Name</label>
               <div class="cols-sm-10">
@@ -71,7 +69,7 @@
                 </div>
               </div>
             </div>
-                  <input type="hidden" value="user._id" class="form-control" name="spid" #name="ngModel" [(ngModel)]="user._id">
+                  <input type="hidden"  class="form-control" name="spid" #name="ngModel" [(ngModel)]="user._id">
                   <input type="hidden"  class="form-control" name="spname" #name="ngModel" [(ngModel)]="user.fname">
             <flash-messages></flash-messages>
             <div class="form-group ">

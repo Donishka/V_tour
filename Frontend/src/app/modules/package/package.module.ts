@@ -5,6 +5,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AddNewPackageComponent } from '../../components/package/add-new-package/add-new-package.component';
+import { ViewPackagesComponent } from '../../components/package/view-packages/view-packages.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { AddNewPackageComponent } from '../../components/package/add-new-package
     RouterModule,
     
   ],
-  declarations: [AddNewPackageComponent],
-  exports: [AddNewPackageComponent]
+  declarations: [AddNewPackageComponent, ViewPackagesComponent],
+  exports: [AddNewPackageComponent, ViewPackagesComponent]
 })
 export class PackageModule { }

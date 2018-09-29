@@ -24,7 +24,6 @@ import { ViewUserModule } from './modules/user-account/view-user.module';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { HeaderBarModule } from './modules/header-bar/header-bar.module';
 import { PaymentModule } from './modules/payment/payment.module';
-import { ViewPackagesComponent } from './components/package/view-packages/view-packages.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,7 @@ import { ViewPackagesComponent } from './components/package/view-packages/view-p
     DraftedItenarariesComponent,
     GridViewComponent,
     HomeComponent,
-    ViewPackagesComponent
+    
     
   ],
   imports: [

@@ -5,9 +5,6 @@ var ServiceProvider =  mongoose.model('ServiceProvider', {
         type:String,
         required:true
     }, 
-    lname : {
-        type:String,
-    },
     username:{
         type:String,
 		required:true
