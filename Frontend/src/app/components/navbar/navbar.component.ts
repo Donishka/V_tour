@@ -9,6 +9,11 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+<<<<<<< HEAD
+  user:any ;
+  vroute:String = "Profile";
+=======
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
 
   constructor(
 
@@ -19,6 +24,26 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+<<<<<<< HEAD
+    
+  }
+  
+
+  selectProfile(){ 
+
+    const us = localStorage.getItem("user");
+    this.user = JSON.parse(us);
+             
+      if(this.user.usertype === "client" ){
+        this.router.navigate(['/client-account']);
+      }
+      else if(this.user.usertype === "serviceprovider"){ 
+        this.router.navigate(['/service-provider-account']);
+      }else if(this.user.usertype === "travelagent"){ 
+        this.router.navigate(['/travelagent-account']);
+      }
+=======
+>>>>>>> d3781741f7c18321f7e55de499af5469f249c38b
   }
 
   logoutUser(){

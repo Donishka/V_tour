@@ -37,7 +37,6 @@ user:any;
     });
   }
 
-
   resetForm(form?: NgForm) {
     if (form)
       form.reset();
