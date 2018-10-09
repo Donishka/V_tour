@@ -21,14 +21,13 @@ import { ViewUserModule } from './modules/user-account/view-user.module';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { HeaderBarModule } from './modules/header-bar/header-bar.module';
 import { PaymentModule } from './modules/payment/payment.module';
-import { SearchBarComponent } from './components/search-bar/search-bar.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SearchBarComponent,
-    
     
   ],
   imports: [
@@ -46,7 +45,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     HeaderBarModule,
     PaymentModule,
     FormsModule,
-    TypeaheadModule.forRoot()
+    TypeaheadModule.forRoot(), 
     
   ],
   providers: [AuthService],
