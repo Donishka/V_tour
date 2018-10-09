@@ -5,13 +5,10 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+
 
 import { AuthService } from './services/auth.service';
-
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import { QuickAccessComponent } from './quick-access/quick-access.component';
-import { DraftedItenarariesComponent } from './drafted-itenararies/drafted-itenararies.component';
-import { GridViewComponent } from './grid-view/grid-view.component';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -24,15 +21,13 @@ import { ViewUserModule } from './modules/user-account/view-user.module';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { HeaderBarModule } from './modules/header-bar/header-bar.module';
 import { PaymentModule } from './modules/payment/payment.module';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchBarComponent,
-    QuickAccessComponent,
-    DraftedItenarariesComponent,
-    GridViewComponent,
     HomeComponent,
+    SearchBarComponent,
     
     
   ],
@@ -50,7 +45,8 @@ import { PaymentModule } from './modules/payment/payment.module';
     ViewUserModule,
     HeaderBarModule,
     PaymentModule,
-    FormsModule
+    FormsModule,
+    TypeaheadModule.forRoot()
     
   ],
   providers: [AuthService],
