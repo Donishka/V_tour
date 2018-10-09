@@ -7,6 +7,7 @@ import { RouterModule, Routes }  from '@angular/router';
 import { ViewTravelAgentsComponent } from '../../components/travelAgent/view-travel-agents/view-travel-agents.component';
 import { ViewClientsComponent } from '../../components/client/view-clients/view-clients.component';
 import { ViewServiceProvidersComponent } from '../../components/serviceProvider/view-service-providers/view-service-providers.component';
+import { TravelAgentFilterPipe } from '../../components/travelAgent/travel-agent-filter.pipe';
 
 @NgModule({
   imports: [
@@ -14,16 +15,20 @@ import { ViewServiceProvidersComponent } from '../../components/serviceProvider/
     FormsModule,
     FlashMessagesModule,
     RouterModule,
+ 
+    
  ],
   declarations: [
     ViewTravelAgentsComponent,
     ViewClientsComponent,
-    ViewServiceProvidersComponent
+    ViewServiceProvidersComponent,
+    TravelAgentFilterPipe,
   ],
   exports:[
     ViewTravelAgentsComponent,
     ViewClientsComponent,
-    ViewServiceProvidersComponent
+    ViewServiceProvidersComponent,
+    TravelAgentFilterPipe
   ]
 })
 export class ViewUserModule { }

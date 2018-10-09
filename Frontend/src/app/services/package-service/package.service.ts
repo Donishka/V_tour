@@ -19,6 +19,7 @@ export class PackageService {
   }
 
   getPackageList() {
+    console.log("service");
     return this.http.get(this.baseURL);
   }
 

@@ -29,6 +29,7 @@ export class AddNewPackageComponent implements OnInit {
 ) { }
 
   ngOnInit() {
+    this.refreshPackageList();
     this.resetForm();
     this.getProfileDetails();
   }
@@ -57,7 +58,7 @@ export class AddNewPackageComponent implements OnInit {
       price: null,
     }
   }
-
+/*
   onSubmit(form: NgForm) {
       this.packageService.postPackage(form.value).subscribe((res) => {
         this.flashMessage.show('Package Saved', { cssClass: 'alert-success', timeout: 4000 });
@@ -65,8 +66,42 @@ export class AddNewPackageComponent implements OnInit {
         alert('Package Saved');
         console.log("Saved");     
       });
+  }*/
+  onSubmit(form: NgForm) {
+    if (form.value._id == "") {
+      this.packageService.postPackage(form.value).subscribe((res) => {
+        this.resetForm1(form);
+        this.refreshPackageList();
+        this.flashMessage.show('Service Provider Saved', { cssClass: 'alert-success', timeout: 4000 });
+      });
+    }
+    else {
+      this.packageService.putPackage(form.value).subscribe((res) => {
+        this.resetForm1(form);
+        this.refreshPackageList();
+        this.flashMessage.show('Service Provider Updated', { cssClass: 'alert-success', timeout: 4000 });
+      });
+    }
   }
-  
+
+  refreshPackageList() {
+    console.log("packages")
+    this.packageService.getPackageList().subscribe((res) => {
+      this.packageService.package = res as Package[];
+
+    });
+  }
+  onEdit(pkg: Package) {
+    this.packageService.selectedPackage = pkg;
+  }
+
+  onDelete(_id: string) {
+    if (confirm('Are you sure to delete this record ?') == true) {
+      this.packageService.deletePackage(_id).subscribe((res) => {
+        this.refreshPackageList();
+      });
+    }
+  } 
   getProfileDetails() {
     console.log('get details');
     this.authService.getProfile().subscribe(res => {
