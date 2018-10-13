@@ -1,4 +1,4 @@
-import { Component, OnInit, Pipe  } from '@angular/core';
+import { Component, OnInit, PipeTransform, Pipe   } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
@@ -12,14 +12,17 @@ declare var M: any;
   selector: 'app-view-travel-agents',
   templateUrl: './view-travel-agents.component.html',
   styleUrls: ['./view-travel-agents.component.css'],
-  providers: [TravelAgentService]
+  providers: [TravelAgentService, TravelAgent]
 })
+
+
 export class ViewTravelAgentsComponent implements OnInit {
 
   searchKeyword:string;
-
+  type:string;
   constructor(public travelAgentService:TravelAgentService,
     private flashMessage:FlashMessagesService,
+    public travelAgent: TravelAgent,
     private router:Router) { }
 
   ngOnInit() {
@@ -40,7 +43,7 @@ export class ViewTravelAgentsComponent implements OnInit {
     telephone:[""],
     address:"",
     profilepic:"",
-    isadmin:false
+    isadmin:false,
     }
   }
 
