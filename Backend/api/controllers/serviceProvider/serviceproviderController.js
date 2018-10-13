@@ -66,6 +66,7 @@ router.put('/:id', (req, res) => {
 
 
     if (err) throw err;
+
     ServiceProvider.findByIdAndUpdate(req.params.id, {
         $set: {
             fname: req.body.fname,
