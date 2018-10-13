@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
         clientid:req.body.clientid,
         amount: req.body.amount,
         date: req.body.date,
-        status: req.body.status,
+        status: "Pending",
     });
 itenararypayment.save(itenararypayment, (err, doc) => {
         if (err) {

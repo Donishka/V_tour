@@ -15,47 +15,31 @@
             <input type="hidden" name="items" value="Kandy Tour"><br>
             <input type="hidden" name="currency" value="LKR">
 
-            <input type="hidden" name="first_name" value="{{user.fname}}">
-            <input type="hidden" name="last_name" value="{{user.lname}}"><br>
-            <input type="hidden" name="email" value="{{user.email}}">
-            <input type="hidden" name="phone" value="{{user.telephone}}"><br>
-            <input type="hidden" name="address" value="{{user.address}}">
-            <input type="hidden" name="city" value="{{user.city}}">
-            <input type="hidden" name="country" value="{{user.country}}">
+            <h3>Client Details</h3><br>
+
+            First Name : 
+            <input type="text" name="first_name" value="{{user.fname}}" readonly><br>
+            Last Name :
+            <input type="text" name="last_name" value="{{user.lname}}" readonly><br>
+            Email : 
+            <input type="text" name="email" value="{{user.email}}" readonly><br>
+            Telephone : 
+            <input type="text" name="phone" value="{{user.telephone}}"readonly><br>
+            Address : 
+            <input type="text" name="address" value="{{user.address}}"readonly><br>
+            City:
+            <input type="text" name="city" value="{{user.city}}"readonly><br>
+            Country:
+            <input type="text" name="country" value="{{user.country}}"readonly><br><br>
             
-            <h3>Payment Details : </h3><br>
+            <h3>Payment Details</h3><br>
             <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="itenararyPaymentService.selectedItenararyPayment._id">
             <input type="hidden" class="form-control" name="clientid" #name="ngModel" [(ngModel)]="user._id" required>
-
-            <div class="form-group"> <!--DB + Payment Gateway Value-->
-              <label for="amount" class="cols-sm-2 control-label">Amount</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="amount" #name="ngModel" [(ngModel)]="itenararyPaymentService.selectedItenararyPayment.amount"> <!--readonly-->
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="date" class="cols-sm-2 control-label">Date</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                  <input type="date" class="form-control" name="date" #name="ngModel" [(ngModel)]="itenararyPaymentService.selectedItenararyPayment.date">
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="status" class="cols-sm-2 control-label">Status</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="status" #name="ngModel" [(ngModel)]="itenararyPaymentService.selectedItenararyPayment.status">
-                </div>
-              </div>
-            </div>
+            Amount : 
+            <input type="text" name="amount" #name="ngModel" [(ngModel)]="itenararyPaymentService.selectedItenararyPayment.amount" ><br> <!--readonly-->
+            Date :
+            <input type="date" name="date" #name="ngModel" [(ngModel)]="itenararyPaymentService.selectedItenararyPayment.date"><br>
+            <br>
             <flash-messages></flash-messages>
             <div class="form-group ">
               <button class="btn btn-primary btn-lg btn-block login-button" type="submit" (click)="form.submit()"[disabled]="!userForm.valid">Make ItenararyPayment</button>

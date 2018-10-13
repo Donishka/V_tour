@@ -4,7 +4,6 @@ import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
-
 import { TravelAgentService } from '../../../services/user-service/travelAgent/travelagent.service';
 import { TravelAgent } from '../../../services/user-service/travelAgent/travelagent.model';
 
