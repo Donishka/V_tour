@@ -33,7 +33,7 @@ const applicationRoutes:Routes = [
   {path:'service-provider-account',component:ServiceProviderAccountComponent,canActivate: [AuthGuard]},
   {path:'client-account',component:ClientAccountComponent,canActivate: [AuthGuard]},
   {path:'travelagent-account',component:TravelAgentAccountComponent,canActivate: [AuthGuard]},
-  { path: 'client-payment', component: ClientPaymentComponent, canActivate: [AuthGuard] }
+  {path: 'client-payment', component: ClientPaymentComponent, canActivate: [AuthGuard] }
 
 ];
 
