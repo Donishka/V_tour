@@ -28,7 +28,6 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     var serviceprovider = new ServiceProvider({
         fname: req.body.fname,
-        lname:req.body.lname,
         username: req.body.username,
         password: req.body.password,
         email:req.body.email,
@@ -55,7 +54,6 @@ router.put('/:id', (req, res) => {
 
     var serviceprovider = {
         fname: req.body.fname,
-        lname:req.body.lname,
         username: req.body.username,
         email:req.body.email,
         telephone: req.body.telephone,
@@ -66,10 +64,23 @@ router.put('/:id', (req, res) => {
         usertype:"serviceprovider"
     };
 
-                    ServiceProvider.findByIdAndUpdate(req.params.id, { $set: serviceprovider }, { new: true }, (err, doc) => {
-                        if (!err) { res.send(doc); }
-                        else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
-    });
+
+            if (err) throw err;*/
+    ServiceProvider.findByIdAndUpdate(req.params.id, {
+        $set: {
+            fname: req.body.fname,
+            username: req.body.username,
+            email: req.body.email,
+            telephone: req.body.telephone,
+            address: req.body.address,
+            type: req.body.type,
+            discription: req.body.discription,
+            profilepic: req.body.profilepic,
+            usertype: "serviceprovider"} }, { new: true }, (err, doc) => {
+                if (!err) { res.send(doc); }
+                else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
+            });
+
 });
 
 router.delete('/:id', (req, res) => {

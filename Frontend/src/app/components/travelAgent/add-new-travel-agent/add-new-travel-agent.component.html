@@ -64,7 +64,7 @@
                   <div class="cols-sm-10">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fas fa-phone-square" aria-hidden="true"></i></span>
-                      <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.telephone"  >
+                      <input type="number" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.telephone"  >
                     </div>
                   </div>
                 </div>
@@ -84,7 +84,10 @@
                   <div class="cols-sm-10">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                      <input type="text" class="form-control" name="isadmin" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.isadmin"  >
+                      <select class="form-control" name="isadmin" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.isadmin"  >
+                        <option value="true">True</option>
+                        <option value="false">False</option>
+                      </select>
                     </div>
                    </div>
                 </div>
