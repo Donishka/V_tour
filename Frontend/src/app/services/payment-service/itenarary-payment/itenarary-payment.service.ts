@@ -3,30 +3,31 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-import { Package } from './package.model';
+import { ItenararyPayment } from './itenarary-payment.model';
 
 @Injectable()
-export class PackageService {
-  selectedPackage: Package;
-  package: Package[];
-  readonly baseURL = 'http://localhost:4201/packages';
+export class ItenararyPaymentService {
+
+  selectedItenararyPayment: ItenararyPayment;
+  itenararypayment: ItenararyPayment[];
+  
+  readonly baseURL = 'http://localhost:4201/itenararypayments';
 
   constructor(private http: HttpClient) { }
 
-  postPackage(p: Package) {
+  postItenararyPayment(p: ItenararyPayment) {
     return this.http.post(this.baseURL, p);
   }
 
-  getPackageList() {
-    console.log("service");
+  getItenararyPaymentList() {
     return this.http.get(this.baseURL);
   }
 
-  putPackage(p: Package) {
+  putItenararyPayment(p: ItenararyPayment) {
     return this.http.put(this.baseURL + `/${p._id}`, p);
   }
 
-  deletePackage(_id: string) {
+  deleteItenararyPayment(_id: string) {
     return this.http.delete(this.baseURL + `/${_id}`);
   }
 }

@@ -35,4 +35,5 @@ export class TravelAgentAccountComponent implements OnInit {
       console.log(this.user);
     });
   }
+  
 }

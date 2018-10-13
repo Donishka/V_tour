@@ -72,14 +72,14 @@ export class AddNewPackageComponent implements OnInit {
       this.packageService.postPackage(form.value).subscribe((res) => {
         this.resetForm1(form);
         this.refreshPackageList();
-        this.flashMessage.show('Service Provider Saved', { cssClass: 'alert-success', timeout: 4000 });
+        this.flashMessage.show('Package  Saved', { cssClass: 'alert-success', timeout: 4000 });
       });
     }
     else {
       this.packageService.putPackage(form.value).subscribe((res) => {
         this.resetForm1(form);
         this.refreshPackageList();
-        this.flashMessage.show('Service Provider Updated', { cssClass: 'alert-success', timeout: 4000 });
+        this.flashMessage.show('Package Updated', { cssClass: 'alert-success', timeout: 4000 });
       });
     }
   }
