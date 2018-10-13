@@ -50,7 +50,7 @@ export class EditTravelAgentComponent implements OnInit {
       telephone: [""],
       address: "",
       profilepic:"",
-      isadmin: false
+      isadmin: false,
     }
   }
   onSubmit(form: NgForm) {

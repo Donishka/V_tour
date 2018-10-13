@@ -10,11 +10,13 @@ import { TravelAgent } from './travelagent.model';
 export class TravelAgentService {
   selectedTravelAgent: TravelAgent;
   tagent: TravelAgent[];
+  type:string;
+  
   readonly baseURL = 'http://localhost:4201/travelagents';
 
   constructor(private http: HttpClient) { }
 
-
+  
   postTravelAgent(tagent: TravelAgent) { 
     return this.http.post(this.baseURL, tagent);
   }
