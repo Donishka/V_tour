@@ -12,9 +12,7 @@ export class TravelAgentFilterPipe implements PipeTransform {
             return travelagents;
         }else{
             return travelagents.filter(travelagents =>
-                travelagents.fname.toLowerCase().indexOf(searchKeyword.toLowerCase()) !== -1,
-                travelagents =>
-                travelagents.lname.toLowerCase().indexOf(searchKeyword.toLowerCase()) !== -1);
+                travelagents.fname.toLowerCase().indexOf(searchKeyword.toLowerCase()) !== -1);
         }
     }
 }
