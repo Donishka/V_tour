@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-header>
+    <mat-toolbar class="toolbar">
+      <mat-card-title>Itinerary Information</mat-card-title>
+      <span class="toobar-spacer"></span>
+      <mat-icon (click)="addEvent()">Add Event</mat-icon>
+    </mat-toolbar>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="container">
+      <table>
+        <thead>
+          <th>Event name</th>
+          <th>Event venue</th>
+          <th>Event position</th>
+          <th>Event id</th>
+        </thead>
+        <tr *ngFor="let event of EventList">
+          <td>{{event.name}}</td>
+          <td>{{event.id}}</td>
+          <td>{{event.position}}</td>
+          <td>{{event.venue}}</td>
+        </tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>

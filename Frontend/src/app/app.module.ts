@@ -21,14 +21,18 @@ import { ViewUserModule } from './modules/user-account/view-user.module';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { HeaderBarModule } from './modules/header-bar/header-bar.module';
 import { PaymentModule } from './modules/payment/payment.module';
+import { ItineraryModule } from './modules/itinerary/itinerary.module';
+
+
+
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,8 @@ import { PaymentModule } from './modules/payment/payment.module';
     HeaderBarModule,
     PaymentModule,
     FormsModule,
-    TypeaheadModule.forRoot(), 
+    TypeaheadModule.forRoot(),
+    ItineraryModule 
     
   ],
   providers: [AuthService],
