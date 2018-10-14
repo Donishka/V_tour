@@ -1,12 +1,21 @@
-<mat-card-header>
+<!-- <mat-card-header>
   <mat-toolbar class="toolbar">
     <mat-card-title>Event Information</mat-card-title>
     <span class="toobar-spacer"></span>
     <mat-icon (click)="onNoClick()">cancle</mat-icon>
   </mat-toolbar>
 </mat-card-header>
-<mat-card-content>
-  <div class="container">
+<mat-card-content> -->
+
+
+
+
+
+
+
+
+
+  <!-- <div class="container">
     <form action="" [formGroup]="evnetForm" (submit)="onSubmit()">
       <div class="form-group">
         <div class="row">
@@ -38,5 +47,273 @@
         <button type="submit" class="btn btn-success">Add event</button>
       </div>
     </form>
+  </div> -->
+
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5 col-md-5">
+        <div class="tabulation animate-box">
+
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+              <a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Flights</a>
+            </li>
+            <li role="presentation">
+              <a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">Hotels</a>
+            </li>
+            <li role="presentation">
+              <a href="#packages" aria-controls="packages" role="tab" data-toggle="tab">Packages</a>
+            </li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+              <form action="" [formGroup]="evnetForm" (submit)="onSubmit()">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label for="Name">Event Name</label>
+                        <input type="text" formControlName="name" class="form-control">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label for="Name">Venue</label>
+                        <input type="venue" formControlName="venue" class="form-control">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label for="Name">id</label>
+                        <input type="id" formControlName="id" class="form-control">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label for="Name">Position</label>
+                        <input type="position" formControlName="position" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button type="submit" class="btn btn-success">Add event</button>
+                    <button class="btn btn-danger" (click) = "onNoClick()">close</button>
+                  </div>
+                </form>
+            <div role="tabpanel" class="tab-pane active" id="flights">
+                
+              <div class="row">
+                <div class="col-xxs-12 col-xs-6 mt">
+                  <div class="input-field">
+                    <label for="from">From:</label>
+                    <input type="text" class="form-control" id="from-place" placeholder="Los Angeles, USA" />
+                  </div>
+                </div>
+                <div class="col-xxs-12 col-xs-6 mt">
+                  <div class="input-field">
+                    <label for="from">To:</label>
+                    <input type="text" class="form-control" id="to-place" placeholder="Tokyo, Japan" />
+                  </div>
+                </div>
+                <div class="col-xxs-12 col-xs-6 mt alternate">
+                  <div class="input-field">
+                    <label for="date-start">Check In:</label>
+                    <input type="text" class="form-control" id="date-start" placeholder="mm/dd/yyyy" />
+                  </div>
+                </div>
+                <div class="col-xxs-12 col-xs-6 mt alternate">
+                  <div class="input-field">
+                    <label for="date-end">Check Out:</label>
+                    <input type="text" class="form-control" id="date-end" placeholder="mm/dd/yyyy" />
+                  </div>
+                </div>
+                <div class="col-sm-12 mt">
+                  <section>
+                    <label for="class">Class:</label>
+                    <select class="cs-select cs-skin-border">
+                      <option value="" disabled selected>Economy</option>
+                      <option value="economy">Economy</option>
+                      <option value="first">First</option>
+                      <option value="business">Business</option>
+                    </select>
+                  </section>
+                </div>
+                <div class="col-xxs-12 col-xs-6 mt">
+                  <section>
+                    <label for="class">Adult:</label>
+                    <select class="cs-select cs-skin-border">
+                      <option value="" disabled selected>1</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </section>
+                </div>
+                <div class="col-xxs-12 col-xs-6 mt">
+                  <section>
+                    <label for="class">Children:</label>
+                    <select class="cs-select cs-skin-border">
+                      <option value="" disabled selected>1</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </section>
+                </div>
+                <div class="col-xs-12">
+                  <input type="submit" class="btn btn-primary btn-block" value="Search Flight">
+                </div>
+              </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="hotels">
+              <div class="row">
+                <div class="col-xxs-12 col-xs-12 mt">
+                  <div class="input-field">
+                    <label for="from">City:</label>
+                    <input type="text" class="form-control" id="from-place" placeholder="Los Angeles, USA" />
+                  </div>
+                </div>
+                <div class="col-xxs-12 col-xs-6 mt alternate">
+                  <div class="input-field">
+                    <label for="date-start">Return:</label>
+                    <input type="text" class="form-control" id="date-start" placeholder="mm/dd/yyyy" />
+                  </div>
+                </div>
+                <div class="col-xxs-12 col-xs-6 mt alternate">
+                  <div class="input-field">
+                    <label for="date-end">Check Out:</label>
+                    <input type="text" class="form-control" id="date-end" placeholder="mm/dd/yyyy" />
+                  </div>
+                </div>
+                <div class="col-sm-12 mt">
+                  <section>
+                    <label for="class">Rooms:</label>
+                    <select class="cs-select cs-skin-border">
+                      <option value="" disabled selected>1</option>
+                      <option value="economy">1</option>
+                      <option value="first">2</option>
+                      <option value="business">3</option>
+                    </select>
+                  </section>
+                </div>
+                <div class="col-xxs-12 col-xs-6 mt">
+                  <section>
+                    <label for="class">Adult:</label>
+                    <select class="cs-select cs-skin-border">
+                      <option value="" disabled selected>1</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </section>
+                </div>
+                <div class="col-xxs-12 col-xs-6 mt">
+                  <section>
+                    <label for="class">Children:</label>
+                    <select class="cs-select cs-skin-border">
+                      <option value="" disabled selected>1</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </section>
+                </div>
+                <div class="col-xs-12">
+                  <input type="submit" class="btn btn-primary btn-block" value="Search Hotel">
+                </div>
+              </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="packages">
+              <div class="row">
+                <div class="col-xxs-12 col-xs-6 mt">
+                  <div class="input-field">
+                    <label for="from">City:</label>
+                    <input type="text" class="form-control" id="from-place" placeholder="Los Angeles, USA" />
+                  </div>
+                </div>
+                <div class="col-xxs-12 col-xs-6 mt">
+                  <div class="input-field">
+                    <label for="from">Destination:</label>
+                    <input type="text" class="form-control" id="to-place" placeholder="Tokyo, Japan" />
+                  </div>
+                </div>
+                <div class="col-xxs-12 col-xs-6 mt alternate">
+                  <div class="input-field">
+                    <label for="date-start">Departs:</label>
+                    <input type="text" class="form-control" id="date-start" placeholder="mm/dd/yyyy" />
+                  </div>
+                </div>
+                <div class="col-xxs-12 col-xs-6 mt alternate">
+                  <div class="input-field">
+                    <label for="date-end">Return:</label>
+                    <input type="text" class="form-control" id="date-end" placeholder="mm/dd/yyyy" />
+                  </div>
+                </div>
+                <div class="col-sm-12 mt">
+                  <section>
+                    <label for="class">Rooms:</label>
+                    <select class="cs-select cs-skin-border">
+                      <option value="" disabled selected>1</option>
+                      <option value="economy">1</option>
+                      <option value="first">2</option>
+                      <option value="business">3</option>
+                    </select>
+                  </section>
+                </div>
+                <div class="col-xxs-12 col-xs-6 mt">
+                  <section>
+                    <label for="class">Adult:</label>
+                    <select class="cs-select cs-skin-border">
+                      <option value="" disabled selected>1</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </section>
+                </div>
+                <div class="col-xxs-12 col-xs-6 mt">
+                  <section>
+                    <label for="class">Children:</label>
+                    <select class="cs-select cs-skin-border">
+                      <option value="" disabled selected>1</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </section>
+                </div>
+                <div class="col-xs-12">
+                  <input type="submit" class="btn btn-primary btn-block" value="Search Packages">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="desc2 animate-box">
+        <div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
+          <p>Create new Event</p>
+          <h2>vTour Itinerary</h2>
+          <h3>Itinerary One</h3>
+        </div>
+      </div>
+    </div>
   </div>
-</mat-card-content>
+
+
+
+
+<!-- </mat-card-content> -->

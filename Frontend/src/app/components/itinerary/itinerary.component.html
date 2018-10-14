@@ -1,14 +1,46 @@
+
+      <div class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <a class="navbar-brand" href="#">V Tour</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+              <!-- <li class="nav-item active">
+                  <a class="nav-link"  [routerLink] = "['/home']">Home <span class="sr-only">(current)</span></a>
+                </li> -->
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="nav-item">
+                <button  class="nav-link" (click)="addEvent()" >Add event</button>
+              </li>
+              <!-- <li class="nav-item">
+                <a  class="nav-link" >Login</a>
+              </li>
+              <li class="nav-item">
+                <a  class="nav-link" href="">Logout</a>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+
+
 <mat-card>
-  <mat-card-header>
-    <mat-toolbar class="toolbar">
+  <!-- <mat-card-header>
+    <mat-toolbar class="toolbar" >
+      
       <mat-card-title>Itinerary Information</mat-card-title>
       <span class="toobar-spacer"></span>
-      <mat-icon (click)="addEvent()">Add Event</mat-icon>
+      <mat-icon (click)="addEvent()" >Add Event</mat-icon>
     </mat-toolbar>
-  </mat-card-header>
+    
+  </mat-card-header> -->
+
   <mat-card-content>
     <div class="container">
-      <table>
+      <table class="table table-bordered">
         <thead>
           <th>Event name</th>
           <th>Event venue</th>
