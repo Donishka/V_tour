@@ -13,6 +13,7 @@ import { Itinerary } from './model/itinerary.model';
 export class ItineraryService {
 
   eventList  : Event[] = [];
+  iT: Itinerary[];
 
   constructor(private http: HttpClient) { }
 
@@ -48,9 +49,9 @@ export class ItineraryService {
     return this.http.post(this.baseURL, itinerary);
   }
 
-  // getTravelAgentList() {
-  //   return this.http.get(this.baseURL);
-  // }
+  getItinerrytList() {
+    return this.http.get(this.baseURL);
+  }
 
   // putTravelAgent(itinerary: Itinerary) {
   //   return this.http.put(this.baseURL + `/${itinerary._id}`, itinerary);

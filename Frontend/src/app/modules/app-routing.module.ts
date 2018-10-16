@@ -18,6 +18,7 @@ import { ClientAccountComponent } from '../components/client/client-account/clie
 import { EditServiceProviderComponent } from '../components/serviceProvider/edit-service-provider/edit-service-provider.component';
 import { ClientPaymentComponent } from '../components/client/client-payment/client-payment.component';
 import { ItineraryComponent } from '../components/itinerary/itinerary.component';
+import { ViewItineraryComponent } from '../components/itinerary/view-itinerary/view-itinerary.component';
 
 const applicationRoutes:Routes = [
   {path:'login',component:LoginComponent},
@@ -35,7 +36,8 @@ const applicationRoutes:Routes = [
   {path:'client-account',component:ClientAccountComponent,canActivate: [AuthGuard]},
   {path:'travelagent-account',component:TravelAgentAccountComponent,canActivate: [AuthGuard]},
   {path: 'client-payment', component: ClientPaymentComponent, canActivate: [AuthGuard] },
-  {path: 'itinerary', component: ItineraryComponent, canActivate: [AuthGuard] }
+  {path: 'itinerary', component: ItineraryComponent, canActivate: [AuthGuard] },
+  {path: 'view-itinerary', component: ViewItineraryComponent, canActivate: [AuthGuard] }
 
 ];
 

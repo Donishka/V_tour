@@ -1,0 +1,13 @@
+<div class="container">
+  
+  <div class="card" *ngFor = "let iT of itineraryService.iT; let i = index" >
+    <div class="card-header">
+      {{i+1}}.Tranvel Agent: {{iT.traveAgentName}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title" *ngFor="let event of iT.events">{{event.name}}</h5>
+      <a href="#" class="btn btn-primary">Edit</a>
+    </div>
+  </div>
+</div>
+

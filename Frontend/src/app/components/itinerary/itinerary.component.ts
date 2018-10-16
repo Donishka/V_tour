@@ -67,6 +67,7 @@ export class ItineraryComponent implements OnInit {
     this.itineraryService.postItinerary(this.itinerary).subscribe((res) => {
         
         alert('Itinerary Saved');
+        
         console.log("Saved");
         
       });

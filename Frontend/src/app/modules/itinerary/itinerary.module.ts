@@ -8,6 +8,7 @@ import { ItineraryComponent } from '../../components/itinerary/itinerary.compone
 import { ItineraryService } from '../../services/itinerary-service/itinerary.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { ViewItineraryComponent } from '../../components/itinerary/view-itinerary/view-itinerary.component';
 
 
 @NgModule({
@@ -23,11 +24,13 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   ],
   declarations: [
     EventComponent,
-    ItineraryComponent
+    ItineraryComponent,
+    ViewItineraryComponent
   ],
   exports:[
     EventComponent,
-    ItineraryComponent
+    ItineraryComponent,
+    ViewItineraryComponent
   ],
   providers:[
     ItineraryService,
