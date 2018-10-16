@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ItineraryService } from '../../services/itinerary-service/itinerary.service';
 import { EventComponent } from './event/event.component';
+import { Itinerary } from '../../services/itinerary-service/model/itinerary.model'
 
 @Component({
   selector: 'app-itinerary',
@@ -10,6 +11,8 @@ import { EventComponent } from './event/event.component';
   
 })
 export class ItineraryComponent implements OnInit {
+
+  itinerary: Itinerary = new Itinerary();
 
   isPopupOpened = false;
 
@@ -53,15 +56,15 @@ export class ItineraryComponent implements OnInit {
     this.eventService.removeEvent(id);
   }
 
-  // save() {
-    
-  //   this.itineraryService.postItinerary().subscribe((res) => {
+  save() {
+    this.itinerary.events = this.eventService.getAllEvents();
+    this.itineraryService.postItinerary(this.itinerary).subscribe((res) => {
         
-  //       alert('Itinerary Saved');
-  //       console.log("Saved");
+        alert('Itinerary Saved');
+        console.log("Saved");
         
-  //     });
-  //}
+      });
+  }
 
 
 }
