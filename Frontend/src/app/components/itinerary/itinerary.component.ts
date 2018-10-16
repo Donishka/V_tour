@@ -61,7 +61,7 @@ export class ItineraryComponent implements OnInit {
     this.eventService.removeEvent(id);
   }
 
-  save() {
+  addItinerary() {
     this.itinerary.traveAgentName = this.traveAgentdata.username;
     this.itinerary.events = this.eventService.getAllEvents();
     this.itineraryService.postItinerary(this.itinerary).subscribe((res) => {
