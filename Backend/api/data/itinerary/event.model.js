@@ -13,6 +13,6 @@ var Event = mongoose.model('Event', {
     venue: {
         type: String,
     }
-}, 'events');
+}, 'event');
 
 module.exports = { Event };
