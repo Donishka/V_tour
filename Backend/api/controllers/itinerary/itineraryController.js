@@ -23,6 +23,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     var itinerary = new Itinerary({
+        traveAgentName:req.body.traveAgentName,
         events:req.body.events
     });
     itinerary.save(itinerary, (err, doc) => {
