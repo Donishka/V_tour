@@ -11,21 +11,19 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:id', (req, res) => {
-    if (!ObjectId.isValid(req.params.id))
-        return res.status(400).send(`No record with given id : ${req.params.id}`);
-        var query = { traveAgentName: req.params.traveAgentName };
-
-    Itinerary.findById(req.params.id, (err, doc) => {
+router.get('/:traveAgentName', (req, res) => {
+    Itinerary.find({ traveAgentName: req.params.traveAgentName }, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Retriving Itinerary :' + JSON.stringify(err, undefined, 2)); }
     });
+
+
 });
 
 router.post('/', (req, res) => {
     var itinerary = new Itinerary({
-        traveAgentName:req.body.traveAgentName,
-        events:req.body.events
+        traveAgentName: req.body.traveAgentName,
+        events: req.body.events
     });
     itinerary.save(itinerary, (err, doc) => {
         if (err) {
