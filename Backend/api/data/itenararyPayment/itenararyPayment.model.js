@@ -4,6 +4,9 @@ var ItenararyPayment = mongoose.model('ItenararyPayment', {
     clientid: {
         type: String,
     },
+    clientname: {
+        type: String,
+    },
     amount: {
         type: String,
     },

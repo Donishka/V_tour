@@ -11,7 +11,6 @@ var TravelAgent =  mongoose.model('TravelAgent', {
     },
     username:{
         type:String,
-		required:true
     },
     password : {
         type:String,
