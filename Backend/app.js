@@ -11,6 +11,7 @@ var clientController = require('./api/controllers/client/clientController.js');
 var loginController = require('./api/controllers/login/loginUserController');
 var packageController=require('./api/controllers/package/packageController.js');
 var itenararyPaymentController = require('./api/controllers/itenararyPayment/itenararyPaymentController.js');
+var itineraryController = require('./api/controllers/itinerary/itineraryController');
 
 
 const port = process.env.PORT ||4201;
@@ -28,3 +29,4 @@ app.use('/clients', clientController);
 app.use('/packages', packageController);
 app.use('/itenararypayments', itenararyPaymentController);
 app.use('', loginController);
+app.use('/itinerary', itineraryController);

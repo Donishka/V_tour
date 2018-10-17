@@ -1,12 +1,13 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ItineraryService } from '../../../services/itinerary-service/itinerary.service';
 
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
-  styleUrls: ['./event.component.css']
+  styleUrls: ['./event.component.css'],
+  
 })
 export class EventComponent implements OnInit {
 
@@ -26,15 +27,20 @@ export class EventComponent implements OnInit {
 
   ngOnInit() {
     this.evnetForm = this.formBuilder.group({
-      id: [],
-      position: ['',[Validators.required]],
-      name:  ['',[Validators.required]],
-      venue:  ['',[Validators.required]]
+      id: [this.data.id],
+      position: [this.data.position,[Validators.required]],
+      name:  [this.data.name,[Validators.required]],
+      venue:  [this.data.venue,[Validators.required]]
     });
   }
   onSubmit(){
-    this.eventService.addEvent(this.evnetForm.value);
-    this.dialogRef.close();
+    if(isNaN(this.data.id)){
+      this.eventService.addEvent(this.evnetForm.value);
+      this.dialogRef.close();
+    }else{
+      this.eventService.editEvent(this.evnetForm.value);
+      this.dialogRef.close();
+    }
   }
 
 }
