@@ -17,6 +17,7 @@ import { ServiceProviderAccountComponent } from '../components/serviceProvider/s
 import { ClientAccountComponent } from '../components/client/client-account/client-account.component';
 import { EditServiceProviderComponent } from '../components/serviceProvider/edit-service-provider/edit-service-provider.component';
 import { ClientPaymentComponent } from '../components/client/client-payment/client-payment.component';
+import { ViewClientPaymentsComponent } from '../components/payments/view-client-payments/view-client-payments.component';
 
 const applicationRoutes:Routes = [
   {path:'login',component:LoginComponent},
@@ -33,7 +34,8 @@ const applicationRoutes:Routes = [
   {path:'service-provider-account',component:ServiceProviderAccountComponent,canActivate: [AuthGuard]},
   {path:'client-account',component:ClientAccountComponent,canActivate: [AuthGuard]},
   {path:'travelagent-account',component:TravelAgentAccountComponent,canActivate: [AuthGuard]},
-  {path: 'client-payment', component: ClientPaymentComponent, canActivate: [AuthGuard] }
+  {path: 'client-payment', component: ClientPaymentComponent, canActivate: [AuthGuard] },
+  {path: 'viewclientpayment', component: ViewClientPaymentsComponent, canActivate: [AuthGuard] },
 
 ];
 

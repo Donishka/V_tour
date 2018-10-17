@@ -18,7 +18,7 @@
             <h3>Client Details</h3><br>
 
             First Name : 
-            <input type="text" name="first_name" value="{{user.fname}}" readonly><br>
+            <input type="text" name="first_name" #name="ngModel" [(ngModel)]=user.fname readonly><br>
             Last Name :
             <input type="text" name="last_name" value="{{user.lname}}" readonly><br>
             Email : 

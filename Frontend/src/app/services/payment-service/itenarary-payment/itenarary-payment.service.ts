@@ -16,6 +16,7 @@ export class ItenararyPaymentService {
   constructor(private http: HttpClient) { }
 
   postItenararyPayment(p: ItenararyPayment) {
+    console.log(p);
     return this.http.post(this.baseURL, p);
   }
 

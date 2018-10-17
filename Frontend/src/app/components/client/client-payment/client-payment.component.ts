@@ -34,6 +34,7 @@ export class ClientPaymentComponent implements OnInit {
     this.itenararyPaymentService.selectedItenararyPayment = {
       _id: "",
       clientid: "",
+      clientname:"",
       amount: "",
       date: "",
       status: "",
@@ -45,6 +46,7 @@ export class ClientPaymentComponent implements OnInit {
       this.itenararyPaymentService.selectedItenararyPayment = {
         _id: "",
         clientid: "",
+        clientname: "",
         amount: "",
         date: "",
         status: "",
@@ -56,6 +58,7 @@ export class ClientPaymentComponent implements OnInit {
     this.itenararyPaymentService.postItenararyPayment(form.value).subscribe((res) => {
       this.flashMessage.show('Purchased', { cssClass: 'alert-success', timeout: 4000 });
       this.resetForm1(form);
+      console.log(form.value);
     });
   }
 
