@@ -15,7 +15,7 @@ declare var M: any;
 })
 
 export class TravelAgentAccountComponent implements OnInit {
-  user: any;
+  user: any = {fname:"First name",lname:"Last name"};
   constructor(
     public travelAgentService: TravelAgentService,
     private authService: AuthService,

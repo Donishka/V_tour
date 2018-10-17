@@ -1,5 +1,5 @@
 import { Event } from './event.model';
 export class Itinerary {
-    traveAgentName:String;
+    traveAgentName:string;
     events:Event[]
 }

@@ -7,7 +7,7 @@ import { AuthService } from '../auth.service';
 })
 export class SharedataService {
 
-  user: any;
+  user: any = {username:"Janiya"};
 
   private messageSource = new BehaviorSubject<any>(this.user);
   currentMessge = this.messageSource.asObservable();
@@ -15,6 +15,8 @@ export class SharedataService {
   changeMessage(message: any) {
     this.messageSource.next(message);
   }
+
+  
 
   constructor(
     private authService: AuthService

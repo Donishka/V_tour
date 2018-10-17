@@ -49,8 +49,8 @@ export class ItineraryService {
     return this.http.post(this.baseURL, itinerary);
   }
 
-  getItinerrytList() {
-    return this.http.get(this.baseURL);
+  getItinerrytList(itinerary: Itinerary) {
+    return this.http.get(this.baseURL + `/${itinerary.traveAgentName}`);
   }
 
   // putTravelAgent(itinerary: Itinerary) {
