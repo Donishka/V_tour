@@ -15,10 +15,10 @@
             <input type="hidden" name="items" value="Kandy Tour"><br>
             <input type="hidden" name="currency" value="LKR">
 
-            <h3>Client Details</h3><br>
+            <h3>Client Details</h3>
 
             First Name : 
-            <input type="text" name="first_name" #name="ngModel" [(ngModel)]=user.fname readonly><br>
+            <input type="text" name="first_name" value="{{user.fname}}" readonly><br>
             Last Name :
             <input type="text" name="last_name" value="{{user.lname}}" readonly><br>
             Email : 
@@ -32,13 +32,15 @@
             Country:
             <input type="text" name="country" value="{{user.country}}"readonly><br><br>
             
-            <h3>Payment Details</h3><br>
+            <input type="hidden" name="clientname" #name="ngModel" [(ngModel)]=user.fname>
             <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="itenararyPaymentService.selectedItenararyPayment._id">
-            <input type="hidden" class="form-control" name="clientid" #name="ngModel" [(ngModel)]="user._id" required>
+
+            <h3>Payment Details</h3>
+            <input type="hidden" name="clientid" #name="ngModel" [(ngModel)]="user._id" required>
             Amount : 
             <input type="text" name="amount" #name="ngModel" [(ngModel)]="itenararyPaymentService.selectedItenararyPayment.amount" ><br> <!--readonly-->
             Date :
-            <input type="date" name="date" #name="ngModel" [(ngModel)]="itenararyPaymentService.selectedItenararyPayment.date"><br>
+            <input type="text" name="date" #name="ngModel" [(ngModel)]="current_date"><br>
             <br>
             <flash-messages></flash-messages>
             <div class="form-group ">
