@@ -6,7 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule, MatDialogModule, MatToolbarModule, MatIconModule } from '@angular/material';
 import { ItineraryComponent } from '../../components/itinerary/itinerary.component';
 import { ItineraryService } from '../../services/itinerary-service/itinerary.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { ViewItineraryComponent } from '../../components/itinerary/view-itinerary/view-itinerary.component';
+
 
 @NgModule({
   imports: [
@@ -21,14 +24,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
   ],
   declarations: [
     EventComponent,
-    ItineraryComponent
+    ItineraryComponent,
+    ViewItineraryComponent
   ],
   exports:[
     EventComponent,
-    ItineraryComponent
+    ItineraryComponent,
+    ViewItineraryComponent
   ],
   providers:[
-    ItineraryService
+    ItineraryService,
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+     { provide: MatDialogRef, useValue: {} }
   ],
   entryComponents:[EventComponent]
 })

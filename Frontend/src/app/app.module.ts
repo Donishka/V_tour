@@ -9,6 +9,7 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 
 
 import { AuthService } from './services/auth.service';
+import { SharedataService } from './services/sharedata/sharedata.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -27,6 +28,7 @@ import { ItineraryModule } from './modules/itinerary/itinerary.module';
   declarations: [
     AppComponent,
     HomeComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,7 @@ import { ItineraryModule } from './modules/itinerary/itinerary.module';
     ItineraryModule 
     
   ],
-  providers: [AuthService],
+  providers: [AuthService,SharedataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
