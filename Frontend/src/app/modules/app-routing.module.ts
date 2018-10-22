@@ -21,6 +21,7 @@ import { ClientPaymentComponent } from '../components/client/client-payment/clie
 import { ViewClientPaymentsComponent } from '../components/payments/view-client-payments/view-client-payments.component';
 import { ItineraryComponent } from '../components/itinerary/itinerary.component';
 import { ViewItineraryComponent } from '../components/itinerary/view-itinerary/view-itinerary.component';
+import { EditItineraryComponent } from '../components/itinerary/edit-itinerary/edit-itinerary.component';
 
 const applicationRoutes:Routes = [
   {path:'login',component:LoginComponent},
@@ -40,7 +41,8 @@ const applicationRoutes:Routes = [
   {path: 'client-payment', component: ClientPaymentComponent, canActivate: [AuthGuard] },
   {path: 'viewclientpayment', component: ViewClientPaymentsComponent, canActivate: [AuthGuard] },
   {path: 'itinerary', component: ItineraryComponent, canActivate: [AuthGuard] },
-  {path: 'view-itinerary', component: ViewItineraryComponent, canActivate: [AuthGuard] }
+  {path: 'view-itinerary', component: ViewItineraryComponent, canActivate: [AuthGuard] },
+  {path: 'edit-itinerary', component: EditItineraryComponent, canActivate: [AuthGuard] }
 
 
 ];

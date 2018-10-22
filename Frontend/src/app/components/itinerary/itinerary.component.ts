@@ -49,6 +49,7 @@ export class ItineraryComponent implements OnInit {
   editEvent(id: number){
     this.isPopupOpened = true;
     const event = this.eventService.getAllEvents().find(c => c.id === id );
+    console.log(event);
     const dialogRef = this.dialog.open(EventComponent,{
       data: event
     });

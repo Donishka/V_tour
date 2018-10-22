@@ -20,6 +20,16 @@ router.get('/:traveAgentName', (req, res) => {
 
 });
 
+router.get('/id/:id', (req, res) => {
+    if (!ObjectId.isValid(req.params.id))
+        return res.status(400).send(`No record with given id : ${req.params.id}`);
+
+        Itinerary.findById(req.params.id, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in Retriving Itinerary :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+
 router.post('/', (req, res) => {
     var itinerary = new Itinerary({
         traveAgentName: req.body.traveAgentName,
