@@ -11,27 +11,31 @@ import { SharedataService } from '../../../services/sharedata/sharedata.service'
 export class ViewItineraryComponent implements OnInit {
 
   itinerary: Itinerary = new Itinerary();
+  view:boolean=true;
 
   constructor(
     public itineraryService: ItineraryService,
     private dataS: SharedataService
     
   ) {
-    
-   }
-
-  ngOnInit() {
     this.dataS.shareUserData();
     this.dataS.currentMessge.subscribe(traveAgentdata => {
       this.itinerary.traveAgentName = traveAgentdata.username;
       this.refreshServiceProviderList();
     });
+    
+   }
+
+  ngOnInit() {
 
   }
 
   refreshServiceProviderList() {
     this.itineraryService.getItinerrytList(this.itinerary).subscribe((res) => {
       this.itineraryService.iT = res as Itinerary[];
+      if(this.itineraryService.iT.length == 0){
+        this.view = false;
+      }
     });
   }
 
