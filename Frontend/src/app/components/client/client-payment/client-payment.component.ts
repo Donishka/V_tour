@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 
 import { ItenararyPaymentService } from '../../../services/payment-service/itenarary-payment/itenarary-payment.service';
 
-
 @Component({
   selector: 'app-client-payment',
   templateUrl: './client-payment.component.html',
@@ -16,6 +15,9 @@ import { ItenararyPaymentService } from '../../../services/payment-service/itena
 export class ClientPaymentComponent implements OnInit {
 
   user: any;
+  today: number = Date.now();
+  public current_date = new Date();
+  time: any;
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -26,6 +28,7 @@ export class ClientPaymentComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
     this.getProfileDetails();
+    console.log(this.current_date);
   }
 
   resetForm(form?: NgForm) {

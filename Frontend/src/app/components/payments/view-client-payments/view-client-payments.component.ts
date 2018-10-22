@@ -35,7 +35,9 @@ export class ViewClientPaymentsComponent implements OnInit {
       this.refreshPaymentList();
       this.flashMessage.show('Payment Status Updated', { cssClass: 'alert-success', timeout: 4000 });
       console.log("Updated");
-    });  }
+      console.log(itenararypayment);
+    });  
+  }
 
   onDelete(_id: string) {
     if (confirm('Are you sure to delete this record ?') == true) {

@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     var itenararypayment = new ItenararyPayment({
         clientid:req.body.clientid,
-        clientname: req.body.first_name,
+        clientname: req.body.clientname,
         amount: req.body.amount,
         date: req.body.date,
         status: "Waiting for Confirmation",
@@ -36,7 +36,7 @@ itenararypayment.save(itenararypayment, (err, doc) => {
             res.json({ state: false, msg: "data not inserted" });
         }
         if (doc) {
-            console.log(req.params.first_name);
+            console.log(req.params.clientname);
             res.json({ state: true, msg: "data  inserted" });
         }
     }
@@ -49,10 +49,6 @@ router.put('/:id', (req, res) => {
 
     ItenararyPayment.findByIdAndUpdate(req.params.id, {
         $set: {
-            clientid: req.body.clientid,
-            clientname: req.body.first_name,
-            amount: req.body.amount,
-            date: req.body.date,
             status: "Payment Recived",
         }
     }, { new: true }, (err, doc) => {
