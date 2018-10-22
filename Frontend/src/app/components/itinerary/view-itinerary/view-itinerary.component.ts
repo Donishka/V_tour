@@ -10,20 +10,22 @@ import { SharedataService } from '../../../services/sharedata/sharedata.service'
 })
 export class ViewItineraryComponent implements OnInit {
 
-  traveAgentdata: any;
-
   itinerary: Itinerary = new Itinerary();
 
-  constructor(public itineraryService: ItineraryService,
-    private dataS: SharedataService, ) { }
+  constructor(
+    public itineraryService: ItineraryService,
+    private dataS: SharedataService
+    
+  ) {
+    
+   }
 
   ngOnInit() {
+    this.dataS.shareUserData();
     this.dataS.currentMessge.subscribe(traveAgentdata => {
-      this.traveAgentdata = traveAgentdata;
+      this.itinerary.traveAgentName = traveAgentdata.username;
+      this.refreshServiceProviderList();
     });
-    
-    this.itinerary.traveAgentName = this.traveAgentdata.username;
-    this.refreshServiceProviderList();
 
   }
 

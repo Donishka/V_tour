@@ -2,8 +2,10 @@ import { Component, OnInit,NgZone } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 
+
 import { TravelAgentService } from '../../../services/user-service/travelAgent/travelagent.service';
 import { TravelAgent } from '../../../services/user-service/travelAgent/travelagent.model';
+import { SharedataService } from '../../../services/sharedata/sharedata.service';
 
 declare var M: any;
 @Component({
@@ -11,7 +13,7 @@ declare var M: any;
   templateUrl: './travel-agent-account.component.html',
   styleUrls: ['./travel-agent-account.component.css'],
   providers: [TravelAgentService]
-
+  
 })
 
 export class TravelAgentAccountComponent implements OnInit {
@@ -21,10 +23,16 @@ export class TravelAgentAccountComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private zone:NgZone,
-  ) { }
+    private dataS: SharedataService
+    ) { }
+    
+    ngOnInit() {
+      this.dataS.shareUserData();
+    this.dataS.currentMessge.subscribe(traveAgentdata => {
+      this.user = traveAgentdata;
+    });
 
-  ngOnInit() {
-    this.getProfileDetails();
+   // this.getProfileDetails();
     console.log('init');
   }
 

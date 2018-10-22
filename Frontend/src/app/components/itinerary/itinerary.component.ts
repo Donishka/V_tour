@@ -13,7 +13,6 @@ import { SharedataService } from '../../services/sharedata/sharedata.service';
 })
 export class ItineraryComponent implements OnInit {
 
-  traveAgentdata:any;
   itinerary: Itinerary = new Itinerary();
   isPopupOpened = false;
 
@@ -26,8 +25,9 @@ export class ItineraryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.dataS.shareUserData();
     this.dataS.currentMessge.subscribe(traveAgentdata => {
-      this.traveAgentdata = traveAgentdata;
+      this.itinerary.traveAgentName = traveAgentdata.username;
     });
   }
 
@@ -62,7 +62,7 @@ export class ItineraryComponent implements OnInit {
   }
 
   addItinerary() {
-    this.itinerary.traveAgentName = this.traveAgentdata.username;
+    
     this.itinerary.events = this.eventService.getAllEvents();
     this.itineraryService.postItinerary(this.itinerary).subscribe((res) => {
         
