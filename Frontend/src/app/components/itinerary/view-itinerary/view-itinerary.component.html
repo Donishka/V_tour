@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="view">
   
   <div class="card" *ngFor = "let iT of itineraryService.iT; let i = index" >
     <div class="card-header">
@@ -9,5 +9,10 @@
       <a href="#" class="btn btn-primary">Edit</a>
     </div>
   </div>
+</div>
+<div class="container" *ngIf="!view">
+  <h2>
+    No Itineraries created yet..!
+  </h2>
 </div>
 
