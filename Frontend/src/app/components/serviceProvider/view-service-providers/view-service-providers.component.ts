@@ -15,7 +15,8 @@ declare var M:any;
   providers: [ServiceProviderService]
 })
 export class ViewServiceProvidersComponent implements OnInit {
-
+  searchKeyword: string;
+  type: string;
   constructor(public serviceProviderService:ServiceProviderService,
     private flashMessage:FlashMessagesService,
     private router:Router) { }

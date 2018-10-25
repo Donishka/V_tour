@@ -1,29 +1,42 @@
+<app-nav></app-nav>
 <div class="container-fluid" id="body-container-fluid">
     <div class="container">
       <div class="row">
         <div class="col-lg-4">
-        <div class="card" style="width:100%">
-          <img class="card-img-top" src="https://lh3.googleusercontent.com/a8_ujXr3VWHstGkxgJL1TkqfrytP4r_52QhcvqRQVaQPRQ9DHdQ6seI99qc4jLjC0WDM=h900" alt="Card image"  style="width:100%">
-          <div class="card-body">
-            <h4 class="card-title">{{user.fname}} {{user.lname}}</h4>
-            <div class="address">								
-            <ul class="w3-ul w3-small">
-              <br>
-              <li><i class="fa fa-user" aria-hidden="true"></i>Email : {{user.email}}</li><br>
-              <li><i class="fa fa-user" aria-hidden="true"></i>Telephone : {{user.telephone}}</li><br>
-              <li><i class="fa fa-user" aria-hidden="true"></i>Address : {{user.address}}</li><br>
-              <li><i class="fa fa-user" aria-hidden="true"></i>City : {{user.city}}</li><br>
-              <li><i class="fa fa-user" aria-hidden="true"></i>Country : {{user.country}}</li><br>
-              <li><i class="fa fa-user" aria-hidden="true"></i>foodprefer : {{user.foodprefer}}</li><br>
-              <li><i class="fa fa-user" aria-hidden="true"></i>Activities : {{user.intactivities}}</li><br>
-              <li><i class="fa fa-user" aria-hidden="true"></i>Age Group : {{user.agegroup}}</li><br>
-            </ul>
-            <button class="btn btn-primary" type="button" >View Tour</button><br>
-            <p>.</p>
-            <button class="btn btn-primary" type="button"[routerLink]="['/client-payment']" >Make Payment</button>
+          <div class="card" style="width:100%">
+            <img class="card-img-top" src="https://lh3.googleusercontent.com/a8_ujXr3VWHstGkxgJL1TkqfrytP4r_52QhcvqRQVaQPRQ9DHdQ6seI99qc4jLjC0WDM=h900" alt="Card image"  style="width:100%">
+            <div class="card-body">
+              <h4 class="card-title">{{user.fname}} {{user.lname}}</h4>
+              <div class="address">								
+              <ul class="w3-ul w3-small">
+                <br>
+                <li><i class="fa fa-user" aria-hidden="true"></i>Email : {{user.email}}</li><br>
+                <li><i class="fa fa-user" aria-hidden="true"></i>Telephone : {{user.telephone}}</li><br>
+                <li><i class="fa fa-user" aria-hidden="true"></i>Address : {{user.address}}</li><br>
+                <li><i class="fa fa-user" aria-hidden="true"></i>City : {{user.city}}</li><br>
+                <li><i class="fa fa-user" aria-hidden="true"></i>Country : {{user.country}}</li><br>
+                <li><i class="fa fa-user" aria-hidden="true"></i>foodprefer : {{user.foodprefer}}</li><br>
+                <li><i class="fa fa-user" aria-hidden="true"></i>Activities : {{user.intactivities}}</li><br>
+                <li><i class="fa fa-user" aria-hidden="true"></i>Age Group : {{user.agegroup}}</li><br>
+              </ul>
+              <p></p>
+              <tr *ngFor="let sp of itenararyPaymentService.itenararypayment">
+                <div *ngIf="user._id==sp.clientid">
+                  <td align="center">
+                    <div class="col-md-12">
+                      <div class="card bg-light flex-md-row mb-4 shadow-sm h-md-250">
+                        <div class="card-body d-flex flex-column align-items-start">
+                          <div class="mb-1 text-muted"> Payment Status : {{sp.status}}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </div>
+              </tr>
+              <button class="btn btn-primary" type="button"[routerLink]="['/client-payment']" >Make Payment</button>
+            </div>
+            </div>
           </div>
-          </div>
-        </div>
         </div>
       </div>
     </div>

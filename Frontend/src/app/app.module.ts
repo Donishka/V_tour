@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -23,6 +24,7 @@ import { AppRoutingModule } from './modules/app-routing.module';
 import { HeaderBarModule } from './modules/header-bar/header-bar.module';
 import { PaymentModule } from './modules/payment/payment.module';
 import { ItineraryModule } from './modules/itinerary/itinerary.module';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 
 @NgModule({
@@ -37,6 +39,7 @@ import { ItineraryModule } from './modules/itinerary/itinerary.module';
     HttpModule,
     HttpClientModule,
     FlashMessagesModule.forRoot(),
+    BsDropdownModule.forRoot(),
     ModalModule.forRoot(),
     SigninModule,
     SignupModule,

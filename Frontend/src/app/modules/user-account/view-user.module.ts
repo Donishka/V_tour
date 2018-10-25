@@ -1,3 +1,5 @@
+import { ClientFilterPipe } from './../../components/client/client-filter.pipe';
+import { HeaderBarModule } from './../header-bar/header-bar.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -8,6 +10,7 @@ import { ViewTravelAgentsComponent } from '../../components/travelAgent/view-tra
 import { ViewClientsComponent } from '../../components/client/view-clients/view-clients.component';
 import { ViewServiceProvidersComponent } from '../../components/serviceProvider/view-service-providers/view-service-providers.component';
 import { TravelAgentFilterPipe } from '../../components/travelAgent/travel-agent-filter.pipe';
+import { ServiceProviderFilterPipe } from '../../components/serviceProvider/service-provider-filter.pipe';
 
 @NgModule({
   imports: [
@@ -15,6 +18,7 @@ import { TravelAgentFilterPipe } from '../../components/travelAgent/travel-agent
     FormsModule,
     FlashMessagesModule,
     RouterModule,
+    HeaderBarModule,
  
     
  ],
@@ -23,12 +27,16 @@ import { TravelAgentFilterPipe } from '../../components/travelAgent/travel-agent
     ViewClientsComponent,
     ViewServiceProvidersComponent,
     TravelAgentFilterPipe,
+    ServiceProviderFilterPipe,
+    ClientFilterPipe
   ],
   exports:[
     ViewTravelAgentsComponent,
     ViewClientsComponent,
     ViewServiceProvidersComponent,
-    TravelAgentFilterPipe
+    TravelAgentFilterPipe,
+    ServiceProviderFilterPipe,
+    ClientFilterPipe
   ]
 })
 export class ViewUserModule { }
