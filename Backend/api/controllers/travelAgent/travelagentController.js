@@ -1,65 +1,28 @@
 const express = require('express');
 var router =  express.Router();
-var ObjectId = require('mongoose').Types.ObjectId;
 const bcrypt  = require('bcryptjs');
-
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
+var ObjectId = require('mongoose').Types.ObjectId;
 
 var { TravelAgent }  = require('../../data/travelAgent/travelagent.model.js');
 var  TravelAgentModel  = require('../../data/travelAgent/travelagent.model.js');
 
 router.get('/', (req, res) => {
-    /*TravelAgent.find((err, docs) => {
+    TravelAgent.find((err, docs) => {
         if (!err) { res.send(docs); }
         else { console.log('Error in Retriving Travel Agents :' + JSON.stringify(err, undefined, 2)); }
-    });*/
-    MongoClient.connect(url, function (err, db) {
-        if (err) {
-            console.log('Error in Retriving Travel Agent :' + JSON.stringify(err, undefined, 2));
-            throw err;
-        }
-        var dbo = db.db("vtour");
-        //var query = { fname: "Charuka" };
-        dbo.collection("travelagents").find().toArray(function (err, result) {
-            if (err) { 
-                console.log('Error in Retriving Travel Agent :' + JSON.stringify(err, undefined, 2));
-                throw err;
-            } 
-            else{
-                res.send(result);
-                console.log(result);
-            } 
-        });
     });
+    
 });
 
 
 router.get('/:id', (req, res) => {
-    /*if (!ObjectId.isValid(req.params.id))
+    if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
         TravelAgent.findById(req.params.id, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Retriving Travel Agent :' + JSON.stringify(err, undefined, 2)); }
-    });*/
-    MongoClient.connect(url, function (err, db) {
-        if (err) {
-            console.log('Error in Retriving Travel Agent :' + JSON.stringify(err, undefined, 2));
-            throw err;
-        }
-        var dbo = db.db("vtour");
-        var query = { fname: req.params.id };
-        dbo.collection("travelagents").find(query).toArray(function (err, result) {
-            if (err) {
-                console.log('Error in Retriving Travel Agent :' + JSON.stringify(err, undefined, 2));
-                throw err;
-            }
-            else {
-                res.send(result);
-                console.log(result);
-            }
-        });
     });
+    
 });
 
 router.post('/', (req, res) => {

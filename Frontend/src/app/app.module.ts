@@ -26,10 +26,11 @@ import { PaymentModule } from './modules/payment/payment.module';
 import { ItineraryModule } from './modules/itinerary/itinerary.module';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    HomeComponent
 
   ],
   imports: [

@@ -1,6 +1,6 @@
 export class TravelAgent {
     _id:string;
-    fname:string;
+    fname:String;
     lname:string;
     username:string;
     password:string;

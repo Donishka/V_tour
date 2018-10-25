@@ -14,6 +14,7 @@ export class ItineraryService {
 
   eventList  : Event[] = [];
   iT: Itinerary[];
+  id: String;
 
   constructor(private http: HttpClient) { }
 
@@ -49,8 +50,11 @@ export class ItineraryService {
     return this.http.post(this.baseURL, itinerary);
   }
 
-  getItinerrytList() {
-    return this.http.get(this.baseURL);
+  getItinerrytList(itinerary: Itinerary) {
+    return this.http.get(this.baseURL + `/${itinerary.traveAgentName}`);
+  }
+  getOneItinerry(id:String) {
+    return this.http.get(this.baseURL +`/id/`+`${id}`);
   }
 
   // putTravelAgent(itinerary: Itinerary) {
