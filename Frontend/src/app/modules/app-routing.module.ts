@@ -1,3 +1,4 @@
+import { ViewPackagesComponent } from './../components/package/view-packages/view-packages.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes }  from '@angular/router';
 import { AuthGuard } from '../services/auth.guard';
@@ -40,7 +41,8 @@ const applicationRoutes:Routes = [
   {path: 'client-payment', component: ClientPaymentComponent, canActivate: [AuthGuard] },
   {path: 'viewclientpayment', component: ViewClientPaymentsComponent, canActivate: [AuthGuard] },
   {path: 'itinerary', component: ItineraryComponent, canActivate: [AuthGuard] },
-  {path: 'view-itinerary', component: ViewItineraryComponent, canActivate: [AuthGuard] }
+  { path: 'view-itinerary', component: ViewItineraryComponent, canActivate: [AuthGuard] },
+  { path: 'view-packages', component: ViewPackagesComponent, canActivate: [AuthGuard] },
 
 
 ];

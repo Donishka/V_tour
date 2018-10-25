@@ -1,3 +1,4 @@
+import { HeaderBarModule } from './../header-bar/header-bar.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -20,7 +21,8 @@ import { ViewItineraryComponent } from '../../components/itinerary/view-itinerar
     MatDialogModule,
     MatToolbarModule,
     MatIconModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HeaderBarModule
   ],
   declarations: [
     EventComponent,
