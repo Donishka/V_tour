@@ -17,14 +17,17 @@ export class SharedataService {
     this.messageSource.next(message);
   }
 
+
   constructor(
     private authService: AuthService
   ) 
-  {
+   {}
+
+  shareUserData(){
     this.authService.getProfile().subscribe(res => {
       this.user = res.data.user;
       this.changeMessage(this.user);
-      // console.log("hello"+JSON.stringify(this.user));
+       //console.log("ShareUserData in service "+JSON.stringify(this.user));
     });
   }
 }
