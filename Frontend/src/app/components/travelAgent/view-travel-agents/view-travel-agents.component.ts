@@ -1,8 +1,8 @@
+import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit, PipeTransform, Pipe   } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
-
 import { TravelAgentService } from '../../../services/user-service/travelAgent/travelagent.service';
 import { TravelAgent } from '../../../services/user-service/travelAgent/travelagent.model';
 
@@ -20,12 +20,15 @@ export class ViewTravelAgentsComponent implements OnInit {
 
   searchKeyword:string;
   type:string;
+  user:any;
   constructor(public travelAgentService:TravelAgentService,
     private flashMessage:FlashMessagesService,
     public travelAgent: TravelAgent,
-    private router:Router) { }
+    private router:Router,
+    private authService:AuthService) { }
 
   ngOnInit() {
+    this.getProfileDetails();
     this.resetForm();
     this.refreshTravelAgentList();
   }
@@ -82,6 +85,13 @@ export class ViewTravelAgentsComponent implements OnInit {
         this.refreshTravelAgentList();
       });
     }
+  }
+
+  getProfileDetails() {
+    this.authService.getProfile().subscribe(res => {
+      this.user = res.data.user;
+      console.log(this.user);
+    });
   }
 }
   

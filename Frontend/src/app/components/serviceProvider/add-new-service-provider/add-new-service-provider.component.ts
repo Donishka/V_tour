@@ -47,7 +47,6 @@ export class AddNewServiceProviderComponent implements OnInit {
         this.resetForm(form);
         this.flashMessage.show('Service Provider Saved', { cssClass: 'alert-success', timeout: 4000 });
         alert('Service Provider Saved');
-        console.log("Saved");
         this.router.navigateByUrl('/travelagent-account');
       });
     }
@@ -56,7 +55,6 @@ export class AddNewServiceProviderComponent implements OnInit {
         this.resetForm(form);
         this.flashMessage.show('Service Provider Updated', { cssClass: 'alert-success', timeout: 4000 });
         alert('Service Provider Updates');
-        console.log("Updated");
         this.router.navigateByUrl('/travelagent-account');
       });
     }

@@ -1,3 +1,5 @@
+import { SpPackageService } from './../../../services/sharedata/sp-package.service';
+import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { FlashMessagesService } from 'angular2-flash-messages';
@@ -5,7 +7,6 @@ import { Router } from '@angular/router';
 
 import { ServiceProviderService } from '../../../services/user-service/serviceProvider/serviceprovider.service';
 import { ServiceProvider } from '../../../services/user-service/serviceProvider/serviceprovider.model';
-
 declare var M:any;
 
 @Component({
@@ -15,13 +16,21 @@ declare var M:any;
   providers: [ServiceProviderService]
 })
 export class ViewServiceProvidersComponent implements OnInit {
+  
   searchKeyword: string;
   type: string;
+  message:string;
+  user:any;
+
   constructor(public serviceProviderService:ServiceProviderService,
     private flashMessage:FlashMessagesService,
-    private router:Router) { }
+    private router:Router,
+    private authService:AuthService,
+    public shared:SpPackageService
+    ) { }
 
   ngOnInit() {
+    this.getProfileDetails();
     this.resetForm();
     this.refreshServiceProviderList();
   }
@@ -39,7 +48,7 @@ export class ViewServiceProvidersComponent implements OnInit {
     address:"",
     type:"",
     discription:"",
-      profilepic: "",
+    profilepic: "",
     }
   }
 
@@ -67,9 +76,8 @@ export class ViewServiceProvidersComponent implements OnInit {
   }
 
   onEdit(sp: ServiceProvider) {
-    
+    console.log(sp);
     this.serviceProviderService.selectedServiceProvider = sp;
-
   }
 
   onDelete(_id: string) {
@@ -79,5 +87,17 @@ export class ViewServiceProvidersComponent implements OnInit {
       });
     }
   }
+
+  onViewPackages(_id: string) {
+    this.shared.setValue(_id);
+    this.router.navigateByUrl('/view-packages');
+  }
+
+  getProfileDetails() {
+    this.authService.getProfile().subscribe(res => {
+      this.user = res.data.user;
+    });
+  }
+
 }
   

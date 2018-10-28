@@ -8,6 +8,7 @@ import { AuthService } from '../auth.service';
 export class SharedataService {
 
   user: any;
+  spid:string;
 
   private messageSource = new BehaviorSubject<any>(this.user);
   currentMessge = this.messageSource.asObservable();
@@ -18,7 +19,8 @@ export class SharedataService {
 
   constructor(
     private authService: AuthService
-  ) {
+  ) 
+  {
     this.authService.getProfile().subscribe(res => {
       this.user = res.data.user;
       this.changeMessage(this.user);

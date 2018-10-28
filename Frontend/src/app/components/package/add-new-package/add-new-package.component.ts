@@ -44,6 +44,7 @@ export class AddNewPackageComponent implements OnInit {
       type: "",
       discription: "",
       price: null,
+      spid: "",
     }
   }
 
@@ -56,6 +57,7 @@ export class AddNewPackageComponent implements OnInit {
       type: "",
       discription: "",
       price: null,
+      spid:"",
     }
   }
 /*
