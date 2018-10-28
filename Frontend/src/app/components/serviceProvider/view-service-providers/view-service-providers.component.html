@@ -21,13 +21,13 @@
                       <br>Address : {{sp.address}}
                       <br>Type : {{sp.type}}
                       <br><br>{{sp.discription}}</p>
-                    <a class="action-btn" (click)="onEdit(sp)">
+                    <a *ngIf="user.isadmin==true" class="action-btn" (click)="onEdit(sp)">
                       <i class="fas fa-pencil-alt  btn-outline-primary btn-sm"> edit</i>
                     </a>
-                    <a class="action-btn" (click)="onDelete(sp._id)">
+                    <a *ngIf="user.isadmin==true" class="action-btn" (click)="onDelete(sp._id)">
                       <i class="fas fa-trash-alt  btn-outline-primary btn-sm"> delete</i>
                     </a>
-                    <a class="action-btn" [routerLink]="['/view-packages']">
+                    <a class="action-btn" (click)="onViewPackages(sp._id)">
                       <i class="fas fa-  btn-outline-primary btn-sm"> View Packages</i>
                     </a>
                   </div>

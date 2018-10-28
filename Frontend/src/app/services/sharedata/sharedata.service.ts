@@ -7,7 +7,8 @@ import { AuthService } from '../auth.service';
 })
 export class SharedataService {
 
-  user: any = {username:"Janiya"};
+  user: any;
+  spid:string;
 
   private messageSource = new BehaviorSubject<any>(this.user);
   currentMessge = this.messageSource.asObservable();
@@ -16,11 +17,11 @@ export class SharedataService {
     this.messageSource.next(message);
   }
 
-  
 
   constructor(
     private authService: AuthService
-  ) {}
+  ) 
+   {}
 
   shareUserData(){
     this.authService.getProfile().subscribe(res => {
