@@ -1,13 +1,20 @@
-<div class="container">
+<div class="container" *ngIf="view">
   
   <div class="card" *ngFor = "let iT of itineraryService.iT; let i = index" >
     <div class="card-header">
       {{i+1}}.Tranvel Agent: {{iT.traveAgentName}}
+      <h6>id {{iT._id}}</h6>
     </div>
     <div class="card-body">
-      <h5 class="card-title" *ngFor="let event of iT.events">{{event.name}}</h5>
-      <a href="#" class="btn btn-primary">Edit</a>
+      <h5 class="card-title" *ngFor="let event of iT.events">{{event.name}} </h5>
+      <button href="#" class="btn btn-primary" (click)="editItinerary(iT._id)"  >Edit</button> 
+      <!-- [routerLink]="['/edit-itinerary']" -->
     </div>
   </div>
+</div>
+<div class="container" *ngIf="!view">
+  <h2>
+    No Itineraries created yet..!
+  </h2>
 </div>
 
