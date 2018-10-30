@@ -32,6 +32,9 @@ router.get('/id/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     var itinerary = new Itinerary({
+        date_time: req.body.date_time,
+        note: req.body.note,
+        name: req.body.name,
         traveAgentName: req.body.traveAgentName,
         events: req.body.events
     });
@@ -54,6 +57,9 @@ router.put('/:id', (req, res) => {
 
     Itinerary.findByIdAndUpdate(req.params.id, {
         $set: {
+            date_time: req.body.date_time,
+            note: req.body.note,
+            name: req.body.name,
             traveAgentName: req.body.traveAgentName,
             events: req.body.events
         }
