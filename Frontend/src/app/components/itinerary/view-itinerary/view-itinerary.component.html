@@ -7,7 +7,8 @@
     </div>
     <div class="card-body">
       <h5 class="card-title" *ngFor="let event of iT.events">{{event.name}} </h5>
-      <button href="#" class="btn btn-primary" (click)="editItinerary(iT._id)"  >Edit</button> 
+      <button href="#" class="btn btn-primary" (click)="editItinerary(iT._id)"  >Edit</button> <hr>
+      <button href="#" class="btn btn-primary" (click)="deleteItinerary(iT._id)"  >Delete</button> 
       <!-- [routerLink]="['/edit-itinerary']" -->
     </div>
   </div>
