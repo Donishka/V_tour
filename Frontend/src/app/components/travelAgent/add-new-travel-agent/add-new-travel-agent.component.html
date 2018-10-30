@@ -4,10 +4,9 @@
           <div class ="col"></div>  
           <div class="col-6">
             <div class="main-login main-center">   
-                <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+                <form style="margin-top: 25px;" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
                   <fieldset>
-                      <legend>Add New Travel Agent:</legend>
-                <br>
+                      <legend><h3>Add New Travel Agent</h3></legend>
                 <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent._id">
                 <div class="form-group">
                   <label for="fname" class="cols-sm-2 control-label">First Name</label>

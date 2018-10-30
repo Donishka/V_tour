@@ -6,6 +6,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientPaymentComponent } from '../../components/client/client-payment/client-payment.component';
 import { ViewClientPaymentsComponent } from '../../components/payments/view-client-payments/view-client-payments.component';
+import { ClientPaymentFilterPipe} from '../../components/payments/view-client-payments/client-payment-fliter.pipe'
 @NgModule({
   imports: [
     CommonModule,
@@ -16,11 +17,13 @@ import { ViewClientPaymentsComponent } from '../../components/payments/view-clie
   ],
   declarations: [
     ClientPaymentComponent,
-    ViewClientPaymentsComponent
+    ViewClientPaymentsComponent,
+    ClientPaymentFilterPipe
   ],
   exports: [
     ClientPaymentComponent,
-    ViewClientPaymentsComponent
+    ViewClientPaymentsComponent,
+    ClientPaymentFilterPipe
   ]
 })
 export class PaymentModule { }

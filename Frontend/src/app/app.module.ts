@@ -26,6 +26,7 @@ import { PaymentModule } from './modules/payment/payment.module';
 import { ItineraryModule } from './modules/itinerary/itinerary.module';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
+import { SpPackageService } from '../app/services/sharedata/sp-package.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     ItineraryModule 
     
   ],
-  providers: [AuthService,SharedataService],
+  providers: [AuthService, SharedataService, SpPackageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

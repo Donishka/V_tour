@@ -20,6 +20,8 @@ import { Package } from '../../../services/package-service/package.model';
 })
 export class AddNewPackageComponent implements OnInit {
   user : any;
+  searchKeyword: string;
+
   constructor(public packageService: PackageService,
     private flashMessage: FlashMessagesService,
     private router: Router,
@@ -44,6 +46,7 @@ export class AddNewPackageComponent implements OnInit {
       type: "",
       discription: "",
       price: null,
+      spid: "",
     }
   }
 
@@ -56,6 +59,7 @@ export class AddNewPackageComponent implements OnInit {
       type: "",
       discription: "",
       price: null,
+      spid:"",
     }
   }
 /*
