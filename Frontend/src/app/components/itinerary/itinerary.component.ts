@@ -25,6 +25,7 @@ export class ItineraryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.itineraryService.eventList = [];
     this.dataS.shareUserData();
     this.dataS.currentMessge.subscribe(traveAgentdata => {
       this.itinerary.traveAgentName = traveAgentdata.username;
