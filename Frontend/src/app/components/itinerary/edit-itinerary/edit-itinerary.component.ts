@@ -19,6 +19,8 @@ import { Jsonp } from '@angular/http';
 })
 export class EditItineraryComponent implements OnInit {
 
+  note:String = "Add a note here...";
+  itineraryName:String = "Itinerary Name here";
   id: String;
   Itinerary: any;
   events: Event[];
@@ -100,6 +102,9 @@ export class EditItineraryComponent implements OnInit {
 
   addItinerary() {
 
+    this.itinerary.date_time = this.itineraryService.getDate();
+    this.itinerary.name = this.itineraryName;
+    this.itinerary.note = this.note;
     this.itinerary._id = this.id;
     this.itinerary.events = this.itineraryService.getAllEvents();
     this.itineraryService.putItinerry(this.itinerary).subscribe((res) => {

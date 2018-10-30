@@ -2,8 +2,10 @@
 <div class="container" *ngIf="view">
   <div class="card" *ngFor = "let iT of itineraryService.iT; let i = index" >
     <div class="card-header">
-      {{i+1}}.Tranvel Agent: {{iT.traveAgentName}}
-      <h6>id {{iT._id}}</h6>
+      <h4>Itinerary name: {{iT.name}}</h4>
+      <h5>{{i+1}}.Tranvel Agent: {{iT.traveAgentName}}</h5>
+      <h6>Note: {{iT.note}}</h6>
+      <h6>Last updated {{iT.date_time}}</h6>
     </div>
     <div class="card-body">
       <h5 class="card-title" *ngFor="let event of iT.events">{{event.name}} </h5>
