@@ -1,5 +1,5 @@
+<app-nav></app-nav>
 <div class="container" *ngIf="view">
-  
   <div class="card" *ngFor = "let iT of itineraryService.iT; let i = index" >
     <div class="card-header">
       {{i+1}}.Tranvel Agent: {{iT.traveAgentName}}

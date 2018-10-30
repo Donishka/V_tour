@@ -43,6 +43,7 @@ body {
     padding:10px;
     border:0px solid white;
     box-shadow:0px 7px 16px 0px rgba(0, 0, 0, 0.09);
+    background-color:lightblue ;
     }
     .card-title
     {
@@ -63,18 +64,13 @@ body {
     text-align:center;
     }
     
-    /**********************
-            courses
-    **********************/
+   
     .list-inline-item 
     {
     font-size:13px;
-    color:#84919B;
+    color:black;
      }
-    /**********************
-            courses
-    **********************/
-    
+  
     
     .address .w3-ul li
      {
@@ -83,10 +79,6 @@ body {
     }
     
     
-    
-    /**********************
-            abilities
-    **********************/
     span 
     {
     font-size:10px;
@@ -103,17 +95,7 @@ body {
     text-align:center;
     }
     
-    /**********************
-            abilities
-    **********************/
-    
-    
-    
-    
-    /**********************
-            ratings
-    **********************/
-    
+
     .ratings .fa
     {
     color:indigo;
@@ -128,27 +110,12 @@ body {
     text-align:center;
     }
     
-    /**********************
-            ratings
-    **********************/
-    
-    
-    
-    
-    
-    /**********************
-            socials
-    **********************/
+   
+
     .socials {
     text-align:center;
     }
-    
-    /**********************
-            socials
-    **********************/
-    
-    
-    
+ 
     
      /**********************
             footer
@@ -157,4 +124,7 @@ body {
     .learn a:hover {text-decoration:none;}
 
      
-     
+.list1{
+        color:black;
+        list-style: none;
+}

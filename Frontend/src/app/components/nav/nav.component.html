@@ -9,6 +9,7 @@
   </button>
 
   <div *ngIf="authService.loggedIn()" style="margin-left: 100px" class="collapse navbar-collapse" id="navbarSupportedContent">
+    
     <ul class=" nav navbar-nav">
       <li *ngIf="user.usertype=='travelagent'" style="margin-right: 5px" class="dropdown nav-item" dropdown>
         <a class="nav-link" dropdownToggle role="button"><i class="fas fa-copy"></i> Itenarary<span class="caret"></span></a>
@@ -45,7 +46,7 @@
       <li style="margin-right: 5px" class="dropdown nav-item " dropdown>
         <a class="nav-link" dropdownToggle role="button"><i class="fas fa-dollar-sign"></i> Payments & Bookings<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
-          <a class="dropdown-item" [routerLink]="['/viewclientpayment']">View Payments</a>
+          <a *ngIf="user.usertype=='travelagent'" class="dropdown-item" [routerLink]="['/viewclientpayment']">View Client Payments</a>
           <a class="dropdown-item">Make Payment</a>
           <a class="dropdown-item" href="#">View Bookings</a>
           <a class="dropdown-item">Make Booking</a>
@@ -60,6 +61,7 @@
           <a class="dropdown-item" href="" (click)="logoutUser()">Logout</a>
         </div>
       </li>
+
     </ul>
   </div>
   <div style="float: right">

@@ -20,6 +20,8 @@ import { Package } from '../../../services/package-service/package.model';
 })
 export class AddNewPackageComponent implements OnInit {
   user : any;
+  searchKeyword: string;
+
   constructor(public packageService: PackageService,
     private flashMessage: FlashMessagesService,
     private router: Router,
