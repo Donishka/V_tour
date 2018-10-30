@@ -8,17 +8,17 @@
               <h4 class="card-title">{{user.fname}}</h4>
               <ul class="list-inline" id="courses">
                 <li class="list-inline-item">
-                  <i class="fa fa-user"></i>User Name :  {{user.username}}
+                  <i class="fa fa-user"></i> User Name :  {{user.username}}
                 </li>            
               </ul>
               <div class="address">								
-                <ul class="w3-ul w3-small">
+                <ul class=" l1 w3-ul w3-small">
                   <br>
-                  <li><i class="fa fa-user" aria-hidden="true"></i>Email : {{user.email}}</li><br>
-                  <li><i class="fa fa-user" aria-hidden="true"></i>Telephone : {{user.telephone}}</li><br>
-                  <li><i class="fa fa-user" aria-hidden="true"></i>Address : {{user.address}}</li><br>
-                  <li><i class="fa fa-user" aria-hidden="true"></i>Type : {{user.type}}</li><br>
-                  <li><i class="fa fa-user" aria-hidden="true"></i>Discription : {{user.discription}}</li><br>
+                  <li><i class="fas fa-envelope" aria-hidden="true"></i> Email : {{user.email}}</li><br>
+                  <li><i class="fas fa-phone-square" aria-hidden="true"></i> Telephone : {{user.telephone}}</li><br>
+                  <li><i class="fas fa-home" aria-hidden="true"></i> Address : {{user.address}}</li><br>
+                  <li><i class="fab fa-typo3" aria-hidden="true"></i> Type : {{user.type}}</li><br>
+                  <li><i class="fas fa-clipboard-list" aria-hidden="true"></i> Discription : {{user.discription}}</li><br>
                 </ul>
                 <button class="btn btn-primary" type="button" [routerLink]='["/editserviceprovider"]'>Edit</button>
               </div>

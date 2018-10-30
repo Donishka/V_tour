@@ -4,10 +4,10 @@
       <div class ="col"></div>  
       <div class="col-6">
         <div class="main-login main-center">
-              <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+              <form style="margin-top:25px;" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
                 <fieldset>
-                  <legend>Add Service Provider :</legend>
-                <br>
+                  <legend><h3>Add Service Provider</h3></legend>
+                
                 <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider._id">
                 <div class="form-group">
                   <label for="fname" class="cols-sm-2 control-label">First Name</label>
@@ -40,7 +40,7 @@
                     <label for="email" class="cols-sm-2 control-label">Email</label>
                     <div class="cols-sm-10">
                       <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                        <span class="input-group-addon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
                         <input type="email" class="form-control" name="email" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.email" >
                     </div>
                   </div>
@@ -49,7 +49,7 @@
                   <label for="telephone" class="cols-sm-2 control-label">Telephone No</label>
                   <div class="cols-sm-10">
                     <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <span class="input-group-addon"><i class="fas fa-phone-square" aria-hidden="true"></i></span>
                       <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.telephone"  >
                     </div>
                   </div>
@@ -58,7 +58,7 @@
                   <label for="address" class="cols-sm-2 control-label">Address</label>
                   <div class="cols-sm-10">
                     <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <span class="input-group-addon"><i class="fas fa-home" aria-hidden="true"></i></span>
                       <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.address"  >
                     </div>
                   </div>
@@ -67,7 +67,7 @@
                   <label for="type" class="cols-sm-2 control-label">Type</label>
                   <div class="cols-sm-10">
                     <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <span class="input-group-addon"><i class="fab fa-typo3" aria-hidden="true"></i></span>
                       <select type="text" class="form-control" name="type" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.type"  >
                         <option value="Transport">Transport</option>
                         <option value="Hotel">Hotel</option>
@@ -83,7 +83,7 @@
                   <label for="discription" class="cols-sm-2 control-label">Discription</label>
                   <div class="cols-sm-10">
                     <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <span class="input-group-addon"><i class="fas fa-clipboard-list" aria-hidden="true"></i></span>
                       <textarea class="form-control" name="discription" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.discription"  ></textarea>
                     </div>
                   </div>

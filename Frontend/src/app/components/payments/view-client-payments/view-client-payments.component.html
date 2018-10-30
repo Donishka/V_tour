@@ -1,11 +1,14 @@
 <app-nav></app-nav>
-<div class="container bg-secondary">
+<div class="container bg-info">
   <div class="row">
     <div class="col"></div>
     <div class="col-10">
+      <div class=" search form-group">
+        <input type="text" class="form-control" name="search" placeholder="search Here..." [(ngModel)]="searchKeyword">
+      </div>
       <div>
         <table class="table table-responsive-sm	">
-          <tr *ngFor="let sp of itenararyPaymentService.itenararypayment">
+          <tr *ngFor="let sp of itenararyPaymentService.itenararypayment| ClientPaymentFilter:searchKeyword">
             <td align="center">
               <div class="col-md-12">
                 <div class="card bg-light flex-md-row mb-4 shadow-sm h-md-250">
@@ -15,7 +18,7 @@
                     <div class="mb-1 text-muted">Amount : {{sp.amount}}</div>
                     <div class="mb-1 text-muted">Date : {{sp.date}}</div>
                     <div class="mb-1 text-muted">Status : {{sp.status}}</div>
-                    <a class="action-btn" (click)="onConfirm(sp)">
+                    <a *ngIf="sp.status=='Waiting for Confirmation'" class="action-btn" (click)="onConfirm(sp)">
                       <i class="fas fa-money-alt  btn-outline-primary btn-sm">Confirm Payment</i>
                     </a>
                     <!--a class="action-btn" (click)="onDelete(sp._id)">

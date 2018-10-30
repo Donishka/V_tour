@@ -8,16 +8,16 @@
             <div class="card-body">
               <h4 class="card-title">{{user.fname}} {{user.lname}}</h4>
               <div class="address">								
-              <ul class="w3-ul w3-small">
+              <ul class=" l1 w3-ul w3-small">
                 <br>
-                <li><i class="fa fa-user" aria-hidden="true"></i>Email : {{user.email}}</li><br>
-                <li><i class="fa fa-user" aria-hidden="true"></i>Telephone : {{user.telephone}}</li><br>
-                <li><i class="fa fa-user" aria-hidden="true"></i>Address : {{user.address}}</li><br>
-                <li><i class="fa fa-user" aria-hidden="true"></i>City : {{user.city}}</li><br>
-                <li><i class="fa fa-user" aria-hidden="true"></i>Country : {{user.country}}</li><br>
-                <li><i class="fa fa-user" aria-hidden="true"></i>foodprefer : {{user.foodprefer}}</li><br>
-                <li><i class="fa fa-user" aria-hidden="true"></i>Activities : {{user.intactivities}}</li><br>
-                <li><i class="fa fa-user" aria-hidden="true"></i>Age Group : {{user.agegroup}}</li><br>
+                <li><i class="fas fa-envelope" aria-hidden="true"></i> Email : {{user.email}}</li><br>
+                <li><i class="fas fa-phone-square" aria-hidden="true"></i> Telephone : {{user.telephone}}</li><br>
+                <li><i class="fas fa-home" aria-hidden="true"></i> Address : {{user.address}}</li><br>
+                <li><i class="fas fa-building" aria-hidden="true"></i> City : {{user.city}}</li><br>
+                <li><i class="fas fa-globe" aria-hidden="true"></i> Country : {{user.country}}</li><br>
+                <li><i class="fas fa-utensils" aria-hidden="true"></i> foodprefer : {{user.foodprefer}}</li><br>
+                <li><i class="fas fa-gamepad" aria-hidden="true"></i> Activities : {{user.intactivities}}</li><br>
+                <li><i class="fas fa-sort-numeric-down" aria-hidden="true"></i> Age Group : {{user.agegroup}}</li><br>
               </ul>
               <p></p>
               <tr *ngFor="let sp of itenararyPaymentService.itenararypayment">

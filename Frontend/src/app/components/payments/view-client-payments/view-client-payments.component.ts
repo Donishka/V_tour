@@ -14,7 +14,7 @@ declare var M: any;
   providers:[ItenararyPaymentService,ItenararyPayment]
 })
 export class ViewClientPaymentsComponent implements OnInit {
-
+  searchKeyword:any;
   constructor(public itenararyPaymentService: ItenararyPaymentService,
     private itenararyPayment: ItenararyPayment,
     private flashMessage: FlashMessagesService,
