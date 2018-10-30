@@ -57,12 +57,12 @@ export class ItineraryService {
     return this.http.get(this.baseURL +`/id/`+`${id}`);
   }
 
-  // putTravelAgent(itinerary: Itinerary) {
-  //   return this.http.put(this.baseURL + `/${itinerary._id}`, itinerary);
-  // }
+  putItinerry(itinerary: Itinerary) {
+    return this.http.put(this.baseURL + `/${itinerary._id}`, itinerary);
+  }
 
-  // deleteTravelAgent(_id: string) {
-  //   return this.http.delete(this.baseURL + `/${_id}`);
-  // }
+  deleteItinerary(_id: String) {
+    return this.http.delete(this.baseURL + `/${_id}`);
+  }
 
 }
