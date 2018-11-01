@@ -37,7 +37,10 @@
               "./source/vendor/slick/slick.css",
               "./source/vendor/select2/select2.min.css",
               "./source/vendor/perfect-scrollbar/perfect-scrollbar.css",
-              "./source/css/theme.css"
+              "./source/css/theme.css",
+              "./node_modules/primeicons/primeicons.css",
+              "./node_modules/primeng/resources/themes/nova-light/theme.css",
+              "./node_modules/primeng/resources/primeng.min.css"
 
             ],
             "scripts": [

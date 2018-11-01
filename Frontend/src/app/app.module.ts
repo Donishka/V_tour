@@ -7,7 +7,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
-
+import { NgxSmartModalModule } from 'ngx-smart-modal';
 
 import { AuthService } from './services/auth.service';
 import { SharedataService } from './services/sharedata/sharedata.service';
@@ -51,7 +51,8 @@ import { SpPackageService } from '../app/services/sharedata/sp-package.service';
     PaymentModule,
     FormsModule,
     TypeaheadModule.forRoot(),
-    ItineraryModule 
+    ItineraryModule,
+    NgxSmartModalModule.forRoot()
     
   ],
   providers: [AuthService, SharedataService, SpPackageService],

@@ -41,11 +41,9 @@ module.exports = { TravelAgent };
 
 
 module.exports.saveUser = function (newUser,callback) {
-
     bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(newUser.password, salt, function(err, hash) {
             newUser.password = hash;
-
             if (err) throw err;
             newUser.save(callback);
         });

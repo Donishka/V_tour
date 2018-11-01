@@ -11,6 +11,8 @@ import { ViewClientsComponent } from '../../components/client/view-clients/view-
 import { ViewServiceProvidersComponent } from '../../components/serviceProvider/view-service-providers/view-service-providers.component';
 import { TravelAgentFilterPipe } from '../../components/travelAgent/travel-agent-filter.pipe';
 import { ServiceProviderFilterPipe } from '../../components/serviceProvider/service-provider-filter.pipe';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   imports: [
@@ -19,8 +21,9 @@ import { ServiceProviderFilterPipe } from '../../components/serviceProvider/serv
     FlashMessagesModule,
     RouterModule,
     HeaderBarModule,
- 
-    
+    NgxSmartModalModule.forRoot(),
+    DialogModule
+
  ],
   declarations: [
     ViewTravelAgentsComponent,
