@@ -48,6 +48,8 @@ export class EditItineraryComponent implements OnInit {
       this.itinerary.traveAgentName = traveAgentdata.username;
     });
     this.id = this.data.id;
+    this.itineraryName = this.data.itineraryName;
+    this.note = this.data.note;
     this.editItinerary(this.id);
     console.log("Id of ininerty"+this.id);
 

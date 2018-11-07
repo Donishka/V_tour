@@ -40,7 +40,9 @@ export class ItineraryComponent implements OnInit {
     private dialog?: MatDialog,
     private eventService?: ItineraryService,
     public itineraryService?: ItineraryService,
-  ) { }
+  ) {
+    console.log("In constructor"+this.itineraryName);
+   }
 
   ngOnInit() {
    // console.log("items array"+JSON.stringify(this.array));
@@ -86,7 +88,7 @@ export class ItineraryComponent implements OnInit {
 
   addItinerary() {
     
-    
+    console.log("In add itinerary"+this.itineraryName);
     this.itinerary.name = this.itineraryName;
     this.itinerary.note = this.note;
     this.itinerary.date_time = this.itineraryService.getDate();

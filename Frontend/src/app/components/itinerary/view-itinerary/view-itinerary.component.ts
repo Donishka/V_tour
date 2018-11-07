@@ -31,13 +31,16 @@ export class ViewItineraryComponent implements OnInit {
     });
   }
 
-  editItinerary(id: String) {
+  editItinerary(itinerary: Itinerary) {
     this.isPopupOpened = true;
-    this.itineraryService.id = id;
+    this.itineraryService.id = itinerary._id;
     console.log("id " + this.itineraryService.id);
     const dialogRef = this.dialog.open(EditItineraryComponent, {
 
-      data: { id: this.itineraryService.id }
+      data: { id: this.itineraryService.id,
+              itineraryName : itinerary.name,
+              note: itinerary.note
+       }
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
