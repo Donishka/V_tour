@@ -19,7 +19,6 @@ export class ItineraryService {
   constructor(private http: HttpClient) { }
 
   addEvent(event: Event) {
-    event.id = this.eventList.length + 1;
     this.eventList.push(event);
   };
 

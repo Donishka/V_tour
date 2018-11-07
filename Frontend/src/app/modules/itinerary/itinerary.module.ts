@@ -12,6 +12,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ViewItineraryComponent } from '../../components/itinerary/view-itinerary/view-itinerary.component';
 import { EditItineraryComponent } from '../../components/itinerary/edit-itinerary/edit-itinerary.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import {MatAutocompleteModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+
 
 
 
@@ -26,7 +28,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatIconModule,
     BrowserAnimationsModule,
     HeaderBarModule,
-    DragDropModule
+    DragDropModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   declarations: [
     EventComponent,

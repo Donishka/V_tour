@@ -28,7 +28,7 @@ export class EventComponent implements OnInit {
   ngOnInit() {
     this.evnetForm = this.formBuilder.group({
       id: [this.data.id],
-      position: [this.data.position,[Validators.required]],
+      cost: [this.data.cost,[Validators.required]],
       name:  [this.data.name,[Validators.required]],
       venue:  [this.data.venue,[Validators.required]]
     });

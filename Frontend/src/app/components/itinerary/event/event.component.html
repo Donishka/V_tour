@@ -1,4 +1,4 @@
- <mat-card-header>
+<mat-card-header>
   <mat-toolbar class="toolbar">
     <mat-card-title>Event Information</mat-card-title>
     <span class="toobar-spacer"></span>
@@ -6,38 +6,66 @@
   </mat-toolbar>
 </mat-card-header>
 <mat-card-content>
- 
-  
 
 
-<!-- from this to -->
 
-   <div class="container">
+
+  <!-- from this to -->
+
+  <div class="container">
     <div class="row">
       <div class="col-sm-5 col-md-5">
-        <div class="tabulation animate-box"> 
+        <div class="tabulation animate-box">
 
           <!-- Nav tabs -->
-           <ul class="nav nav-tabs" role="tablist">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation">
+              <a href="#custom" aria-controls="custom" role="tab" data-toggle="tab" class="nav-link">Custom Event</a>
+            </li>
             <li role="presentation" class="nav-item">
               <a href="#foods" aria-controls="foods" role="tab" data-toggle="tab" class="nav-link">Food</a>
             </li>
             <li role="presentation">
-              <a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab"  class="nav-link">Hotels</a>
+              <a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab" class="nav-link">Hotels</a>
             </li>
             <li role="presentation">
-              <a href="#packages" aria-controls="packages" role="tab" data-toggle="tab"  class="nav-link">Packages</a>
+              <a href="#packages" aria-controls="packages" role="tab" data-toggle="tab" class="nav-link">Packages</a>
             </li>
-            <li role="presentation">
-              <a href="#custom" aria-controls="custom" role="tab" data-toggle="tab"  class="nav-link">Custom Event</a>
-            </li>
-          </ul> 
+          </ul>
 
           <!-- Tab panes -->
-           <div class="tab-content">
-              
-            <div role="tabpanel" class="tab-pane active" id="foods">
-                
+          <div class="tab-content">
+
+            <div role="tabpanel" class="tab-pane" id="custom">
+              <div class="tab-pane active">
+                <form action="" [formGroup]="evnetForm" (submit)="onSubmit()">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label for="Name">Event Name</label>
+                        <input type="text" formControlName="name" class="form-control">
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="Name">Venue</label>
+                        <input type="text" formControlName="venue" class="form-control">
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="Name">cost</label>
+                        <input type="number" formControlName="cost" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button type="submit" class="btn btn-success">Add event</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+
+            <div role="tabpanel" class="tab-pane" id="foods">
               <div class="row">
                 <div class="col-xxs-12 col-xs-6 mt">
                   <div class="input-field">
@@ -104,34 +132,7 @@
               </div>
             </div>
 
-            
-            <div role="tabpanel" class="tab-pane" id="custom">
-                <div  class="tab-pane active">
-                    <form action="" [formGroup]="evnetForm" (submit)="onSubmit()">
-                      <div class="form-group">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <label for="Name">Event Name</label>
-                            <input type="text" formControlName="name" class="form-control">
-                          </div>
-                        
-                          <div class="col-md-6">
-                            <label for="Name">Venue</label>
-                            <input type="venue" formControlName="venue" class="form-control">
-                          </div>
-                        
-                          <div class="col-md-6">
-                            <label for="Name">Position</label>
-                            <input type="position" formControlName="position" class="form-control">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <button type="submit" class="btn btn-success">Add event</button>
-                      </div>
-                    </form>
-                  </div> 
-              </div>
+
 
             <div role="tabpanel" class="tab-pane" id="hotels">
               <div class="row">
@@ -272,9 +273,9 @@
         </div>
       </div>
     </div>
-  </div> 
+  </div>
 
-<!-- to here -->
+  <!-- to here -->
 
 
-<!-- </mat-card-content> -->
+  <!-- </mat-card-content> -->
