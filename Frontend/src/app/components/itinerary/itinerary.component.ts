@@ -5,6 +5,10 @@ import { EventComponent } from './event/event.component';
 import { Itinerary } from '../../services/itinerary-service/model/itinerary.model';
 import { SharedataService } from '../../services/sharedata/sharedata.service';
 import { DatePipe } from '@angular/common';
+import { moveItemInArray,CdkDragDrop } from '@angular/cdk/drag-drop';
+import { Event } from '../../services/itinerary-service/model/event.model';
+
+
 
 @Component({
   selector: 'app-itinerary',
@@ -13,6 +17,18 @@ import { DatePipe } from '@angular/common';
 
 })
 export class ItineraryComponent implements OnInit {
+
+  //items = [{name:'Zero'}, {name:'One '}, {name:'Two'}, {name:'Three'}];
+ // items = [];//[{"id":1,"position":"2","name":"DAncing","venue":"Galle"},{"id":2,"position":"2","name":"Drink","venue":"Hikka"}];
+ // array = []; 
+ //items = ['Zero', 'One', 'Two', 'Three'];
+
+  
+
+  onDrop(event: CdkDragDrop<any[]>) {
+    moveItemInArray(this.eventService.eventList, event.previousIndex, event.currentIndex);
+  }
+
 
   itinerary: Itinerary = new Itinerary();
   isPopupOpened = false;
@@ -27,6 +43,7 @@ export class ItineraryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+   // console.log("items array"+JSON.stringify(this.array));
    console.log("DAte "+ this.itineraryService.getDate());
     this.itineraryService.eventList = [];
     this.dataS.shareUserData();
@@ -47,6 +64,7 @@ export class ItineraryComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.isPopupOpened = false;
+     // this.items = this.EventList;
     })
   }
 
