@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ViewItineraryComponent } from '../../components/itinerary/view-itinerary/view-itinerary.component';
 import { EditItineraryComponent } from '../../components/itinerary/edit-itinerary/edit-itinerary.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { EditItineraryComponent } from '../../components/itinerary/edit-itinerar
     MatToolbarModule,
     MatIconModule,
     BrowserAnimationsModule,
-    HeaderBarModule
+    HeaderBarModule,
+    DragDropModule
   ],
   declarations: [
     EventComponent,

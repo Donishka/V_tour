@@ -8,6 +8,7 @@ import { Itinerary } from '../../../services/itinerary-service/model/itinerary.m
 import { Event } from '../../../services/itinerary-service/model/event.model';
 import { ViewItineraryComponent } from '../view-itinerary/view-itinerary.component'
 import { Jsonp } from '@angular/http';
+import { moveItemInArray,CdkDragDrop } from '@angular/cdk/drag-drop';
 
 
 
@@ -36,6 +37,10 @@ export class EditItineraryComponent implements OnInit {
     private dialog?: MatDialog,
     public itineraryService?: ItineraryService,
   ) { }
+
+  onDrop(event: CdkDragDrop<any[]>) {
+    moveItemInArray(this.itineraryService.eventList, event.previousIndex, event.currentIndex);
+  }
 
   ngOnInit() {
     this.dataS.shareUserData();
