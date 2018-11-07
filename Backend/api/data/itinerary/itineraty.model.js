@@ -7,7 +7,9 @@ var Itinerary = mongoose.model('Itinerary', {
     name:String,
     note:String,
     traveAgentName:String,
-    events:[EventSchema]
+    events:[EventSchema],
+    clientId:String,
+    totalAmount: Number
 }, 'itineraries');
 
 module.exports = { Itinerary };
