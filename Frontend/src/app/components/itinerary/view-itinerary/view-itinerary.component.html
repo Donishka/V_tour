@@ -10,7 +10,7 @@
     <div class="card-body">
       <h5 class="card-title" *ngFor="let event of iT.events; let i = index">{{i+1}}. {{event.name}} </h5>
       <button href="#" class="btn btn-primary" (click)="editItinerary(iT)"  >Edit</button> <hr>
-      <button href="#" class="btn btn-primary" (click)="deleteItinerary(iT)"  >Delete</button> 
+      <button href="#" class="btn btn-primary" (click)="deleteItinerary(iT._id)"  >Delete</button> 
       <!-- [routerLink]="['/edit-itinerary']" -->
     </div>
   </div>
