@@ -28,12 +28,13 @@ export class LoginComponent implements OnInit {
       email:this.email,
       password:this.password
     }
+    
     this.authService.loginUser(user).subscribe(res=>{
       console.log(res);
       if(res.state){
-        
         this.flashMessage.show('You are logged in', { cssClass: 'alert-success', timeout: 4000 });
         console.log("if");
+        console.log(user);
         this.authService.storeData(res.token,res.user);
         this.selectProfile();
         }else{

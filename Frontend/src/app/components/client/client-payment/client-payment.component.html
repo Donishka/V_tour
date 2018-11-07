@@ -19,19 +19,19 @@
             <h3>Client Details</h3>
 
             First Name : 
-            <input type="text" name="first_name" value="{{user.fname}}" readonly><br>
+            <input class="input1" type="text" name="first_name" value="{{user.fname}}" readonly><br>
             Last Name :
-            <input type="text" name="last_name" value="{{user.lname}}" readonly><br>
+            <input class="input1" type="text" name="last_name" value="{{user.lname}}" readonly><br>
             Email : 
-            <input type="text" name="email" value="{{user.email}}" readonly><br>
+            <input class="input1" type="text" name="email" value="{{user.email}}" readonly><br>
             Telephone : 
-            <input type="text" name="phone" value="{{user.telephone}}"readonly><br>
+            <input class="input1" type="text" name="phone" value="{{user.telephone}}"readonly><br>
             Address : 
-            <input type="text" name="address" value="{{user.address}}"readonly><br>
+            <input class="input1" type="text" name="address" value="{{user.address}}"readonly><br>
             City:
-            <input type="text" name="city" value="{{user.city}}"readonly><br>
+            <input class="input1" type="text" name="city" value="{{user.city}}"readonly><br>
             Country:
-            <input type="text" name="country" value="{{user.country}}"readonly><br><br>
+            <input class="input1" type="text" name="country" value="{{user.country}}"readonly><br><br>
             
             <input type="hidden" name="clientname" #name="ngModel" [(ngModel)]=user.fname>
             <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="itenararyPaymentService.selectedItenararyPayment._id">
@@ -39,14 +39,14 @@
             <h3>Payment Details</h3>
             <input type="hidden" name="clientid" #name="ngModel" [(ngModel)]="user._id" required>
             Amount : 
-            <input type="text" name="amount" #name="ngModel" [(ngModel)]="itenararyPaymentService.selectedItenararyPayment.amount" ><br> <!--readonly-->
+            <input class="input1" type="text" name="amount" #name="ngModel" [(ngModel)]="itenararyPaymentService.selectedItenararyPayment.amount" ><br> <!--readonly-->
             Date :
-            <input type="text" name="date" #name="ngModel" [(ngModel)]="current_date"><br>
+            <input class="input1" type="text" name="date" #name="ngModel" [(ngModel)]="current_date"><br>
             <br>
             <flash-messages></flash-messages>
             <div class="form-group ">
               <button class="btn btn-primary btn-lg btn-block login-button" type="submit" (click)="form.submit()"[disabled]="!userForm.valid">Make ItenararyPayment</button>
-              <button class="btn btn-primary btn-lg btn-block login-button" type="button" >Reset</button>
+              <!--button class="btn btn-primary btn-lg btn-block login-button" type="button" >Reset</button-->
             </div>
           </fieldset>
         </form>

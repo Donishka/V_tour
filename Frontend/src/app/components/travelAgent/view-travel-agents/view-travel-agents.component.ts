@@ -5,6 +5,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 import { TravelAgentService } from '../../../services/user-service/travelAgent/travelagent.service';
 import { TravelAgent } from '../../../services/user-service/travelAgent/travelagent.model';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 
 declare var M: any;
 
@@ -25,12 +26,19 @@ export class ViewTravelAgentsComponent implements OnInit {
     private flashMessage:FlashMessagesService,
     public travelAgent: TravelAgent,
     private router:Router,
-    private authService:AuthService) { }
+    private authService:AuthService,
+    public ngxSmartModalService: NgxSmartModalService) { }
 
   ngOnInit() {
     this.getProfileDetails();
     this.resetForm();
     this.refreshTravelAgentList();
+  }
+
+  display: boolean = false;
+
+  showDialog() {
+    this.display = true;
   }
 
   resetForm(form?: NgForm) {

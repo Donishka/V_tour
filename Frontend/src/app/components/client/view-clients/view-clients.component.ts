@@ -24,6 +24,11 @@ export class ViewClientsComponent implements OnInit {
     this.refreshClientList();
     this.resetForm();
   }
+  display: boolean = false;
+
+  showDialog() {
+    this.display = true;
+  }
   resetForm(form?: NgForm) {
     if (form)
       form.reset();

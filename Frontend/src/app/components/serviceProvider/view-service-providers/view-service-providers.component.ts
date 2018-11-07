@@ -51,7 +51,11 @@ export class ViewServiceProvidersComponent implements OnInit {
     profilepic: "",
     }
   }
+  display: boolean = false;
 
+  showDialog() {
+    this.display = true;
+  }
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
       this.serviceProviderService.postServiceProvider(form.value).subscribe((res) => {        

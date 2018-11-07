@@ -1,9 +1,7 @@
-
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const loginModel = require('../../data/login/login.model');
-
 
 router.post("/login",function(req,res){
     const email= req.body.email;
@@ -23,10 +21,12 @@ router.post("/login",function(req,res){
                         if(!user){ 
                             res.json({state:false,msg:"No user found"});
                         }else{
-                
+                            
                             loginModel.passwordCheck(password,user.password,function(err,match){
                             token:String;
-                
+                                console.log("CON");
+                                console.log(password+"p");
+                                console.log(user.password+"up");
                             if(err) throw err;
                     
                             if (match){

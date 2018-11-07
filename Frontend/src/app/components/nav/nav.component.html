@@ -43,7 +43,7 @@
         </div>
       </li>
 
-      <li style="margin-right: 5px" class="dropdown nav-item " dropdown>
+      <li *ngIf="user.usertype!='client'" style="margin-right: 5px" class="dropdown nav-item " dropdown>
         <a class="nav-link" dropdownToggle role="button"><i class="fas fa-dollar-sign"></i> Payments & Bookings<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
           <a *ngIf="user.usertype=='travelagent'" class="dropdown-item" [routerLink]="['/viewclientpayment']">View Client Payments</a>

@@ -26,7 +26,7 @@
                       <br>Activities : {{client.intactivities}}
                       <br>Age Group : {{client.agegroup}}</p>
                     <a class="action-btn" (click)="onEdit(client)">
-                      <i class="fas fa-pencil-alt  btn-outline-primary btn-sm"> edit</i>
+                      <i class="fas fa-pencil-alt  btn-outline-primary btn-sm" (click)="showDialog()"> edit</i>
                     </a>
                     <a class="action-btn" (click)="onDelete(client._id)">
                       <i class="fas fa-trash-alt  btn-outline-primary btn-sm"> delete</i>
@@ -44,6 +44,7 @@
     <div class="col"></div>
   </div>
 </div>
+<p-dialog [(visible)]="display" [modal]="true" [responsive]="true">
 <div class="container">
   <div class="row">
     <div class="col"></div>
@@ -170,7 +171,7 @@
             </div>
             <flash-messages></flash-messages>
             <div class="form-group ">
-              <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">
+              <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid" (click)="display=false">
                 Update Client</button>
               <button class="btn btn-primary right" type="button" (click)="resetForm(userForm)">Reset</button>
             </div>
@@ -181,3 +182,4 @@
     <div class="col"></div>
   </div>
 </div>
+</p-dialog>

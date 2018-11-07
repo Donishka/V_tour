@@ -22,7 +22,6 @@ module.exports.findByTAgentEmail = function(email,callback){
 };
 
 module.exports.passwordCheck = function(plainpassword,hash,callback){
-
     bcrypt.compare(plainpassword, hash, function(err, res) {
         if(err) throw  err;
 

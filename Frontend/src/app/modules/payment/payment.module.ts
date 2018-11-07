@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClientPaymentComponent } from '../../components/client/client-payment/client-payment.component';
 import { ViewClientPaymentsComponent } from '../../components/payments/view-client-payments/view-client-payments.component';
 import { ClientPaymentFilterPipe} from '../../components/payments/view-client-payments/client-payment-fliter.pipe'
+import { TravelAgentPaymentComponent } from '../../components/travelAgent/travel-agent-payment/travel-agent-payment/travel-agent-payment.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -18,12 +19,14 @@ import { ClientPaymentFilterPipe} from '../../components/payments/view-client-pa
   declarations: [
     ClientPaymentComponent,
     ViewClientPaymentsComponent,
-    ClientPaymentFilterPipe
+    ClientPaymentFilterPipe,
+   TravelAgentPaymentComponent
   ],
   exports: [
     ClientPaymentComponent,
     ViewClientPaymentsComponent,
-    ClientPaymentFilterPipe
+    ClientPaymentFilterPipe,
+    TravelAgentPaymentComponent
   ]
 })
 export class PaymentModule { }
