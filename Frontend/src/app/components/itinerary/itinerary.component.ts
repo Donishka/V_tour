@@ -86,7 +86,7 @@ export class ItineraryComponent implements OnInit {
   getTotalAmount(eventList: Event[]): number {
     var tot = 0;
     for (var i in eventList) {
-      tot = tot + eventList[i].cost;
+      tot = tot + eventList[i].price;
     }
     return tot;
   }
@@ -136,7 +136,7 @@ export class ItineraryComponent implements OnInit {
     this.itinerary.name = this.itineraryName;
     this.itinerary.note = this.note;
     this.itinerary.date_time = this.itineraryService.getDate();
-    this.itinerary.totAmount = this.getTotalAmount(this.EventList);
+    this.itinerary.totPrice = this.getTotalAmount(this.EventList);
     this.itinerary.clientId = this.clientId;
     // this.itinerary.itineraryName = this.eventService;
     this.itinerary.events = this.eventService.getAllEvents();

@@ -1,6 +1,6 @@
 export class Event {
     id: number;
-    cost: number;
+    price: number;
     name: String;
     venue: String;
 }
