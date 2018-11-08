@@ -92,7 +92,6 @@ export class ItineraryComponent implements OnInit {
     this.itinerary.name = this.itineraryName;
     this.itinerary.note = this.note;
     this.itinerary.date_time = this.itineraryService.getDate();
-
     // this.itinerary.itineraryName = this.eventService;
     this.itinerary.events = this.eventService.getAllEvents();
     this.itineraryService.postItinerary(this.itinerary).subscribe((res) => {

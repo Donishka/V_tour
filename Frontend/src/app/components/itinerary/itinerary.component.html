@@ -13,25 +13,24 @@
       </div>
       <br>
       <cdk-drop (dropped)="onDrop($event)">
-          <div *ngFor="let item of EventList; let i = index" cdkDrag>
-              <div class="card text-center">
-                  <div class="card-header" cdkDragHandle>
-                    Event {{i+1}}
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title">{{item.name}}</h5>
-                    <p class="card-text">{{item.venue}}</p>
-                    <button class="btn btn-primary" (click)="editEvent(item.id)" style="margin: 5px;">Edit</button>
-                    <button class="btn btn-primary" (click)="deleteEvent(item.id)">Delete</button>
-                  </div>
-                  <div class="card-footer text-muted">
-                    2 days ago
-                  </div>
-                </div>
+        <div *ngFor="let item of EventList; let i = index" cdkDrag>
+          <div class="card text-center">
+            <div class="card-header" cdkDragHandle>
+              Event {{i+1}}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{item.name}}</h5>
+              <p class="card-text">{{item.venue}}</p>
+              <button class="btn btn-primary" (click)="editEvent(item.id)" style="margin: 5px;">Edit</button>
+              <button class="btn btn-primary" (click)="deleteEvent(item.id)">Delete</button>
+            </div>
+            <div class="card-footer text-muted">
+              2 days ago
+            </div>
           </div>
-        </cdk-drop>
+        </div>
+      </cdk-drop>
       <button class="btn btn-primary" (click)="addItinerary()">Save</button>
     </div>
   </mat-card-content>
 </mat-card>
-
