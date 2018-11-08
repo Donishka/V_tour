@@ -122,7 +122,7 @@ export class EditItineraryComponent implements OnInit {
     this.itinerary.note = this.note;
     this.itinerary._id = this.id;
     this.itinerary.events = this.itineraryService.getAllEvents();
-    this.itinerary.totPrice = this.getTotalAmount(this.EventList);
+    this.itinerary.totalPrice = this.getTotalAmount(this.EventList);
     this.itineraryService.putItinerry(this.itinerary).subscribe((res) => {
 
       alert('Itinerary Updated');

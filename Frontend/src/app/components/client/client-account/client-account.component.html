@@ -19,12 +19,15 @@
                 <li><i class="fas fa-utensils" aria-hidden="true"></i> foodprefer : {{user.foodprefer}}</li><br>
                 <li><i class="fas fa-gamepad" aria-hidden="true"></i> Activities : {{user.intactivities}}</li><br>
                 <li><i class="fas fa-sort-numeric-down" aria-hidden="true"></i> Age Group : {{user.agegroup}}</li><br>
+                <li><i class="far fa-calendar-alt" aria-hidden="true"> Date From : {{user.datefrom}}</i></li><br>
+                <li><i class="far fa-calendar-alt" aria-hidden="true"> Date To : {{user.dateto}}</i></li><br>
               </ul>
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-4" style="background-color:lightblue;">
+        <br><h3>Your Trip</h3>
         <div class="card" *ngFor="let iT of itineraryService.itenarary; let i = index">
           <div *ngIf="user._id==iT.clientId">
             <div class="card-header">
