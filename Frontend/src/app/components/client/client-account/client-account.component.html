@@ -1,13 +1,14 @@
 <app-nav></app-nav>
 <div class="container-fluid" id="body-container-fluid">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="card" style="width:100%">
-            <img class="card-img-top" src="https://lh3.googleusercontent.com/a8_ujXr3VWHstGkxgJL1TkqfrytP4r_52QhcvqRQVaQPRQ9DHdQ6seI99qc4jLjC0WDM=h900" alt="Card image"  style="width:100%">
-            <div class="card-body">
-              <h4 class="card-title">{{user.fname}} {{user.lname}}</h4>
-              <div class="address">								
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card" style="width:100%">
+          <img class="card-img-top" src="https://lh3.googleusercontent.com/a8_ujXr3VWHstGkxgJL1TkqfrytP4r_52QhcvqRQVaQPRQ9DHdQ6seI99qc4jLjC0WDM=h900"
+            alt="Card image" style="width:100%">
+          <div class="card-body">
+            <h4 class="card-title">{{user.fname}} {{user.lname}}</h4>
+            <div class="address">
               <ul class=" l1 w3-ul w3-small">
                 <br>
                 <li><i class="fas fa-envelope" aria-hidden="true"></i> Email : {{user.email}}</li><br>
@@ -19,33 +20,34 @@
                 <li><i class="fas fa-gamepad" aria-hidden="true"></i> Activities : {{user.intactivities}}</li><br>
                 <li><i class="fas fa-sort-numeric-down" aria-hidden="true"></i> Age Group : {{user.agegroup}}</li><br>
               </ul>
-              <p></p>
-              <tr *ngFor="let sp of itenararyPaymentService.itenararypayment">
-                <div *ngIf="user._id==sp.clientid">
-                  <td align="center">
-                    <div class="col-md-12">
-                      <div class="card bg-light flex-md-row mb-4 shadow-sm h-md-250">
-                        <div class="card-body d-flex flex-column align-items-start">
-                          <div class="mb-1 text-muted"> Payment Status : {{sp.status}}</div>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </div>
-              </tr>
-              <button class="btn btn-primary" type="button"[routerLink]="['/client-payment']" >Make Payment</button>
-            </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-4" style="background-color:lightblue;">
-          
+      </div>
+      <div class="col-lg-4" style="background-color:lightblue;">
+        <div class="card" *ngFor="let iT of itineraryService.itenarary; let i = index">
+          <div *ngIf="user._id==iT.clientId">
+            <div class="card-header">
+              <h4>Itinerary Name: {{iT.name}}</h4>
+            </div>         
+            <div class="card-body">
+              <div class="card-title" *ngFor="let event of iT.events; let i = index">
+                <h5>{{i+1}}. {{event.name}}</h5>
+                <p>{{event.venue}}</p>
+              </div>
+              <h5>Total Amount : {{iT.totalPrice}}</h5>
+              <div *ngFor="let sp of itenararyPaymentService.itenararypayment">
+                <div *ngIf="user._id==sp.clientid">
+                  <div class="mb-1 text-muted"> Payment Status : {{sp.status}}</div>
+                </div>
+              </div>
+              <button class="btn btn-primary" type="button" (click)="onPayment(i)">Make Payment</button>        
+            </div>
+          </div>
         </div>
-        <div class="col-lg-4" style="background-color:brown;">
-        
-        </div>
+      </div>
+      <div class="col-lg-4" style="background-color:brown;">
       </div>
     </div>
   </div>
-
-    
+</div>
