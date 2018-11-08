@@ -6,11 +6,29 @@
         <h1>Itinerary Information</h1>
         <hr>
       </div>
+      <div>
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Client Name" aria-label="Client" [matAutocomplete]="auto" [formControl]="clientCtrl" >
+          </mat-form-field>
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let client of filteredClients | async" [value]="client.email">
+                <span>{{client.fname}} </span>
+                <small>City : {{client.city}}</small>
+              </mat-option>
+            </mat-autocomplete>
+          <br>
+        </form>
+      </div>
       <div class="row">
         <input type="text" [(ngModel)]="note">
         <input type="text" [(ngModel)]="itineraryName">
         <button class="btn btn-primary" (click)="addEvent()">Add event</button>
       </div>
+
+
+
+
       <br>
       <cdk-drop (dropped)="onDrop($event)">
         <div *ngFor="let item of EventList; let i = index" cdkDrag>

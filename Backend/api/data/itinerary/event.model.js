@@ -4,8 +4,8 @@ var Event = mongoose.model('Event', {
     id: {
         type: Number
     },
-    position: {
-        type: String
+    cost: {
+        type: Number
     },
     name: {
         type: String

@@ -69,7 +69,7 @@ export class EditItineraryComponent implements OnInit {
       for(var i in this.events){
         this.evnetForm = this.formBuilder.group({
           id: [this.events[i].id],
-          position: [this.events[i].position,[Validators.required]],
+          cost: [this.events[i].cost,[Validators.required]],
           name:  [this.events[i].name,[Validators.required]],
           venue:  [this.events[i].venue,[Validators.required]]
         });
@@ -78,6 +78,14 @@ export class EditItineraryComponent implements OnInit {
       }
     });
    
+  }
+
+  getTotalAmount(eventList: Event[]): number {
+    var tot = 0;
+    for (var i in eventList) {
+      tot = tot + eventList[i].cost;
+    }
+    return tot;
   }
 
   addEvent() {
@@ -114,6 +122,7 @@ export class EditItineraryComponent implements OnInit {
     this.itinerary.note = this.note;
     this.itinerary._id = this.id;
     this.itinerary.events = this.itineraryService.getAllEvents();
+    this.itinerary.totAmount = this.getTotalAmount(this.EventList);
     this.itineraryService.putItinerry(this.itinerary).subscribe((res) => {
 
       alert('Itinerary Updated');
