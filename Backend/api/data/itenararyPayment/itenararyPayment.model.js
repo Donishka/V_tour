@@ -7,6 +7,12 @@ var ItenararyPayment = mongoose.model('ItenararyPayment', {
     clientname: {
         type: String,
     },
+    itenararyid: {
+        type: String,
+    },
+    itenararyname: {
+        type: String,
+    },
     amount: {
         type: String,
     },

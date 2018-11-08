@@ -43,6 +43,12 @@
             Date :
             <input class="input1" type="text" name="date" #name="ngModel" [(ngModel)]="current_date"><br>
             <br>
+
+            <h3>Itenarary Details</h3>
+            <input type="hidden" name="itenararyid" #name="ngModel" [(ngModel)]="user._id">
+            Itenarary Name :
+            <input class="input1" type="text" name="itenararyname" #name="ngModel" [(ngModel)]="itenararyPaymentService.selectedItenararyPayment.itenararyname"><br><br><br>
+
             <flash-messages></flash-messages>
             <div class="form-group ">
               <button class="btn btn-primary btn-lg btn-block login-button" type="submit" (click)="form.submit()"[disabled]="!userForm.valid">Make ItenararyPayment</button>
