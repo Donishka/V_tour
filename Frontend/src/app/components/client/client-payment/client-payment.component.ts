@@ -5,12 +5,13 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 
 import { ItenararyPaymentService } from '../../../services/payment-service/itenarary-payment/itenarary-payment.service';
+import { ClientPaymentService } from '../../../services/sharedata/client-payment.service';
 
 @Component({
   selector: 'app-client-payment',
   templateUrl: './client-payment.component.html',
   styleUrls: ['./client-payment.component.css'],
-  providers:[ItenararyPaymentService]
+  providers: [ItenararyPaymentService]
 })
 export class ClientPaymentComponent implements OnInit {
 
@@ -18,17 +19,25 @@ export class ClientPaymentComponent implements OnInit {
   today: number = Date.now();
   public current_date = new Date();
   time: any;
+
+  amount:any;
+  itname:any;
+  itid:any;
+
   constructor(
     private authService: AuthService,
     private router: Router,
     public itenararyPaymentService: ItenararyPaymentService,
     private flashMessage: FlashMessagesService,
+    public  clientPaymentService: ClientPaymentService
   ) { }
 
   ngOnInit() {
     this.resetForm();
     this.getProfileDetails();
-    console.log(this.current_date);
+    this.itname=this.clientPaymentService.itenararyname;
+    this.amount=this.clientPaymentService.amount;
+    this.itid=this.clientPaymentService.itenararyid;
   }
 
   resetForm(form?: NgForm) {
@@ -38,6 +47,8 @@ export class ClientPaymentComponent implements OnInit {
       _id: "",
       clientid: "",
       clientname:"",
+      itenararyid:"",
+      itenararyname:"",
       amount: "",
       date: "",
       status: "",
@@ -50,6 +61,8 @@ export class ClientPaymentComponent implements OnInit {
         _id: "",
         clientid: "",
         clientname: "",
+        itenararyid: "",
+        itenararyname: "",
         amount: "",
         date: "",
         status: "",

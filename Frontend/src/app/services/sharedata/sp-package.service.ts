@@ -13,8 +13,4 @@ export class SpPackageService {
   setValue(id:string){
     this.spid=id;   
   }
-  getValue(){
-    console.log(this.spid);
-  }
-  
 }

@@ -7,5 +7,5 @@ export class Itinerary {
     traveAgentName:string;
     events:Event[];
     clientId:String;
-    totPrice:Number;
+    totalPrice:Number;
 }

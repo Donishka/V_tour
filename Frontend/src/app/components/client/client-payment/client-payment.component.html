@@ -13,8 +13,8 @@
             <input type="hidden" name="cancel_url" value="http://localhost:4200/client-account">
             <input type="hidden" name="notify_url" value="http://sample.com/notify">
             <input type="hidden" name="order_id" value={{user._id}}>
-            <input type="hidden" name="items" value="Kandy Tour"><br>
-            <input type="hidden" name="currency" value="LKR">
+            <input type="hidden" name="items" value="clientPaymentService.itenararyname"><br>
+            <input type="hidden" name="currency" value="USD">
 
             <h3>Client Details</h3>
 
@@ -39,10 +39,16 @@
             <h3>Payment Details</h3>
             <input type="hidden" name="clientid" #name="ngModel" [(ngModel)]="user._id" required>
             Amount : 
-            <input class="input1" type="text" name="amount" #name="ngModel" [(ngModel)]="itenararyPaymentService.selectedItenararyPayment.amount" ><br> <!--readonly-->
+            <input class="input1" type="text" name="amount" #name="ngModel" [(ngModel)]="amount" readonly ><br>
             Date :
             <input class="input1" type="text" name="date" #name="ngModel" [(ngModel)]="current_date"><br>
             <br>
+
+            <h3>Itenarary Details</h3>
+            <input type="hidden" name="itenararyid" #name="ngModel" [(ngModel)]="itid">
+            Itenarary Name :
+            <input class="input1" type="text" name="itenararyname" #name="ngModel" [(ngModel)]="itname"><br><br><br>
+
             <flash-messages></flash-messages>
             <div class="form-group ">
               <button class="btn btn-primary btn-lg btn-block login-button" type="submit" (click)="form.submit()"[disabled]="!userForm.valid">Make ItenararyPayment</button>
