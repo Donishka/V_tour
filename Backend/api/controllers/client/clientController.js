@@ -39,6 +39,8 @@ router.post('/', (req, res) => {
         foodprefer:req.body.foodprefer,
         intactivities:req.body.intactivities,
         agegroup:req.body.agegroup,
+        datefrom:req.body.datefrom,
+        dateto:req.body.dateto,
         usertype:"client"
     });
     ClientModel.saveUser(client,(err, doc) => {
@@ -68,6 +70,8 @@ router.put('/:id', (req, res) => {
             foodprefer: req.body.foodprefer,
             intactivities: req.body.intactivities,
             agegroup: req.body.agegroup,
+            datefrom: req.body.datefrom,
+            dateto: req.body.dateto,
             usertype: "client"};
     Client.findByIdAndUpdate(req.params.id, { $set: client }, { new: true }, (err, doc) => {
                 if (!err) { res.send(doc); }

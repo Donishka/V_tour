@@ -46,6 +46,8 @@ export class ViewClientsComponent implements OnInit {
       foodprefer: [""],
       intactivities: [""],
       agegroup: "",
+      datefrom:"",
+      dateto:""
     }
   }
 

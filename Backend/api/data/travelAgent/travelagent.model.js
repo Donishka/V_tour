@@ -49,6 +49,7 @@ module.exports.saveUser = function (newUser,callback) {
         });
     });
 };
+
 module.exports.updateUser = function (newUser,callback) {
 
     bcrypt.genSalt(10, function(err, salt) {

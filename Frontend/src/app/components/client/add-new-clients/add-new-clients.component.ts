@@ -39,6 +39,8 @@ export class AddNewClientsComponent implements OnInit {
       foodprefer:[""],
       intactivities:[""],
       agegroup:"",
+      datefrom:"",
+      dateto:""
     }
   }
 

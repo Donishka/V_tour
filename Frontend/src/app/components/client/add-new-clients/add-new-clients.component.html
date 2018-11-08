@@ -85,6 +85,28 @@
                   </div>
                 </div>
                 <div class="form-group">
+                  <label for="datefrom" class="cols-sm-2 control-label">Date From</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                      </span>
+                      <input type="date" class="form-control" name="datefrom" #name="ngModel" [(ngModel)]="clientService.selectedClient.datefrom">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="dateto" class="cols-sm-2 control-label">Date To</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                      </span>
+                      <input type="date" class="form-control" name="dateto" #name="ngModel" [(ngModel)]="clientService.selectedClient.dateto">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
                   <label for="noofvisitors" class="cols-sm-2 control-label">No of Visitors</label>
                   <div class="cols-sm-10">
                     <div class="input-group">

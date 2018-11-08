@@ -24,9 +24,6 @@ router.post("/login",function(req,res){
                             
                             loginModel.passwordCheck(password,user.password,function(err,match){
                             token:String;
-                                console.log("CON");
-                                console.log(password+"p");
-                                console.log(user.password+"up");
                             if(err) throw err;
                     
                             if (match){

@@ -41,6 +41,12 @@ var Client =  mongoose.model('Client', {
         type:String,
         required:true
     },
+    datefrom :{
+        type:String,
+    },
+    dateto : {
+        type:String,
+    }
 },'clients');
 
 module.exports = { Client };
