@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
         traveAgentName: req.body.traveAgentName,
         events: req.body.events,
         clientId: req.body.clientId,
-        totalAmount: req.body.totAmount
+        totalPrice: req.body.totPrice
     });
     itinerary.save(itinerary, (err, doc) => {
         if (err) {
@@ -65,7 +65,7 @@ router.put('/:id', (req, res) => {
             traveAgentName: req.body.traveAgentName,
             events: req.body.events,
             clientId: req.body.clientId,
-            totalAmount: req.body.totAmount
+            totalPrice: req.body.totPrice
         }
     }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
