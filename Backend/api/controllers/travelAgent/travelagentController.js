@@ -47,6 +47,25 @@ router.post('/', (req, res) => {
         }}
 );
 });
+
+router.put('/changepw/:id', (req, res) => {
+    console.log(req);
+    var travelagent= {
+        _id:req.body._id,
+        password: req.body.password,
+    };
+    bcrypt.genSalt(10, function (err, salt) {
+        bcrypt.hash(travelagent.password, salt, function (err, hash) {
+            travelagent.password = hash;
+            if (err) throw err;
+            TravelAgent.findByIdAndUpdate(req.params.id, { $set: travelagent }, { new: true }, (err, doc) => {
+                if (!err) { res.send(doc); }
+                else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
+            });
+        });
+    });
+});
+
 router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
@@ -64,9 +83,9 @@ router.put('/:id', (req, res) => {
     };
 
     TravelAgent.findByIdAndUpdate(req.params.id, { $set: travelagent }, { new: true }, (err, doc) => {
-                        if (!err) { res.send(doc); }
-                        else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
-                    });
+        if (!err) { res.send(doc); }
+        else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
+    });
     
 
 });
