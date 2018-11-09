@@ -60,15 +60,15 @@ export class ViewServiceProvidersComponent implements OnInit {
     if (form.value._id == "") {
       this.serviceProviderService.postServiceProvider(form.value).subscribe((res) => {        
         this.resetForm(form);
-        this.refreshServiceProviderList();
-        this.flashMessage.show('Service Provider Saved', { cssClass: 'alert-success', timeout: 4000 });
+        this.refreshServiceProviderList();        
       });
     }
     else {
       this.serviceProviderService.putServiceProvider(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refreshServiceProviderList();
-        this.flashMessage.show('Service Provider Updated', { cssClass: 'alert-success', timeout: 4000 });
+        alert('Service Provider Updated');
+        this.display = false;
       });
     }
   }

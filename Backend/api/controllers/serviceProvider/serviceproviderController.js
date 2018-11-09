@@ -65,22 +65,10 @@ router.put('/:id', (req, res) => {
     };
 
 
-    if (err) throw err;
-
-    ServiceProvider.findByIdAndUpdate(req.params.id, {
-        $set: {
-            fname: req.body.fname,
-            username: req.body.username,
-            email: req.body.email,
-            telephone: req.body.telephone,
-            address: req.body.address,
-            type: req.body.type,
-            discription: req.body.discription,
-            profilepic: req.body.profilepic,
-            usertype: "serviceprovider"} }, { new: true }, (err, doc) => {
-                if (!err) { res.send(doc); }
-                else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
-            });
+    ServiceProvider.findByIdAndUpdate(req.params.id, { $set: serviceprovider }, { new: true }, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
+    });
 
 });
 

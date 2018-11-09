@@ -6,6 +6,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { RouterModule, Routes }  from '@angular/router';
 import { EditTravelAgentComponent } from '../../components/travelAgent/edit-travel-agent/edit-travel-agent.component';
 import { EditServiceProviderComponent } from '../../components/serviceProvider/edit-service-provider/edit-service-provider.component';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   imports: [
@@ -14,14 +15,17 @@ import { EditServiceProviderComponent } from '../../components/serviceProvider/e
     FlashMessagesModule,
     RouterModule,
     HeaderBarModule,
+    DialogModule
  ],
   declarations: [
     EditTravelAgentComponent,
-    EditServiceProviderComponent
+    EditServiceProviderComponent,
+    
   ],
   exports:[
     EditTravelAgentComponent,
-    EditServiceProviderComponent
+    EditServiceProviderComponent,
+    
   ]
 })
 export class EditUserModule { }

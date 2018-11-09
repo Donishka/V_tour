@@ -16,7 +16,6 @@ export class TravelAgentService {
 
   constructor(private http: HttpClient) { }
 
-  
   postTravelAgent(tagent: TravelAgent) { 
     return this.http.post(this.baseURL, tagent);
   }
@@ -27,6 +26,10 @@ export class TravelAgentService {
 
   putTravelAgent(tagent: TravelAgent) {
     return this.http.put(this.baseURL + `/${tagent._id}`, tagent);
+  }
+
+  putTravelAgentPw(tagent: TravelAgent) {
+    return this.http.put(this.baseURL +"/changepw"+ `/${tagent._id}`, tagent);
   }
 
   deleteTravelAgent(_id: string) {

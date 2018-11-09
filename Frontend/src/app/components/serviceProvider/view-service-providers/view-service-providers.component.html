@@ -43,12 +43,12 @@
     <div class="col"></div>
   </div>
 </div>
-<p-dialog [(visible)]="display" [modal]="true" [responsive]="true">
-  <div class="container">
-    <div class="row">
-      <div class="col"></div>
-      <div class="col-6">
-        <div class="main-login main-center">
+<p-dialog [(visible)]="display" [modal]="true" [responsive]="true" [width]="600">
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-10">
+      <div class="main-login main-center">
           <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
             <fieldset>
               <legend>Update Service Provider :</legend>
@@ -121,9 +121,7 @@
               </div>
               <flash-messages></flash-messages>
               <div class="form-group ">
-                <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid"
-                  (click)="display=false">Update
-                  Service Provider</button>
+                <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Update Service Provider</button>
                 <button class="btn btn-primary right" type="button" (click)="resetForm(userForm)">Reset</button>
               </div>
             </fieldset>

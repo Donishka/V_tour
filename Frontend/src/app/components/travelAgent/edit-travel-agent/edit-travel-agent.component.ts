@@ -24,6 +24,9 @@ export class EditTravelAgentComponent implements OnInit {
     private zone:NgZone,
   ) { }
 
+  email: String;
+  password: String;
+
   ngOnInit() {
     this.resetForm();
     this.refreshTravelAgentList();
@@ -56,7 +59,6 @@ export class EditTravelAgentComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
       this.travelAgentService.postTravelAgent(form.value).subscribe((res) => {
-        console.log("submitpost");
         alert('Details Saved');
         this.resetForm(form);
         this.zone.run(() => {        
@@ -65,7 +67,6 @@ export class EditTravelAgentComponent implements OnInit {
       });
     }else {
       this.travelAgentService.putTravelAgent(form.value).subscribe((res) => {
-        console.log("submitput");
         this.resetForm(form);
         alert('Details Updated');
         this.zone.run(() => {
@@ -81,5 +82,40 @@ export class EditTravelAgentComponent implements OnInit {
   }
   onEdit(tagent: TravelAgent) {
     this.travelAgentService.selectedTravelAgent = tagent;
+  }
+
+  display1: boolean = false;
+
+  showDialog1() {
+    this.display1 = true;
+  }
+  display2: boolean = false;
+
+  showDialog2() {
+    this.display2 = true;
+  }
+
+
+  loginUser() {
+    const user = {
+      email: this.email,
+      password: this.password
+    }
+
+    this.authService.loginUser(user).subscribe(res => {
+      if (res.state) {
+        this.showDialog2();
+        this.display1=false;
+      } else {
+        alert(res.msg);
+      }
+    })
+  }
+
+  sendPassword(form: NgForm) {
+    this.travelAgentService.putTravelAgentPw(form.value).subscribe((res) => {
+      alert('Password Updated');
+      this.display2=false;
+    });
   }
 }
