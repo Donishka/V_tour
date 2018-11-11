@@ -34,11 +34,9 @@ export class TravelAgentAccountComponent implements OnInit {
     });
   }
 
-    getProfileDetails() {
-      this.authService.getProfile().subscribe(res => {
-        this.user = res.data.user;
-        console.log(this.user);
-      });
-    }
-
+  getProfileDetails() {
+    this.authService.getProfile().subscribe(res => {
+      this.user = res.data.user;
+    });
   }
+}

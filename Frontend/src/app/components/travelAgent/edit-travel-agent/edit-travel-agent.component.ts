@@ -36,7 +36,6 @@ export class EditTravelAgentComponent implements OnInit {
   getProfileDetails() {
     this.authService.getProfile().subscribe(res => {
       this.user = res.data.user;
-      console.log(this.user);
     });
   }
 
@@ -61,6 +60,7 @@ export class EditTravelAgentComponent implements OnInit {
       this.travelAgentService.postTravelAgent(form.value).subscribe((res) => {
         alert('Details Saved');
         this.resetForm(form);
+        this.getProfileDetails();
         this.zone.run(() => {        
         this.router.navigateByUrl('/travelagent-account');
         });
@@ -69,6 +69,7 @@ export class EditTravelAgentComponent implements OnInit {
       this.travelAgentService.putTravelAgent(form.value).subscribe((res) => {
         this.resetForm(form);
         alert('Details Updated');
+        this.getProfileDetails();
         this.zone.run(() => {
         this.router.navigateByUrl('/travelagent-account');
         });
