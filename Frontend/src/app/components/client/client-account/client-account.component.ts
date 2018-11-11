@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ItineraryService } from '../../../services/itinerary-service/itinerary.service';
 import { Itinerary } from '../../../services/itinerary-service/model/itinerary.model';
@@ -22,6 +23,7 @@ export class ClientAccountComponent implements OnInit {
   isPopupOpened = false;
   Itinerary: any;
   user: any;
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -29,7 +31,7 @@ export class ClientAccountComponent implements OnInit {
     private itenararyPayment: ItenararyPayment,
     private dataS: SharedataService,
     public itineraryService: ItineraryService,
-    private clientPaymentService: ClientPaymentService
+    private clientPaymentService: ClientPaymentService,
   ) {
     this.dataS.shareUserData();
     this.dataS.currentMessge.subscribe(traveAgentdata => {
@@ -41,7 +43,6 @@ export class ClientAccountComponent implements OnInit {
   ngOnInit() {
     this.authService.getProfile().subscribe(res => {
       this.user = res.data.user;
-      console.log(this.user);
     })
     this.refreshPaymentList();
     this.refreshItinerryList();
@@ -66,3 +67,4 @@ export class ClientAccountComponent implements OnInit {
   }
 
 }
+

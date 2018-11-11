@@ -24,6 +24,9 @@ user:any;
     private zone:NgZone,
   ) { }
 
+  email: String;
+  password: String;
+
   ngOnInit() {
     this.resetForm();
     this.refreshServiceProviderList();
@@ -85,5 +88,39 @@ user:any;
   onEdit(sp: ServiceProvider) {
     this.serviceProviderService.selectedServiceProvider = sp;
 
+  }
+  display1: boolean = false;
+
+  showDialog1() {
+    this.display1 = true;
+  }
+  display2: boolean = false;
+
+  showDialog2() {
+    this.display2 = true;
+  }
+
+
+  loginUser() {
+    const user = {
+      email: this.email,
+      password: this.password
+    }
+
+    this.authService.loginUser(user).subscribe(res => {
+      if (res.state) {
+        this.showDialog2();
+        this.display1 = false;
+      } else {
+        alert(res.msg);
+      }
+    })
+  }
+
+  sendPassword(form: NgForm) {
+    this.serviceProviderService.putServiceProviderPw(form.value).subscribe((res) => {
+      alert('Password Updated');
+      this.display2 = false;
+    });
   }
 }

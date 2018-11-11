@@ -10,6 +10,7 @@ import { ServiceProviderAccountComponent } from '../../components/serviceProvide
 import { ClientAccountComponent } from '../../components/client/client-account/client-account.component';
 import { HeaderBarModule } from '../header-bar/header-bar.module';
 import { PackageModule } from '../../modules/package/package.module';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { PackageModule } from '../../modules/package/package.module';
     FlashMessagesModule,
     RouterModule,
     HeaderBarModule,
-    PackageModule
+    PackageModule,
+    DialogModule
     
     
  ],

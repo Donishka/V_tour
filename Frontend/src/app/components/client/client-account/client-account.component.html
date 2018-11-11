@@ -24,15 +24,17 @@
               </ul>
             </div>
           </div>
+
         </div>
       </div>
       <div class="col-lg-4" style="background-color:lightblue;">
-        <br><h3>Your Trip</h3>
+        <br>
+        <h3>Your Trip</h3>
         <div class="card" *ngFor="let iT of itineraryService.itenarary; let i = index">
           <div *ngIf="user._id==iT.clientId">
             <div class="card-header">
               <h4>Itinerary Name: {{iT.name}}</h4>
-            </div>         
+            </div>
             <div class="card-body">
               <div class="card-title" *ngFor="let event of iT.events; let i = index">
                 <h5>{{i+1}}. {{event.name}}</h5>
@@ -44,7 +46,7 @@
                   <div class="mb-1 text-muted"> Payment Status : {{sp.status}}</div>
                 </div>
               </div>
-              <button class="btn btn-primary" type="button" (click)="onPayment(i)">Make Payment</button>        
+              <button class="btn btn-primary" type="button" (click)="onPayment(i)">Make Payment</button>
             </div>
           </div>
         </div>
@@ -54,3 +56,4 @@
     </div>
   </div>
 </div>
+

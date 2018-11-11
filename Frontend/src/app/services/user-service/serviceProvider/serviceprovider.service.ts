@@ -16,24 +16,24 @@ export class ServiceProviderService {
 
 
   postServiceProvider(sp: ServiceProvider) {
-    console.log("post");
     return this.http.post(this.baseURL, sp);
   }
 
   getServiceProviderList() {
-    console.log("get");
     return this.http.get(this.baseURL);
     
   }
 
   putServiceProvider(sp: ServiceProvider) {
-    console.log("put");
     return this.http.put(this.baseURL + `/${sp._id}`, sp);
     
   }
 
+  putServiceProviderPw(sp: ServiceProvider) {
+    return this.http.put(this.baseURL + "/changepw" + `/${sp._id}`, sp);
+  }
+
   deleteServiceProvider(_id: string) {
-    console.log("delete");
     return this.http.delete(this.baseURL + `/${_id}`);
   }
 
