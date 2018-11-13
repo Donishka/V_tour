@@ -99,7 +99,6 @@ export class ItineraryComponent implements OnInit {
       }
     }
 
-    this.clients
   }
 
   addEvent() {
