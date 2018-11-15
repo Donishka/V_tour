@@ -8,6 +8,7 @@ import { TravelAgent } from '../../../services/user-service/travelAgent/travelag
 
 declare var M: any;
 
+
 @Component({
   selector: 'app-add-new-travel-agent',
   templateUrl: './add-new-travel-agent.component.html',
@@ -18,7 +19,9 @@ export class AddNewTravelAgentComponent implements OnInit {
   constructor(public travelAgentService: TravelAgentService,
     private flashMessage:FlashMessagesService,
     private router:Router) { }
-
+  
+  
+    rePassword: any;
   ngOnInit() {
     this.resetForm();
   }
@@ -41,23 +44,29 @@ export class AddNewTravelAgentComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    if (form.value._id == "") {
-      this.travelAgentService.postTravelAgent(form.value).subscribe((res) => {
-        this.flashMessage.show('Travel Agent Saved', { cssClass: 'alert-success', timeout: 4000 });
-        this.resetForm(form);
-        alert('Travel Agent Saved');
-        console.log("Saved");
-        this.router.navigateByUrl('/travelagent-account');
-      });
-    }
-    else {
-      this.travelAgentService.putTravelAgent(form.value).subscribe((res) => {
-        this.resetForm(form);
-        this.flashMessage.show('Travel Agent Updated', { cssClass: 'alert-success', timeout: 4000 });
-        console.log("Updated");
-        alert('Travel Agent Updated');
-        this.router.navigateByUrl('/travelagent-account');
-      });
+    if(this.rePassword==form.value.password){
+        if (form.value._id == "") {
+            this.travelAgentService.postTravelAgent(form.value).subscribe((res) => {
+                this.flashMessage.show('Travel Agent Saved', { cssClass: 'alert-success', timeout: 4000 });
+                this.resetForm(form);
+                alert('Travel Agent Saved');
+                console.log("Saved");
+                this.router.navigateByUrl('/travelagent-account');
+            });
+        }
+        else {
+            this.travelAgentService.putTravelAgent(form.value).subscribe((res) => {
+                this.resetForm(form);
+                this.flashMessage.show('Travel Agent Updated', { cssClass: 'alert-success', timeout: 4000 });
+                console.log("Updated");
+                alert('Travel Agent Updated');
+                this.router.navigateByUrl('/travelagent-account');
+            });
+        }
+    }else{
+      alert("Passwords Do Not Match");
+      console.log(this.rePassword);
+      console.log(form.value.password);
     }
   }
 }

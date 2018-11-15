@@ -11,6 +11,8 @@ import { ClientAccountComponent } from '../../components/client/client-account/c
 import { HeaderBarModule } from '../header-bar/header-bar.module';
 import { PackageModule } from '../../modules/package/package.module';
 import { DialogModule } from 'primeng/dialog';
+import {CardModule} from 'primeng/card';
+
 
 @NgModule({
   imports: [
@@ -20,7 +22,8 @@ import { DialogModule } from 'primeng/dialog';
     RouterModule,
     HeaderBarModule,
     PackageModule,
-    DialogModule
+    DialogModule,
+    CardModule
     
     
  ],

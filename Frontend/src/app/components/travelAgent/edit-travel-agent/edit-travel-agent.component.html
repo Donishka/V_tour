@@ -28,28 +28,23 @@
                   <div class="cols-sm-10">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                      <input type="text" class="form-control" name="lname" #name="ngModel" [(ngModel)]="tagent.lname">
+                      <input type="text" class="form-control" name="lname" #name="ngModel" [(ngModel)]="tagent.lname" required>
                     </div>
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="username" class="cols-sm-2 control-label">User Name</label>
-                  <div class="cols-sm-10">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                      <input type="text" class="form-control" name="username" #name="ngModel" [(ngModel)]="tagent.username"
-                        required>
-                    </div>
-                  </div>
-                </div>
 
                 <div class="form-group">
                   <label for="email" class="cols-sm-2 control-label">Email</label>
                   <div class="cols-sm-10">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
-                      <input type="email" class="form-control" name="email" #name="ngModel" [(ngModel)]="tagent.email">
+                      <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #emailref="ngModel" [(ngModel)]="tagent.email" required>
+                    </div>
+                    <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
+                      <div [hidden]="!emailref.errors?.pattern">
+                        Invalid Email Address
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -59,7 +54,7 @@
                   <div class="cols-sm-10">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fas fa-phone-square" aria-hidden="true"></i></span>
-                      <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="tagent.telephone">
+                      <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="tagent.telephone" required>
                     </div>
                   </div>
                 </div>
@@ -69,7 +64,7 @@
                   <div class="cols-sm-10">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fas fa-home" aria-hidden="true"></i></span>
-                      <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="tagent.address">
+                      <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="tagent.address" required>
                     </div>
                   </div>
                 </div>
@@ -79,7 +74,10 @@
                   <div class="cols-sm-10">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                      <input type="text" class="form-control" name="isadmin" #name="ngModel" [(ngModel)]="tagent.isadmin">
+                      <select class="form-control" name="isadmin" #name="ngModel" [(ngModel)]="tagent.isadmin" required>
+                        <option value="true">True</option>
+                        <option value="false">False</option>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -110,7 +108,12 @@
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
-            name="email" [(ngModel)]="email">
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #emailref="ngModel" [(ngModel)]="email" required>
+            <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
+              <div [hidden]="!emailref.errors?.pattern">
+                Invalid Email Address
+              </div>
+            </div>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
@@ -141,6 +144,19 @@
             </div>
           </div>
         </div>
+
+        <div class="form-group">
+          <label for="password" class="cols-sm-2 control-label">Re Enter New Password</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+              <input type="password" class="form-control" name="rePassword" #name="ngModel" [(ngModel)]="rePassword"
+                required>
+            </div>
+            <p style="color:red" *ngIf="travelAgentService.selectedTravelAgent.password!='' && travelAgentService.selectedTravelAgent.password!=rePassword">Passwords Do Not Match !</p>
+          </div>
+        </div>
+
         <div class="form-group ">
           <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!pwForm.valid">Save</button>
         </div>

@@ -78,8 +78,14 @@
                 <label for="email" class="cols-sm-2 control-label">Email</label>
                 <div class="cols-sm-10">
                   <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
-                    <input type="email" class="form-control" name="email" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.email">
+                    <span class="input-group-addon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
+                    <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #emailref="ngModel"
+                      [(ngModel)]="serviceProviderService.selectedServiceProvider.email" required>
+                  </div>
+                  <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
+                    <div [hidden]="!emailref.errors?.pattern">
+                      Invalid Email Address
+                    </div>
                   </div>
                 </div>
               </div>
@@ -88,7 +94,7 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.telephone">
+                    <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.telephone" required>
                   </div>
                 </div>
               </div>
@@ -97,7 +103,7 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.address">
+                    <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.address" required>
                   </div>
                 </div>
               </div>
@@ -106,7 +112,7 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="type" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.type">
+                    <input type="text" class="form-control" name="type" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.type" required>
                   </div>
                 </div>
               </div>
@@ -115,14 +121,14 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="discription" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.discription">
+                    <input type="text" class="form-control" name="discription" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.discription" required>
                   </div>
                 </div>
               </div>
               <flash-messages></flash-messages>
               <div class="form-group ">
-                <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Update Service Provider</button>
-                <button class="btn btn-primary right" type="button" (click)="resetForm(userForm)">Reset</button>
+                <button style="margin-top:5px;" class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Update Service Provider</button>
+                <button style="margin-top:5px;" class="btn btn-primary btn-lg btn-block" type="button" (click)="resetForm(userForm)">Reset</button>
               </div>
             </fieldset>
           </form>

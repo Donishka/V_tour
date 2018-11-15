@@ -13,6 +13,7 @@ import { TravelAgentFilterPipe } from '../../components/travelAgent/travel-agent
 import { ServiceProviderFilterPipe } from '../../components/serviceProvider/service-provider-filter.pipe';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { DialogModule } from 'primeng/dialog';
+import {CardModule} from 'primeng/card';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { DialogModule } from 'primeng/dialog';
     RouterModule,
     HeaderBarModule,
     NgxSmartModalModule.forRoot(),
-    DialogModule
+    DialogModule,
+    CardModule
 
  ],
   declarations: [

@@ -65,7 +65,7 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="lname" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.lname">
+                    <input type="text" class="form-control" name="lname" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.lname" required>
                   </div>
                 </div>
               </div>
@@ -86,7 +86,12 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
-                    <input type="email" class="form-control" name="email" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.email">
+                    <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #emailref="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.email" required>
+                  </div>
+                  <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
+                    <div [hidden]="!emailref.errors?.pattern">
+                      Invalid Email Address
+                    </div>
                   </div>
                 </div>
               </div>
@@ -96,7 +101,7 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fas fa-phone-square" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.telephone">
+                    <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.telephone" required>
                   </div>
                 </div>
               </div>
@@ -106,7 +111,7 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fas fa-home" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.address">
+                    <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.address" required>
                   </div>
                 </div>
               </div>
@@ -116,15 +121,14 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="isadmin" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.isadmin">
+                    <input type="text" class="form-control" name="isadmin" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.isadmin" required>
                   </div>
                 </div>
               </div>
               <flash-messages></flash-messages>
               <div class="form-group ">
-                <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Update
-                  Agent</button>
-                <button class="btn btn-primary right" type="button" (click)="resetForm(userForm)">Reset</button>
+                <button style="margin-top:5px;" class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Update Agent</button>
+                <button style="margin-top:5px;" class="btn btn-primary btn-lg btn-block" type="button" (click)="resetForm(userForm)">Reset</button>
               </div>
             </fieldset>
           </form>

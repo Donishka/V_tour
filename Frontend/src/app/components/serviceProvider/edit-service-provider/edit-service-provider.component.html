@@ -8,7 +8,7 @@
           <div style="margin-top: 20px" class="main-login main-center">
             <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
               <fieldset>
-                <legend>Edit Service Provider : {{user.fname}}</legend>
+                <legend>Edit Service Provider {{user.fname}}</legend>
                 <br>
                 <input type="hidden" value={{user._id}} name="_id" #_id="ngModel" [(ngModel)]="sp._id">
                 <div class="form-group">
@@ -37,11 +37,17 @@
                   <div class="cols-sm-10">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
-                      <input type="email" value={{user.email}} class="form-control" name="email" #name="ngModel"
+                      <input type="email" value={{user.email}} class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #emailref="ngModel"
                         [(ngModel)]="sp.email">
+                    </div>
+                    <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
+                      <div [hidden]="!emailref.errors?.pattern">
+                        Invalid Email Address
+                      </div>
                     </div>
                   </div>
                 </div>
+
                 <div class="form-group">
                   <label for="telephone" class="cols-sm-2 control-label">Telephone No</label>
                   <div class="cols-sm-10">
@@ -107,7 +113,12 @@
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
-            name="email" [(ngModel)]="email">
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #emailref="ngModel" [(ngModel)]="email">
+          <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
+            <div [hidden]="!emailref.errors?.pattern">
+              Invalid Email Address
+            </div>
+          </div>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
@@ -129,7 +140,7 @@
         <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="user._id">
 
         <div class="form-group">
-          <label for="password" class="cols-sm-2 control-label">Enter New Password</label>
+          <label for="password" class="cols-sm-2 control-label">Password</label>
           <div class="cols-sm-10">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
@@ -138,6 +149,19 @@
             </div>
           </div>
         </div>
+        
+        <div class="form-group">
+          <label for="password" class="cols-sm-2 control-label">Re Enter Password</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+              <input type="password" class="form-control" name="rePassword" #name="ngModel" [(ngModel)]="rePassword" required>
+            </div>
+            <p style="color:red" *ngIf="serviceProviderService.selectedServiceProvider.password!='' && serviceProviderService.selectedServiceProvider.password!=rePassword">Passwords
+              Do Not Match !</p>
+          </div>
+        </div>
+
         <div class="form-group ">
           <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!pwForm.valid">Save</button>
         </div>

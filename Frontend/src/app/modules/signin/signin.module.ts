@@ -7,7 +7,8 @@ import { ProfileComponent } from '../../components/profile/profile.component';
 import { LoginComponent } from '../../components/login/login.component';
 import { UserAccountModule } from '../user-account/user-account.module';
 import { HeaderBarModule } from '../header-bar/header-bar.module';
-
+import {CardModule} from 'primeng/card';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   imports: [
@@ -16,7 +17,9 @@ import { HeaderBarModule } from '../header-bar/header-bar.module';
     FlashMessagesModule,
     RouterModule,
     UserAccountModule,
-    HeaderBarModule
+    HeaderBarModule,
+    CardModule,
+    DialogModule
  ],
   declarations: [
     ProfileComponent,
