@@ -17,6 +17,7 @@ declare var M: any;
 })
 export class EditServiceProviderComponent implements OnInit {
 user:any;
+rePassword:any;
   constructor(public serviceProviderService:ServiceProviderService,
     private authService:AuthService,
     private router:Router,
@@ -118,9 +119,13 @@ user:any;
   }
 
   sendPassword(form: NgForm) {
-    this.serviceProviderService.putServiceProviderPw(form.value).subscribe((res) => {
-      alert('Password Updated');
-      this.display2 = false;
-    });
+    if(this.rePassword==form.value.password){
+      this.serviceProviderService.putServiceProviderPw(form.value).subscribe((res) => {
+        alert('Password Updated');
+        this.display2 = false;
+      });
+    }else{
+      alert("Passwords Do Not Match !");
+    }
   }
 }

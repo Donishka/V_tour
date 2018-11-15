@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddNewPackageComponent } from '../../components/package/add-new-package/add-new-package.component';
 import { ViewPackagesComponent } from '../../components/package/view-packages/view-packages.component';
 import { PackageFilterPipe } from '../../components/package/package.filter.pipe';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { PackageFilterPipe } from '../../components/package/package.filter.pipe'
     FormsModule,
     FlashMessagesModule,
     RouterModule,
-    HeaderBarModule
+    HeaderBarModule,
+    CardModule
     
   ],
   declarations: [AddNewPackageComponent,

@@ -17,6 +17,7 @@ declare var M: any;
 })
 export class EditTravelAgentComponent implements OnInit {
   user: any;
+  rePassword:any;
   constructor(public travelAgentService: TravelAgentService,
     private authService: AuthService,
     private router: Router,
@@ -114,9 +115,14 @@ export class EditTravelAgentComponent implements OnInit {
   }
 
   sendPassword(form: NgForm) {
-    this.travelAgentService.putTravelAgentPw(form.value).subscribe((res) => {
-      alert('Password Updated');
-      this.display2=false;
-    });
+    if(this.rePassword==form.value.password){
+      this.travelAgentService.putTravelAgentPw(form.value).subscribe((res) => {
+        alert('Password Updated');
+        this.display2 = false;
+      });
+    }else{
+      alert('Passwords Do Not Match !');
+    }
+    
   }
 }

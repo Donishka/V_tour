@@ -13,3 +13,7 @@
 .toolbar-spacer{
     flex: 1 1 auto;
 }
+input.ng-invalid.ng-dirty{
+  border-bottom-color: #e91e63 !important;
+  box-shadow: 0 1px 0 0 #e91e63 !important;
+}

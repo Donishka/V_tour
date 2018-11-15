@@ -1,11 +1,4 @@
-body {
-    background-color:white;;
-    background-attachment:scroll;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size:cover;
-    height:2000px;
-    }
+
     /*----------------Containers--------------------*/
     
     #top-container-fluid-nav
@@ -24,7 +17,7 @@ body {
     background-repeat:no-repeat;
     background-position:center;
     background-size:cover;
-    margin-top:50px;		
+    margin-top:10px;		
     }
     
     #footer-container-fluid
