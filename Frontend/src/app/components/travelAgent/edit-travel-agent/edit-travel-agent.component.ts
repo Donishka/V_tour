@@ -1,13 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit,NgZone } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 
 import { TravelAgentService } from '../../../services/user-service/travelAgent/travelagent.service';
 import { TravelAgent } from '../../../services/user-service/travelAgent/travelagent.model';
 
 declare var M: any;
+
+const URL = 'http://localhost:4201/travelagents/api/upload';
 
 @Component({
   selector: 'app-edit-travel-agent',
@@ -23,7 +27,12 @@ export class EditTravelAgentComponent implements OnInit {
     private router: Router,
     private flashMessage: FlashMessagesService,
     private zone:NgZone,
+    private http:HttpClient,
   ) { }
+
+  title = 'app';
+
+  public uploader: FileUploader = new FileUploader({ url: URL, itemAlias: 'photo' });
 
   email: String;
   password: String;
@@ -32,6 +41,7 @@ export class EditTravelAgentComponent implements OnInit {
     this.resetForm();
     this.refreshTravelAgentList();
     this.getProfileDetails();
+    this.fileUpload();
   }
 
   getProfileDetails() {
@@ -123,6 +133,20 @@ export class EditTravelAgentComponent implements OnInit {
     }else{
       alert('Passwords Do Not Match !');
     }
-    
   }
+
+  sendProfilePic(){
+    this.travelAgentService.putTravelAgentProfilePic(this.user).subscribe((res) => {
+    });
+  }
+
+  fileUpload(){
+    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
+    this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+      console.log('ImageUpload:uploaded:', item, status, response);
+      this.sendProfilePic();
+      alert('File uploaded successfully');
+    };
+  }
+
 }
