@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { HeaderBarModule } from './../header-bar/header-bar.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,6 +9,7 @@ import { EditTravelAgentComponent } from '../../components/travelAgent/edit-trav
 import { EditServiceProviderComponent } from '../../components/serviceProvider/edit-service-provider/edit-service-provider.component';
 import { DialogModule } from 'primeng/dialog';
 import {CardModule} from 'primeng/card';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 @NgModule({
   imports: [
@@ -17,11 +19,13 @@ import {CardModule} from 'primeng/card';
     RouterModule,
     HeaderBarModule,
     DialogModule,
-    CardModule
+    CardModule,
+    HttpClientModule
  ],
   declarations: [
     EditTravelAgentComponent,
     EditServiceProviderComponent,
+    FileSelectDirective
     
   ],
   exports:[

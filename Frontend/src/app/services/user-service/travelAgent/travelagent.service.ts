@@ -32,6 +32,10 @@ export class TravelAgentService {
     return this.http.put(this.baseURL +"/changepw"+ `/${tagent._id}`, tagent);
   }
 
+  putTravelAgentProfilePic(tagent: TravelAgent) {
+    return this.http.put(this.baseURL + "/profilepic" + `/${tagent._id}`, tagent);
+  }
+
   deleteTravelAgent(_id: string) {
     return this.http.delete(this.baseURL + `/${_id}`);
   }
