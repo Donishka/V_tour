@@ -24,7 +24,6 @@ body {
     background-repeat:no-repeat;
     background-position:center;
     background-size:cover;
-    margin-top:50px;		
     }
     
     #footer-container-fluid
@@ -40,10 +39,13 @@ body {
     
     .card 
     {
-    padding:10px;
+    background-color: lightblue;
     border:0px solid white;
     box-shadow:0px 7px 16px 0px rgba(0, 0, 0, 0.09);
-    background-color: lightblue;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    padding: 10px;
     }
     .card-title
     {
@@ -58,28 +60,19 @@ body {
     text-align:center;
     
     }
-    
-    #courses  
-    {
-    text-align:center;
-    }
-    
+        
     .list-inline-item 
     {
     font-size:13px;
     color:black;
      }
-   
-    
-    
+       
     .address .w3-ul li
      {
         border:0px solid white;
         line-height:1px;
     }
     
-    
-
     span 
     {
     font-size:10px;
@@ -96,20 +89,6 @@ body {
     text-align:center;
     }
     
-    
-    .ratings .fa
-    {
-    color:indigo;
-    font-size:25px;
-    }
-    .ratings .fa:hover
-    {
-    color:yellow;
-    }
-    .ratings .list-inline
-    {
-    text-align:center;
-    }
     
 .l1{
         list-style: none;

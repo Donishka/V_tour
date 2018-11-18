@@ -39,7 +39,7 @@ router.post('/', (req, res) => {
         telephone: req.body.telephone,
         address: req.body.address,
         isadmin: req.body.isadmin,
-        profilepic: req.body.profilepic,
+        profilepic: null,
         usertype:"travelagent"
     });
     TravelAgentModel.saveUser(travelagent,(err, doc) => {

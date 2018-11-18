@@ -4,8 +4,7 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="card" style="width:100%">
-          <img class="card-img-top" src="https://lh3.googleusercontent.com/a8_ujXr3VWHstGkxgJL1TkqfrytP4r_52QhcvqRQVaQPRQ9DHdQ6seI99qc4jLjC0WDM=h900"
-            alt="Card image" style="width:100%">
+          <img *ngIf="user.profilepic==null" class="image card-img-top" src="../../../../assets/default.png" alt="Card image" style="width:300px;height:100%">
           <div class="card-body">
             <h4 class="card-title">{{user.fname}} {{user.lname}}</h4>
             <div class="address">

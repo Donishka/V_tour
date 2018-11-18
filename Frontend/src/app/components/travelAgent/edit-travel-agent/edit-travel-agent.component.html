@@ -1,9 +1,4 @@
 <app-nav></app-nav>
-
-<input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
-<button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">Upload
-        an Image</button>
-
 <div *ngFor="let tagent of travelAgentService.tagent">
   <div *ngIf="user._id==tagent._id">
     <div class="container">
@@ -100,6 +95,8 @@
             <hr>
             <button class="btn btn-info" (click)="showDialog1()">Change Password</button>
             <hr>
+            <button class="btn btn-info" (click)="showDialog3()">Change Profile Picture</button>
+            <hr>
             <flash-messages></flash-messages>
           </div>
         </div>
@@ -175,4 +172,10 @@
       </fieldset>
     </form>
   </div>
+</p-dialog>
+
+<p-dialog [(visible)]="display3" [modal]="true" [responsive]="true">
+  <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+  <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">Upload
+    an Image</button>
 </p-dialog>

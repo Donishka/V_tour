@@ -26,11 +26,14 @@ export class ServiceProviderService {
 
   putServiceProvider(sp: ServiceProvider) {
     return this.http.put(this.baseURL + `/${sp._id}`, sp);
-    
   }
 
   putServiceProviderPw(sp: ServiceProvider) {
     return this.http.put(this.baseURL + "/changepw" + `/${sp._id}`, sp);
+  }
+
+  putServiceProviderPic(sp: ServiceProvider) {
+    return this.http.put(this.baseURL + "/profilepic" + `/${sp._id}`, sp);
   }
 
   deleteServiceProvider(_id: string) {
