@@ -8,6 +8,7 @@ import { AddNewPackageComponent } from '../../components/package/add-new-package
 import { ViewPackagesComponent } from '../../components/package/view-packages/view-packages.component';
 import { PackageFilterPipe } from '../../components/package/package.filter.pipe';
 import { CardModule } from 'primeng/card';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   imports: [
@@ -16,12 +17,14 @@ import { CardModule } from 'primeng/card';
     FlashMessagesModule,
     RouterModule,
     HeaderBarModule,
-    CardModule
+    CardModule,
+    DialogModule
     
   ],
   declarations: [AddNewPackageComponent,
                 ViewPackagesComponent,
-              PackageFilterPipe],
+              PackageFilterPipe,
+    ],
   exports: [AddNewPackageComponent,
     ViewPackagesComponent,
     PackageFilterPipe]

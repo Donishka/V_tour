@@ -1,9 +1,13 @@
 const express = require('express');
 var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 
 var { Package } = require('../../data/package/package.model.js');
 var PackageModel = require('../../data/package/package.model.js');
+var image=null;
 
 router.get('/', (req, res) => {
     Package.find((err, docs) => {
@@ -29,6 +33,7 @@ router.post('/', (req, res) => {
         type:req.body.type,
         discription:req.body.discription,
         price:req.body.price,
+        picture: req.body.picture,
         spid:req.body.spid,
         spname:req.body.spname
     });
@@ -56,12 +61,26 @@ router.put('/:id', (req, res) => {
             type: req.body.type,
             discription: req.body.discription,
             price: req.body.price,
+            picture: req.body.picture,
             spid: req.body.spid,
             spname: req.body.spname
         }
     }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Package Update :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+
+router.put('/profilepic/:id', (req, res) => {
+    if (!ObjectId.isValid(req.params.id))
+        return res.status(400).send(`No record with given id : ${req.params.id}`);
+    var package = {
+        picture:image,
+    };
+
+    Package.findByIdAndUpdate(req.params.id, { $set: package }, { new: true }, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
     });
 });
 
@@ -74,5 +93,35 @@ router.delete('/:id', (req, res) => {
         else { console.log('Error in Package Delete :' + JSON.stringify(err, undefined, 2)); }
     });
 });
+
+const DIR = '../Frontend/src/assets';
+
+let storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, DIR);
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now() + '.' + path.extname(file.originalname));
+    }
+});
+
+let upload = multer({ storage: storage });
+
+router.post('/api/upload', upload.single('photo'), function (req, res) {
+    if (!req.file) {
+        console.log("No file received");
+        return res.send({
+            success: false
+        });
+
+    } else {
+
+        image = req.file.filename;
+        return res.send({
+            success: true
+        })
+    }
+});
+
 
 module.exports = router;

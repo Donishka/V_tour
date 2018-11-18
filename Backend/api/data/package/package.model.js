@@ -15,6 +15,9 @@ var Package = mongoose.model('Package', {
     price: {
         type: Number,
     },
+    picture:{
+        type:String,
+    },
     spid: {
         type: String,
     },

@@ -26,6 +26,10 @@ export class PackageService {
     return this.http.put(this.baseURL + `/${p._id}`, p);
   }
 
+  putPackagePic(_id) {
+    return this.http.put(this.baseURL + "/profilepic" + `/${_id}`,_id);
+  }
+
   deletePackage(_id: string) {
     return this.http.delete(this.baseURL + `/${_id}`);
   }
