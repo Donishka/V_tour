@@ -23,9 +23,10 @@
                       <p class="card-text mb-auto small">Availability : {{pkg.availability}} <br>Discription :
                         {{pkg.discription}} <br>Prize : {{pkg.price}}</p>
                     </div>
-                    <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/arch"
-                      style="width: 100px; height: 150px;">
-                    <!--img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="{{tagent.profilepic}}" style="width: 200px; height: 250px;"-->
+                    <img *ngIf="pkg.picture!=null" class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="../../../../assets/{{pkg.picture}}"
+                      style="width: 200px; height: 250px;">
+                    <img *ngIf="pkg.picture==null" class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="../../../../assets//package.png"
+                      style="width: 200px; height: 250px;">
                   </div>
                 </div>
               </td>

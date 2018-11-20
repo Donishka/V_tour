@@ -17,7 +17,7 @@ export class AddNewClientsComponent implements OnInit {
   constructor(public clientService: ClientService,
     private flashMessage:FlashMessagesService,
     private router:Router) { }
-
+    rePassword:any;
   ngOnInit() {
     this.resetForm();
   }
@@ -39,6 +39,8 @@ export class AddNewClientsComponent implements OnInit {
       foodprefer:[""],
       intactivities:[""],
       agegroup:"",
+      datefrom:"",
+      dateto:""
     }
   }
 

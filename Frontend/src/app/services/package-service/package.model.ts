@@ -4,6 +4,7 @@ export class Package {
     availability: string;
     type: string;
     discription: string;
+    picture: string;
     price: number;
     spid:string;
 }

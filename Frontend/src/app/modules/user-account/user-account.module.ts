@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,6 +11,10 @@ import { ServiceProviderAccountComponent } from '../../components/serviceProvide
 import { ClientAccountComponent } from '../../components/client/client-account/client-account.component';
 import { HeaderBarModule } from '../header-bar/header-bar.module';
 import { PackageModule } from '../../modules/package/package.module';
+import { DialogModule } from 'primeng/dialog';
+import {CardModule} from 'primeng/card';
+import { SharedModule } from './../shared.module';
+
 
 @NgModule({
   imports: [
@@ -18,7 +23,11 @@ import { PackageModule } from '../../modules/package/package.module';
     FlashMessagesModule,
     RouterModule,
     HeaderBarModule,
-    PackageModule
+    PackageModule,
+    DialogModule,
+    CardModule,
+    HttpClientModule,
+    SharedModule
     
     
  ],

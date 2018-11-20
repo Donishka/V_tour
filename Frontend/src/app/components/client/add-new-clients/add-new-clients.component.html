@@ -22,7 +22,22 @@
                   <div class="cols-sm-10">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                      <input type="text" class="form-control" name="lname" #name="ngModel" [(ngModel)]="clientService.selectedClient.lname" >
+                      <input type="text" class="form-control" name="lname" #name="ngModel" [(ngModel)]="clientService.selectedClient.lname" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="cols-sm-2 control-label">Email</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
+                      <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #emailref="ngModel" [(ngModel)]="clientService.selectedClient.email"
+                        required>
+                    </div>
+                  </div>
+                  <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
+                    <div [hidden]="!emailref.errors?.pattern">
+                      Invalid Email Address
                     </div>
                   </div>
                 </div>
@@ -36,20 +51,23 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="email" class="cols-sm-2 control-label">Email</label>
+                  <label for="password" class="cols-sm-2 control-label">Re Enter Password</label>
                   <div class="cols-sm-10">
                     <div class="input-group">
-                      <span class="input-group-addon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
-                      <input type="email" class="form-control" name="email" #name="ngModel" [(ngModel)]="clientService.selectedClient.email" >
+                      <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+                      <input type="password" class="form-control" name="rePassword" #name="ngModel" [(ngModel)]="rePassword" required>
                     </div>
+                    <p style="color:red" *ngIf="clientService.selectedClient.password!='' && clientService.selectedClient.password!=rePassword">Passwords
+                      Do Not Match !</p>
                   </div>
                 </div>
+                
                 <div class="form-group">
                   <label for="telephone" class="cols-sm-2 control-label">Telephone No</label>
                   <div class="cols-sm-10">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fas fa-phone-square" aria-hidden="true"></i></span>
-                      <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="clientService.selectedClient.telephone"  >
+                      <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="clientService.selectedClient.telephone" required>
                     </div>
                   </div>
                 </div>                
@@ -58,7 +76,7 @@
                   <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fas fa-home" aria-hidden="true"></i></span>
-                      <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="clientService.selectedClient.address"  >
+                      <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="clientService.selectedClient.address" required>
                     </div>
                   </div>
                 </div>
@@ -85,11 +103,33 @@
                   </div>
                 </div>
                 <div class="form-group">
+                  <label for="datefrom" class="cols-sm-2 control-label">Date From</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                      </span>
+                      <input type="date" class="form-control" name="datefrom" #name="ngModel" [(ngModel)]="clientService.selectedClient.datefrom" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="dateto" class="cols-sm-2 control-label">Date To</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                      </span>
+                      <input type="date" class="form-control" name="dateto" #name="ngModel" [(ngModel)]="clientService.selectedClient.dateto" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
                   <label for="noofvisitors" class="cols-sm-2 control-label">No of Visitors</label>
                   <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fas fa-user" aria-hidden="true"></i></span>
-                      <input type="number" class="form-control" name="noofvisitors" #name="ngModel" [(ngModel)]="clientService.selectedClient.noofvisitors"  >
+                      <input type="number" class="form-control" name="noofvisitors" #name="ngModel" [(ngModel)]="clientService.selectedClient.noofvisitors" required>
                     </div>
                   </div>
                 </div>
@@ -122,8 +162,8 @@
                 </div>
                 <flash-messages></flash-messages>
                 <div class="form-group ">
-                    <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Add Client</button>
-                    <button class="btn btn-primary right" type="button" (click)="resetForm(userForm)">Reset</button>
+                    <button style="margin-top:5px;" class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Add Client</button>
+                    <button style="margin-top:5px;" class="btn btn-primary btn-lg btn-block" type="button" (click)="resetForm(userForm)">Reset</button>
                 </div>
                 </fieldset>
               </form>

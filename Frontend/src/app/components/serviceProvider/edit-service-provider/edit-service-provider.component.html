@@ -1,99 +1,179 @@
 <app-nav></app-nav>
 <div *ngFor="let sp of serviceProviderService.sp">
-  <div *ngIf="user._id==sp._id"><div class = "container">
-  <div class="row">
-    <div class ="col"></div>  
-    <div class="col-6">
-      <div class="main-login main-center">
+  <div *ngIf="user._id==sp._id">
+    <div class="container">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+          <div style="margin-top: 20px" class="main-login main-center">
             <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
               <fieldset>
-                <legend>Edit Service Provider : {{user.fname}}</legend>
-              <br>
-              <input type="hidden" value={{user._id}} name="_id" #_id="ngModel" [(ngModel)]="sp._id">
-              <div class="form-group">
-                <label for="fname" class="cols-sm-2 control-label">First Name</label>
-                <div class="cols-sm-10">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                    <input type="text" value={{user.fname}} class="form-control" name="fname" #name="ngModel" [(ngModel)]="sp.fname"  required>
+                <legend>Edit Service Provider</legend>
+                <br>
+                <input type="hidden" value={{user._id}} name="_id" #_id="ngModel" [(ngModel)]="sp._id">
+                <div class="form-group">
+                  <label for="fname" class="cols-sm-2 control-label">First Name</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                      <input type="text" value={{user.fname}} class="form-control" name="fname" #name="ngModel"
+                        [(ngModel)]="sp.fname" required>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="username" class="cols-sm-2 control-label">User Name</label>
-                <div class="cols-sm-10">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                    <input type="text" value={{user.username}} class="form-control" name="username" #name="ngModel" [(ngModel)]="sp.username"  required>
+                <div class="form-group">
+                  <label for="username" class="cols-sm-2 control-label">User Name</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                      <input type="text" value={{user.username}} class="form-control" name="username" #name="ngModel"
+                        [(ngModel)]="sp.username" required>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <!--div class="form-group">
-                <label for="password" class="cols-sm-2 control-label">Password</label>
-                <div class="cols-sm-10">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
-                    <input type="password" value={{user.pasword}} class="form-control" name="password" #name="ngModel" [(ngModel)]="sp.password"  required>
-                  </div>
-                </div>
-              </div-->
-              <div class="form-group">
+
+                <div class="form-group">
                   <label for="email" class="cols-sm-2 control-label">Email</label>
                   <div class="cols-sm-10">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
-                      <input type="email" value={{user.email}} class="form-control" name="email" #name="ngModel" [(ngModel)]="sp.email" >
+                      <input type="email" value={{user.email}} class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                        name="email" #emailref="ngModel" [(ngModel)]="sp.email">
+                    </div>
+                    <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
+                      <div [hidden]="!emailref.errors?.pattern">
+                        Invalid Email Address
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="telephone" class="cols-sm-2 control-label">Telephone No</label>
-                <div class="cols-sm-10">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" value={{user.telephone}} class="form-control" name="telephone" #name="ngModel" [(ngModel)]="sp.telephone"  >
+
+                <div class="form-group">
+                  <label for="telephone" class="cols-sm-2 control-label">Telephone No</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <input type="text" value={{user.telephone}} class="form-control" name="telephone" #name="ngModel"
+                        [(ngModel)]="sp.telephone">
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="address" class="cols-sm-2 control-label">Address</label>
-                <div class="cols-sm-10">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" value={{user.address}} class="form-control" name="address" #name="ngModel" [(ngModel)]="sp.address"  >
+                <div class="form-group">
+                  <label for="address" class="cols-sm-2 control-label">Address</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <input type="text" value={{user.address}} class="form-control" name="address" #name="ngModel"
+                        [(ngModel)]="sp.address">
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="type" class="cols-sm-2 control-label">Type</label>
-                <div class="cols-sm-10">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" value={{user.type}} class="form-control" name="type" #name="ngModel" [(ngModel)]="sp.type"  >
+                <div class="form-group">
+                  <label for="type" class="cols-sm-2 control-label">Type</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <input type="text" value={{user.type}} class="form-control" name="type" #name="ngModel"
+                        [(ngModel)]="sp.type">
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="discription" class="cols-sm-2 control-label">Discription</label>
-                <div class="cols-sm-10">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" value={{user.discription}} class="form-control" name="discription" #name="ngModel" [(ngModel)]="sp.discription"  >
+                <div class="form-group">
+                  <label for="discription" class="cols-sm-2 control-label">Discription</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <input type="text" value={{user.discription}} class="form-control" name="discription" #name="ngModel"
+                        [(ngModel)]="sp.discription">
+                    </div>
                   </div>
                 </div>
-              </div>  
-              <flash-messages></flash-messages>
-              <div class="form-group ">
-                  <button class="btn btn-primary " type="submit">Update Service Provider</button>
-                  <button class="btn btn-primary " type="button" (click)="resetForm(userForm)">Reset</button>
-              </div>
+                <flash-messages></flash-messages>
+                <div class="form-group ">
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">Update Service Provider</button>
+                </div>
               </fieldset>
             </form>
+            <hr>
+            <button class="btn btn-info" (click)="showDialog1()">Change Password</button>
+            <hr>
+            <button class="btn btn-info" (click)="showDialog3()">Change Profile Picture</button>
+            <hr>
           </div>
         </div>
-          <div class="col"></div>
+        <div class="col"></div>
       </div>
     </div>
   </div>
 </div>
-    
+<p-dialog [(visible)]="display1" [modal]="true" [responsive]="true">
+  <div id="c1" class="container">
+    <form style="margin:10px" (ngSubmit)="loginUser()">
+      <fieldset>
+        <h5>Please Re Enter Email & Password</h5>
+        <hr>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #emailref="ngModel" [(ngModel)]="email">
+          <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
+            <div [hidden]="!emailref.errors?.pattern">
+              Invalid Email Address
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password"
+            [(ngModel)]="password">
+        </div>
+        <button type="submit" class="btn btn-primary" style="float: right">Login</button>
+      </fieldset>
+    </form>
+  </div>
+</p-dialog>
+
+<p-dialog [(visible)]="display2" [modal]="true" [responsive]="true">
+  <div class="container-fluid">
+    <form style="margin-top: 25px;" #pwForm="ngForm" (ngSubmit)="sendPassword(pwForm)">
+      <fieldset>
+        <legend>
+        </legend>
+        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="user._id">
+
+        <div class="form-group">
+          <label for="password" class="cols-sm-2 control-label">Password</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+              <input type="password" class="form-control" name="password" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.password"
+                required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="cols-sm-2 control-label">Re Enter Password</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+              <input type="password" class="form-control" name="rePassword" #name="ngModel" [(ngModel)]="rePassword"
+                required>
+            </div>
+            <p style="color:red" *ngIf="serviceProviderService.selectedServiceProvider.password!='' && serviceProviderService.selectedServiceProvider.password!=rePassword">Passwords
+              Do Not Match !</p>
+          </div>
+        </div>
+
+        <div class="form-group ">
+          <button class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!pwForm.valid">Save</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</p-dialog>
+<p-dialog [(visible)]="display3" [modal]="true" [responsive]="true">
+  <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+  <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">Upload
+    an Image</button>
+</p-dialog>

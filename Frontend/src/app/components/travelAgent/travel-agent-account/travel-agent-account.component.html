@@ -3,14 +3,10 @@
   <div class="row">
     <div class="col-lg-4">
       <div class="card" style="width:100%">
-        <img class="card-img-top" src="https://lh3.googleusercontent.com/a8_ujXr3VWHstGkxgJL1TkqfrytP4r_52QhcvqRQVaQPRQ9DHdQ6seI99qc4jLjC0WDM=h900" alt="Card image"  style="width:100%">
+        <img *ngIf="user.profilepic==null" class="image card-img-top" src="../../../../assets/default.png" alt="Card image" style="width:auto;height:300px">
+        <img *ngIf="user.profilepic!=null" class="image card-img-top" src="../../../../assets/{{user.profilepic}}" alt="Card image"  style="width:auto;height:400px">
         <div class="card-body">
           <h4 class="card-title">{{user.fname}} {{user.lname}}</h4>
-          <ul class="list-inline" id="courses">
-            <li class="list-inline-item">
-              <i class="fa fa-user"></i>User Name :  {{user.username}}
-            </li>            
-          </ul>
           <div class="address">								
             <ul class="list1 w3-ul w3-small">
               <br>
@@ -19,13 +15,11 @@
               <li><i class="fas fa-home" aria-hidden="true"></i> Address : {{user.address}}</li><br>
             </ul>
             <button class="btn btn-primary" type="button" [routerLink]='["/edittravelagent"]'>Edit Details</button><br>
-            <button class="btn btn-primary" type="button" [routerLink]='["/edittravelagent"]'>Change Password</button>
           </div>
         </div>
       </div>
     </div>
     <div class="col-lg-8" style="background-color:lightblue;">
-    <br><br>
       <div class ='container-fluid'>
         <div class = 'row'>
           <div class ='col col_2'>

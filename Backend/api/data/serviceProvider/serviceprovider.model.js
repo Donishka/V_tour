@@ -7,7 +7,6 @@ var ServiceProvider =  mongoose.model('ServiceProvider', {
     }, 
     username:{
         type:String,
-		required:true
     },
     password : {
         type:String,

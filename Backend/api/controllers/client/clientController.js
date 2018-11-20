@@ -39,6 +39,8 @@ router.post('/', (req, res) => {
         foodprefer:req.body.foodprefer,
         intactivities:req.body.intactivities,
         agegroup:req.body.agegroup,
+        datefrom:req.body.datefrom,
+        dateto:req.body.dateto,
         usertype:"client"
     });
     ClientModel.saveUser(client,(err, doc) => {
@@ -68,12 +70,31 @@ router.put('/:id', (req, res) => {
             foodprefer: req.body.foodprefer,
             intactivities: req.body.intactivities,
             agegroup: req.body.agegroup,
+            datefrom: req.body.datefrom,
+            dateto: req.body.dateto,
             usertype: "client"};
     Client.findByIdAndUpdate(req.params.id, { $set: client }, { new: true }, (err, doc) => {
                 if (!err) { res.send(doc); }
                 else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
             });
         });
+
+router.put('/changepw/:id', (req, res) => {
+    var client = {
+        _id: req.body._id,
+        password: req.body.password,
+    };
+    bcrypt.genSalt(10, function (err, salt) {
+        bcrypt.hash(client.password, salt, function (err, hash) {
+            client.password = hash;
+            if (err) throw err;
+            Client.findByIdAndUpdate(req.params.id, { $set: client }, { new: true }, (err, doc) => {
+                if (!err) { res.send(doc); }
+                else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
+            });
+        });
+    });
+});
 
 router.delete('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))

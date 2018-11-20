@@ -33,12 +33,9 @@ export class LoginComponent implements OnInit {
       console.log(res);
       if(res.state){
         this.flashMessage.show('You are logged in', { cssClass: 'alert-success', timeout: 4000 });
-        console.log("if");
-        console.log(user);
         this.authService.storeData(res.token,res.user);
         this.selectProfile();
         }else{
-          console.log("else");
           this.flashMessage.show(res.msg, { cssClass: 'alert-success', timeout: 4000 });
           this.router.navigate(['/login']);
         }

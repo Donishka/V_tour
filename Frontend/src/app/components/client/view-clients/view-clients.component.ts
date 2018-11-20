@@ -46,6 +46,8 @@ export class ViewClientsComponent implements OnInit {
       foodprefer: [""],
       intactivities: [""],
       agegroup: "",
+      datefrom:"",
+      dateto:""
     }
   }
 
@@ -54,14 +56,14 @@ export class ViewClientsComponent implements OnInit {
       this.clientService.postClient(form.value).subscribe((res) => {
         this.refreshClientList();
         this.resetForm(form);
-        this.flashMessage.show('Client Saved', { cssClass: 'alert-success', timeout: 4000 });
       });
     }
     else {
       this.clientService.putClient(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refreshClientList();
-        this.flashMessage.show('Client Updated', { cssClass: 'alert-success', timeout: 4000 });
+        alert('Client Updated');
+        this.display=false;
       });
     }
   }

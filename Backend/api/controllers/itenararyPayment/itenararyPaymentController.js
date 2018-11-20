@@ -27,6 +27,8 @@ router.post('/', (req, res) => {
     var itenararypayment = new ItenararyPayment({
         clientid:req.body.clientid,
         clientname: req.body.clientname,
+        itenararyid: req.body.itenararyid,
+        itenararyname: req.body.itenararyname,
         amount: req.body.amount,
         date: req.body.date,
         status: "Waiting for Confirmation",

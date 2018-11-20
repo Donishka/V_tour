@@ -25,8 +25,8 @@ import { HeaderBarModule } from './modules/header-bar/header-bar.module';
 import { PaymentModule } from './modules/payment/payment.module';
 import { ItineraryModule } from './modules/itinerary/itinerary.module';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-
 import { SpPackageService } from '../app/services/sharedata/sp-package.service';
+import { ClientPaymentService } from '../app/services/sharedata/client-payment.service';
 
 @NgModule({
   declarations: [
@@ -51,10 +51,9 @@ import { SpPackageService } from '../app/services/sharedata/sp-package.service';
     FormsModule,
     TypeaheadModule.forRoot(),
     ItineraryModule,
-    NgxSmartModalModule.forRoot()
-    
+    NgxSmartModalModule.forRoot(),
   ],
-  providers: [AuthService, SharedataService, SpPackageService],
+  providers: [AuthService, SharedataService, SpPackageService, ClientPaymentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

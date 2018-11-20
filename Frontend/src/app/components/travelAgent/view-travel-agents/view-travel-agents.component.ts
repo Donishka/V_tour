@@ -64,7 +64,6 @@ export class ViewTravelAgentsComponent implements OnInit {
         this.flashMessage.show('Travel Agent Saved', { cssClass: 'alert-success', timeout: 4000 });
         this.refreshTravelAgentList();
         this.resetForm(form);
-        console.log("Saved");
       });
     }
     else {
@@ -72,7 +71,7 @@ export class ViewTravelAgentsComponent implements OnInit {
         this.resetForm(form);
         this.refreshTravelAgentList();
         this.flashMessage.show('Travel Agent Updated', { cssClass: 'alert-success', timeout: 4000 });
-        console.log("Updated");
+        this.display=false;
       });
     }
   }

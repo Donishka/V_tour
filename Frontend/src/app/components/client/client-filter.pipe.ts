@@ -14,7 +14,6 @@ export class ClientFilterPipe implements PipeTransform {
                 clients.fname.toLowerCase().indexOf(searchKeyword.toLowerCase()) !== -1 ||
                 clients.address.toLowerCase().indexOf(searchKeyword.toLowerCase()) !== -1 ||
                 clients.telephone.toString().indexOf(searchKeyword.toString()) !== -1 ||
-                clients.city.toString().indexOf(searchKeyword.toString()) !== -1||
                 clients.email.toString().indexOf(searchKeyword.toString()) !== -1);
         }
     }

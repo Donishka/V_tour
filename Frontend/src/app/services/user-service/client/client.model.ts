@@ -13,4 +13,6 @@ export class Client {
     foodprefer:[string];
     intactivities:[string];
     agegroup:string;
+    datefrom:string;
+    dateto:string;
 }

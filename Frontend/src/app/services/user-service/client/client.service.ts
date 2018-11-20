@@ -27,6 +27,10 @@ export class ClientService {
     return this.http.put(this.baseURL + `/${client._id}`, client);
   }
 
+  putClientPw(client: Client) {
+    return this.http.put(this.baseURL + "/changepw" + `/${client._id}`, client);
+  }
+
   deleteClient(_id: string) {
     return this.http.delete(this.baseURL + `/${_id}`);
   }

@@ -49,12 +49,11 @@ module.exports.saveUser = function (newUser,callback) {
         });
     });
 };
-module.exports.updateUser = function (newUser,callback) {
 
+module.exports.updateUser = function (newUser,callback) {
     bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(newUser.password, salt, function(err, hash) {
             newUser.password = hash;
-
             if (err) throw err;
             newUser.findByIdAndUpdate(req.params.id, { $set: newUser }, { new: true }, (err, doc) => {
                 if (!err) { res.send(doc); }
