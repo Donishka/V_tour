@@ -27,6 +27,7 @@ export class PackageService {
   }
 
   putPackagePic(_id) {
+    console.log(this.baseURL + "/profilepic" + `/${_id}`, _id);
     return this.http.put(this.baseURL + "/profilepic" + `/${_id}`,_id);
   }
 

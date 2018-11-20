@@ -113,9 +113,7 @@ router.post('/api/upload', upload.single('photo'), function (req, res) {
         return res.send({
             success: false
         });
-
     } else {
-
         image = req.file.filename;
         return res.send({
             success: true

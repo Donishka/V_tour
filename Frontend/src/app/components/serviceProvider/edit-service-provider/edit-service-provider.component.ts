@@ -79,6 +79,7 @@ rePassword:any;
     }
     else {
       this.serviceProviderService.putServiceProvider(form.value).subscribe((res) => {
+        this.getProfileDetails();
         alert('Details Saved');
         this.resetForm(form);
         this.zone.run(() => {
@@ -97,6 +98,7 @@ rePassword:any;
 
   onEdit(sp: ServiceProvider) {
     this.serviceProviderService.selectedServiceProvider = sp;
+    this.getProfileDetails();
 
   }
   display1: boolean = false;

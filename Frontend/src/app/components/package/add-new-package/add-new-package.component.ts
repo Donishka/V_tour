@@ -3,11 +3,11 @@ import { NgForm } from '@angular/forms';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 
 import { ServiceProviderService } from '../../../services/user-service/serviceProvider/serviceprovider.service';
 import { ServiceProvider } from '../../../services/user-service/serviceProvider/serviceprovider.model';
-
 
 import { PackageService } from '../../../services/package-service/package.service';
 import { Package } from '../../../services/package-service/package.model';
@@ -31,6 +31,7 @@ export class AddNewPackageComponent implements OnInit {
     private authService: AuthService,
     public serviceProviderService: ServiceProviderService,
     private zone: NgZone,
+    private http: HttpClient,
   ) { }
 
   title = 'app';
@@ -41,6 +42,7 @@ export class AddNewPackageComponent implements OnInit {
     this.refreshPackageList();
     this.resetForm();
     this.getProfileDetails();
+    this.fileUpload();
   }
 
   resetForm(form?: NgForm) {
@@ -52,6 +54,7 @@ export class AddNewPackageComponent implements OnInit {
       availability: "",
       type: "",
       discription: "",
+      picture:null,
       price: null,
       spid: "",
     }
@@ -65,19 +68,12 @@ export class AddNewPackageComponent implements OnInit {
         availability: "",
         type: "",
         discription: "",
+        picture:null,
         price: null,
         spid: "",
       }
   }
-  /*
-    onSubmit(form: NgForm) {
-        this.packageService.postPackage(form.value).subscribe((res) => {
-          this.flashMessage.show('Package Saved', { cssClass: 'alert-success', timeout: 4000 });
-          this.resetForm1(form);
-          alert('Package Saved');
-          console.log("Saved");     
-        });
-    }*/
+
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
       this.packageService.postPackage(form.value).subscribe((res) => {

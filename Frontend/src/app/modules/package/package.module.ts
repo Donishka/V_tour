@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared.module';
 import { HeaderBarModule } from './../header-bar/header-bar.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,7 +10,6 @@ import { ViewPackagesComponent } from '../../components/package/view-packages/vi
 import { PackageFilterPipe } from '../../components/package/package.filter.pipe';
 import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -18,7 +18,8 @@ import { DialogModule } from 'primeng/dialog';
     RouterModule,
     HeaderBarModule,
     CardModule,
-    DialogModule
+    DialogModule,
+    SharedModule
     
   ],
   declarations: [AddNewPackageComponent,

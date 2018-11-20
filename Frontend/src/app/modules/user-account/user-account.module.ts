@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,6 +13,7 @@ import { HeaderBarModule } from '../header-bar/header-bar.module';
 import { PackageModule } from '../../modules/package/package.module';
 import { DialogModule } from 'primeng/dialog';
 import {CardModule} from 'primeng/card';
+import { SharedModule } from './../shared.module';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import {CardModule} from 'primeng/card';
     HeaderBarModule,
     PackageModule,
     DialogModule,
-    CardModule
+    CardModule,
+    HttpClientModule,
+    SharedModule
     
     
  ],
