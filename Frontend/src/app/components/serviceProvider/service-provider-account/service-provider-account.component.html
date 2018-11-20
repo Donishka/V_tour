@@ -3,30 +3,32 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="card" style="width:100%">
-          <img class="card-img-top" src="https://lh3.googleusercontent.com/a8_ujXr3VWHstGkxgJL1TkqfrytP4r_52QhcvqRQVaQPRQ9DHdQ6seI99qc4jLjC0WDM=h900" alt="Card image"  style="width:100%">
-            <div class="card-body">
-              <h4 class="card-title">{{user.fname}}</h4>
-              <div class="address">								
-                <ul class=" l1 w3-ul w3-small">
-                  <br>
-                  <li><i class="fas fa-envelope" aria-hidden="true"></i> Email : {{user.email}}</li><br>
-                  <li><i class="fas fa-phone-square" aria-hidden="true"></i> Telephone : {{user.telephone}}</li><br>
-                  <li><i class="fas fa-home" aria-hidden="true"></i> Address : {{user.address}}</li><br>
-                  <li><i class="fab fa-typo3" aria-hidden="true"></i> Type : {{user.type}}</li><br>
-                  <li><i class="fas fa-clipboard-list" aria-hidden="true"></i> Discription : {{user.discription}}</li><br>
-                </ul>
-                <button class="btn btn-primary" type="button" [routerLink]='["/editserviceprovider"]'>Edit</button>
-              </div>
+          <img *ngIf="user.profilepic==null" class="image card-img-top" src="../../../../assets/default.png" alt="Card image" style="width:auto;height:300px">
+          <img *ngIf="user.profilepic!=null" class="image card-img-top" src="../../../../assets/{{user.profilepic}}" alt="Card image"style="width:auto;height:400px">            
+          <div class="card-body">
+            <h4 class="card-title">{{user.fname}}</h4>
+            <div class="address">								
+              <ul class=" l1 w3-ul w3-small">
+                <br>
+                <li><i class="fas fa-envelope" aria-hidden="true"></i> Email : {{user.email}}</li><br>
+                <li><i class="fas fa-phone-square" aria-hidden="true"></i> Telephone : {{user.telephone}}</li><br>
+                <li><i class="fas fa-home" aria-hidden="true"></i> Address : {{user.address}}</li><br>
+                <li><i class="fab fa-typo3" aria-hidden="true"></i> Type : {{user.type}}</li><br>
+                <li><i class="fas fa-clipboard-list" aria-hidden="true"></i> Discription : {{user.discription}}</li><br>
+              </ul>
+              <button class="btn btn-primary" type="button" [routerLink]='["/editserviceprovider"]'>Edit</button>
             </div>
           </div>
         </div>
-        <div class="col-lg-8" style="background-color:lightblue;">
-          <br><br>
-          <div class='container-fluid'>
-            <app-add-new-package></app-add-new-package>
-          </div>
+      </div>
+      <div class="col-lg-8" style="background-color:lightblue;">
+        
+        <br><br>
+        <div class='container-fluid'>
+          <app-add-new-package></app-add-new-package>
         </div>
       </div>
-    </div>
+    </div>    
+  </div>
         
   

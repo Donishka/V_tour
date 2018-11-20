@@ -1,6 +1,8 @@
 import { Component, OnInit,NgZone } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 
 import { ServiceProviderService } from '../../../services/user-service/serviceProvider/serviceprovider.service';
 import { ServiceProvider } from '../../../services/user-service/serviceProvider/serviceprovider.model';

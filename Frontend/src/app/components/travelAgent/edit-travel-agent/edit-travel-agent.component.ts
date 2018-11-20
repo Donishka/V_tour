@@ -97,14 +97,18 @@ export class EditTravelAgentComponent implements OnInit {
   }
 
   display1: boolean = false;
-
   showDialog1() {
     this.display1 = true;
   }
-  display2: boolean = false;
 
+  display2: boolean = false;
   showDialog2() {
     this.display2 = true;
+  }
+
+  display3: boolean = false;
+  showDialog3() {
+    this.display3 = true;
   }
 
 
@@ -143,8 +147,8 @@ export class EditTravelAgentComponent implements OnInit {
   fileUpload(){
     this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-      console.log('ImageUpload:uploaded:', item, status, response);
       this.sendProfilePic();
+      this.display3 = false;
       alert('File uploaded successfully');
     };
   }

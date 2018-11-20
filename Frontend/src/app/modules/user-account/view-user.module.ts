@@ -14,6 +14,7 @@ import { ServiceProviderFilterPipe } from '../../components/serviceProvider/serv
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { DialogModule } from 'primeng/dialog';
 import {CardModule} from 'primeng/card';
+import { SharedModule } from './../shared.module';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import {CardModule} from 'primeng/card';
     HeaderBarModule,
     NgxSmartModalModule.forRoot(),
     DialogModule,
-    CardModule
+    CardModule,
+    SharedModule
 
  ],
   declarations: [

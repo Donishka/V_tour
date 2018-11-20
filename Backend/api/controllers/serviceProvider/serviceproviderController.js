@@ -2,6 +2,9 @@ const express = require('express');
 var router =  express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
 const bcrypt  = require('bcryptjs');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 //var Hashing = require('../../functions/hashing.js');
 var { ServiceProvider }  = require('../../data/serviceProvider/serviceprovider.model.js');
 var  ServiceProviderModel  = require('../../data/serviceProvider/serviceprovider.model.js');
@@ -35,7 +38,7 @@ router.post('/', (req, res) => {
         address: req.body.address,
         type: req.body.type,
         discription:req.body.discription,
-        profilepic:req.body.profilepic,
+        profilepic:null,
         usertype:"serviceprovider"
     });
     ServiceProviderModel.saveUser(serviceprovider,(err, doc) => {
@@ -87,6 +90,49 @@ router.put('/changepw/:id', (req, res) => {
             });
         });
     });
+});
+
+router.put('/profilepic/:id', (req, res) => {
+    if (!ObjectId.isValid(req.params.id))
+        return res.status(400).send(`No record with given id : ${req.params.id}`);
+    var serviceprovider = {
+        profilepic: picture
+    };
+
+    ServiceProvider.findByIdAndUpdate(req.params.id, { $set: serviceprovider }, { new: true }, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+
+const DIR = '../Frontend/src/assets';
+
+let storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, DIR);
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now() + '.' + path.extname(file.originalname));
+    }
+});
+
+let upload = multer({ storage: storage });
+
+router.post('/api/upload', upload.single('photo'), function (req, res) {
+    if (!req.file) {
+        console.log("No file received");
+        return res.send({
+            success: false
+        });
+
+    } else {
+
+        picture = req.file.filename;
+        console.log(picture);
+        return res.send({
+            success: true
+        })
+    }
 });
 
 router.delete('/:id', (req, res) => {
