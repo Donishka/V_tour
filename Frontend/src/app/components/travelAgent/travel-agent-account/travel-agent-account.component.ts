@@ -31,7 +31,7 @@ export class TravelAgentAccountComponent implements OnInit {
     this.dataS.shareUserData();
     this.dataS.currentMessge.subscribe(traveAgentdata => {
       this.user = traveAgentdata;
-      console.log("user "+JSON.stringify(this.user));
+      console.log("user in account "+JSON.stringify(this.user));
     });
   }
 

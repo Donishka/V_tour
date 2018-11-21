@@ -27,7 +27,9 @@ export class ViewItineraryComponent implements OnInit {
     this.dataS.shareUserData();
     this.dataS.currentMessge.subscribe(traveAgentdata => {
       this.itinerary.traveAgentName = traveAgentdata.username;
+      console.log("In view itineraray "+this.itinerary.traveAgentName);
       this.refreshItinerryList();
+      
     });
   }
 
@@ -58,15 +60,15 @@ export class ViewItineraryComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    
   }
 
   refreshItinerryList() {
+    console.log ("in referesh data in view titnierty : "+this.itinerary.traveAgentName);
     this.itineraryService.getItinerrytList(this.itinerary).subscribe((res) => {
       this.itineraryService.iT = res as Itinerary[];
-      if (this.itineraryService.iT.length == 0) {
-        this.view = false;
-      }
+      console.log("Array length "+this.itineraryService.iT.length);
+      
     });
   }
 
