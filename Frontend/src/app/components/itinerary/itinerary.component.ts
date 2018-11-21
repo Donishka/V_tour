@@ -74,7 +74,6 @@ export class ItineraryComponent implements OnInit {
     this.dataS.shareUserData();
     this.dataS.currentMessge.subscribe(traveAgentdata => {
       this.itinerary.traveAgentName = traveAgentdata.username;
-      console.log("In tininery"+ this.itinerary.traveAgentName);
     });
   }
   get EventList() {
@@ -100,6 +99,7 @@ export class ItineraryComponent implements OnInit {
       }
     }
 
+    this.clients
   }
 
   addEvent() {
