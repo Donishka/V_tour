@@ -63,7 +63,6 @@ router.put('/:id', (req, res) => {
         address: req.body.address,
         type: req.body.type,
         discription:req.body.discription,
-        profilepic:req.body.profilepic,
         usertype:"serviceprovider"
     };
 

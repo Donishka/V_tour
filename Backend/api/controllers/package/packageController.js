@@ -61,7 +61,6 @@ router.put('/:id', (req, res) => {
             type: req.body.type,
             discription: req.body.discription,
             price: req.body.price,
-            picture: req.body.picture,
             spid: req.body.spid,
             spname: req.body.spname
         }

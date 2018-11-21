@@ -1,3 +1,4 @@
+import { PasswordResetModule } from './modules/password-reset/password-reset.module';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -26,7 +27,6 @@ import { PaymentModule } from './modules/payment/payment.module';
 import { ItineraryModule } from './modules/itinerary/itinerary.module';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { SpPackageService } from '../app/services/sharedata/sp-package.service';
-import { ClientPaymentService } from '../app/services/sharedata/client-payment.service';
 
 @NgModule({
   declarations: [
@@ -52,8 +52,9 @@ import { ClientPaymentService } from '../app/services/sharedata/client-payment.s
     TypeaheadModule.forRoot(),
     ItineraryModule,
     NgxSmartModalModule.forRoot(),
+    PasswordResetModule
   ],
-  providers: [AuthService, SharedataService, SpPackageService, ClientPaymentService],
+  providers: [AuthService, SharedataService, SpPackageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

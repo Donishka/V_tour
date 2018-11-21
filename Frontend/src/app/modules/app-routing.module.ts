@@ -1,3 +1,4 @@
+import { PasswordResetComponent } from './../components/password-reset/password-reset.component';
 import { ViewPackagesComponent } from './../components/package/view-packages/view-packages.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes }  from '@angular/router';
@@ -24,6 +25,7 @@ import { ItineraryComponent } from '../components/itinerary/itinerary.component'
 import { ViewItineraryComponent } from '../components/itinerary/view-itinerary/view-itinerary.component';
 import { EditItineraryComponent } from '../components/itinerary/edit-itinerary/edit-itinerary.component';
 
+
 const applicationRoutes:Routes = [
   {path:'login',component:LoginComponent},
   {path:'profile',component:ProfileComponent,canActivate: [AuthGuard]},
@@ -42,11 +44,10 @@ const applicationRoutes:Routes = [
   {path: 'client-payment', component: ClientPaymentComponent, canActivate: [AuthGuard] },
   {path: 'viewclientpayment', component: ViewClientPaymentsComponent, canActivate: [AuthGuard] },
   {path: 'itinerary', component: ItineraryComponent, canActivate: [AuthGuard] },
-
-  { path: 'view-packages', component: ViewPackagesComponent, canActivate: [AuthGuard] },
-
+  {path: 'view-packages', component: ViewPackagesComponent, canActivate: [AuthGuard] },
   {path: 'view-itinerary', component: ViewItineraryComponent, canActivate: [AuthGuard] },
-  {path: 'edit-itinerary', component: EditItineraryComponent, canActivate: [AuthGuard] }
+  {path: 'edit-itinerary', component: EditItineraryComponent, canActivate: [AuthGuard] },
+  {path: 'app-password-reset', component: PasswordResetComponent }
 
 
 
