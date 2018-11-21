@@ -81,7 +81,6 @@ router.put('/:id', (req, res) => {
         telephone: req.body.telephone,
         address: req.body.address,
         isadmin: req.body.isadmin,
-        profilepic: req.body.profilepic,
         usertype:"travelagent"
     };
 

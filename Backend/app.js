@@ -13,7 +13,7 @@ var loginController = require('./api/controllers/login/loginUserController');
 var packageController=require('./api/controllers/package/packageController.js');
 var itenararyPaymentController = require('./api/controllers/itenararyPayment/itenararyPaymentController.js');
 var itineraryController = require('./api/controllers/itinerary/itineraryController');
-
+var passwordResetController = require('./api/controllers/passwordReset/passwordResetController');
 
 const port = process.env.PORT ||4201;
 
@@ -41,4 +41,5 @@ app.use('/packages', packageController);
 app.use('/itenararypayments', itenararyPaymentController);
 app.use('', loginController);
 app.use('/itinerary', itineraryController);
+app.use('/forgotpassword', passwordResetController);
 
