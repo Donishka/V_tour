@@ -1,0 +1,174 @@
+<app-nav></app-nav>
+<div class = "container">
+    <div class="row">
+      <div class ="col"></div>  
+      <div class="col-6">
+        <div class="main-login main-center">
+              <form style="margin-top:25px;" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+                <fieldset>
+                  <legend><h3>Add Client</h3></legend> 
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="clientService.selectedClient._id">
+                <div class="form-group">
+                  <label for="fname" class="cols-sm-2 control-label">First Name</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="fname" #name="ngModel" [(ngModel)]="clientService.selectedClient.fname"  required>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="lname" class="cols-sm-2 control-label">Last Name</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="lname" #name="ngModel" [(ngModel)]="clientService.selectedClient.lname" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="cols-sm-2 control-label">Email</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
+                      <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #emailref="ngModel" [(ngModel)]="clientService.selectedClient.email"
+                        required>
+                    </div>
+                  </div>
+                  <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
+                    <div [hidden]="!emailref.errors?.pattern">
+                      Invalid Email Address
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="password" class="cols-sm-2 control-label">Password</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+                      <input type="password" class="form-control" name="password" #name="ngModel" [(ngModel)]="clientService.selectedClient.password"  required>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="password" class="cols-sm-2 control-label">Re Enter Password</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+                      <input type="password" class="form-control" name="rePassword" #name="ngModel" [(ngModel)]="rePassword" required>
+                    </div>
+                    <p style="color:red" *ngIf="clientService.selectedClient.password!='' && clientService.selectedClient.password!=rePassword">Passwords
+                      Do Not Match !</p>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="telephone" class="cols-sm-2 control-label">Telephone No</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fas fa-phone-square" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="clientService.selectedClient.telephone" required>
+                    </div>
+                  </div>
+                </div>                
+                <div class="form-group">
+                  <label for="address" class="cols-sm-2 control-label">Address</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fas fa-home" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="clientService.selectedClient.address" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="city" class="cols-sm-2 control-label">City</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="fas fa-building" aria-hidden="true"></i>
+                      </span>
+                      <input type="text" class="form-control" name="city" #name="ngModel" [(ngModel)]="clientService.selectedClient.city">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="country" class="cols-sm-2 control-label">Country</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="fas fa-globe" aria-hidden="true"></i>
+                      </span>
+                      <input type="text" class="form-control" name="country" #name="ngModel" [(ngModel)]="clientService.selectedClient.country">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="datefrom" class="cols-sm-2 control-label">Date From</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                      </span>
+                      <input type="date" class="form-control" name="datefrom" #name="ngModel" [(ngModel)]="clientService.selectedClient.datefrom" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="dateto" class="cols-sm-2 control-label">Date To</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                      </span>
+                      <input type="date" class="form-control" name="dateto" #name="ngModel" [(ngModel)]="clientService.selectedClient.dateto" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="noofvisitors" class="cols-sm-2 control-label">No of Visitors</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fas fa-user" aria-hidden="true"></i></span>
+                      <input type="number" class="form-control" name="noofvisitors" #name="ngModel" [(ngModel)]="clientService.selectedClient.noofvisitors" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="foodprefer" class="cols-sm-2 control-label">food Prefered</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fas fa-utensils" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="foodprefer" #name="ngModel" [(ngModel)]="clientService.selectedClient.foodprefer"  >
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="intactivities" class="cols-sm-2 control-label">Intrested Activities</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fas fa-gamepad" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="intactivities" #name="ngModel" [(ngModel)]="clientService.selectedClient.intactivities"  >
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="agegroup" class="cols-sm-2 control-label">Age Group</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fas fa-sort-numeric-down" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control" name="agegroup" #name="ngModel" [(ngModel)]="clientService.selectedClient.agegroup"  >
+                    </div>
+                  </div>
+                </div>
+                <flash-messages></flash-messages>
+                <div class="form-group ">
+                    <button style="margin-top:5px;" class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Add Client</button>
+                    <button style="margin-top:5px;" class="btn btn-primary btn-lg btn-block" type="button" (click)="resetForm(userForm)">Reset</button>
+                </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+            <div class="col"></div>
+        </div>
+      </div>

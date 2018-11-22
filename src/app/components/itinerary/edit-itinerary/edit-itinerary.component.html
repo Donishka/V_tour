@@ -1,0 +1,43 @@
+<div style=" height: 500px; overflow:auto;">
+<mat-card >
+  <mat-card-content>
+    <div class="container">
+      <div >
+          <div class="row" >
+              <h1>Itinerary</h1>
+              <hr>
+            </div>
+            <div class="row">
+                <input type="text" [(ngModel)]="note" class="col-sm">
+                <input type="text" [(ngModel)]="itineraryName" class="col-sm">
+              <button  class=" btn btn-primary col-sm" (click)="addEvent()"style="margin:10px ">Add event</button>
+              <button class=" btn btn-primary col-sm" (click)="addItinerary()" style="margin:10px " >Update</button>
+              
+            </div>
+      </div>
+      
+      <br>
+      <div class="container">
+      <cdk-drop (dropped)="onDrop($event)">
+          <div *ngFor="let item of EventList; let i = index" cdkDrag>
+              <div class="card text-center">
+                  <div class="card-header" cdkDragHandle>
+                    Event {{i+1}}
+                  </div>
+                  <div class="card-body" >
+                    <h5 class="card-title" >{{item.name}}</h5>
+                    <p class="card-text">{{item.venue}}</p>
+                    <button class="btn btn-primary" (click)="editEvent(item.id)" style="margin: 5px;">Edit</button>
+                    <button class="btn btn-primary" (click)="deleteEvent(item.id)">Delete</button>
+                  </div>
+                  <div class="card-footer text-muted">
+                    2 days ago
+                  </div>
+                </div>
+          </div>
+        </cdk-drop>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+</div>

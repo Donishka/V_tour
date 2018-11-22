@@ -1,0 +1,144 @@
+<div class='row'>
+  <div class='col col_2'>
+    <div class="container">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-12">
+          <div>
+            <table class="table table-responsive-sm	">
+              <legend>
+                <h3>Available Packages</h3>
+              </legend>
+              <div class="form-group">
+                <input type="text" class=" search form-control" name="search" placeholder="Search Here..." [(ngModel)]="searchKeyword">
+              </div>
+              <tr *ngFor="let pkg of packageService.package | PackageFilter:searchKeyword">
+                <td align="center">
+                  <div class="col-md-12">
+                    <div class="card flex-md-row mb-4 bg-light shadow-sm h-md-250">
+                      <div class="card-body d-flex flex-column align-items-start">
+                        <strong class="d-inline-block mb-2 text-primary">{{pkg.name}}</strong>
+                        <h6 class="mb-0"></h6>
+                        <div class="mb-1 text-muted small">Type : {{pkg.type}}</div>
+                        <p class="card-text mb-auto small">Availability : {{pkg.availability}} <br>Discription :
+                          {{pkg.discription}} <br>Prize : {{pkg.price}}</p>
+                        <a class="action-btn" (click)="onEdit(pkg)">
+                          <i class="fas fa-pencil-alt  btn-outline-primary btn-sm"> edit</i>
+                        </a>
+                        <a class="action-btn" (click)="onDelete(pkg._id)">
+                          <i class="fas fa-trash-alt  btn-outline-primary btn-sm"> delete</i>
+                        </a>
+                        <a class="action-btn">
+                          <i class="fas fa-trash-alt  btn-outline-primary btn-sm" (click)="showDialog3()" (click)="sendProfilePic(pkg._id)">
+                            add image</i>
+                        </a>
+                      </div>
+                      <img *ngIf="pkg.picture!=null" class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="../../../../assets/{{pkg.picture}}" style="width: 200px; height: 250px;">
+                      <img *ngIf="pkg.picture==null" class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="../../../../assets//package.png" style="width: 200px; height: 250px;">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </div>
+  <div class='col col_3'>
+    <div class="container">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-12">
+          <div class="main-login main-center">
+            <form #packageForm="ngForm" (ngSubmit)="onSubmit(packageForm)">
+              <fieldset>
+                <legend>
+                  <h3>Add/Modify New Package</h3>
+                </legend>
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="packageService.selectedPackage._id">
+                <div class="form-group">
+                  <label for="name" class="cols-sm-2 control-label">Name</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="fa fa-user fa" aria-hidden="true"></i>
+                      </span>
+                      <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="packageService.selectedPackage.name"
+                        required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="availability" class="cols-sm-2 control-label">Availability</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="fas fa-clipboard-list" aria-hidden="true"></i>
+                      </span>
+                      <input type="text" class="form-control" name="availability" #name="ngModel" [(ngModel)]="packageService.selectedPackage.availability">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="type" class="cols-sm-2 control-label">Type</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="fab fa-typo3" aria-hidden="true"></i>
+                      </span>
+                      <input type="text" class="form-control" name="type" #name="ngModel" [(ngModel)]="packageService.selectedPackage.type"
+                        required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="discription" class="cols-sm-2 control-label">Discription</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="fas fa-clipboard-list" aria-hidden="true"></i>
+                      </span>
+                      <input type="text" class="form-control" name="discription" #name="ngModel" [(ngModel)]="packageService.selectedPackage.discription"
+                        required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="price" class="cols-sm-2 control-label">Price</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+                      </span>
+                      <input type="number" class="form-control" name="price" #name="ngModel" [(ngModel)]="packageService.selectedPackage.price">
+                    </div>
+                  </div>
+                </div>
+                <input type="hidden" class="form-control" name="spid" #name="ngModel" [(ngModel)]="user._id">
+                <input type="hidden" class="form-control" name="spname" #name="ngModel" [(ngModel)]="user.fname">
+                <flash-messages></flash-messages>
+                <div class="form-group ">
+                  <button class=" bt1 btn btn-primary btn-lg btn-block login-button" type="submit">Add Package</button>
+                  <button class=" bt1 btn btn-primary right" type="button" (click)="resetForm(packageForm)">Reset</button>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-dialog [(visible)]="display3" [modal]="true" [responsive]="true">
+  <input type="file" name="photo" ng2FileSelect [uploader]="uploader">
+  <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">Upload
+    an Image</button>
+</p-dialog>

@@ -1,0 +1,23 @@
+<app-nav></app-nav>
+<div class="container" *ngIf="view">
+  <div class="card" *ngFor = "let iT of itineraryService.iT; let i = index" >
+    <div class="card-header">
+      <h4>Itinerary name: {{iT.name}}</h4>
+      <h5>{{i+1}}.Tranvel Agent: {{iT.traveAgentName}}</h5>
+      <h6>Note: {{iT.note}}</h6>
+      <h6>Last updated {{iT.date_time}}</h6>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title" *ngFor="let event of iT.events; let i = index">{{i+1}}. {{event.name}} </h5>
+      <button href="#" class="btn btn-primary" (click)="editItinerary(iT)"  >Edit</button> <hr>
+      <button href="#" class="btn btn-primary" (click)="deleteItinerary(iT._id)"  >Delete</button> 
+      <!-- [routerLink]="['/edit-itinerary']" -->
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="!view">
+  <h2>
+    No Itineraries created yet...!
+  </h2>
+</div>
+

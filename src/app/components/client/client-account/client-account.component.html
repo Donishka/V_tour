@@ -1,0 +1,58 @@
+<app-nav></app-nav>
+<div class="container-fluid" id="body-container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card" style="width:100%">
+          <img *ngIf="user.profilepic==null" class="image card-img-top" src="../../../../assets/default.png" alt="Card image" style="width:300px;height:100%">
+          <div class="card-body">
+            <h4 class="card-title">{{user.fname}} {{user.lname}}</h4>
+            <div class="address">
+              <ul class=" l1 w3-ul w3-small">
+                <br>
+                <li><i class="fas fa-envelope" aria-hidden="true"></i> Email : {{user.email}}</li><br>
+                <li><i class="fas fa-phone-square" aria-hidden="true"></i> Telephone : {{user.telephone}}</li><br>
+                <li><i class="fas fa-home" aria-hidden="true"></i> Address : {{user.address}}</li><br>
+                <li><i class="fas fa-building" aria-hidden="true"></i> City : {{user.city}}</li><br>
+                <li><i class="fas fa-globe" aria-hidden="true"></i> Country : {{user.country}}</li><br>
+                <li><i class="fas fa-utensils" aria-hidden="true"></i> foodprefer : {{user.foodprefer}}</li><br>
+                <li><i class="fas fa-gamepad" aria-hidden="true"></i> Activities : {{user.intactivities}}</li><br>
+                <li><i class="fas fa-sort-numeric-down" aria-hidden="true"></i> Age Group : {{user.agegroup}}</li><br>
+                <li><i class="far fa-calendar-alt" aria-hidden="true"> Date From : {{user.datefrom}}</i></li><br>
+                <li><i class="far fa-calendar-alt" aria-hidden="true"> Date To : {{user.dateto}}</i></li><br>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-4" style="background-color:lightblue;">
+        <br>
+        <h3>Your Trip</h3>
+        <div class="card" *ngFor="let iT of itineraryService.itenarary; let i = index">
+          <div *ngIf="user._id==iT.clientId">
+            <div class="card-header">
+              <h4>Itinerary Name: {{iT.name}}</h4>
+            </div>
+            <div class="card-body">
+              <div class="card-title" *ngFor="let event of iT.events; let i = index">
+                <h5>{{i+1}}. {{event.name}}</h5>
+                <p>{{event.venue}}</p>
+              </div>
+              <h5>Total Amount : {{iT.totalPrice}}</h5>
+              <div *ngFor="let sp of itenararyPaymentService.itenararypayment">
+                <div *ngIf="user._id==sp.clientid">
+                  <div class="mb-1 text-muted"> Payment Status : {{sp.status}}</div>
+                </div>
+              </div>
+              <button class="btn btn-primary" type="button" (click)="onPayment(i)">Make Payment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4" style="background-color:brown;">
+      </div>
+    </div>
+  </div>
+</div>
+
