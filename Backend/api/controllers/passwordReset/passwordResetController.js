@@ -2,8 +2,13 @@ const express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
-const jwt = require('jwt-simple');
+
 const bcrypt = require('bcryptjs');
+var jwt = require('jwt-simple-error-identify').jwt;
+
+var ExpiredToken = require('jwt-simple-error-identify').ExpiredToken; //the error
+var InvalidAlgorithm = require('jwt-simple-error-identify').InvalidAlgorithm; //the error
+var InvalidToken = require('jwt-simple-error-identify').InvalidToken; //the error
 
 const loginModel = require('../../data/login/login.model');
 
@@ -11,23 +16,13 @@ var {TravelAgent} = require('../../data/travelAgent/travelagent.model.js');
 var {ServiceProvider} = require('../../data/serviceProvider/serviceprovider.model.js');
 var {Client} = require('../../data/client/client.model.js');
 
-
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'anemanda175@gmail.com',
-        pass: '175anemanda175'
+        pass: 'vtourtempory'
     }
 });
-
-
-/*
-router.get('/', function (req, res) {
-    res.send('<form action="forgotpassword/reset" method="POST">' +
-        '<input type="email" name="email" value="" placeholder="Enter your email address..." />' +
-        '<input type="submit" value="Reset Password" />' +
-        '</form>');
-});*/
 
 router.post('/reset', function (req, res) {
     if (req.body.email !== undefined) {
@@ -45,21 +40,22 @@ router.post('/reset', function (req, res) {
                             if (err) throw err;
 
                             if (!user) {
+                                console.log('NO USER');
                                 res.json({ state: false, msg: "No user found" });
                             } else {
+                                console.log('TA');
                                 var payload = {
                                     id: user._id,
                                     email: emailAddress
                                 };
-                                
-                                var secret ='fe1a1915a379f3be5394b64d14794932-1506868106675';
+                                var secret =user.password+'fe1a1915a379f3be5394b64d14794932-1506868106675';
 
                                 var token = jwt.encode(payload, secret);
                                 var mailOptions = {
                                     from: 'anemanda175@gmail.com',
                                     to: user.email,
                                     subject: 'Password Reset V Tour',
-                                    html: '<a href="http://localhost:4201/forgotpassword/resetpassword/' + payload.id + '/' + token + '">Reset password</a>'
+                                    html: '<p>Please use below link to reset your password</p>'+'<a href="http://localhost:4201/forgotpassword/resetpassword/' + payload.id + '/' + token + '">Click Here</a>'
                                 };
                                 transporter.sendMail(mailOptions, function (error, info) {
                                     if (error) {
@@ -68,15 +64,16 @@ router.post('/reset', function (req, res) {
                                         console.log('Email sent: ' + info.response);
                                     }
                                 });
-                                res.send('<a href="localhost:4201/forgotpassword/resetpassword/' + payload.id + '/' + token + '">Reset password</a>');
+                                res.json({ state: true, msg: "Email has been sent with instruction to reset your password" });
                             }
                         });
                     }else{
+                        console.log('SP');
                         var payload = {
                             id: user._id,
                             email: emailAddress
                         };
-                        var secret = 'fe1a1915a379f3be5394b64d14794932-1506868106675';
+                        var secret = user.password +'fe1a1915a379f3be5394b64d14794932-1506868106675';
 
                         var token = jwt.encode(payload, secret);
 
@@ -84,7 +81,7 @@ router.post('/reset', function (req, res) {
                             from: 'anemanda175@gmail.com',
                             to: user.email,
                             subject: 'Password Reset V Tour',
-                            html: '<a href="http://localhost:4201/forgotpassword/resetpassword/' + payload.id + '/' + token + '">Reset password</a>'
+                            html: '<p>Please use below link to reset your password</p>' + '<a href="http://localhost:4201/forgotpassword/resetpassword/' + payload.id + '/' + token + '">Click Here</a>'
                         };
                         transporter.sendMail(mailOptions, function (error, info) {
                             if (error) {
@@ -93,16 +90,18 @@ router.post('/reset', function (req, res) {
                                 console.log('Email sent: ' + info.response);
                             }
                         });
-                        res.send('<a href="resetpassword/' + payload.id + '/' + token + '">Reset password</a>');
+                        res.json({ state: true, msg: "Email has been sent with instruction to reset your password" });
                     }
                     
                 });
             }else{
+                console.log('C');
                 var payload = {
                     id: user._id,
                     email: emailAddress
                 };
-                var secret = 'fe1a1915a379f3be5394b64d14794932-1506868106675';
+                
+                var secret = user.password +'fe1a1915a379f3be5394b64d14794932-1506868106675';
 
                 var token = jwt.encode(payload, secret);
 
@@ -110,7 +109,7 @@ router.post('/reset', function (req, res) {
                     from: 'anemanda175@gmail.com',
                     to: user.email,
                     subject: 'Password Reset V Tour',
-                    html: '<a href="http://localhost:4201/forgotpassword/resetpassword/' + payload.id + '/' + token + '">Reset password</a>'
+                    html: '<p>Please use below link to reset your password</p>' + '<a href="http://localhost:4201/forgotpassword/resetpassword/' + payload.id + '/' + token + '">Click Here</a>'
                 };
                 transporter.sendMail(mailOptions, function (error, info) {
                     if (error) {
@@ -119,34 +118,110 @@ router.post('/reset', function (req, res) {
                         console.log('Email sent: ' + info.response);
                     }
                 });
-                res.send('<a href="resetpassword/' + payload.id + '/' + token + '">Reset password</a>');
-            }
-           
+                res.json({ state: true, msg: "Email has been sent with instruction to reset your password" });
+            }          
         });        
     } else {
-        res.send('Email address is missing.');
+        res.send(false);
     }
 });
 
-router.get('/resetpassword/:id/:token', function (req, res) {    
-    // TODO: Fetch user from database using
-    // req.params.id
-    // TODO: Decrypt one-time-use token using the user's
-    // current password hash from the database and combine it
-    // with the user's created date to make a very unique secret key!
-    // For example,
-    // var secret = user.password + ‘-' + user.created.getTime();
-    var secret = 'fe1a1915a379f3be5394b64d14794932-1506868106675';
-    var payload = jwt.decode(req.params.token, secret);
-    // TODO: Gracefully handle decoding issues.
-    // Create form to reset password.
+router.get('/resetpassword/:id/:token', function (req, res,next) {
+    TravelAgent.findById(req.params.id, (err, user) => {
+        if (err) throw err;
+        if (!user) {
+            ServiceProvider.findById(req.params.id, (err, user) => {
+                if (err) throw err;
+                if (!user) {
+                    Client.findById(req.params.id, (err, user) => {
+                        if (err) throw err;
+                        if (!user) {
+                        }else{
+                            var secret = user.password + 'fe1a1915a379f3be5394b64d14794932-1506868106675';
+                            try {
+                                var payload = jwt.decode(req.params.token, secret);
 
-    res.send('<form action="/forgotpassword/resetpassword" method="POST">' +
-        '<input type="hidden" name="id" value="' + payload.id + '" />' +
-        '<input type="hidden" name="token" value="' + req.params.token + '" />' +
-        '<input type="password" name="password" value="" placeholder="Enter your new password..." />' +
-        '<input type="submit" value="Reset Password" />' +
-        '</form>');
+                                res.send('<form action="/forgotpassword/resetpassword" method="POST">' +
+                                    '<input type="hidden" name="id" value="' + payload.id + '" />' +
+                                    '<input type="hidden" name="token" value="' + req.params.token + '" />' +
+                                    '<input type="password" name="password" value="" placeholder="Enter your new password..." />' +
+                                    '<input type="submit" value="Confirm Password" />' +
+                                    '</form>'
+                                );
+                            } catch (err) {
+                                if (err instanceof ExpiredToken) {
+                                    res.send('<p>Expired Link</p>');
+                                    console.log('Token Expired');
+                                }
+                                if (err instanceof InvalidAlgorithm) {
+                                    res.send('<p>Expired Link</p>');
+                                    console.log('Invalid Algorithm');
+                                }
+                                if (err instanceof InvalidToken) {
+                                    res.send('<p>Expired Link</p>');
+                                    console.log('Invalid Token');
+                                }
+                            }
+                        }
+                    });
+                }else{
+                    var secret = user.password + 'fe1a1915a379f3be5394b64d14794932-1506868106675';
+                    try {
+                        var payload = jwt.decode(req.params.token, secret);
+
+                        res.send('<form action="/forgotpassword/resetpassword" method="POST">' +
+                            '<input type="hidden" name="id" value="' + payload.id + '" />' +
+                            '<input type="hidden" name="token" value="' + req.params.token + '" />' +
+                            '<input type="password" name="password" value="" placeholder="Enter your new password..." />' +
+                            '<input type="submit" value="Confirm Password" />' +
+                            '</form>'
+                        );
+                    } catch (err) {
+                        if (err instanceof ExpiredToken) {
+                            res.send('<p>Expired Link</p>');
+                            console.log('Token Expired');
+                        }
+                        if (err instanceof InvalidAlgorithm) {
+                            res.send('<p>Expired Link</p>');
+                            console.log('Invalid Algorithm');
+                        }
+                        if (err instanceof InvalidToken) {
+                            res.send('<p>Expired Link</p>');
+                            console.log('Invalid Token');
+                        }
+                    }
+                }
+            });
+        }else{
+
+            var secret = user.password + 'fe1a1915a379f3be5394b64d14794932-1506868106675';
+            try {
+                var payload = jwt.decode(req.params.token, secret);
+
+                res.send('<form action="/forgotpassword/resetpassword" method="POST">' +
+                    '<input type="hidden" name="id" value="' + payload.id + '" />' +
+                    '<input type="hidden" name="token" value="' + req.params.token + '" />' +
+                    '<input type="password" name="password" value="" placeholder="Enter your new password..." />' +
+                    '<input type="submit" value="Confirm Password" />' +
+                    '</form>'
+                );
+            } catch (err) {
+                if (err instanceof ExpiredToken) {
+                    res.send('<p>Expired Link</p>');
+                    console.log('Token Expired');
+                }
+                if (err instanceof InvalidAlgorithm) {
+                    res.send('<p>Expired Link</p>');
+                    console.log('Invalid Algorithm');
+                }
+                if (err instanceof InvalidToken) {
+                    res.send('<p>Expired Link</p>');
+                    console.log('Invalid Token');
+                }
+            }
+
+        }
+    });  
 });
 
 router.post('/resetpassword', function (req, res) {
@@ -160,7 +235,20 @@ router.post('/resetpassword', function (req, res) {
                         if (err) throw err;
                         if(!user) {
                         }else{//Client
-                            
+                            var client = {
+                                _id: req.body.id,
+                                password: req.body.password,
+                            };
+                            bcrypt.genSalt(10, function (err, salt) {
+                                bcrypt.hash(client.password, salt, function (err, hash) {
+                                    client.password = hash;
+                                    if (err) throw err;
+                                    Client.findByIdAndUpdate(req.body.id, { $set: client }, { new: true }, (err, doc) => {
+                                        if (!err) { console.log("Pass Reset Completed"); }
+                                        else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
+                                    });
+                                });
+                            });
                         }
                     });
                 }else{//Service Provider
@@ -200,7 +288,7 @@ router.post('/resetpassword', function (req, res) {
     });
     var secret = 'fe1a1915a379f3be5394b64d14794932-1506868106675';
 
-    var payload = jwt.decode(req.body.token, secret);
+    //var payload = jwt.decode(req.body.token, secret);
 
     // TODO: Gracefully handle decoding issues.
     // TODO: Hash password from
