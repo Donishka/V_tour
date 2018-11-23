@@ -14,8 +14,8 @@
         <label for="exampleInputPassword1">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" [(ngModel)] = "password">
       </div>
-      <button type="submit" class="btn btn-primary" style="float: right">Login</button>
+      <button type="submit" class="btn btn-primary" style="float: right">Login</button><br>
+      <a [routerLink]='["/app-password-reset"]'>Forget Password</a>
     </fieldset>
   </form>
-  <button type="submit" class="btn btn-primary" [routerLink]='["/app-password-reset"]' style="float: right">Forget Password</button>
 </div>

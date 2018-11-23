@@ -26,8 +26,11 @@ export class PasswordResetComponent implements OnInit {
   }
 
   onSubmit(form:NgForm){
-    console.log(form.value);
-    this.passwordResetService.postEmail(form.value).subscribe((res) => {
+    this.passwordResetService.postEmail(form.value).subscribe((res:any) => {
+      alert(res.msg);
+      if(res.state==true){
+        this.router.navigateByUrl('/login');
+      }
     });
   }
 }
