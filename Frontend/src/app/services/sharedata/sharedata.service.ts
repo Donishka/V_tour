@@ -26,7 +26,7 @@ export class SharedataService {
     this.authService.getProfile().subscribe(res => {
       this.user = res.data.user;
       this.changeMessage(this.user);
-       //console.log("ShareUserData in service "+JSON.stringify(this.user));
+       console.log("ShareUserData in service "+JSON.stringify(this.user));
     });
   }
 }

@@ -64,9 +64,9 @@ export class ViewItineraryComponent implements OnInit {
   refreshItinerryList() {
     this.itineraryService.getItinerrytList(this.itinerary).subscribe((res) => {
       this.itineraryService.iT = res as Itinerary[];
-      if (this.itineraryService.iT.length == 0) {
-        this.view = false;
-      }
+      // if (this.itineraryService.iT.length == 0) {
+      //   this.view = false;
+      // }
     });
   }
 
