@@ -46,27 +46,27 @@ export class AddNewTravelAgentComponent implements OnInit {
   onSubmit(form: NgForm) {
     if(this.rePassword==form.value.password){
         if (form.value._id == "") {
-            this.travelAgentService.postTravelAgent(form.value).subscribe((res) => {
+            this.travelAgentService.postTravelAgent(form.value).subscribe((res:any) => {
+              if(res.state==false){
+                alert(res.msg);
+              }else{
                 this.flashMessage.show('Travel Agent Saved', { cssClass: 'alert-success', timeout: 4000 });
                 this.resetForm(form);
                 alert('Travel Agent Saved');
-                console.log("Saved");
                 this.router.navigateByUrl('/travelagent-account');
+              }               
             });
         }
         else {
-            this.travelAgentService.putTravelAgent(form.value).subscribe((res) => {
+            this.travelAgentService.putTravelAgent(form.value).subscribe((res:any) => {
                 this.resetForm(form);
                 this.flashMessage.show('Travel Agent Updated', { cssClass: 'alert-success', timeout: 4000 });
-                console.log("Updated");
                 alert('Travel Agent Updated');
                 this.router.navigateByUrl('/travelagent-account');
             });
         }
     }else{
       alert("Passwords Do Not Match");
-      console.log(this.rePassword);
-      console.log(form.value.password);
     }
   }
 }

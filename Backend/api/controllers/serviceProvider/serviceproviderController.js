@@ -9,6 +9,7 @@ const fs = require('fs');
 var { ServiceProvider }  = require('../../data/serviceProvider/serviceprovider.model.js');
 var  ServiceProviderModel  = require('../../data/serviceProvider/serviceprovider.model.js');
 
+const loginModel = require('../../data/login/login.model');
 
 
 router.get('/', (req, res) => {
@@ -29,26 +30,34 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    var serviceprovider = new ServiceProvider({
-        fname: req.body.fname,
-        username: req.body.username,
-        password: req.body.password,
-        email:req.body.email,
-        telephone: req.body.telephone,
-        address: req.body.address,
-        type: req.body.type,
-        discription:req.body.discription,
-        profilepic:null,
-        usertype:"serviceprovider"
-    });
-    ServiceProviderModel.saveUser(serviceprovider,(err, doc) => {
-        if(err){
-            res.json({state:false,msg:"data not inserted"});
+    var emailcheck = req.body.email;
+    loginModel.findBySPEmail(emailcheck, function (err, user) {
+        if (err) throw err;
+        if (!user) {
+            var serviceprovider = new ServiceProvider({
+                fname: req.body.fname,
+                username: req.body.username,
+                password: req.body.password,
+                email:req.body.email,
+                telephone: req.body.telephone,
+                address: req.body.address,
+                type: req.body.type,
+                discription:req.body.discription,
+                profilepic:null,
+                usertype:"serviceprovider"
+            });
+            ServiceProviderModel.saveUser(serviceprovider,(err, doc) => {
+                if(err){
+                    res.json({state:false,msg:"data not inserted"});
+                }
+                if(doc){
+                    res.json({state:true,msg:"data  inserted"});
+                }}
+            );
+        }else{
+            res.json({ state: false, msg: "User Already Exsits" });
         }
-        if(doc){
-            res.json({state:true,msg:"data  inserted"});
-        }}
-);
+    });
 });
 
 router.put('/:id', (req, res) => {
