@@ -27,11 +27,18 @@ export class TravelAgentAccountComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.refreshTravelAgentList();
     this.getProfileDetails();
     this.dataS.shareUserData();
     this.dataS.currentMessge.subscribe(traveAgentdata => {
       this.user = traveAgentdata;
       console.log("user in account "+JSON.stringify(this.user));
+    });
+  }
+
+  refreshTravelAgentList() {
+    this.travelAgentService.getTravelAgentList().subscribe((res) => {
+      this.travelAgentService.tagent = res as TravelAgent[];
     });
   }
 
