@@ -31,7 +31,7 @@ import { SpPackageService } from '../app/services/sharedata/sp-package.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

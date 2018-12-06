@@ -15,14 +15,20 @@ const loginModel = require('../../data/login/login.model');
 var {TravelAgent} = require('../../data/travelAgent/travelagent.model.js');
 var {ServiceProvider} = require('../../data/serviceProvider/serviceprovider.model.js');
 var {Client} = require('../../data/client/client.model.js');
+var smtpTransport = require('nodemailer-smtp-transport');
+var nodemailer = require('nodemailer');
 
-var transporter = nodemailer.createTransport({
+var transporter = nodemailer.createTransport(smtpTransport({ 
+    host: 'smtp.gmail.com', port: 465, secure: true, // 
+    service: 'Gmail', auth: { user: 'anemanda175@gmail.com', pass: 'vtourtempory' }, 
+    tls: { rejectUnauthorized: false } }));
+/*var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'anemanda175@gmail.com',
         pass: 'vtourtempory'
     }
-});
+});*/
 
 router.post('/reset', function (req, res) {
     if (req.body.email !== undefined) {
@@ -147,7 +153,15 @@ router.get('/resetpassword/:id/:token', function (req, res,next) {
                                     '<input type="password" name="password" value="" placeholder="Enter your new password..." />' +
                                     '<input type="submit" value="Confirm Password" />' +
                                     '</form>'
+                                    
                                 );
+                                // res.send(
+                                //     reset_data={
+                                //         payload_id : payload.id,
+                                //         token: req.params.token
+                                //     }
+                                //     );
+
                             } catch (err) {
                                 if (err instanceof ExpiredToken) {
                                     res.send('<p>Expired Link</p>');
@@ -176,6 +190,12 @@ router.get('/resetpassword/:id/:token', function (req, res,next) {
                             '<input type="submit" value="Confirm Password" />' +
                             '</form>'
                         );
+                        // res.send(
+                        //     reset_data={
+                        //         payload_id : payload.id,
+                        //         token: req.params.token
+                        //     }
+                        //     );
                     } catch (err) {
                         if (err instanceof ExpiredToken) {
                             res.send('<p>Expired Link</p>');
@@ -205,6 +225,12 @@ router.get('/resetpassword/:id/:token', function (req, res,next) {
                     '<input type="submit" value="Confirm Password" />' +
                     '</form>'
                 );
+                // res.send(
+                //     reset_data={
+                //         payload_id : payload.id,
+                //         token: req.params.token
+                //     }
+                //     );
             } catch (err) {
                 if (err instanceof ExpiredToken) {
                     res.send('<p>Expired Link</p>');
