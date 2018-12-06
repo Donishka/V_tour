@@ -20,6 +20,10 @@ export class TravelAgentService {
     return this.http.post(this.baseURL, tagent);
   }
 
+  getTravelAgent(_id: string) {
+    return this.http.get(this.baseURL + `/${_id}`);
+  }
+
   getTravelAgentList() {
     return this.http.get(this.baseURL);
   }

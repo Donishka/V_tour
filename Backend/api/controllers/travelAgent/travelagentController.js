@@ -27,8 +27,7 @@ router.get('/:id', (req, res) => {
         TravelAgent.findById(req.params.id, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Retriving Travel Agent :' + JSON.stringify(err, undefined, 2)); }
-    });
-    
+    });  
 });
 
 router.post('/', (req, res) => {

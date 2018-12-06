@@ -61,7 +61,7 @@ router.post('/reset', function (req, res) {
                                     from: 'anemanda175@gmail.com',
                                     to: user.email,
                                     subject: 'Password Reset V Tour',
-                                    html: '<p>Please use below link to reset your password</p>'+'<a href="http://localhost:4201/forgotpassword/resetpassword/' + payload.id + '/' + token + '">Click Here</a>'
+                                    html: '<p>Please use below link to reset your password</p>'+'<a href="http://localhost:4200/resetpassword/' + payload.id + '/' + token + '">Click Here</a>'
                                 };
                                 transporter.sendMail(mailOptions, function (error, info) {
                                     if (error) {
@@ -87,7 +87,7 @@ router.post('/reset', function (req, res) {
                             from: 'anemanda175@gmail.com',
                             to: user.email,
                             subject: 'Password Reset V Tour',
-                            html: '<p>Please use below link to reset your password</p>' + '<a href="http://localhost:4201/forgotpassword/resetpassword/' + payload.id + '/' + token + '">Click Here</a>'
+                            html: '<p>Please use below link to reset your password</p>' + '<a href="http://localhost:4200/resetpassword/' + payload.id + '/' + token + '">Click Here</a>'
                         };
                         transporter.sendMail(mailOptions, function (error, info) {
                             if (error) {
@@ -115,7 +115,7 @@ router.post('/reset', function (req, res) {
                     from: 'anemanda175@gmail.com',
                     to: user.email,
                     subject: 'Password Reset V Tour',
-                    html: '<p>Please use below link to reset your password</p>' + '<a href="http://localhost:4201/forgotpassword/resetpassword/' + payload.id + '/' + token + '">Click Here</a>'
+                    html: '<p>Please use below link to reset your password</p>' + '<a href="http://localhost:4200/resetpassword/' + payload.id + '/' + token + '">Click Here</a>'
                 };
                 transporter.sendMail(mailOptions, function (error, info) {
                     if (error) {
@@ -218,31 +218,29 @@ router.get('/resetpassword/:id/:token', function (req, res,next) {
             try {
                 var payload = jwt.decode(req.params.token, secret);
 
-                res.send('<form action="/forgotpassword/resetpassword" method="POST">' +
-                    '<input type="hidden" name="id" value="' + payload.id + '" />' +
-                    '<input type="hidden" name="token" value="' + req.params.token + '" />' +
-                    '<input type="password" name="password" value="" placeholder="Enter your new password..." />' +
-                    '<input type="submit" value="Confirm Password" />' +
-                    '</form>'
-                );
-                // res.send(
-                //     reset_data={
-                //         payload_id : payload.id,
-                //         token: req.params.token
-                //     }
-                //     );
+                // res.send('<form action="/forgotpassword/resetpassword" method="POST">' +
+                //     '<input type="hidden" name="id" value="' + payload.id + '" />' +
+                //     '<input type="hidden" name="token" value="' + req.params.token + '" />' +
+                //     '<input type="password" name="password" value="" placeholder="Enter your new password..." />' +
+                //     '<input type="submit" value="Confirm Password" />' +
+                //     '</form>'
+                // );
+                res.send(true);
             } catch (err) {
                 if (err instanceof ExpiredToken) {
-                    res.send('<p>Expired Link</p>');
-                    console.log('Token Expired');
+                    // res.send('<p>Expired Link</p>');
+                    // console.log('Token Expired');
+                    res.send(false);
                 }
                 if (err instanceof InvalidAlgorithm) {
-                    res.send('<p>Expired Link</p>');
-                    console.log('Invalid Algorithm');
+                    // res.send('<p>Expired Link</p>');
+                    // console.log('Invalid Algorithm');
+                    res.send(false);
                 }
                 if (err instanceof InvalidToken) {
-                    res.send('<p>Expired Link</p>');
-                    console.log('Invalid Token');
+                    // res.send('<p>Expired Link</p>');
+                    // console.log('Invalid Token');
+                    res.send(false);
                 }
             }
 
@@ -251,25 +249,25 @@ router.get('/resetpassword/:id/:token', function (req, res,next) {
 });
 
 router.post('/resetpassword', function (req, res) {
-    TravelAgent.findById(req.body.id, (err, user) => {
+    TravelAgent.findById(req.body._id, (err, user) => {
         if (err) throw err;
         if(!user){
-            ServiceProvider.findById(req.body.id, (err, user) => {
+            ServiceProvider.findById(req.body._id, (err, user) => {
                 if (err) throw err;
                 if(!user){
-                    Client.findById(req.body.id, (err, user) => {
+                    Client.findById(req.body._id, (err, user) => {
                         if (err) throw err;
                         if(!user) {
                         }else{//Client
                             var client = {
-                                _id: req.body.id,
+                                _id: req.body._id,
                                 password: req.body.password,
                             };
                             bcrypt.genSalt(10, function (err, salt) {
                                 bcrypt.hash(client.password, salt, function (err, hash) {
                                     client.password = hash;
                                     if (err) throw err;
-                                    Client.findByIdAndUpdate(req.body.id, { $set: client }, { new: true }, (err, doc) => {
+                                    Client.findByIdAndUpdate(req.body._id, { $set: client }, { new: true }, (err, doc) => {
                                         if (!err) { console.log("Pass Reset Completed"); }
                                         else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
                                     });
@@ -279,14 +277,14 @@ router.post('/resetpassword', function (req, res) {
                     });
                 }else{//Service Provider
                     var serviceprovider = {
-                        _id: req.body.id,
+                        _id: req.body._id,
                         password: req.body.password,
                     };
                     bcrypt.genSalt(10, function (err, salt) {
                         bcrypt.hash(serviceprovider.password, salt, function (err, hash) {
                             serviceprovider.password = hash;
                             if (err) throw err;
-                            ServiceProvider.findByIdAndUpdate(req.body.id, { $set: serviceprovider }, { new: true }, (err, doc) => {
+                            ServiceProvider.findByIdAndUpdate(req.body._id, { $set: serviceprovider }, { new: true }, (err, doc) => {
                                 if (!err) { console.log("Pass Reset Completed"); }
                                 else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
                             });
@@ -296,14 +294,14 @@ router.post('/resetpassword', function (req, res) {
             });
         }else{//Travel Agent
            var travelagent = {
-                _id: req.body.id,
+                _id: req.body._id,
                 password: req.body.password,
            };
             bcrypt.genSalt(10, function (err, salt) {
                 bcrypt.hash(travelagent.password, salt, function (err, hash) {
                     travelagent.password = hash;
                     if (err) throw err;
-                    TravelAgent.findByIdAndUpdate(req.body.id, { $set: travelagent }, { new: true }, (err, doc) => {
+                    TravelAgent.findByIdAndUpdate(req.body._id, { $set: travelagent }, { new: true }, (err, doc) => {
                         console.log(travelagent);
                         if (!err) { console.log("Pass Reset Completed"); }
                         else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
@@ -320,7 +318,7 @@ router.post('/resetpassword', function (req, res) {
     // TODO: Hash password from
     // req.body.password
 
-    res.send('Your password has been successfully changed.');
+    res.send(true);
 });
 
 module.exports=router;
