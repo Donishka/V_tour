@@ -13,7 +13,11 @@ export class PasswordResetService {
   constructor(private http: HttpClient) { }
 
   postEmail(u: User) {
-    console.log(u);
+    //console.log(u);
     return this.http.post(this.baseURL+"/reset", u);
+  }
+
+  postPassword(paylaod:String, token:String, password:String){
+   // return this.http.post(this.baseURL+"/resetpassword");
   }
 }

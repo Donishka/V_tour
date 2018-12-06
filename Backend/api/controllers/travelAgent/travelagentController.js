@@ -6,6 +6,8 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
+const loginModel = require('../../data/login/login.model');
+
 var { TravelAgent }  = require('../../data/travelAgent/travelagent.model.js');
 var  TravelAgentModel  = require('../../data/travelAgent/travelagent.model.js');
 var picture=null;
@@ -30,26 +32,36 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-   var travelagent = new TravelAgent({
-        fname: req.body.fname,
-        lname:req.body.lname,
-        username: req.body.username,
-        password: req.body.password,
-        email:req.body.email,
-        telephone: req.body.telephone,
-        address: req.body.address,
-        isadmin: req.body.isadmin,
-        profilepic: null,
-        usertype:"travelagent"
-    });
-    TravelAgentModel.saveUser(travelagent,(err, doc) => {
-        if(err){
-            res.json({state:false,msg:"data not inserted"});
+    var emailcheck=req.body.email;
+    loginModel.findByTAgentEmail(emailcheck, function (err, user) {
+        if (err) throw err;
+        if (!user) {
+            var travelagent = new TravelAgent({
+                fname: req.body.fname,
+                lname: req.body.lname,
+                username: req.body.username,
+                password: req.body.password,
+                email: req.body.email,
+                telephone: req.body.telephone,
+                address: req.body.address,
+                isadmin: req.body.isadmin,
+                profilepic: null,
+                usertype: "travelagent"
+            });
+            TravelAgentModel.saveUser(travelagent, (err, doc) => {
+                if (err) {
+                    res.json({ state: false, msg: "data not inserted" });
+                }
+                if (doc) {
+                    res.json({ state: true, msg: "data  inserted" });
+                }
+            }
+            );
+            
+        } else {
+            res.json({ state: false, msg: "User Already Exsits" });
         }
-        if(doc){
-            res.json({state:true,msg:"data  inserted"});
-        }}
-);
+    });
 });
 
 router.put('/changepw/:id', (req, res) => {

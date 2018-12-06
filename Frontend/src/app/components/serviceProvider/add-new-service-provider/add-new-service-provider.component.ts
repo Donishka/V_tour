@@ -45,11 +45,15 @@ export class AddNewServiceProviderComponent implements OnInit {
   onSubmit(form: NgForm) {
     if(this.rePassword==form.value.password){
       if (form.value._id == "") {
-        this.serviceProviderService.postServiceProvider(form.value).subscribe((res) => {
-          this.resetForm(form);
-          this.flashMessage.show('Service Provider Saved', { cssClass: 'alert-success', timeout: 4000 });
-          alert('Service Provider Saved');
-          this.router.navigateByUrl('/travelagent-account');
+        this.serviceProviderService.postServiceProvider(form.value).subscribe((res:any) => {
+          if (res.state == false) {
+            alert(res.msg);
+          } else {
+            this.resetForm(form);
+            this.flashMessage.show('Service Provider Saved', { cssClass: 'alert-success', timeout: 4000 });
+            alert('Service Provider Saved');
+            this.router.navigateByUrl('/travelagent-account');
+          }
         });
       }else {
         this.serviceProviderService.putServiceProvider(form.value).subscribe((res) => {

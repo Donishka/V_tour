@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PasswordResetComponent } from '../../components/password-reset/password-reset.component';
 import { DialogModule } from 'primeng/dialog';
 import { CardModule } from 'primeng/card';
+import { NewPasswordComponent } from '../../components/password-reset/new-password/new-password.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { CardModule } from 'primeng/card';
     CardModule
   ],
   declarations: [
-    PasswordResetComponent
+    PasswordResetComponent,
+    NewPasswordComponent
   ],
   exports: [
     PasswordResetComponent

@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
         traveAgentName: req.body.traveAgentName,
         events: req.body.events,
         clientId: req.body.clientId,
-        totalPrice: req.body.totPrice
+        totalPrice: req.body.totalPrice
     });
     itinerary.save(itinerary, (err, doc) => {
         if (err) {
