@@ -144,7 +144,7 @@ export class ItineraryComponent implements OnInit {
 
       alert('Itinerary Saved');
 
-      console.log("Saved");
+      console.log("Saved"+this.itinerary.totalPrice);
 
     });
   }
