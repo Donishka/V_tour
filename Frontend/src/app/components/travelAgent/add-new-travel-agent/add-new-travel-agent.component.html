@@ -65,10 +65,13 @@
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
                   <input type="password" class="form-control" name="password" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.password"
-                    required>
+                    required> 
                 </div>
               </div>
             </div>
+            <password-strength-meter [enableFeedback]="true" [password]="travelAgentService.selectedTravelAgent.password"></password-strength-meter>
+            <p style="font-size:10px;">Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special
+            characters, or emoji.</p>
 
             <div class="form-group">
               <label for="password" class="cols-sm-2 control-label">Re Enter Password</label>

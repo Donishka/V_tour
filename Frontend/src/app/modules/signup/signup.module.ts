@@ -1,5 +1,6 @@
 import { HeaderBarModule } from './../header-bar/header-bar.module';
 import { NgModule } from '@angular/core';
+import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
@@ -14,7 +15,8 @@ import { AddNewServiceProviderComponent } from '../../components/serviceProvider
     FormsModule,
     FlashMessagesModule,
     RouterModule,
-    HeaderBarModule
+    HeaderBarModule,
+    PasswordStrengthMeterModule
   ],
   declarations: [
     AddNewClientsComponent,
