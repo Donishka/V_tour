@@ -24,7 +24,7 @@ import { ViewClientPaymentsComponent } from '../components/payments/view-client-
 import { ItineraryComponent } from '../components/itinerary/itinerary.component';
 import { ViewItineraryComponent } from '../components/itinerary/view-itinerary/view-itinerary.component';
 import { EditItineraryComponent } from '../components/itinerary/edit-itinerary/edit-itinerary.component';
-
+import { NewPasswordComponent } from '../components/password-reset/new-password/new-password.component';
 
 const applicationRoutes:Routes = [
   {path:'login',component:LoginComponent},
@@ -47,7 +47,8 @@ const applicationRoutes:Routes = [
   {path: 'view-packages', component: ViewPackagesComponent, canActivate: [AuthGuard] },
   {path: 'view-itinerary', component: ViewItineraryComponent, canActivate: [AuthGuard] },
   {path: 'edit-itinerary', component: EditItineraryComponent, canActivate: [AuthGuard] },
-  {path: 'app-password-reset', component: PasswordResetComponent }
+  {path: 'app-password-reset', component: PasswordResetComponent },
+  { path: 'resetpassword/:payloadid/:token', component: NewPasswordComponent }
 
 
 
