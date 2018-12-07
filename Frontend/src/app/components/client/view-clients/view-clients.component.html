@@ -21,6 +21,7 @@
                       <br>Address : {{client.address}}
                       <br>City : {{client.city}}
                       <br>Country : {{client.country}}
+                      <br>Postal Code : {{client.postalcode}}
                       <br>Date From : {{client.datefrom}}
                       <br>Date To : {{client.dateto}}
                       <br>No Of Visitors : {{client.noofvisitors}}
@@ -130,6 +131,17 @@
                     <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
                   </span>
                   <input type="text" class="form-control" name="country" #name="ngModel" [(ngModel)]="clientService.selectedClient.country">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="postalcode" class="cols-sm-2 control-label">Postal Code</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" class="form-control" name="postalcode" #name="ngModel" [(ngModel)]="clientService.selectedClient.postalcode">
                 </div>
               </div>
             </div>

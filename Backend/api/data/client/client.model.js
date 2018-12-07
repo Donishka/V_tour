@@ -29,6 +29,9 @@ var Client =  mongoose.model('Client', {
     country: {
         type: String,
     },
+    postalcode: {
+        type: String,
+    },
     noofvisitors:{
         type:Number,
     },

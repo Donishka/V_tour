@@ -9,6 +9,7 @@ export class Client {
     address:string;
     city: string;
     country: string;
+    postalcode:string;
     noofvisitors:number;
     foodprefer:[string];
     intactivities:[string];
