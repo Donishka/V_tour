@@ -35,6 +35,7 @@ export class AddNewClientsComponent implements OnInit {
       address: "",
       city:"",
       country:"",
+      postalcode:"",
       noofvisitors: null,
       foodprefer:[""],
       intactivities:[""],

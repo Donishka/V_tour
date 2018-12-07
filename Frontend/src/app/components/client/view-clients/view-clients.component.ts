@@ -42,6 +42,7 @@ export class ViewClientsComponent implements OnInit {
       address: "",
       city: "",
       country: "",
+      postalcode:"",
       noofvisitors: null,
       foodprefer: [""],
       intactivities: [""],
