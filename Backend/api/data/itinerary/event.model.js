@@ -29,7 +29,8 @@ var Event = mongoose.model('Event', {
     duration:{type:String}, // for hotel
     category:{type:String}, // for travel purpose
     depature_time:{type:String}, // When travel by train
-    event_type:{type:String} // for editing purpose
+    event_type:{type:String}, // for editing purpose
+    travel_category:{type:String}
 
 
 
