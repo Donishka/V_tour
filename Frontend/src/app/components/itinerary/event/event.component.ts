@@ -12,6 +12,8 @@ import { ItineraryService } from '../../../services/itinerary-service/itinerary.
 export class EventComponent implements OnInit {
 
   public evnetForm: FormGroup;
+  public minimum_date: string;
+  public value: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,8 +26,28 @@ export class EventComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
+  min_date() {
+    var min_date;
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; 
+    var yyyy = today.getFullYear();
+    var day = dd.toString();
+    var month = mm.toString();
+    if (dd < 10) {
+      day = '0' + dd;
+    }
+    if (mm < 10) {
+       month = '0'+ mm;
+    }
+    min_date = yyyy + '-' + month + '-' + day;
+    console.log(min_date);
+    return min_date;
+  }
 
   ngOnInit() {
+    this.minimum_date = this.min_date();
+    this.value = this.min_date();
     this.evnetForm = this.formBuilder.group({
       id: [this.data.id],
       price: [this.data.price, [Validators.required]],
@@ -34,14 +56,14 @@ export class EventComponent implements OnInit {
       date_from: [this.data.date_from, [Validators.required]],
       date_to: [this.data.date_to],
       description: [this.data.description],
-      sp_id:[this.data.sp_id],
-      package_id:[this.data.pkg_id],
-      cost:[this.data.cost, [Validators.required]],
-      check_in_time:[this.data.check_in_time], // for loading purpose
-      duration:[this.data.duration], // for hotel
-      travel_category:[this.data.category], // for travel purpose
-      depature_time:[this.data.depature_time], // When travel by train
-      event_type:[this.data.event_type] // for editing purpose
+      sp_id: [this.data.sp_id],
+      package_id: [this.data.pkg_id],
+      cost: [this.data.cost, [Validators.required]],
+      check_in_time: [this.data.check_in_time], // for loading purpose
+      duration: [this.data.duration], // for hotel
+      travel_category: [this.data.category], // for travel purpose
+      depature_time: [this.data.depature_time], // When travel by train
+      event_type: [this.data.event_type] // for editing purpose
     });
   }
   onSubmit() {

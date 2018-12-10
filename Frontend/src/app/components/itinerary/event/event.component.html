@@ -47,13 +47,23 @@
                       </div>
 
                       <div class="col-md-6">
-                        <label for="Name">Venue</label>
+                        <label for="Venue">Venue</label>
                         <input type="text" formControlName="venue" class="form-control">
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="date_to">Venue</label>
+                        <input type="date" id="start" name="trip-start" value="2018-07-22" [min]="minimum_date" max="2020-12-31">
                       </div>
 
                       <div class="col-md-6">
                         <label for="Name">price</label>
                         <input type="number" formControlName="price" class="form-control">
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="cost">cost</label>
+                        <input type="number" formControlName="cost" class="form-control">
                       </div>
                     </div>
                   </div>
