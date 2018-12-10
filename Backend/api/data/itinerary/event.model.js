@@ -12,7 +12,27 @@ var Event = mongoose.model('Event', {
     },
     venue: {
         type: String,
-    }
+    },
+    date:{
+        from:{type:String},
+        to:{type:String}
+    },
+    description:{
+        type:String
+    },
+    package:{
+        sp_id:{type:String},
+        package_id:{type:String},
+    },
+    cost:{type:String},
+    check_in_time:{type:String}, // for loading purpose
+    duration:{type:String}, // for hotel
+    category:{type:String}, // for travel purpose
+    depature_time:{type:String}, // When travel by train
+    event_type:{type:String} // for editing purpose
+
+
+
 }, 'event');
 
 module.exports = { Event };
