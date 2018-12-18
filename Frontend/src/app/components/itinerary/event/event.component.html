@@ -17,12 +17,98 @@
       <div class="col-sm-5 col-md-5">
         <div class="tabulation animate-box">
 
+
+            <form action="" [formGroup]="eventForm" (submit)="onSubmit()">
+                <div class="form-group">
+                  <div class="row">
+
+                      <div class="col-md-6">
+                          <label for="cost">Event type</label>
+                          <input type="text" formControlName="event_type" class="form-control" [(ngModel)] = "formType">
+                          <!-- <select title="Pick a number" class="selectpicker" formControlName="event_type" [(ngModel)] = "fromType">
+                            <option value="Custome" selected="selected">Custom</option>
+                          </select> -->
+                         
+                        </div>
+
+                    <div class="col-md-6">
+                      <label for="Name">Event Name</label>
+                      <input type="text" formControlName="name" class="form-control">
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="Venue">Venue</label>
+                      <input type="text" formControlName="venue" class="form-control">
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="date_from">Date from</label>
+                      <input type="date"  formControlName="date_from" [value]="minimum_date" [min]="minimum_date" class="form-control">
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="date_to">Date to</label>
+                      <input type="date"  formControlName="date_to" [value]="minimum_date" [min]="minimum_date" class="form-control">
+                    </div> 
+
+                    <div class="col-md-6">
+                      <label for="packages">Package</label>
+                      <input type="text"  formControlName="pkg_id" class="form-control" >
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="SP">SP</label>
+                      <input type="text"  formControlName="sp_id" class="form-control">
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="description">Description</label>
+                      <input type="textarea"  formControlName="description" class="form-control">
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="Name">price</label>
+                      <input type="number" formControlName="price" class="form-control">
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="cost">cost</label>
+                      <input type="number" formControlName="cost" class="form-control">
+                    </div>
+
+                    
+
+                    <div class="col-md-6" *ngIf="formType == 'Hotel'">
+                      <label for="check_in_time">Check-in time</label>
+                      <input type="text" formControlName="check_in_time" class="form-control">
+                    </div>
+
+                    <div class="col-md-6" *ngIf="formType == 'Hotel'">
+                      <label for="duration">Duration</label>
+                      <input type="text" formControlName="duration" class="form-control">
+                    </div> 
+
+                    <div *ngIf="formType == 'Travel'">
+                      <label for="travel_category" >Travel category</label>
+                      <input type="text" formControlName="travel_category" class="form-control">
+                    </div>
+                  <div *ngIf="formType == 'Travel'">
+                      <label for="depature_time" >Depature time </label>
+                      <input type="text" formControlName="depature_time" class="form-control">
+                    </div> 
+                  </div>
+                </div>
+                <div class="row">
+                  <button type="submit" class="btn btn-success">Add event</button>
+                </div>
+              </form>
+
           <!-- Nav tabs -->
-          <ul class="nav nav-tabs" role="tablist">
+       <!--   <ul class="nav nav-tabs" role="tablist">
             <li role="presentation">
-              <a href="#custom" aria-controls="custom" role="tab" data-toggle="tab" class="nav-link">Custom Event</a>
+              <a href="#custom" aria-controls="custom" role="tab" data-toggle="tab" class="nav-link">Event</a>
             </li>
-            <li role="presentation" class="nav-item">
+             <li role="presentation" class="nav-item">
               <a href="#foods" aria-controls="foods" role="tab" data-toggle="tab" class="nav-link">Food</a>
             </li>
             <li role="presentation">
@@ -30,17 +116,20 @@
             </li>
             <li role="presentation">
               <a href="#packages" aria-controls="packages" role="tab" data-toggle="tab" class="nav-link">Packages</a>
-            </li>
+            </li> 
           </ul>
+          -->
 
           <!-- Tab panes -->
           <div class="tab-content">
 
             <div role="tabpanel" class="tab-pane" id="custom">
               <div class="tab-pane active">
-                <form action="" [formGroup]="evnetForm" (submit)="onSubmit()">
+                <form action="" [formGroup]="eventForm" (submit)="onSubmit()">
                   <div class="form-group">
                     <div class="row">
+
+                      
                       <div class="col-md-6">
                         <label for="Name">Event Name</label>
                         <input type="text" formControlName="name" class="form-control">
@@ -52,8 +141,28 @@
                       </div>
 
                       <div class="col-md-6">
-                        <label for="date_to">Venue</label>
-                        <input type="date" id="start" name="trip-start" value="2018-07-22" [min]="minimum_date" max="2020-12-31">
+                        <label for="date_from">Date from</label>
+                        <input type="date"  formControlName="date_from" [value]="minimum_date" [min]="minimum_date" class="form-control">
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="date_to">Date to</label>
+                        <input type="date"  formControlName="date_to" [value]="minimum_date" [min]="minimum_date" class="form-control">
+                      </div> 
+
+                      <div class="col-md-6">
+                        <label for="packages">Package</label>
+                        <input type="text"  formControlName="pkg_id" class="form-control" >
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="SP">SP</label>
+                        <input type="text"  formControlName="sp_id" class="form-control">
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="description">Description</label>
+                        <input type="textarea"  formControlName="description" class="form-control">
                       </div>
 
                       <div class="col-md-6">
@@ -65,6 +174,32 @@
                         <label for="cost">cost</label>
                         <input type="number" formControlName="cost" class="form-control">
                       </div>
+
+                      
+
+                      <div class="col-md-6" *ngIf="formType == 'Hotel'">
+                        <label for="check_in_time">Check-in time</label>
+                        <input type="text" formControlName="check_in_time" class="form-control">
+                      </div>
+
+                      <div class="col-md-6" *ngIf="formType == 'Hotel'">
+                        <label for="duration">Duration</label>
+                        <input type="text" formControlName="duration" class="form-control">
+                      </div> 
+
+                      <div *ngIf="formType == 'Travel'">
+                        <label for="travel_category" >Travel category</label>
+                        <input type="text" formControlName="travel_category" class="form-control">
+                      </div>
+                    <div *ngIf="formType == 'Travel'">
+                        <label for="depature_time" >Depature time </label>
+                        <input type="text" formControlName="depature_time" class="form-control">
+                      </div> 
+
+
+
+                      
+
                     </div>
                   </div>
                   <div class="row">
@@ -75,7 +210,7 @@
             </div>
 
 
-            <div role="tabpanel" class="tab-pane" id="foods">
+            <!-- <div role="tabpanel" class="tab-pane" id="foods">
               <div class="row">
                 <div class="col-xxs-12 col-xs-6 mt">
                   <div class="input-field">
@@ -270,7 +405,7 @@
                   <input type="submit" class="btn btn-primary btn-block" value="Search Packages">
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
 
         </div>

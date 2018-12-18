@@ -71,7 +71,19 @@ export class EditItineraryComponent implements OnInit {
           id: [this.events[i].id],
           price: [this.events[i].price,[Validators.required]],
           name:  [this.events[i].name,[Validators.required]],
-          venue:  [this.events[i].venue,[Validators.required]]
+          venue:  [this.events[i].venue,[Validators.required]],
+          date_from: [this.events[i].date_from, [Validators.required]],
+          date_to: [this.events[i].date_to],
+          description: [this.events[i].description],
+          sp_id: [this.events[i].sp_id],
+          pkg_id: [this.events[i].pkg_id],
+          cost: [this.events[i].cost, [Validators.required]],
+          check_in_time: [this.events[i].check_in_time], // for loading purpose
+          duration: [this.events[i].duration], // for hotel
+          travel_category: [this.events[i].travel_category], // for travel purpose
+          depature_time: [this.events[i].depature_time], // When travel by train
+          event_type: [this.events[i].event_type] // for editing purpose
+
         });
       
          this.itineraryService.addEvent(this.evnetForm.value);

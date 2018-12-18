@@ -11,17 +11,27 @@ import { ItineraryService } from '../../../services/itinerary-service/itinerary.
 })
 export class EventComponent implements OnInit {
 
-  public evnetForm: FormGroup;
+  public eventForm: FormGroup;
   public minimum_date: string;
-  public value: string;
+  public check_in_time = false; // for loading purpose
+  public duration = false; // for hotel
+  public travel_category = false; // for travel purpose
+  public depature_time = false; // When travel by train
+  public event_type = false; 
+
+  formType:String = "Custom";
 
   constructor(
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<EventComponent>,
     private eventService: ItineraryService,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    
 
-  ) { }
+  ) { 
+    //this.formType  = this.eventForm.controls['event_type'].value;
+   // console.log(this.formType);
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -47,8 +57,7 @@ export class EventComponent implements OnInit {
 
   ngOnInit() {
     this.minimum_date = this.min_date();
-    this.value = this.min_date();
-    this.evnetForm = this.formBuilder.group({
+    this.eventForm = this.formBuilder.group({
       id: [this.data.id],
       price: [this.data.price, [Validators.required]],
       name: [this.data.name, [Validators.required]],
@@ -57,21 +66,23 @@ export class EventComponent implements OnInit {
       date_to: [this.data.date_to],
       description: [this.data.description],
       sp_id: [this.data.sp_id],
-      package_id: [this.data.pkg_id],
+      pkg_id: [this.data.pkg_id],
       cost: [this.data.cost, [Validators.required]],
       check_in_time: [this.data.check_in_time], // for loading purpose
       duration: [this.data.duration], // for hotel
-      travel_category: [this.data.category], // for travel purpose
+      travel_category: [this.data.travel_category], // for travel purpose
       depature_time: [this.data.depature_time], // When travel by train
       event_type: [this.data.event_type] // for editing purpose
     });
+    
   }
   onSubmit() {
     if (isNaN(this.data.id)) {
-      this.eventService.addEvent(this.evnetForm.value);
+      this.eventService.addEvent(this.eventForm.value);
+      console.log(JSON.stringify(this.eventForm.value));
       this.dialogRef.close();
     } else {
-      this.eventService.editEvent(this.evnetForm.value);
+      this.eventService.editEvent(this.eventForm.value);
       this.dialogRef.close();
     }
   }
