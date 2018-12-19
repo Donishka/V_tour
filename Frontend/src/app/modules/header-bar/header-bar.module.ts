@@ -3,8 +3,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
-import { RouterModule, Routes }  from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { NavWhiteComponent } from './../../components/nav-white/nav-white.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -14,10 +16,12 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     BsDropdownModule
   ],
   declarations: [
-    NavComponent
+    NavComponent,
+    NavWhiteComponent
   ],
-  exports:[
-    NavComponent
+  exports: [
+    NavComponent,
+    NavWhiteComponent
   ]
 })
 export class HeaderBarModule { }
