@@ -1,0 +1,26 @@
+.nav_class{
+  background-color: transparent;
+
+}
+ul li a{
+  color: #7C7C7C;
+  font-family: "Helvetica Neue";
+  /* save for media at xl
+  font-size:18px;
+  margin-right: 20px;
+   */
+  font-size:15px;
+  font-weight: bold;
+}
+
+
+.dropdown-menu{
+  background-color: #3f5efb;
+}
+
+.login,.logout{
+  padding: 7px;
+  border: 2px solid#7C7C7C;
+  border-radius: 10px;
+}
+

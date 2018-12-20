@@ -141,10 +141,12 @@ export class ItineraryComponent implements OnInit {
     // this.itinerary.itineraryName = this.eventService;
     this.itinerary.events = this.eventService.getAllEvents();
     this.itineraryService.postItinerary(this.itinerary).subscribe((res) => {
+      this.itineraryService.eventList = [];
 
       alert('Itinerary Saved');
 
       console.log("Saved"+this.itinerary.totalPrice);
+      console.log(JSON.stringify(this.itinerary));
 
     });
   }

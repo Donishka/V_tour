@@ -1,3 +1,4 @@
+<!--
 <app-nav></app-nav>
 <div class="container-fluid" id="body-container-fluid">
   <div class="row">
@@ -7,7 +8,7 @@
         <img *ngIf="user.profilepic!=null" class="image card-img-top" src="../../../../assets/{{user.profilepic}}" alt="Card image"  style="width:auto;height:400px">
         <div class="card-body">
           <h4 class="card-title">{{user.fname}} {{user.lname}}</h4>
-          <div class="address">								
+          <div class="address">
             <ul class="list1 w3-ul w3-small">
               <br>
               <li><i class="fas fa-envelope" aria-hidden="true"></i> Email : {{user.email}}</li><br>
@@ -27,12 +28,51 @@
         </div>
         <br><br>
         <div class ='container-fluid'>
-          <div class = 'row'>  
+          <div class = 'row'>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+-->
+<!-- NEW CONTENT -->
 
-  
+<div class="container-fluid" id="body-container-fluid">
+  <div class="row background_row"></div>
+  <div class = "row nav_row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8 nav_col">
+      <app-nav></app-nav>
+    </div>
+  </div>
+  <div class="row bottom_row_1">
+    <div class="col-lg-4 col-md-6 test">
+      <div class="card card_1">
+        <img class="card_background" *ngIf="user.profilepic==null" src="../../../../assets/default.png" style="z-index: 2">
+        <img class="card_background" *ngIf="user.profilepic!=null" src="../../../../assets/{{user.profilepic}}" style="z-index: 2">
+        <div class="card-body">
+          <div class="card_bottom">
+            <div class="name_box" style="display:flex;justify-content:center;align-items:center; margin-bottom: 2%;">
+              <p class="card-title name">{{user.fname}} {{user.lname}}</p>
+            </div>
+            <div class="btn_box" style="display:flex;justify-content:center;align-items:center;">
+              <button class="btn btn-primary crdbtn" type="button" [routerLink]='["/edittravelagent"]'>EDIT PROFILE</button><br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-lg-8 col-md-6 test2">
+      <div class = "row iti_container" style="height: 100%">
+        <div class="col-lg-11 right_item">
+          <!--<img class="card0-img-top" style="height: 100%; width:100%;" src="https://lh3.googleusercontent.com/a8_ujXr3VWHstGkxgJL1TkqfrytP4r_52QhcvqRQVaQPRQ9DHdQ6seI99qc4jLjC0WDM=h900" alt="Card image">-->
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row bottom_row_2">
+  </div>
+</div>
