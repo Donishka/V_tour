@@ -1,121 +1,185 @@
-<app-nav></app-nav>
-<div *ngFor="let tagent of travelAgentService.tagent">
-  <div *ngIf="user._id==tagent._id">
-    <div class="container">
-      <div class="row">
-        <div class="col"></div>
-        <div class="col-6">
-          <div style="margin-top: 20px" class="main-login main-center">
-            <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-              <fieldset>
-                <legend>Update Travel Agent</legend>
-                <hr>
-                <input type="hidden" value="" name="_id" #_id="ngModel" [(ngModel)]="tagent._id">
-
-                <div class="form-group">
-                  <label for="fname" class="cols-sm-2 control-label">First Name</label>
-                  <div class="cols-sm-10">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                      <input type="text" class="form-control" name="fname" #name="ngModel" [(ngModel)]="tagent.fname"
-                        required>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="lname" class="cols-sm-2 control-label">Last Name</label>
-                  <div class="cols-sm-10">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                      <input type="text" class="form-control" name="lname" #name="ngModel" [(ngModel)]="tagent.lname"
-                        required>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="username" class="cols-sm-2 control-label">User Name</label>
-                  <div class="cols-sm-10">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                      <input type="text" class="form-control" name="username" #name="ngModel" [(ngModel)]="tagent.username"
-                        required>
-                    </div>
-                  </div>
-                </div>
+<div class="container-fluid">
+  <div class = "row nav_row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8 nav_col">
+      <app-nav-white></app-nav-white>
+    </div>
+  </div>
+  <div class="row top_padding">
+    <div class= "col-lg-3 labelCover">
+      <h4 id="h4l">EDIT PROFILE</h4>
+    </div>
+    <div class="col-lg-9"></div>
+  </div>
 
 
-                <div class="form-group">
-                  <label for="email" class="cols-sm-2 control-label">Email</label>
-                  <div class="cols-sm-10">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
-                      <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email"
-                        #emailref="ngModel" [(ngModel)]="tagent.email" required>
-                    </div>
-                    <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
-                      <div [hidden]="!emailref.errors?.pattern">
-                        Invalid Email Address
+  <div class="row content_row">
+    <div class="col-lg-3 img_col">
+      <div class="img_cover type1">
+        <img class="proPic" src="../../../../assets/{{user.profilepic}}">
+      </div>
+    </div>
+
+    <div class="col-lg-8">
+      <div *ngFor="let tagent of travelAgentService.tagent">
+        <div *ngIf="user._id==tagent._id">
+          <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+            <fieldset>
+              <input type="hidden" value="" name="_id" #_id="ngModel" [(ngModel)]="tagent._id">
+              <div class="row row1">
+
+                <div class="col-md-6 bdr_shadow">
+                  <div class="input_cover">
+                    <div class="form-group">
+                      <label for="fname" class="control-label">FIRST NAME</label>
+                      <div class="text_cover">
+                        <div class="input-group ip1">
+                          <!--<span class="input-group-addon"><i class="fa fa" aria-hidden="true"></i></span>-->
+                          <input type="text" class="form-control _fname" name="fname" #name="ngModel" [(ngModel)]="tagent.fname"
+                                 required>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="telephone" class="cols-sm-2 control-label">Telephone No</label>
-                  <div class="cols-sm-10">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fas fa-phone-square" aria-hidden="true"></i></span>
-                      <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="tagent.telephone"
-                        required>
+                <div class="col-md-6 bdr_shadow">
+                  <div class="input_cover">
+                    <div class="form-group">
+                      <label for="lname" class="control-label">LAST NAME</label>
+                      <div class="text_cover">
+                        <div class="input-group ip1">
+                          <!--<span class="input-group-addon"><i class="fa fa" aria-hidden="true"></i></span>-->
+                          <input type="text" class="form-control _lname" name="lname" #name="ngModel" [(ngModel)]="tagent.lname" required>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="address" class="cols-sm-2 control-label">Address</label>
-                  <div class="cols-sm-10">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fas fa-home" aria-hidden="true"></i></span>
-                      <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="tagent.address"
-                        required>
+              </div>
+
+              <div class="row row2">
+
+                <div class="col-md-6 bdr_shadow">
+                  <div class="input_cover">
+                    <div class="form-group">
+                      <label for="email" class="control-label">EMAIL</label>
+                      <div class="text_cover">
+                        <div class="input-group ip1">
+                          <!--<span class="input-group-addon"><i class="fas " aria-hidden="true"></i></span>-->
+                          <input type="email" class="form-control _email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #emailref="ngModel" [(ngModel)]="tagent.email" required>
+                        </div>
+                        <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
+                          <div [hidden]="!emailref.errors?.pattern">
+                            Invalid Email Address
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="form-group" hidden>
-                  <label for="isadmin" class="cols-sm-2 control-label">Admin Privilage</label>
-                  <div class="cols-sm-10">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                      <select class="form-control" name="isadmin" #name="ngModel" [(ngModel)]="tagent.isadmin" required>
-                        <option value="true">True</option>
-                        <option value="false">False</option>
-                      </select>
+                <div class="col-md-6 bdr_shadow">
+                  <div class="input_cover">
+                    <div class="form-group">
+                      <label for="telephone" class="control-label">TELEPHONE</label>
+                      <div class="text_cover">
+                        <div class="input-group ip1">
+                          <!--<span class="input-group-addon"><i class="fas" aria-hidden="true"></i></span>-->
+                          <input type="text" class="form-control _telephone" name="telephone" #name="ngModel" [(ngModel)]="tagent.telephone" required>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <flash-messages></flash-messages>
-                <div class="form-group ">
-                  <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!userForm.valid">Update
-                    Agent</button>
+
+              </div>
+
+              <div class="row row3">
+
+                <div class="col bdr_shadow">
+                  <div class="input_cover_add">
+                    <div class="form-group">
+                      <label for="address" class="control-label_add">ADDRESS</label>
+                      <div class="text_cover">
+                        <div class="input-group ip2">
+                          <!--<span class="input-group-addon"><i class="fas" aria-hidden="true"></i></span>-->
+                          <input type="text" class="form-control _address" name="address" #name="ngModel" [(ngModel)]="tagent.address" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </fieldset>
-            </form>
-            <hr>
-            <button class="btn btn-info" (click)="showDialog1()">Change Password</button>
-            <hr>
-            <button class="btn btn-info" (click)="showDialog3()">Change Profile Picture</button>
-            <hr>
-            <flash-messages></flash-messages>
-          </div>
+
+              </div>
+              <div class="row row4">
+
+                <div class="col-md-6 bdr_shadow_last">
+                  <div class="input_cover">
+                    <div class="form-group">
+                      <label for="isadmin" class="control-label">ADMIN PRIVILEGES</label>
+                      <div class="text_cover">
+                        <div class="input-group ip1">
+                          <!--<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>-->
+                          <select class="form-control _isadmin" name="isadmin" #name="ngModel" [(ngModel)]="tagent.isadmin" required>
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+
+                  <div class ="row btn_row">
+
+                    <div class="form-group" style="padding-top: 5%">
+                      <button class="btn btn-info sbmt_btn" type="submit" [disabled]="!userForm.valid">UPDATE AGENT</button>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </fieldset>
+          </form>
+
         </div>
-        <div class="col"></div>
       </div>
     </div>
+
+
+    <div class="col-lg-1"></div>
   </div>
+
+  <div class="row chnge_pw">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-8">
+      <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-xs-6">
+              <button class="btn btn-info btn_cng_pwd" (click)="showDialog1()">CHANGE PASSWORD</button>
+              <button class="btn btn-info btn_dp_update" (click)="showDialog3()">CHANGE PROFILE PIC</button>
+            </div>
+            <div class="col-xs-6"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+
+  <div class="row bottom_padding"></div>
 </div>
+
+
+<!-- new content -->
 
 <p-dialog [(visible)]="display1" [modal]="true" [responsive]="true">
   <div id="c1" class="container">
@@ -126,8 +190,8 @@
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #emailref="ngModel" [(ngModel)]="email"
-            required>
+                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #emailref="ngModel" [(ngModel)]="email"
+                 required>
           <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
             <div [hidden]="!emailref.errors?.pattern">
               Invalid Email Address
@@ -137,7 +201,7 @@
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
           <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password"
-            [(ngModel)]="password">
+                 [(ngModel)]="password">
         </div>
         <button type="submit" class="btn btn-primary" style="float: right">Login</button>
       </fieldset>
@@ -159,7 +223,7 @@
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
               <input type="password" class="form-control" name="password" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.password"
-                required>
+                     required>
             </div>
           </div>
         </div>
@@ -170,7 +234,7 @@
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
               <input type="password" class="form-control" name="rePassword" #name="ngModel" [(ngModel)]="rePassword"
-                required>
+                     required>
             </div>
             <p style="color:red" *ngIf="travelAgentService.selectedTravelAgent.password!='' && travelAgentService.selectedTravelAgent.password!=rePassword">Passwords
               Do Not Match !</p>
