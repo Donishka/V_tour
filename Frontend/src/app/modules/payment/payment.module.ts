@@ -8,6 +8,9 @@ import { ClientPaymentComponent } from '../../components/client/client-payment/c
 import { ViewClientPaymentsComponent } from '../../components/payments/view-client-payments/view-client-payments.component';
 import { ClientPaymentFilterPipe} from '../../components/payments/view-client-payments/client-payment-fliter.pipe'
 import { TravelAgentPaymentComponent } from '../../components/travelAgent/travel-agent-payment/travel-agent-payment/travel-agent-payment.component';
+import { ViewServiceproviderPaymentComponent } from '../../components/payments/view-serviceprovider-payment/view-serviceprovider-payment.component';
+import { ViewTravelagentPaymentComponent } from '../../components/payments/view-travelagent-payment/view-travelagent-payment.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -20,13 +23,17 @@ import { TravelAgentPaymentComponent } from '../../components/travelAgent/travel
     ClientPaymentComponent,
     ViewClientPaymentsComponent,
     ClientPaymentFilterPipe,
-   TravelAgentPaymentComponent
+    TravelAgentPaymentComponent,
+    ViewServiceproviderPaymentComponent,
+    ViewTravelagentPaymentComponent
   ],
   exports: [
     ClientPaymentComponent,
     ViewClientPaymentsComponent,
     ClientPaymentFilterPipe,
-    TravelAgentPaymentComponent
+    TravelAgentPaymentComponent,
+    ViewServiceproviderPaymentComponent,
+    ViewTravelagentPaymentComponent
   ]
 })
 export class PaymentModule { }
