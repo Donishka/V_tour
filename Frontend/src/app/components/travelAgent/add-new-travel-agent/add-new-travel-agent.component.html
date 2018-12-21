@@ -1,131 +1,184 @@
-<app-nav></app-nav>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col"></div>
-    <div class="col-6">
-      <div class="main-login main-center">
-        <form style="margin-top: 25px;" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-          <fieldset>
-            <legend>
-              <h3>Add New Travel Agent</h3><hr>
-            </legend>
-            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent._id">
-            <div class="form-group">
-              <label for="fname" class="cols-sm-2 control-label">First Name</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="fname" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.fname"
-                    required>
+  <div class = "row nav_row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8 nav_col">
+      <app-nav-white></app-nav-white>
+    </div>
+  </div>
+  <div class="row top_padding">
+    <div class= "col-lg-3 labelCover">
+      <h4 id="h4l">ADD NEW AGENT</h4>
+    </div>
+    <div class="col-lg-9"></div>
+  </div>
+
+  <div class="row content_row">
+    <div class="col-lg-3 img_col"></div>
+    <div class="col-lg-8">
+      <form style="margin-top: 25px;" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+        <fieldset>
+          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent._id">
+          <div class="row row1">
+
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="fname" class="control-label">FIRST NAME</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="text" class="form-control _fname" name="fname" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.fname"
+                             required>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <div class="form-group">
-              <label for="lname" class="cols-sm-2 control-label">Last Name</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="lname" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.lname" required>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="username" class="cols-sm-2 control-label">User Name</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="username" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.username"
-                    required>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="form-group">
-              <label for="email" class="cols-sm-2 control-label">Email</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
-                  <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #emailref="ngModel"
-                    [(ngModel)]="travelAgentService.selectedTravelAgent.email" required>
-                </div>
-                <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
-                  <div [hidden]="!emailref.errors?.pattern">
-                    Invalid Email Address
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="lname" class="control-label">LAST NAME</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="text" class="form-control _lname" name="lname" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.lname" required>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="password" class="cols-sm-2 control-label">Password</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
-                  <input type="password" class="form-control" name="password" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.password"
-                    required> 
+          </div>
+          <div class="row row2">
+
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="username" class="control-label">USERNAME</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="text" class="form-control _username" name="username" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.username"
+                             required>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <password-strength-meter [enableFeedback]="true" [password]="travelAgentService.selectedTravelAgent.password"></password-strength-meter>
-            <p style="font-size:10px;">Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special
-            characters, or emoji.</p>
-
-            <div class="form-group">
-              <label for="password" class="cols-sm-2 control-label">Re Enter Password</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
-                  <input type="password" class="form-control" name="rePassword" #name="ngModel" [(ngModel)]="rePassword"
-                    required>
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="email" class="control-label">EMAIL</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="email" class="form-control _email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #emailref="ngModel"
+                             [(ngModel)]="travelAgentService.selectedTravelAgent.email" required>
+                    </div>
+                    <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
+                      <div [hidden]="!emailref.errors?.pattern">
+                        Invalid Email Address
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row row3">
+
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="password" class="control-label">PASSWORD</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="password" class="form-control _password" name="password" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.password"
+                             required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="password" class="control-label">RE-ENTER PASSWORD</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="password" class="form-control _password" name="rePassword" #name="ngModel" [(ngModel)]="rePassword"
+                             required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
                 <p style ="color:red" *ngIf="travelAgentService.selectedTravelAgent.password!='' && travelAgentService.selectedTravelAgent.password!=rePassword">Passwords Do Not Match !</p>
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="telephone" class="cols-sm-2 control-label">Telephone No</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fas fa-phone-square" aria-hidden="true"></i></span>
-                  <input type="number" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.telephone" required>
+          </div>
+          <div class="row row4">
+
+            <div class="col bdr_shadow">
+              <div class="input_cover_add">
+                <div class="form-group">
+                  <label for="address" class="control-label">ADDRESS</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="text" class="form-control _address" name="address" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.address" required>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="address" class="cols-sm-2 control-label">Address</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fas fa-home" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.address" required>
+          </div>
+          <div class="row row5">
+
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="isadmin" class="control-label">ADMIN PRIVILAGES</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <select class="form-control _isadmin" name="isadmin" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.isadmin" required>
+                        <option value="true">True</option>
+                        <option value="false">False</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="telephone" class="control-label">TELEPHONE</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="number" class="form-control _telephone" name="telephone" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.telephone" required>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="isadmin" class="cols-sm-2 control-label">Admin Privilage</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                  <select class="form-control" name="isadmin" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.isadmin" required>
-                    <option value="true">True</option>
-                    <option value="false">False</option>
-                  </select>
-                </div>
+          </div>
+          <div class="row row6">
+
+            <div class="col-md-6"></div>
+            <div class="col-md-6 bdr_shadow">
+              <div class="form-group ">
+                <button  class="btn btn-info btn_reset" type="button" (click)="resetForm(userForm)">RESET</button>
+                <button  class="btn btn-info btn_add_agent" type="submit" [disabled]="!userForm.valid">ADD AGENT</button>
               </div>
             </div>
-            <flash-messages></flash-messages>
-            <div class="form-group ">
-              <button style="margin-top:5px;" class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Add Travel Agent</button>
-              <button style="margin-top:5px;" class="btn btn-primary btn-lg btn-block" type="button" (click)="resetForm(userForm)">Reset</button>
-            </div>
-          </fieldset>
-        </form>
-      </div>
+
+          </div>
+
+
+        </fieldset>
+      </form>
     </div>
-    <div class="col"></div>
+
   </div>
+
 </div>
