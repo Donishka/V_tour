@@ -1,18 +1,132 @@
-.container {
-    width: 50%;
-    margin-top: 50px;
-    border-style: solid;
-    border-radius: 5px;
-    border-color:rgb(0, 119, 255);
-    background-color:lightblue;
+.wrapper_1{
+  background: url(./../../../../source/images/photo-1531201890865-fb64780d16e9.jpeg)no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
 }
 
-.i1{
-    margin-left:35%; 
-    margin-top: 5%;
-    margin-right: 35%;
+.padding_row{
+  height:20%;
+  min-height: 50px;
+  /*color: #0c5460;*/
 }
-.responsive {
-    width: 100%;
-    height: auto;
+
+.bottom_row{
+  height: 80%;
+  min-height: 500px;
+}
+
+.row-no-padding > [class*="col-"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.login_cover{
+  padding: 0px;
+  /*background-color: #00a2e3;*/
+}
+
+.inner_row{
+  height: 100%;
+  min-height: 500px;
+}
+
+.login_block{
+  background-color: white;
+  height: 100%;
+}
+
+
+.logo_login{
+  padding-top: 5%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%
+}
+
+/*.loginForm{
+  height: 25vh;
+}*/
+
+.logo_container{
+  height: 55%;
+  /*background-color:blueviolet;*/
+}
+
+.padding_row{
+  min-height: 150px;
+  /*color: #0c5460;*/
+}
+
+.wrapper_1{
+  background: url(./../../../../source/images/photo-1531201890865-fb64780d16e9.jpeg)no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#exampleInputEmail1,#exampleInputPassword1{
+  display: block;
+  margin-right : auto;
+  margin-left: auto;
+  border-right: 0px;
+  border-left: 0px;
+  border-top: 0px;
+  width:61.33%;
+  height:2em;
+}
+
+.sbtn{
+  display: block;
+  margin-right : auto;
+  margin-left: auto;
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  padding: 5px 21px;
+  background-color: #24ADAB;
+  border: #24ADAB;
+  border-radius: 0px;
+}
+
+.sbtn:hover{
+  background-color: darkgray;
+}
+
+.sbtn:focus{
+  background-color: slategray;
+}
+.sbtn_container{
+  padding-bottom: 5%;
+}
+
+#emailtext,#pwText{
+  text-align: center;
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-style: normal;
+  color:#707070;
+
+}
+
+.email_wrapper,.pw_wrapper{
+  padding-bottom: 5%;
+}
+
+input:focus {
+  outline:none;
+}
+
+.forget_password{
+  text-align: center;
+}
+
+.fp_text{
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-style: normal;
+  color:#707070;
 }

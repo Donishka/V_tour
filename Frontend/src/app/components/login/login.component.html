@@ -1,21 +1,45 @@
-<app-nav></app-nav>
-<flash-messages></flash-messages>
-<div id="c1" class="container" >
-<img class="i1" src="../../../../source/logo.png" style="height: 225px ;width:200px;">
-<form style="margin:10px" (ngSubmit)="loginUser()">
-    <fieldset>
-      <legend></legend>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name = "email" [(ngModel)]="email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+<div class="container-fluid wrapper_1">
+  <div class="row padding_row"></div>
+  <div class="row bottom_row">
+
+    <div class="col"></div>
+    <div class = "col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 login_cover">
+
+      <div class="row row-no-padding inner_row">
+        <div class="col"></div>
+        <div class="col-xl-4 col-lg-5 col-md-5 col-sm-7 col-xs-12 login_block">
+
+          <div class="logo_container">
+            <img class="logo_login" src="./../../../../source/logo.png">
+          </div>
+
+          <div class="loginForm">
+            <form (ngSubmit)="loginUser()" class="form-horizontal">
+              <fieldset>
+                <legend></legend>
+                <div class="form-group email_wrapper">
+                  <p id="emailtext">USERNAME</p>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" name = "email" [(ngModel)]="email">
+                </div>
+                <div class="form-group pw_wrapper">
+                  <p id="pwText">PASSWORD</p>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" name="password" [(ngModel)] = "password">
+                </div>
+                <div class="sbtn_container">
+                  <button type="submit" class="btn btn-primary sbtn">LOGIN</button>
+                </div>
+                <div class="forget_password" style="text-align: center">
+                  <a class="fp_text" [routerLink]='["/app-password-reset"]'>FORGOT PASSWORD</a>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+
+        </div>
+        <div class="col"></div>
       </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" [(ngModel)] = "password">
-      </div>
-      <button type="submit" class="btn btn-primary" style="float: right">Login</button><br>
-      <a [routerLink]='["/app-password-reset"]'>Forget Password</a>
-    </fieldset>
-  </form>
+
+    </div>
+    <div class = "col"></div>
+  </div>
 </div>
