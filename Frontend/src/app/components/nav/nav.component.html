@@ -1,50 +1,44 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <img class="i1 responsive" src="../../../../source/logo.png">
-  <a class="navbar-brand" href="#">
-    <h2 style="color:lightcyan">V Tour</h2>
-  </a>
-  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <div *ngIf="authService.loggedIn()" class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
 
-  <div *ngIf="authService.loggedIn()" style="margin-left: 100px" class="collapse navbar-collapse" id="navbarSupportedContent">
-    
-    <ul class=" nav navbar-nav">
-      <li *ngIf="user.usertype=='travelagent'" style="margin-right: 5px" class="dropdown nav-item" dropdown>
-        <a class="nav-link" dropdownToggle role="button"><i class="fas fa-copy"></i> Itenarary<span class="caret"></span></a>
+      <li *ngIf="user.usertype=='travelagent'" class="dropdown nav-item" dropdown>
+        <a class="nav-link" dropdownToggle role="button"><i class="fas"></i> ITINERARY<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu dropdown-primary">
           <a class="dropdown-item" [routerLink]="['/itinerary']">Create New Itenarary</a>
           <a class="dropdown-item" [routerLink]="['/view-itinerary']">View Itenararies</a>
         </div>
       </li>
 
-      <li *ngIf="user.usertype=='travelagent'" style="margin-right: 5px" class="dropdown nav-item " dropdown>
-        <a class="nav-link" dropdownToggle role="button"><i class="fas fa-user"></i> Travel Agent<span class="caret"></span></a>
+      <li *ngIf="user.usertype=='travelagent'" class="dropdown nav-item " dropdown>
+        <a class="nav-link" dropdownToggle role="button"><i class="fas"></i>TRAVEL AGENT<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
           <a *ngIf="user.isadmin==true" class="dropdown-item" [routerLink]="['/addnewtravelagent']">Add New Agent</a>
           <a class="dropdown-item" [routerLink]="['/viewtravelagents']">View Agents</a>
         </div>
       </li>
 
-      <li *ngIf="user.usertype=='travelagent'" style="margin-right: 5px" class="dropdown nav-item " dropdown>
-        <a class="nav-link" dropdownToggle role="button"><i class="fab fa-servicestack"></i> Service Provider<span class="caret"></span></a>
+      <li *ngIf="user.usertype=='travelagent'" class="dropdown nav-item " dropdown>
+        <a class="nav-link" dropdownToggle role="button"><i class="fab"></i> SERVICE PROVIDER<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
           <a *ngIf="user.isadmin==true" class="dropdown-item" [routerLink]="['/addnewserviceprovider']">Add Service Provider</a>
           <a class="dropdown-item" [routerLink]="['/viewserviceproviders']">View Service Providers</a>
         </div>
       </li>
 
-      <li *ngIf="user.usertype=='travelagent'" style="margin-right: 5px" class="dropdown nav-item " dropdown>
-        <a class="nav-link" dropdownToggle role="button"><i class="fas fa-users"></i> Clients<span class="caret"></span></a>
+      <li *ngIf="user.usertype=='travelagent'" class="dropdown nav-item " dropdown>
+        <a class="nav-link" dropdownToggle role="button"><i class="fas"></i>CLIENTS<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
           <a class="dropdown-item" [routerLink]="['/addnewclient']">Add New Client</a>
           <a class="dropdown-item" [routerLink]="['/viewclients']">View Clients</a>
         </div>
       </li>
 
-      <li *ngIf="user.usertype!='client'" style="margin-right: 5px" class="dropdown nav-item " dropdown>
-        <a class="nav-link" dropdownToggle role="button"><i class="fas fa-dollar-sign"></i> Payments & Bookings<span class="caret"></span></a>
+      <li *ngIf="user.usertype!='client'" class="dropdown nav-item " dropdown>
+        <a class="nav-link" dropdownToggle role="button"><i class="fas"></i> PAYMENTS & BOOKINGS<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
           <a *ngIf="user.usertype=='travelagent'" class="dropdown-item" [routerLink]="['/viewclientpayment']">View Client Payments</a>
           <a class="dropdown-item">Make Payment</a>
@@ -53,8 +47,8 @@
         </div>
       </li>
 
-      <li style="margin-right: 5px" class="dropdown nav-item " dropdown>
-        <a class="nav-link" dropdownToggle role="button"><i class="far fa-user"></i> Account<span class="caret"></span></a>
+      <li class="dropdown nav-item " dropdown>
+        <a class="nav-link" dropdownToggle role="button"><i class="far"></i>ACCOUNT<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
           <a class=" dropdown-item" (click)="selectProfile()">Profile</a>
           <a class="dropdown-item">Settings</a>
@@ -63,16 +57,15 @@
       </li>
 
     </ul>
-  </div>
-  <div style="float: right">
-    <ul>
+    <span class="navbar-text">
+      <ul>
       <li  *ngIf="!authService.loggedIn()" class="nav navbar-nav">
-        <a  class="nav-link" [routerLink]="['/login']">Login</a>
+        <a  class="nav-link login" [routerLink]="['/login']">LOGIN</a>
       </li>
       <li  *ngIf="authService.loggedIn()" class="nav navbar-nav">
-        <a class="nav-link" href="" (click)="logoutUser()">Logout</a>
+        <a class="nav-link logout" href="" (click)="logoutUser()">LOGOUT</a>
       </li>
     </ul>
+    </span>
   </div>
-
 </nav>
