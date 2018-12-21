@@ -1,54 +1,63 @@
-<app-nav></app-nav>
-<div class="container bg-info">
-  <div class="row">
-    <div class="col"></div>
-    <div class="col-10">
-      <div class="search form-group">
-        <input type="text" class="form-control" name="search" placeholder="search for..." [(ngModel)]="searchKeyword">
-      </div>
-      <div>
-        <table class="table table-responsive-sm	">
-          <tr *ngFor="let sp of serviceProviderService.sp | ServiceProviderFilter:searchKeyword">
-            <td align="center">
-              <div class="col-md-12">
-                <div class="card bg-light flex-md-row mb-4 shadow-sm h-md-250">
-                  <div class="card-body d-flex flex-column align-items-start">
-                    <strong class="d-inline-block mb-2 text-primary">{{sp.fname}}</strong>
-                    <h6 class="mb-0"></h6>
-                    <div class="mb-1 text-muted small">{{sp.email}}</div>
-                    <br>
-                    <p class="card-text mb-auto">Telephone : {{sp.telephone}}
-                      <br>Address : {{sp.address}}
-                      <br>Type : {{sp.type}}
-                      <br><br>{{sp.discription}}</p>
-                    <a *ngIf="user.isadmin==true" class="action-btn" (click)="onEdit(sp)">
-                      <i class="fas fa-pencil-alt  btn-outline-primary btn-sm" (click)="showDialog()"> edit</i>
-                    </a>
-                    <a *ngIf="user.isadmin==true" class="action-btn" (click)="onDelete(sp._id)">
-                      <i class="fas fa-trash-alt  btn-outline-primary btn-sm"> delete</i>
-                    </a>
-                    <a class="action-btn" (click)="onViewPackages(sp._id)">
-                      <i class="fas fa-  btn-outline-primary btn-sm"> View Packages</i>
-                    </a>
-                  </div>
-                  <img *ngIf="sp.profilepic==null" class="image card-img-top" src="../../../../assets/default.png" alt="Card image" style="width: 200px; height: 80%;">
-                  <img *ngIf="sp.profilepic!=null" class="image card-img-top" src="../../../../assets/{{sp.profilepic}}" alt="Card image" style="width: 200px; height: 220px;">
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
+<div class="container-fluid">
+  <div class = "row nav_row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8 nav_col">
+      <app-nav-white></app-nav-white>
+    </div>
+  </div>
+  <div class="row top_padding">
+    <div class="col-md-3 col-xs-3"></div>
+    <div class="col-md-3 col-xs-3"></div>
+    <div class="col-md-3 col-xs-3"></div>
+    <div class= "col-md-3 searchBar">
+      <div class=" search form-group search_bar">
+        <input type="text" class="form-control" name="search" placeholder="search Here..." [(ngModel)]="searchKeyword">
       </div>
     </div>
-    <div class="col"></div>
   </div>
+  <div class="row content_row">
+    <div class="col-md-3 spSlot" *ngFor="let sp of serviceProviderService.sp | ServiceProviderFilter:searchKeyword">
+      <div class="row card_pic">
+        <img src="../../../../../source/images/85861600.jpg">
+      </div>
+      <div class="title_">
+        <span class="white_bg">{{sp.fname}}</span>
+      </div>
+      <div class="row card_info">
+        <p class="des_item"><span style="padding-right: 5px">MAIL :</span> {{sp.email}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">PHONE :</span>{{sp.telephone}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">ADDRESS :</span>{{sp.address}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">INFO :</span>{{sp.discription}}</p>
+      </div>
+      <div class="row btn_row1">
+        <span>
+          <button *ngIf="user.isadmin==true" class="btn btn-info action-btn editBtn" (click)="onEdit(sp)">
+            <p (click)="showDialog()">EDIT</p>
+          </button>
+          <button *ngIf="user.isadmin==true" class="btn btn-info action-btn delBTn" (click)="onDelete(sp._id)">
+            <p>DELETE</p>
+          </button>
+        </span>
+      </div>
+      <div class="row btn_row2">
+        <button class="btn btn-info action-btn vpBtn" (click)="onViewPackages(sp._id)">
+          <p>VIEW PACKAGES</p>
+        </button>
+      </div>
+    </div>
+  </div>
+
 </div>
+
 <p-dialog [(visible)]="display" [modal]="true" [responsive]="true" [width]="600">
-<div class="container">
-  <div class="row">
-    <div class="col"></div>
-    <div class="col-10">
-      <div class="main-login main-center">
+  <div class="container">
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-10">
+        <div class="main-login main-center">
           <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
             <fieldset>
               <legend>Update Service Provider :</legend>
@@ -60,7 +69,7 @@
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
                     <input type="text" class="form-control" name="fname" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.fname"
-                      required>
+                           required>
                   </div>
                 </div>
               </div>
@@ -70,7 +79,7 @@
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
                     <input type="text" class="form-control" name="username" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.username"
-                      required>
+                           required>
                   </div>
                 </div>
               </div>
@@ -80,7 +89,7 @@
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
                     <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #emailref="ngModel"
-                      [(ngModel)]="serviceProviderService.selectedServiceProvider.email" required>
+                           [(ngModel)]="serviceProviderService.selectedServiceProvider.email" required>
                   </div>
                   <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
                     <div [hidden]="!emailref.errors?.pattern">

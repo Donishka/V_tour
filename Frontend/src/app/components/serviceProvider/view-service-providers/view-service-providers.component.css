@@ -1,8 +1,144 @@
-.search{
-    margin-top:30px;
+.nav_row{
+  min-height: 15vh;
+  /*background-color: #4AB4B2;*/
 }
+
+.nav_col{
+  padding-top:2%;
+  padding-bottom: auto;
+  padding-left: 0px;
+  /* media @xl
+  padding-right: 50px;
+   */
+  padding-right: 10px;
+  border-bottom: 1px solid #7C7C7C;
+}
+.top_padding{
+  min-height: 13vh;
+}
+
+#h4l{
+  font-size: 22px;
+  color: #2A433C;
+  /*margin-top: 10%;*/
+}
+
+.labelCover {
+  /*text-align: center;*/
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.search{
+  margin-top:30px;
+}
+
+.search_bar{
+  max-width: 390px;
+  width: 100%;
+  margin-right: 18%;
+  float:right;
+}
+
+.search_bar input{
+  height: 50px;
+  border:1px solid rgba(112,112,112,0.24);
+  border-radius: 10px;
+}
+
 .image{
-    margin-top: 5%;
-    margin-bottom: 5%;
-    margin-right: 20px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-right: 20px;
+  z-index: -1;
+}
+
+.content_row{
+
+}
+
+.spSlot{
+  margin-left: 4%;
+  height: 470px;
+  min-width: 400px;
+  margin-bottom: 50px;
+  max-width: 80%;
+  border-left: 1px solid #7C7C7C;
+  border-right: 1px solid #7C7C7C;
+  border-bottom: 1px solid #7C7C7C;
+}
+
+.card_pic{
+  height: 39%;
+}
+
+.title_{
+  display: block;
+  text-align: center;
+  margin-top: -175px;
+  margin-bottom: 150px;
+  z-index: 5;
+  max-height: 35px;
+}
+
+.white_bg{
+  background-color: white;
+  padding: 5px;
+  font-family: "Helvetica Neue";
+  font-weight: normal;
+  font-size: x-large;
+  text-transform: uppercase;
+}
+
+.card_info{
+  z-index: -1;
+  height: 150px;
+  padding-left: 12%;
+  padding-right: 12%;
+}
+
+.des_item{
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  font-size: medium;
+}
+
+.btn_row1{
+  display: block;
+  text-align: center;
+  margin-top:30px;
+}
+
+.btn_row2{
+  display: block;
+  text-align: center;
+}
+
+.editBtn,.delBTn{
+  width: 130px;
+  height: 40px;
+  margin-bottom: 8px;
+  border-radius: 18px;
+  background-color: white;
+  color: #7C7C7C;
+  border: 1px solid #7C7C7C;
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  font-size: medium;
+}
+.editBtn{
+  margin-right: 5px;
+}
+.delBTn{
+  margin-left: 5px;
+}
+
+.vpBtn{
+  width:272px;
+  height: 40px;
+  border-radius: 18px;
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  font-size: medium;
 }
