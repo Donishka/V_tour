@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TravelagentPaymentService } from '../../../../services/sharedata/travelagent-payment.service';
 
 @Component({
   selector: 'app-travel-agent-payment',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TravelAgentPaymentComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public travelagentPaymentService: TravelagentPaymentService
+  ) { }
 
   ngOnInit() {
   }

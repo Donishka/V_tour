@@ -69,7 +69,7 @@ export class ItineraryComponent implements OnInit {
       
     });
    
-    console.log("DAte " + this.itineraryService.getDate());
+    console.log("Date " + this.itineraryService.getDate());
     this.itineraryService.eventList = [];
     this.dataS.shareUserData();
     this.dataS.currentMessge.subscribe(traveAgentdata => {
