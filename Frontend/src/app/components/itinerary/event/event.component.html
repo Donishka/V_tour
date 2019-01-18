@@ -18,93 +18,93 @@
         <div class="tabulation animate-box">
 
 
-            <form action="" [formGroup]="eventForm" (submit)="onSubmit()">
-                <div class="form-group">
-                  <div class="row">
+          <form action="" [formGroup]="eventForm" (submit)="onSubmit()">
+            <div class="form-group">
+              <div class="row">
 
-                      <div class="col-md-6">
-                          <label for="cost">Event type</label>
-                          <input type="text" formControlName="event_type" class="form-control" [(ngModel)] = "formType">
-                          <!-- <select title="Pick a number" class="selectpicker" formControlName="event_type" [(ngModel)] = "fromType">
+                <div class="col-md-6">
+                  <label for="cost">Event type</label>
+                  <input type="text" formControlName="event_type" class="form-control" [(ngModel)]="formType">
+                  <!-- <select title="Pick a number" class="selectpicker" formControlName="event_type" [(ngModel)] = "fromType">
                             <option value="Custome" selected="selected">Custom</option>
                           </select> -->
-                         
-                        </div>
 
-                    <div class="col-md-6">
-                      <label for="Name">Event Name</label>
-                      <input type="text" formControlName="name" class="form-control">
-                    </div>
-
-                    <div class="col-md-6">
-                      <label for="Venue">Venue</label>
-                      <input type="text" formControlName="venue" class="form-control">
-                    </div>
-
-                    <div class="col-md-6">
-                      <label for="date_from">Date from</label>
-                      <input type="date"  formControlName="date_from" [value]="minimum_date" [min]="minimum_date" class="form-control">
-                    </div>
-
-                    <div class="col-md-6">
-                      <label for="date_to">Date to</label>
-                      <input type="date"  formControlName="date_to" [value]="minimum_date" [min]="minimum_date" class="form-control">
-                    </div> 
-
-                    <div class="col-md-6">
-                      <label for="packages">Package</label>
-                      <input type="text"  formControlName="pkg_id" class="form-control" >
-                    </div>
-
-                    <div class="col-md-6">
-                      <label for="SP">SP</label>
-                      <input type="text"  formControlName="sp_id" class="form-control">
-                    </div>
-
-                    <div class="col-md-6">
-                      <label for="description">Description</label>
-                      <input type="textarea"  formControlName="description" class="form-control">
-                    </div>
-
-                    <div class="col-md-6">
-                      <label for="Name">price</label>
-                      <input type="number" formControlName="price" class="form-control">
-                    </div>
-
-                    <div class="col-md-6">
-                      <label for="cost">cost</label>
-                      <input type="number" formControlName="cost" class="form-control">
-                    </div>
-
-                    
-
-                    <div class="col-md-6" *ngIf="formType == 'Hotel'">
-                      <label for="check_in_time">Check-in time</label>
-                      <input type="text" formControlName="check_in_time" class="form-control">
-                    </div>
-
-                    <div class="col-md-6" *ngIf="formType == 'Hotel'">
-                      <label for="duration">Duration</label>
-                      <input type="text" formControlName="duration" class="form-control">
-                    </div> 
-
-                    <div *ngIf="formType == 'Travel'">
-                      <label for="travel_category" >Travel category</label>
-                      <input type="text" formControlName="travel_category" class="form-control">
-                    </div>
-                  <div *ngIf="formType == 'Travel'">
-                      <label for="depature_time" >Depature time </label>
-                      <input type="text" formControlName="depature_time" class="form-control">
-                    </div> 
-                  </div>
                 </div>
-                <div class="row">
-                  <button type="submit" class="btn btn-success">Add event</button>
+
+                <div class="col-md-6">
+                  <label for="Name">Event Name</label>
+                  <input type="text" formControlName="name" class="form-control">
                 </div>
-              </form>
+
+                <div class="col-md-6">
+                  <label for="Venue">Venue</label>
+                  <input type="text" formControlName="venue" class="form-control">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="date_from">Date from</label>
+                  <input type="date" formControlName="date_from" [value]="minimum_date" [min]="minimum_date" class="form-control">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="date_to">Date to</label>
+                  <input type="date" formControlName="date_to" [value]="minimum_date" [min]="minimum_date" class="form-control">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="packages">Package</label>
+                  <input type="text" formControlName="pkg_id" class="form-control">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="SP">SP</label>
+                  <input type="text" formControlName="sp_id" class="form-control">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="description">Description</label>
+                  <input type="textarea" formControlName="description" class="form-control">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="Name">price</label>
+                  <input type="number" formControlName="price" class="form-control">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="cost">cost</label>
+                  <input type="number" formControlName="cost" class="form-control">
+                </div>
+
+
+
+                <div class="col-md-6" *ngIf="formType == 'Hotel'">
+                  <label for="check_in_time">Check-in time</label>
+                  <input type="text" formControlName="check_in_time" class="form-control">
+                </div>
+
+                <div class="col-md-6" *ngIf="formType == 'Hotel'">
+                  <label for="duration">Duration</label>
+                  <input type="text" formControlName="duration" class="form-control">
+                </div>
+
+                <div *ngIf="formType == 'Travel'">
+                  <label for="travel_category">Travel category</label>
+                  <input type="text" formControlName="travel_category" class="form-control">
+                </div>
+                <div *ngIf="formType == 'Travel'">
+                  <label for="depature_time">Depature time </label>
+                  <input type="text" formControlName="depature_time" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <button type="submit" class="btn btn-success">Add event</button>
+            </div>
+          </form>
 
           <!-- Nav tabs -->
-       <!--   <ul class="nav nav-tabs" role="tablist">
+          <!--   <ul class="nav nav-tabs" role="tablist">
             <li role="presentation">
               <a href="#custom" aria-controls="custom" role="tab" data-toggle="tab" class="nav-link">Event</a>
             </li>
@@ -129,7 +129,7 @@
                   <div class="form-group">
                     <div class="row">
 
-                      
+
                       <div class="col-md-6">
                         <label for="Name">Event Name</label>
                         <input type="text" formControlName="name" class="form-control">
@@ -142,27 +142,28 @@
 
                       <div class="col-md-6">
                         <label for="date_from">Date from</label>
-                        <input type="date"  formControlName="date_from" [value]="minimum_date" [min]="minimum_date" class="form-control">
+                        <input type="date" formControlName="date_from" [value]="minimum_date" [min]="minimum_date"
+                          class="form-control">
                       </div>
 
                       <div class="col-md-6">
                         <label for="date_to">Date to</label>
-                        <input type="date"  formControlName="date_to" [value]="minimum_date" [min]="minimum_date" class="form-control">
-                      </div> 
+                        <input type="date" formControlName="date_to" [value]="minimum_date" [min]="minimum_date" class="form-control">
+                      </div>
 
                       <div class="col-md-6">
                         <label for="packages">Package</label>
-                        <input type="text"  formControlName="pkg_id" class="form-control" >
+                        <input type="text" formControlName="pkg_id" class="form-control">
                       </div>
 
                       <div class="col-md-6">
                         <label for="SP">SP</label>
-                        <input type="text"  formControlName="sp_id" class="form-control">
+                        <input type="text" formControlName="sp_id" class="form-control">
                       </div>
 
                       <div class="col-md-6">
                         <label for="description">Description</label>
-                        <input type="textarea"  formControlName="description" class="form-control">
+                        <input type="textarea" formControlName="description" class="form-control">
                       </div>
 
                       <div class="col-md-6">
@@ -175,7 +176,7 @@
                         <input type="number" formControlName="cost" class="form-control">
                       </div>
 
-                      
+
 
                       <div class="col-md-6" *ngIf="formType == 'Hotel'">
                         <label for="check_in_time">Check-in time</label>
@@ -185,21 +186,16 @@
                       <div class="col-md-6" *ngIf="formType == 'Hotel'">
                         <label for="duration">Duration</label>
                         <input type="text" formControlName="duration" class="form-control">
-                      </div> 
+                      </div>
 
                       <div *ngIf="formType == 'Travel'">
-                        <label for="travel_category" >Travel category</label>
+                        <label for="travel_category">Travel category</label>
                         <input type="text" formControlName="travel_category" class="form-control">
                       </div>
-                    <div *ngIf="formType == 'Travel'">
-                        <label for="depature_time" >Depature time </label>
+                      <div *ngIf="formType == 'Travel'">
+                        <label for="depature_time">Depature time </label>
                         <input type="text" formControlName="depature_time" class="form-control">
-                      </div> 
-
-
-
-                      
-
+                      </div>
                     </div>
                   </div>
                   <div class="row">

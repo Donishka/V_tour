@@ -6,11 +6,8 @@ import { Injectable } from '@angular/core';
 export class TravelagentPaymentService {
 
 
-  amount: Number;
-  spid: String;
-  spname: String;
-  packageid: String;
-  packagename: String;
-
+  itenararyid:string;
+  index:number;
+  
   constructor() { }
 }

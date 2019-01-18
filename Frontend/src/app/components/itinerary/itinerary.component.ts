@@ -13,6 +13,7 @@ import { map, startWith } from 'rxjs/operators';
 import { ClientService } from '../../services/user-service/client/client.service';
 import { Client } from '../../services/user-service/client/client.model';
 
+import { TravelagentPaymentService } from '../../services/sharedata/travelagent-payment.service';
 
 @Component({
   selector: 'app-itinerary',
@@ -39,6 +40,7 @@ export class ItineraryComponent implements OnInit {
   constructor(
     public clientService:ClientService,
     private dataS: SharedataService,
+    public travelagentPaymentService: TravelagentPaymentService,
     private dialog?: MatDialog,
     private eventService?: ItineraryService,
     public itineraryService?: ItineraryService,
@@ -77,7 +79,7 @@ export class ItineraryComponent implements OnInit {
     });
   }
   get EventList() {
-    //console.log(JSON.stringify(this.eventService.getAllEvents()));
+    console.log(JSON.stringify(this.eventService.getAllEvents()));
     return this.eventService.getAllEvents();
   }
 
@@ -116,13 +118,14 @@ export class ItineraryComponent implements OnInit {
   editEvent(id: number) {
     this.isPopupOpened = true;
     const event = this.eventService.getAllEvents().find(c => c.id === id);
-    console.log(event);
     const dialogRef = this.dialog.open(EventComponent, {
       data: event
+
     });
     dialogRef.afterClosed().subscribe(result => {
       this.isPopupOpened = false;
     })
+    
   }
 
   deleteEvent(id: number) {
@@ -151,5 +154,7 @@ export class ItineraryComponent implements OnInit {
     });
   }
 
+  makePayment(){
+  }
 
 }

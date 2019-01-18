@@ -9,14 +9,14 @@
       <div>
         <form class="example-form">
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Client Name" aria-label="Client" [matAutocomplete]="auto" [formControl]="clientCtrl" >
+            <input matInput placeholder="Client Name" aria-label="Client" [matAutocomplete]="auto" [formControl]="clientCtrl">
           </mat-form-field>
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let client of filteredClients | async" [value]="client.email">
-                <span>{{client.fname}} </span>
-                <small>City : {{client.city}}</small>
-              </mat-option>
-            </mat-autocomplete>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let client of filteredClients | async" [value]="client.email">
+              <span>{{client.fname}} </span>
+              <small>City : {{client.city}}</small>
+            </mat-option>
+          </mat-autocomplete>
           <br>
         </form>
       </div>
@@ -25,10 +25,6 @@
         <input type="text" [(ngModel)]="itineraryName">
         <button class="btn btn-primary" (click)="addEvent()">Add event</button>
       </div>
-
-
-
-
       <br>
       <cdk-drop (dropped)="onDrop($event)">
         <div *ngFor="let item of EventList; let i = index" cdkDrag>
@@ -40,6 +36,7 @@
               <h5 class="card-title">{{item.name}}</h5>
               <p class="card-text">{{item.venue}}</p>
               <button class="btn btn-primary" (click)="editEvent(item.id)" style="margin: 5px;">Edit</button>
+              <button class="btn btn-primary" (click)="makePayment()" style="margin: 5px;">Payment</button>
               <button class="btn btn-primary" (click)="deleteEvent(item.id)">Delete</button>
             </div>
             <div class="card-footer text-muted">

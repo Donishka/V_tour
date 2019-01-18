@@ -7,6 +7,8 @@ import { ItineraryComponent } from '../itinerary.component';
 import { MatDialog } from '@angular/material';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas'; 
+import { TravelagentPaymentService } from '../../../services/sharedata/travelagent-payment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-itinerary',
@@ -23,6 +25,8 @@ export class ViewItineraryComponent implements OnInit {
   constructor(
     public itineraryService: ItineraryService,
     private dataS: SharedataService,
+    public travelagentPaymentService: TravelagentPaymentService,
+    private router: Router,
     private dialog?: MatDialog
 
   ) {
@@ -88,5 +92,12 @@ export class ViewItineraryComponent implements OnInit {
       pdf.save(name+'.pdf'); // Generated PDF  
     });
   } 
+
+  makePayment(Itenararyid:string,eventIndex:number){
+    this.travelagentPaymentService.itenararyid=Itenararyid;
+    this.travelagentPaymentService.index=eventIndex;
+    this.router.navigateByUrl('/travel-agent-payment');
+
+  }
 
 }
