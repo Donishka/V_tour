@@ -21,7 +21,10 @@ export class ServiceProviderService {
 
   getServiceProviderList() {
     return this.http.get(this.baseURL);
-    
+  }
+
+  get1ServiceProvider(_id:string) {
+    return this.http.get(this.baseURL + `/${_id}`);
   }
 
   putServiceProvider(sp: ServiceProvider) {
