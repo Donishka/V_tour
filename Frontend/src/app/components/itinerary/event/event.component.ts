@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ItineraryService } from '../../../services/itinerary-service/itinerary.service';
+import { TravelagentPaymentService } from '../../../services/sharedata/travelagent-payment.service';
 
 @Component({
   selector: 'app-event',
@@ -25,6 +26,7 @@ export class EventComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<EventComponent>,
     private eventService: ItineraryService,
+    public travelagentPaymentService: TravelagentPaymentService,
     @Inject(MAT_DIALOG_DATA) public data: any,
     
 
@@ -74,17 +76,17 @@ export class EventComponent implements OnInit {
       depature_time: [this.data.depature_time], // When travel by train
       event_type: [this.data.event_type] // for editing purpose
     });
-    
+
   }
   onSubmit() {
     if (isNaN(this.data.id)) {
       this.eventService.addEvent(this.eventForm.value);
-      console.log(JSON.stringify(this.eventForm.value));
+      console.log(JSON.stringify(this.eventForm.value.id));
       this.dialogRef.close();
     } else {
       this.eventService.editEvent(this.eventForm.value);
       this.dialogRef.close();
     }
   }
-
+  
 }

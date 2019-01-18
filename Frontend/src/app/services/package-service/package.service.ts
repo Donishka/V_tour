@@ -18,8 +18,11 @@ export class PackageService {
   }
 
   getPackageList() {
-    console.log("service");
     return this.http.get(this.baseURL);
+  }
+
+  getOnePackageList(_id:string) {
+    return this.http.get(this.baseURL + `/${_id}`);
   }
 
   putPackage(p: Package) {
@@ -27,7 +30,6 @@ export class PackageService {
   }
 
   putPackagePic(_id) {
-    console.log(this.baseURL + "/profilepic" + `/${_id}`, _id);
     return this.http.put(this.baseURL + "/profilepic" + `/${_id}`,_id);
   }
 

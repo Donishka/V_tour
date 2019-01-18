@@ -8,7 +8,11 @@
       <h6>Last updated {{iT.date_time}}</h6>
     </div>
     <div class="card-body">
-      <h5 class="card-title" id="contentToConvert2" *ngFor="let event of iT.events; let i = index">{{i+1}}. {{event.name}} </h5>
+      <div *ngFor="let event of iT.events; let i = index">
+        <h5 class="card-title" id="contentToConvert2">{{i+1}}. {{event.name}} </h5>
+        <button href="#" class="btn btn-primary" (click)="makePayment(iT._id,event.id)">Payment</button>
+        <button href="#" class="btn btn-primary" >Booking</button>
+      </div>
       <button href="#" class="btn btn-primary" (click)="editItinerary(iT)">Edit</button>
       <hr>
       <button href="#" class="btn btn-primary" (click)="deleteItinerary(iT._id)">Delete</button>

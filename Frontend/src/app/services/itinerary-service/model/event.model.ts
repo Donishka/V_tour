@@ -1,4 +1,5 @@
 export class Event {
+  _id:string;
     id: number;
       price: number;
       name: string;

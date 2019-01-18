@@ -1,3 +1,67 @@
-<p>
-  travel-agent-payment works!
-</p>
+<app-nav></app-nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+            <div class="main-login main-center">
+                <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" method="POST" target="_blank" action="https://sandbox.payhere.lk/pay/checkout"
+                    #form>
+                    <fieldset>
+
+                        <input type="hidden" name="merchant_id" value="1211720">
+                        <input type="hidden" name="return_url" value="http://localhost:4200/client-account">
+                        <input type="hidden" name="cancel_url" value="http://localhost:4200/client-account">
+                        <input type="hidden" name="notify_url" value="http://sample.com/notify">
+                        <input type="hidden" name="order_id" value={{event._id}}>
+                        <input type="hidden" name="items" value="{{package.name}}"><br>
+                        <input type="hidden" name="currency" value="LKR">
+
+                        <h3>Srevice Provider Details</h3>
+
+                        First Name :
+                        <input class="input1" type="text" name="first_name" value="{{sp.fname}}" readonly><br>
+                        Last Name :
+                        <input class="input1" type="text" name="last_name" value="{{sp.lname}}" readonly><br>
+                        Email :
+                        <input class="input1" type="text" name="email" value="{{sp.email}}" readonly><br>
+                        Telephone :
+                        <input class="input1" type="text" name="phone" value="{{sp.telephone}}" readonly><br>
+                        Address :
+                        <input class="input1" type="text" name="address" value="{{sp.address}}" readonly><br>
+                        
+                        <input class="input1" type="text" name="city" value="Colombo" hidden><br>
+                        <input class="input1" type="text" name="country" value="Sri Lanka" hidden><br><br>
+
+                        <input type="hidden" name="spname" #name="ngModel" [(ngModel)]=sp.fname>
+                        <input type="hidden" name="spid" #_id="ngModel" [(ngModel)]="sp._id">
+
+                        <h3>Payment Details</h3>
+                        Amount :
+                        <input class="input1" type="text" name="amount" #name="ngModel" [(ngModel)]="event.price" readonly><br>
+                        Date :
+                        <input class="input1" type="text" name="date" #name="ngModel" [(ngModel)]="current_date"><br>
+                        <br>
+
+                        <h3>Event Details</h3>
+                        <input type="hidden" name="packageid" #name="ngModel" [(ngModel)]="package._id">
+                        <input type="hidden" name="packagename" #name="ngModel" [(ngModel)]="package.name">
+                        <input type="hidden" name="travelagentid" #name="ngModel" [(ngModel)]="user._id">
+                        <input type="hidden" name="travelagentname" #name="ngModel" [(ngModel)]="user.fname">
+                        Event Name :
+                        <input class="input1" type="text" name="eventname" #name="ngModel" [(ngModel)]="event.name"><br>
+                        Event Type :
+                        <input class="input1" type="text" name="eventtype" #name="ngModel" [(ngModel)]="event.event_type"><br><br><br>
+
+                        <flash-messages></flash-messages>
+                        <div class="form-group ">
+                            <button class="btn btn-primary btn-lg btn-block login-button" type="submit" (click)="form.submit()"
+                                [disabled]="!userForm.valid">Make Package Payment</button>
+                            <!--button class="btn btn-primary btn-lg btn-block login-button" type="button" >Reset</button-->
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
