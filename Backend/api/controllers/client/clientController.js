@@ -61,7 +61,7 @@ router.post('/', (req, res) => {
                 from: 'anemanda175@gmail.com',
                 to: req.body.email,
                 subject: 'V Tour Account Credentials',
-                text: '<p>Please Use ' + req.body.password + ' as your login password and use link below to login</p>'+'<a href="http://localhost:4200/login">Click Here</a>'
+                html: '<p>Please Use --- ' + req.body.password + ' --- as your login password and use link below to login</p>' + '<a href="http://localhost:4200/login">Click Here</a>'
             };
 
             transporter.sendMail(mailOptions, function (error, info) {

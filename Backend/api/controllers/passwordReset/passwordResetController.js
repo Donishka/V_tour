@@ -61,7 +61,7 @@ router.post('/reset', function (req, res) {
                                     from: 'anemanda175@gmail.com',
                                     to: user.email,
                                     subject: 'Password Reset V Tour',
-                                    text: '<p>Please use below link to reset your password</p>'+'<a href="http://localhost:4200/resetpassword/' + payload.id + '/' + token + '">Click Here</a>'
+                                    html: '<p>Please use below link to reset your password</p>'+'<a href="http://localhost:4200/resetpassword/' + payload.id + '/' + token + '">Click Here</a>'
                                 };
                                 transporter.sendMail(mailOptions, function (error, info) {
                                     if (error) {
