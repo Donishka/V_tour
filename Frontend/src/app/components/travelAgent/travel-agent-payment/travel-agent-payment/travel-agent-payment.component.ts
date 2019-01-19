@@ -48,18 +48,14 @@ export class TravelAgentPaymentComponent implements OnInit {
     this.itineraryService.getOneItinerry(this.travelagentPaymentService.itenararyid).subscribe((res) => {
       this.data=res;
       this.event=this.data.events[this.travelagentPaymentService.index-1];
-      console.log(this.data);
-      console.log(this.event);
       this.spid=this.event.sp_id;
 
       this.serviceProviderService.get1ServiceProvider(this.spid).subscribe((res) => {
         this.sp = res;
-        //console.log(this.sp);
       })
 
       this.packageService.getOnePackageList(this.event.pkg_id).subscribe((res)=>{
         this.package=res;
-        console.log(this.package)
       })
     });
     
@@ -110,10 +106,8 @@ export class TravelAgentPaymentComponent implements OnInit {
   }
 
   getProfileDetails() {
-    console.log('get details');
     this.authService.getProfile().subscribe(res => {
       this.user = res.data.user;
-      console.log(this.user);
     });
   }
 
