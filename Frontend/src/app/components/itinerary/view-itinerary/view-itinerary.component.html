@@ -11,8 +11,12 @@
     <div class="card-body">
       <div *ngFor="let event of iT.events; let i = index">
         <h5 class="card-title" id="contentToConvert2">{{i+1}}. {{event.name}} </h5>
-        <button href="#" class="btn btn-primary" (click)="makePayment(iT._id,event.id)">Payment</button>
-        <button href="#" class="btn btn-primary" >Booking</button>
+        <div>
+          <p id="contentToConvert3" *ngIf="event.payment_status!='not_paid'">Paid</p>
+          <button href="#" *ngIf="event.payment_status=='not_paid'" class="btn btn-primary" (click)="makePayment(iT._id,event.id)">Payment</button>
+          <p id="contentToConvert4" *ngIf="event.booking_status!='not_booked'">Booked</p>
+          <button href="#" *ngIf="event.booking_status=='not_booked'" class="btn btn-primary">Booking</button>
+        </div>
       </div>
       <button href="#" class="btn btn-primary" (click)="editItinerary(iT)">Edit</button>
       <hr>

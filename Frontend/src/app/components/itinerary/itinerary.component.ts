@@ -29,8 +29,8 @@ export class ItineraryComponent implements OnInit {
   
   itinerary: Itinerary = new Itinerary();
   isPopupOpened = false;
-  itineraryName: String = "New Itinerary Name";
-  note: String = "New note";
+  itineraryName: String = "Itinerary Name";
+  note: String = "Client Name";
   clientId: String = "";
   clients: Client[] = [];
   

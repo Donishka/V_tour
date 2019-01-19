@@ -20,8 +20,8 @@ import { moveItemInArray,CdkDragDrop } from '@angular/cdk/drag-drop';
 })
 export class EditItineraryComponent implements OnInit {
 
-  note:String = "Add a note here...";
-  itineraryName:String = "Itinerary Name here";
+  note:String = "Client Name";
+  itineraryName:String = "Itinerary Name";
   id: String;
   Itinerary: any;
   events: Event[];
@@ -82,8 +82,9 @@ export class EditItineraryComponent implements OnInit {
           duration: [this.events[i].duration], // for hotel
           travel_category: [this.events[i].travel_category], // for travel purpose
           depature_time: [this.events[i].depature_time], // When travel by train
-          event_type: [this.events[i].event_type] // for editing purpose
-
+          event_type: [this.events[i].event_type], // for editing purpose
+          payment_status: [this.events[i].payment_status],
+          booking_status: [this.events[i].booking_status],
         });
       
          this.itineraryService.addEvent(this.evnetForm.value);
