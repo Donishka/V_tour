@@ -35,6 +35,10 @@ app.use(cors(function (req, res, next) {
 
 app.listen(port, () => console.log('Server started at port :'+ port));
 
+app.get('*', function(req,res) {
+  // Replace the '/dist/<to_your_project_name>/index.html'
+  res.sendFile(path.join(__dirname + '/dist/index.html'));
+/*
 app.use('/users', userController);
 app.use('/travelagents', travelAgentController);
 app.use('/serviceproviders', serviceproviderController);
@@ -42,5 +46,5 @@ app.use('/clients', clientController);
 app.use('/packages', packageController);
 app.use('/itenararypayments', itenararyPaymentController);
 app.use('', loginController);
-app.use('/itinerary', itineraryController);
+app.use('/itinerary', itineraryController);*/
 
