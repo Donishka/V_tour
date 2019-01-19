@@ -9,6 +9,8 @@ import { SharedataService } from '../../../services/sharedata/sharedata.service'
 import { ItenararyPayment } from './../../../services/payment-service/itenarary-payment/itenarary-payment.model';
 import { ItenararyPaymentService } from './../../../services/payment-service/itenarary-payment/itenarary-payment.service';
 import { ClientPaymentService } from '../../../services/sharedata/client-payment.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 @Component({
   selector: 'app-client-account',
   templateUrl: './client-account.component.html',
@@ -32,6 +34,8 @@ export class ClientAccountComponent implements OnInit {
     private dataS: SharedataService,
     public itineraryService: ItineraryService,
     private clientPaymentService: ClientPaymentService,
+    private spinner: NgxSpinnerService
+
   ) {
     this.dataS.shareUserData();
     this.dataS.currentMessge.subscribe(traveAgentdata => {
@@ -41,6 +45,12 @@ export class ClientAccountComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 3000);
+
     this.authService.getProfile().subscribe(res => {
       this.user = res.data.user;
     })

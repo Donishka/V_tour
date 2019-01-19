@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { ClientService } from '../../services/user-service/client/client.service';
 import { Client } from '../../services/user-service/client/client.model';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 import { TravelagentPaymentService } from '../../services/sharedata/travelagent-payment.service';
 
 @Component({
@@ -24,11 +24,8 @@ import { TravelagentPaymentService } from '../../services/sharedata/travelagent-
 })
 export class ItineraryComponent implements OnInit {
 
- 
-
   clientCtrl = new FormControl();
   filteredClients: Observable<Client[]>;
-  
   
   itinerary: Itinerary = new Itinerary();
   isPopupOpened = false;
@@ -41,6 +38,7 @@ export class ItineraryComponent implements OnInit {
     public clientService:ClientService,
     private dataS: SharedataService,
     public travelagentPaymentService: TravelagentPaymentService,
+    private spinner: NgxSpinnerService,
     private dialog?: MatDialog,
     private eventService?: ItineraryService,
     public itineraryService?: ItineraryService,
@@ -64,7 +62,10 @@ export class ItineraryComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
     this.clientService.getClientList().subscribe((res) => {
       this.clientService.client = res as Client[];
       this.clients = this.clientService.client;

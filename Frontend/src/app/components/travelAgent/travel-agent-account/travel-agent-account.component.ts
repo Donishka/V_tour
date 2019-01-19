@@ -1,7 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 
 import { TravelAgentService } from '../../../services/user-service/travelAgent/travelagent.service';
 import { TravelAgent } from '../../../services/user-service/travelAgent/travelagent.model';
@@ -23,10 +23,17 @@ export class TravelAgentAccountComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private zone: NgZone,
-    private dataS: SharedataService
+    private dataS: SharedataService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
+
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 3000);
+
     this.refreshTravelAgentList();
     this.getProfileDetails();
     this.dataS.shareUserData();

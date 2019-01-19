@@ -13,9 +13,7 @@ import { ViewItineraryComponent } from '../../components/itinerary/view-itinerar
 import { EditItineraryComponent } from '../../components/itinerary/edit-itinerary/edit-itinerary.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {MatAutocompleteModule, MatFormFieldModule, MatInputModule} from '@angular/material';
-
-
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
@@ -31,7 +29,8 @@ import {MatAutocompleteModule, MatFormFieldModule, MatInputModule} from '@angula
     DragDropModule,
     MatAutocompleteModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    NgxSpinnerModule
   ],
   declarations: [
     EventComponent,

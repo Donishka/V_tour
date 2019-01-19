@@ -5,7 +5,7 @@ import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ServiceProviderService } from '../../../services/user-service/serviceProvider/serviceprovider.service';
 import { ServiceProvider } from '../../../services/user-service/serviceProvider/serviceprovider.model';
 
@@ -28,6 +28,7 @@ export class AddNewPackageComponent implements OnInit {
   constructor(public packageService: PackageService,
     private flashMessage: FlashMessagesService,
     private router: Router,
+    private spinner: NgxSpinnerService,
     private authService: AuthService,
     public serviceProviderService: ServiceProviderService,
     private zone: NgZone,
@@ -39,6 +40,10 @@ export class AddNewPackageComponent implements OnInit {
   public uploader: FileUploader = new FileUploader({ url: URL, itemAlias: 'photo' });
 
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
     this.refreshPackageList();
     this.resetForm();
     this.getProfileDetails();

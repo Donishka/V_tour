@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 declare var M: any;
 
 @Component({
@@ -18,9 +18,15 @@ export class ViewClientPaymentsComponent implements OnInit {
   constructor(public itenararyPaymentService: ItenararyPaymentService,
     private itenararyPayment: ItenararyPayment,
     private flashMessage: FlashMessagesService,
-    private router: Router) { }
+    private router: Router,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
+
     this.refreshPaymentList();
   }
 

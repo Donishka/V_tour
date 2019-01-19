@@ -8,6 +8,7 @@ import { PasswordResetComponent } from '../../components/password-reset/password
 import { DialogModule } from 'primeng/dialog';
 import { CardModule } from 'primeng/card';
 import { NewPasswordComponent } from '../../components/password-reset/new-password/new-password.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { NewPasswordComponent } from '../../components/password-reset/new-passwo
     RouterModule,
     HeaderBarModule,
     DialogModule,
-    CardModule
+    CardModule,
+    NgxSpinnerModule
   ],
   declarations: [
     PasswordResetComponent,

@@ -3,7 +3,7 @@ import { AuthService } from '../../../services/auth.service';
 import { NgForm } from '@angular/forms';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ItenararyPaymentService } from '../../../services/payment-service/itenarary-payment/itenarary-payment.service';
 import { ClientPaymentService } from '../../../services/sharedata/client-payment.service';
 
@@ -27,12 +27,18 @@ export class ClientPaymentComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
+    private spinner: NgxSpinnerService,
     public itenararyPaymentService: ItenararyPaymentService,
     private flashMessage: FlashMessagesService,
     public  clientPaymentService: ClientPaymentService
   ) { }
 
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
+
     this.resetForm();
     this.getProfileDetails();
     this.itname=this.clientPaymentService.itenararyname;

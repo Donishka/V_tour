@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-password-reset',
   templateUrl: './password-reset.component.html',
@@ -20,9 +20,14 @@ export class PasswordResetComponent implements OnInit {
     private router: Router,
     private flashMessage: FlashMessagesService,
     private zone: NgZone,
+    private spinner: NgxSpinnerService,
     private http: HttpClient,) { }
 
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
   }
 
   onSubmit(form:NgForm){
