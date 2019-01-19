@@ -5,7 +5,7 @@ import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 import { TravelAgentService } from '../../../services/user-service/travelAgent/travelagent.service';
 import { TravelAgent } from '../../../services/user-service/travelAgent/travelagent.model';
 
@@ -28,6 +28,7 @@ export class EditTravelAgentComponent implements OnInit {
     private flashMessage: FlashMessagesService,
     private zone:NgZone,
     private http:HttpClient,
+    private spinner: NgxSpinnerService
   ) { }
 
   title = 'app';
@@ -38,6 +39,11 @@ export class EditTravelAgentComponent implements OnInit {
   password: String;
 
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
+
     this.resetForm();
     this.refreshTravelAgentList();
     this.getProfileDetails();

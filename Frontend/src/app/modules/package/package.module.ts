@@ -10,6 +10,8 @@ import { ViewPackagesComponent } from '../../components/package/view-packages/vi
 import { PackageFilterPipe } from '../../components/package/package.filter.pipe';
 import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { DialogModule } from 'primeng/dialog';
     HeaderBarModule,
     CardModule,
     DialogModule,
-    SharedModule
+    SharedModule,
+    NgxSpinnerModule
     
   ],
   declarations: [AddNewPackageComponent,

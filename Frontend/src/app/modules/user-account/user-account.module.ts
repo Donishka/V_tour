@@ -14,8 +14,7 @@ import { PackageModule } from '../../modules/package/package.module';
 import { DialogModule } from 'primeng/dialog';
 import {CardModule} from 'primeng/card';
 import { SharedModule } from './../shared.module';
-
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   imports: [
     CommonModule,
@@ -27,7 +26,8 @@ import { SharedModule } from './../shared.module';
     DialogModule,
     CardModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    NgxSpinnerModule
     
     
  ],

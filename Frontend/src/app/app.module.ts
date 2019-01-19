@@ -1,5 +1,6 @@
 import { PasswordResetModule } from './modules/password-reset/password-reset.module';
 import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -54,7 +55,8 @@ import { SpPackageService } from '../app/services/sharedata/sp-package.service';
     ItineraryModule,
     NgxSmartModalModule.forRoot(),
     PasswordResetModule,
-    PasswordStrengthMeterModule
+    PasswordStrengthMeterModule,
+    NgxSpinnerModule
   ],
   providers: [AuthService, SharedataService, SpPackageService],
   bootstrap: [AppComponent]

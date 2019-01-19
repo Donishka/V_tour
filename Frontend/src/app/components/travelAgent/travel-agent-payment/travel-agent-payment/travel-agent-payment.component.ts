@@ -4,7 +4,7 @@ import { AuthService } from '../../../../services/auth.service';
 import { NgForm } from '@angular/forms';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 import { TravelagentPaymentService } from '../../../../services/sharedata/travelagent-payment.service';
 import { ItineraryService} from '../../../../services/itinerary-service/itinerary.service';
 
@@ -33,7 +33,8 @@ export class TravelAgentPaymentComponent implements OnInit {
     private flashMessage: FlashMessagesService,
     public packagePaymentService: PackagePaymentService,
     private serviceProviderService: ServiceProviderService,
-    private packageService: PackageService
+    private packageService: PackageService,
+    private spinner: NgxSpinnerService
   ) { }
 
   data:any;
@@ -44,6 +45,12 @@ export class TravelAgentPaymentComponent implements OnInit {
   spid:any;
 
   ngOnInit() {
+
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
 
     this.itineraryService.getOneItinerry(this.travelagentPaymentService.itenararyid).subscribe((res) => {
       this.data=res;

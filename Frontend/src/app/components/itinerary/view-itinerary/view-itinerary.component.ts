@@ -9,7 +9,7 @@ import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas'; 
 import { TravelagentPaymentService } from '../../../services/sharedata/travelagent-payment.service';
 import { Router } from '@angular/router';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-view-itinerary',
   templateUrl: './view-itinerary.component.html',
@@ -27,6 +27,7 @@ export class ViewItineraryComponent implements OnInit {
     private dataS: SharedataService,
     public travelagentPaymentService: TravelagentPaymentService,
     private router: Router,
+    private spinner: NgxSpinnerService,
     private dialog?: MatDialog
 
   ) {
@@ -64,6 +65,10 @@ export class ViewItineraryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
 
   }
 

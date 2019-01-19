@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 import { AuthService } from './../../../services/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-view-serviceprovider-payment',
@@ -18,10 +19,15 @@ export class ViewServiceproviderPaymentComponent implements OnInit {
   constructor(public packagePaymentService: PackagePaymentService,
     private packagePayment: PackagePayment,
     private flashMessage: FlashMessagesService,
+    private spinner: NgxSpinnerService,
     private router: Router,
     private authService:AuthService) { }
 
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
     this.getProfileDetails()
     this.refreshPaymentList();
   }

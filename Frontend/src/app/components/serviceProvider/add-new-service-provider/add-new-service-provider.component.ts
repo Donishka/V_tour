@@ -4,7 +4,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 import { ServiceProviderService } from '../../../services/user-service/serviceProvider/serviceprovider.service';
 import { ServiceProvider } from '../../../services/user-service/serviceProvider/serviceprovider.model';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 declare var M:any;
 
 @Component({
@@ -18,10 +18,15 @@ export class AddNewServiceProviderComponent implements OnInit {
 
   constructor(public serviceProviderService:ServiceProviderService,
     private flashMessage:FlashMessagesService,
-    private router:Router) { }
+    private router:Router,
+    private spinner: NgxSpinnerService) { }
 
     rePassword:any;
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
     this.resetForm();
   }
 

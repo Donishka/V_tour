@@ -119,7 +119,7 @@
               </div>
               <div class="row row4">
 
-                <div class="col-md-6 bdr_shadow_last">
+                <div class="col-md-6 bdr_shadow_last" hidden>
                   <div class="input_cover">
                     <div class="form-group">
                       <label for="isadmin" class="control-label">ADMIN PRIVILEGES</label>
@@ -214,6 +214,7 @@
   </div>
 </p-dialog>
 
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
 <p-dialog [(visible)]="display2" [modal]="true" [responsive]="true">
   <div class="container-fluid">
     <form style="margin-top: 25px;" #pwForm="ngForm" (ngSubmit)="sendPassword(pwForm)">

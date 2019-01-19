@@ -15,6 +15,7 @@ import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { DialogModule } from 'primeng/dialog';
 import {CardModule} from 'primeng/card';
 import { SharedModule } from './../shared.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { SharedModule } from './../shared.module';
     NgxSmartModalModule.forRoot(),
     DialogModule,
     CardModule,
-    SharedModule
+    SharedModule,
+    NgxSpinnerModule
 
  ],
   declarations: [

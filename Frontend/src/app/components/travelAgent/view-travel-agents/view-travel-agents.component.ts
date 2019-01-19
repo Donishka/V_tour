@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { TravelAgentService } from '../../../services/user-service/travelAgent/travelagent.service';
 import { TravelAgent } from '../../../services/user-service/travelAgent/travelagent.model';
 import { NgxSmartModalService } from 'ngx-smart-modal';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 declare var M: any;
 
@@ -27,9 +28,15 @@ export class ViewTravelAgentsComponent implements OnInit {
     public travelAgent: TravelAgent,
     private router:Router,
     private authService:AuthService,
-    public ngxSmartModalService: NgxSmartModalService) { }
+    public ngxSmartModalService: NgxSmartModalService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
+
     this.getProfileDetails();
     this.resetForm();
     this.refreshTravelAgentList();

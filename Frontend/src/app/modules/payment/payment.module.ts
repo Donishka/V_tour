@@ -11,6 +11,7 @@ import { PackagePaymentFilterPipe } from '../../components/payments/view-service
 import { TravelAgentPaymentComponent } from '../../components/travelAgent/travel-agent-payment/travel-agent-payment/travel-agent-payment.component';
 import { ViewServiceproviderPaymentComponent } from '../../components/payments/view-serviceprovider-payment/view-serviceprovider-payment.component';
 import { ViewTravelagentPaymentComponent } from '../../components/payments/view-travelagent-payment/view-travelagent-payment.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { ViewTravelagentPaymentComponent } from '../../components/payments/view-
     FormsModule,
     FlashMessagesModule,
     RouterModule,
-    HeaderBarModule
+    HeaderBarModule,
+    NgxSpinnerModule
   ],
   declarations: [
     ClientPaymentComponent,

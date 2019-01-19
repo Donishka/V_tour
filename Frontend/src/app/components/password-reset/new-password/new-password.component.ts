@@ -4,6 +4,7 @@ import { PasswordResetService } from './../../../services/password-reset-service
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-new-password',
   templateUrl: './new-password.component.html',
@@ -17,6 +18,7 @@ export class NewPasswordComponent implements OnInit {
     private passwordResetService: PasswordResetService,
     private authService: AuthService,
     private http: HttpClient,
+    private spinner: NgxSpinnerService
   ) { }
 
   id:string;
@@ -25,6 +27,11 @@ export class NewPasswordComponent implements OnInit {
   repassword:string;
 
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
+    
     this.route.paramMap.subscribe(
       prams=>{
         this.id = prams.get('payloadid');

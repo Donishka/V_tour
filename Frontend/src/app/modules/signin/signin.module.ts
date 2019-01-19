@@ -9,6 +9,7 @@ import { UserAccountModule } from '../user-account/user-account.module';
 import { HeaderBarModule } from '../header-bar/header-bar.module';
 import {CardModule} from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { DialogModule } from 'primeng/dialog';
     UserAccountModule,
     HeaderBarModule,
     CardModule,
-    DialogModule
+    DialogModule,
+    NgxSpinnerModule
  ],
   declarations: [
     ProfileComponent,

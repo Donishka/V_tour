@@ -11,6 +11,7 @@ import { EditServiceProviderComponent } from '../../components/serviceProvider/e
 import { DialogModule } from 'primeng/dialog';
 import {CardModule} from 'primeng/card';
 import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
     CardModule,
     HttpClientModule,
     SharedModule,
-    PasswordStrengthMeterModule
+    PasswordStrengthMeterModule,
+    NgxSpinnerModule
  ],
   declarations: [
     EditTravelAgentComponent,

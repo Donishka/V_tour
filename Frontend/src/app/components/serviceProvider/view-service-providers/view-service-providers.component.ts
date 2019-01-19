@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 import { ServiceProviderService } from '../../../services/user-service/serviceProvider/serviceprovider.service';
 import { ServiceProvider } from '../../../services/user-service/serviceProvider/serviceprovider.model';
@@ -26,10 +27,15 @@ export class ViewServiceProvidersComponent implements OnInit {
     private flashMessage:FlashMessagesService,
     private router:Router,
     private authService:AuthService,
-    public shared:SpPackageService
+    public shared:SpPackageService,
+    private spinner: NgxSpinnerService
     ) { }
 
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
     this.getProfileDetails();
     this.resetForm();
     this.refreshServiceProviderList();

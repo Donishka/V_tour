@@ -8,6 +8,7 @@ import { RouterModule, Routes }  from '@angular/router';
 import { AddNewClientsComponent } from '../../components/client/add-new-clients/add-new-clients.component';
 import { AddNewTravelAgentComponent } from '../../components/travelAgent/add-new-travel-agent/add-new-travel-agent.component';
 import { AddNewServiceProviderComponent } from '../../components/serviceProvider/add-new-service-provider/add-new-service-provider.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { AddNewServiceProviderComponent } from '../../components/serviceProvider
     FlashMessagesModule,
     RouterModule,
     HeaderBarModule,
-    PasswordStrengthMeterModule
+    PasswordStrengthMeterModule,
+    NgxSpinnerModule
   ],
   declarations: [
     AddNewClientsComponent,

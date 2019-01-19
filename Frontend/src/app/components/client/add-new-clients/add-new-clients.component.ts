@@ -4,7 +4,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 import { ClientService } from '../../../services/user-service/client/client.service';
 import { Client } from '../../../services/user-service/client/client.model';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 declare var M: any;
 @Component({
   selector: 'app-add-new-clients',
@@ -16,9 +16,15 @@ export class AddNewClientsComponent implements OnInit {
 
   constructor(public clientService: ClientService,
     private flashMessage:FlashMessagesService,
+    private spinner: NgxSpinnerService,
     private router:Router) { }
     rePassword:any;
+
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
     this.resetForm();
   }
 
