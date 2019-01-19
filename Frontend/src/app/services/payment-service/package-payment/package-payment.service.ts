@@ -11,7 +11,7 @@ import { PackagePayment } from './package-payment.model';
 export class PackagePaymentService {
 
   selectedPackagePayment: PackagePayment;
-  PackagePayment: PackagePayment[];
+  packagepayment: PackagePayment[];
 
   readonly baseURL = 'http://localhost:4201/packagepayments';
 

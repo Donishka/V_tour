@@ -9,8 +9,8 @@
                     <fieldset>
 
                         <input type="hidden" name="merchant_id" value="1211720">
-                        <input type="hidden" name="return_url" value="http://localhost:4200/client-account">
-                        <input type="hidden" name="cancel_url" value="http://localhost:4200/client-account">
+                        <input type="hidden" name="return_url" value="http://localhost:4200/view-itinerary">
+                        <input type="hidden" name="cancel_url" value="http://localhost:4200/view-itinerary">
                         <input type="hidden" name="notify_url" value="http://sample.com/notify">
                         <input type="hidden" name="order_id" value={{event._id}}>
                         <input type="hidden" name="items" value="{{package.name}}"><br>
@@ -37,7 +37,7 @@
 
                         <h3>Payment Details</h3>
                         Amount :
-                        <input class="input1" type="text" name="amount" #name="ngModel" [(ngModel)]="event.price" readonly><br>
+                        <input class="input1" type="text" name="amount" #name="ngModel" [(ngModel)]="event.cost" readonly><br>
                         Date :
                         <input class="input1" type="text" name="date" #name="ngModel" [(ngModel)]="current_date"><br>
                         <br>
