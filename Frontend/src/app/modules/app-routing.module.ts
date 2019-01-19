@@ -25,6 +25,8 @@ import { ItineraryComponent } from '../components/itinerary/itinerary.component'
 import { ViewItineraryComponent } from '../components/itinerary/view-itinerary/view-itinerary.component';
 import { EditItineraryComponent } from '../components/itinerary/edit-itinerary/edit-itinerary.component';
 import { NewPasswordComponent } from '../components/password-reset/new-password/new-password.component';
+import { ViewServiceproviderPaymentComponent} from '../components/payments/view-serviceprovider-payment/view-serviceprovider-payment.component'
+import { ViewTravelagentPaymentComponent } from '../components/payments/view-travelagent-payment/view-travelagent-payment.component';
 
 const applicationRoutes:Routes = [
   {path:'login',component:LoginComponent},
@@ -41,16 +43,17 @@ const applicationRoutes:Routes = [
   {path:'service-provider-account',component:ServiceProviderAccountComponent,canActivate: [AuthGuard]},
   {path:'client-account',component:ClientAccountComponent,canActivate: [AuthGuard]},
   {path:'travelagent-account',component:TravelAgentAccountComponent,canActivate: [AuthGuard]},
-  {path: 'client-payment', component: ClientPaymentComponent, canActivate: [AuthGuard] },
-  {path: 'viewclientpayment', component: ViewClientPaymentsComponent, canActivate: [AuthGuard] },
-  {path: 'itinerary', component: ItineraryComponent, canActivate: [AuthGuard] },
-  {path: 'view-packages', component: ViewPackagesComponent, canActivate: [AuthGuard] },
-  {path: 'view-itinerary', component: ViewItineraryComponent, canActivate: [AuthGuard] },
-  {path: 'edit-itinerary', component: EditItineraryComponent, canActivate: [AuthGuard] },
-  {path: 'app-password-reset', component: PasswordResetComponent },
-  { path: 'resetpassword/:payloadid/:token', component: NewPasswordComponent },
-  { path: 'travel-agent-payment', component: TravelAgentPaymentComponent, canActivate: [AuthGuard] },
-
+  {path:'client-payment', component: ClientPaymentComponent, canActivate: [AuthGuard] },
+  {path:'viewclientpayment', component: ViewClientPaymentsComponent, canActivate: [AuthGuard] },
+  {path:'itinerary', component: ItineraryComponent, canActivate: [AuthGuard] },
+  {path:'view-packages', component: ViewPackagesComponent, canActivate: [AuthGuard] },
+  {path:'view-itinerary', component: ViewItineraryComponent, canActivate: [AuthGuard] },
+  {path:'edit-itinerary', component: EditItineraryComponent, canActivate: [AuthGuard] },
+  {path:'app-password-reset', component: PasswordResetComponent },
+  {path:'resetpassword/:payloadid/:token', component: NewPasswordComponent },
+  {path:'travel-agent-payment', component: TravelAgentPaymentComponent, canActivate: [AuthGuard] },
+  {path:'view-sp-payments', component: ViewServiceproviderPaymentComponent, canActivate: [AuthGuard] },
+  {path:'view-ta-payments', component: ViewTravelagentPaymentComponent, canActivate: [AuthGuard] },
 
 ];
 

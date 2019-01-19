@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClientPaymentComponent } from '../../components/client/client-payment/client-payment.component';
 import { ViewClientPaymentsComponent } from '../../components/payments/view-client-payments/view-client-payments.component';
 import { ClientPaymentFilterPipe} from '../../components/payments/view-client-payments/client-payment-fliter.pipe'
+import { PackagePaymentFilterPipe } from '../../components/payments/view-serviceprovider-payment/package-payment-fliter.pipe'
 import { TravelAgentPaymentComponent } from '../../components/travelAgent/travel-agent-payment/travel-agent-payment/travel-agent-payment.component';
 import { ViewServiceproviderPaymentComponent } from '../../components/payments/view-serviceprovider-payment/view-serviceprovider-payment.component';
 import { ViewTravelagentPaymentComponent } from '../../components/payments/view-travelagent-payment/view-travelagent-payment.component';
@@ -23,6 +24,7 @@ import { ViewTravelagentPaymentComponent } from '../../components/payments/view-
     ClientPaymentComponent,
     ViewClientPaymentsComponent,
     ClientPaymentFilterPipe,
+    PackagePaymentFilterPipe,
     TravelAgentPaymentComponent,
     ViewServiceproviderPaymentComponent,
     ViewTravelagentPaymentComponent
@@ -31,6 +33,7 @@ import { ViewTravelagentPaymentComponent } from '../../components/payments/view-
     ClientPaymentComponent,
     ViewClientPaymentsComponent,
     ClientPaymentFilterPipe,
+    PackagePaymentFilterPipe,
     TravelAgentPaymentComponent,
     ViewServiceproviderPaymentComponent,
     ViewTravelagentPaymentComponent
