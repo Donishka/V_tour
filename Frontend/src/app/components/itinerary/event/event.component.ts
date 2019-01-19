@@ -74,7 +74,10 @@ export class EventComponent implements OnInit {
       duration: [this.data.duration], // for hotel
       travel_category: [this.data.travel_category], // for travel purpose
       depature_time: [this.data.depature_time], // When travel by train
-      event_type: [this.data.event_type] // for editing purpose
+      event_type: [this.data.event_type], // for editing purpose
+      payment_status:"not_paid",
+      booking_status:"not_booked",
+
     });
 
   }

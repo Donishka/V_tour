@@ -21,9 +21,6 @@
                     <div class="mb-1 text-muted">Amount : {{pkg.amount}}</div>
                     <div class="mb-1 text-muted">Date : {{pkg.date}}</div>
                     <div class="mb-1 text-muted">Status : {{pkg.status}}</div>
-                    <a *ngIf="pkg.status=='Waiting for Confirmation'" class="action-btn" (click)="onConfirm(pkg)">
-                      <i class="fas fa-money-alt  btn-outline-primary btn-sm">Confirm Payment</i>
-                    </a>
                     <!--a class="action-btn" (click)="onDelete(sp._id)">
                       <i class="fas fa-trash-alt  btn-outline-primary btn-sm"> delete</i>
                     </a-->

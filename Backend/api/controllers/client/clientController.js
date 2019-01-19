@@ -2,11 +2,18 @@ const express = require('express');
 var router =  express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
 const bcrypt  = require('bcryptjs');
+var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
 
 var { Client }  = require('../../data/client/client.model.js');
 var  ClientModel = require('../../data/client/client.model.js');
 //var Hashing = require('../../functions/hashing.js');
 
+var transporter = nodemailer.createTransport(smtpTransport({
+    host: 'smtp.gmail.com', port: 465, secure: true, // 
+    service: 'Gmail', auth: { user: 'anemanda175@gmail.com', pass: 'vtourtempory' },
+    tls: { rejectUnauthorized: false }
+}));
 
 router.get('/', (req, res) => {
     Client.find((err, docs) => {
@@ -50,6 +57,20 @@ router.post('/', (req, res) => {
         }
         if(doc){
             res.json({state:true,msg:"data  inserted"});
+            var mailOptions = {
+                from: 'anemanda175@gmail.com',
+                to: req.body.email,
+                subject: 'V Tour Account Credentials',
+                text: '<p>Please Use ' + req.body.password + ' as your login password and use link below to login</p>'+'<a href="http://localhost:4200/login">Click Here</a>'
+            };
+
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email sent: ' + info.response);
+                }
+            });
         }}
 );
 });

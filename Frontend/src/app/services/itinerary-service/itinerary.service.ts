@@ -52,8 +52,6 @@ export class ItineraryService {
 
   readonly baseURL = 'http://localhost:4201/itinerary';
 
-
-
   postItinerary(itinerary: Itinerary) {
     return this.http.post(this.baseURL, itinerary);
   }

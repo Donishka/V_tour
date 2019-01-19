@@ -10,6 +10,8 @@ export class Event {
       sp_id: string;
       pkg_id: string;
       cost: number;
+      payment_status:string;
+      booking_status:string;
       check_in_time?: string; // for loading purpose
       duration?: string; // for hotel
       travel_category?: string; // for travel purpose
