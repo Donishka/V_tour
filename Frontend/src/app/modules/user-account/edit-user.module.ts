@@ -10,6 +10,8 @@ import { EditTravelAgentComponent } from '../../components/travelAgent/edit-trav
 import { EditServiceProviderComponent } from '../../components/serviceProvider/edit-service-provider/edit-service-provider.component';
 import { DialogModule } from 'primeng/dialog';
 import {CardModule} from 'primeng/card';
+import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import {CardModule} from 'primeng/card';
     DialogModule,
     CardModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    PasswordStrengthMeterModule
  ],
   declarations: [
     EditTravelAgentComponent,
