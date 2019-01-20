@@ -22,7 +22,7 @@ const URL = 'http://localhost:4201/packages/api/upload';
     ServiceProviderService]
 })
 export class AddNewPackageComponent implements OnInit {
-  user: any;
+  user: any = { _id:"id" };
   searchKeyword: string;
 
   constructor(public packageService: PackageService,

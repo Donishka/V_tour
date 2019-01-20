@@ -155,7 +155,6 @@ export class ItineraryComponent implements OnInit {
     });
   }
 
-  makePayment(){
-  }
+
 
 }

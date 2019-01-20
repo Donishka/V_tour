@@ -29,7 +29,6 @@ import { PaymentModule } from './modules/payment/payment.module';
 import { ItineraryModule } from './modules/itinerary/itinerary.module';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { SpPackageService } from '../app/services/sharedata/sp-package.service';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +55,7 @@ import { SpPackageService } from '../app/services/sharedata/sp-package.service';
     NgxSmartModalModule.forRoot(),
     PasswordResetModule,
     PasswordStrengthMeterModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
   ],
   providers: [AuthService, SharedataService, SpPackageService],
   bootstrap: [AppComponent]

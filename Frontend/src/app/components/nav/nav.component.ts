@@ -9,7 +9,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  user: any;
+  user: any = { fname: "First name", lname: "Last name", usertype:"usertype" };
+  //user: any;
   vroute: String = "Profile";
 
   constructor(

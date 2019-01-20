@@ -12,10 +12,12 @@
       <div *ngFor="let event of iT.events; let i = index">
         <h5 class="card-title" id="contentToConvert2">{{i+1}}. {{event.name}} </h5>
         <div>
-          <p id="contentToConvert3" *ngIf="event.payment_status!='not_paid'">Paid</p>
-          <button href="#" *ngIf="event.payment_status=='not_paid'" class="btn btn-primary" (click)="makePayment(iT._id,event.id)">Payment</button>
-          <p id="contentToConvert4" *ngIf="event.booking_status!='not_booked'">Booked</p>
-          <button href="#" *ngIf="event.booking_status=='not_booked'" class="btn btn-primary">Booking</button>
+          <button class="btn btn-link" *ngIf="event.sp_id!=null"  (click)="makeBooking(iT._id,event.id)">Contact Srivice Provider</button>
+          <button class="btn btn-link" *ngIf="event.sp_id!=null && event.payment_status=='not_paid'"  (click)="makePayment(iT._id,event.id)">Payment</button>
+          <button class="btn btn-link" *ngIf="event.sp_id!=null && event.booking_status=='not_booked'" >Confirm Booking</button>
+
+          <p id="contentToConvert4" *ngIf="event.sp_id!=null && event.booking_status!='not_booked'">Booked</p>
+          <p id="contentToConvert3" *ngIf="event.sp_id!=null && event.payment_status!='not_paid'">Paid</p>
         </div>
       </div>
       <button href="#" class="btn btn-primary" (click)="editItinerary(iT)">Edit</button>
@@ -31,3 +33,18 @@
     No Itineraries created yet...!
   </h2>
 </div>
+
+<p-dialog [(visible)]="display1" [modal]="true" [responsive]="true">
+  <div id="c1" class="container">
+    <form style="margin:10px">
+      <fieldset>
+        <h5>Compose Email Here</h5>
+        <hr>
+        <div class="form-group">
+          <textarea cols="50" rows="5" class="form-control" name="message" #name="ngModel" [(ngModel)]="message" required></textarea>
+        </div>
+        <button type="submit" (click)="booking(message)" class="btn btn-primary" style="float: right">Send Email</button>
+      </fieldset>
+    </form>
+  </div>
+</p-dialog>

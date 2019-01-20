@@ -9,8 +9,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./nav-white.component.css']
 })
 export class NavWhiteComponent implements OnInit {
-
-  user: any;
+  user: any = {usertype: "usertype" };
   vroute: String = 'Profile';
 
   constructor(
