@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
 
         ServiceProvider.findById(req.params.id, (err, doc) => {
         if (!err) { res.send(doc); }
-        else { console.log('Error in Retriving Service Provider :' + JSON.stringify(err, undefined, 2)); }
+        else { console.log('Error in Retriving Service Provider :' + JSON.stringify(err, undefined, 2)); res.send(false); }
     });
 });
 

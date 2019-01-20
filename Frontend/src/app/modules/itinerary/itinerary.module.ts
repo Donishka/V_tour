@@ -14,6 +14,7 @@ import { EditItineraryComponent } from '../../components/itinerary/edit-itinerar
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {MatAutocompleteModule, MatFormFieldModule, MatInputModule} from '@angular/material';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    DialogModule
   ],
   declarations: [
     EventComponent,

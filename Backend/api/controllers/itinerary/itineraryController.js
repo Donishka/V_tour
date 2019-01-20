@@ -1,8 +1,16 @@
 const express = require('express');
 var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
+var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
 
 var { Itinerary } = require('../../data/itinerary/itineraty.model.js');
+
+var transporter = nodemailer.createTransport(smtpTransport({
+    host: 'smtp.gmail.com', port: 465, secure: true, // 
+    service: 'Gmail', auth: { user: 'anemanda175@gmail.com', pass: 'vtourtempory' },
+    tls: { rejectUnauthorized: false }
+}));
 
 router.get('/', (req, res) => {
     Itinerary.find((err, docs) => {
@@ -82,5 +90,22 @@ router.delete('/:id', (req, res) => {
         else { console.log('Error in Itinerary Delete :' + JSON.stringify(err, undefined, 2)); }
     });
 });
+
+router.post('/email',(req,res)=>{
+    var mailOptions = {
+        from: 'anemanda175@gmail.com',
+        to: req.body.mail,
+        subject: 'Making a Booking',
+        html: req.body.msg,
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+    res.json({ state: true, msg: "Email sent sucessfully" });
+})
 
 module.exports = router;
