@@ -16,20 +16,22 @@
     <div class="row">
       <div class="col-sm-5 col-md-5">
         <div class="tabulation animate-box">
-
+          <div class="row">
+            <div class="col-md-6">
+              <label for="cost">Event type</label>
+              <select class="form-control" [(ngModel)]="formType">
+                <option>Hotel</option>
+                <option>Cutom</option>
+                <option>Travel</option>
+              </select>
+            </div>
+          </div>
 
           <form action="" [formGroup]="eventForm" (submit)="onSubmit()">
             <div class="form-group">
               <div class="row">
 
-                <div class="col-md-6">
-                  <label for="cost">Event type</label>
-                  <input type="text" formControlName="event_type" class="form-control" [(ngModel)]="formType">
-                  <!-- <select title="Pick a number" class="selectpicker" formControlName="event_type" [(ngModel)] = "fromType">
-                            <option value="Custome" selected="selected">Custom</option>
-                          </select> -->
 
-                </div>
 
                 <div class="col-md-6">
                   <label for="Name">Event Name</label>
@@ -59,6 +61,21 @@
                 <div class="col-md-6">
                   <label for="SP">SP</label>
                   <input type="text" formControlName="sp_id" class="form-control">
+                  <div>
+                    <form class="example-form">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Service Provider" aria-label="Client" [matAutocomplete]="auto"
+                          [formControl]="ServiceProviderCtrl">
+                      </mat-form-field>
+                      <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let client of filteredServiceProviders | async" [value]="client.fname">
+                          <span>{{client.fname}} </span>
+                          <small>City : </small>
+                        </mat-option>
+                      </mat-autocomplete>
+                      <br>
+                    </form>
+                  </div>
                 </div>
 
                 <div class="col-md-6">
@@ -406,13 +423,13 @@
 
         </div>
       </div>
-      <div class="desc2 animate-box">
+      <!-- <div class="desc2 animate-box">
         <div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
           <p>Create new Event</p>
           <h2>vTour Itinerary</h2>
           <h3>Itinerary One</h3>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 

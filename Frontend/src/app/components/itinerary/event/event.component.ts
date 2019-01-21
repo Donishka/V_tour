@@ -1,8 +1,15 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ItineraryService } from '../../../services/itinerary-service/itinerary.service';
 import { TravelagentPaymentService } from '../../../services/sharedata/travelagent-payment.service';
+import { ServiceProvider } from '../../../services/user-service/serviceProvider/serviceprovider.model';
+import { Package } from '../../../services/package-service/package.model';
+import { Observable } from 'rxjs';
+import { PackageService } from '../../../services/package-service/package.service';
+import { ServiceProviderService } from '../../../services/user-service/serviceProvider/serviceprovider.service';
+import { moveItemInArray, CdkDragDrop } from '@angular/cdk/drag-drop';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-event',
@@ -12,6 +19,7 @@ import { TravelagentPaymentService } from '../../../services/sharedata/travelage
 })
 export class EventComponent implements OnInit {
 
+
   public eventForm: FormGroup;
   public minimum_date: string;
   public check_in_time = false; // for loading purpose
@@ -19,20 +27,79 @@ export class EventComponent implements OnInit {
   public travel_category = false; // for travel purpose
   public depature_time = false; // When travel by train
   public event_type = false; 
+  ServiceProviderCtrl = new FormControl();
+  PackageCtrl = new FormControl();
+
+  filteredServiceProviders: Observable<ServiceProvider[]>;
+  filteredPackages: Observable<Package[]>;
+
+  serviceProviders: ServiceProvider[] = [{_id:"string",
+    fname:"Danu",
+    username:"string",
+    password:"string",
+    email:"string",
+    telephone:["[string]"],
+    address:"string",
+    type:"string",
+    discription:"string",
+    profilepic: "string"
+},{_id:"string",
+fname:"ih",
+username:"string",
+password:"string",
+email:"string",
+telephone:["[string]"],
+address:"string",
+type:"string",
+discription:"string",
+profilepic: "string"
+}];
+  packages: Package[] = [];
 
   formType:String = "Custom";
+  
+
+  public ServiceProviderService : ServiceProviderService;
+  public PackageService : PackageService;
 
   constructor(
+    
+
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<EventComponent>,
     private eventService: ItineraryService,
     public travelagentPaymentService: TravelagentPaymentService,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: any
     
 
   ) { 
-    //this.formType  = this.eventForm.controls['event_type'].value;
-   // console.log(this.formType);
+   // this.formType  = this.eventForm.controls['event_type'].value;
+    //console.log(this.formType);
+
+
+   this.filteredPackages = this.PackageCtrl.valueChanges
+   .pipe(
+     startWith(''),
+     map(pkg => pkg ? this.Pkg_filterStates(pkg) : this.packages.slice())
+   );
+
+   this.filteredServiceProviders = this.ServiceProviderCtrl.valueChanges
+      .pipe(
+        startWith(''),
+        map(sp => sp ? this.SP_filterStates(sp) : this.serviceProviders.slice())
+      );
+
+   
+  }
+
+  private SP_filterStates(value: string): ServiceProvider[] {
+    const filterValue = value.toLowerCase();
+    return this.serviceProviders.filter(sp => sp.fname.toLowerCase().indexOf(filterValue) === 0);
+  } 
+
+  private Pkg_filterStates(value: string): Package[] {
+    const filterValue = value.toLowerCase();
+    return this.packages.filter(pkg => pkg.name.toLowerCase().indexOf(filterValue) === 0);
   }
 
   onNoClick(): void {
@@ -58,6 +125,9 @@ export class EventComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    //this.get_SP_PKG();
+
     this.minimum_date = this.min_date();
     this.eventForm = this.formBuilder.group({
       id: [this.data.id],
@@ -80,7 +150,28 @@ export class EventComponent implements OnInit {
 
     });
 
+    
+
   }
+
+get_SP_PKG(){
+
+  this.ServiceProviderService.getServiceProviderList().subscribe((res) => {
+    this.ServiceProviderService.sp = res as ServiceProvider[];
+    this.serviceProviders = this.ServiceProviderService.sp;
+    console.log("SP lsit: "+this.serviceProviders);
+    
+  });
+
+  this.PackageService.getPackageList().subscribe((res) => {
+    this.PackageService.package = res as Package[];
+    this.packages = this.PackageService.package;
+    console.log("packages list: "+this.packages);
+    
+  });
+
+}
+
   onSubmit() {
     if (isNaN(this.data.id)) {
       this.eventService.addEvent(this.eventForm.value);
