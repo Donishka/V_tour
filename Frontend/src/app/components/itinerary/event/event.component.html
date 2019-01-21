@@ -28,6 +28,7 @@
           </div>
 
           <form action="" [formGroup]="eventForm" (submit)="onSubmit()">
+              <input type="hidden" formControlName="event_type" class="form-control" [(ngModel)]="formType">
             <div class="form-group">
               <div class="row">
 
@@ -53,30 +54,39 @@
                   <input type="date" formControlName="date_to" [value]="minimum_date" [min]="minimum_date" class="form-control">
                 </div>
 
-                <div class="col-md-6">
-                  <label for="packages">Package</label>
-                  <input type="text" formControlName="pkg_id" class="form-control">
-                </div>
+                
 
                 <div class="col-md-6">
-                  <label for="SP">SP</label>
-                  <input type="text" formControlName="sp_id" class="form-control">
-                  <div>
                     <form class="example-form">
+                        <label for="packages">SP username</label>
                       <mat-form-field class="example-full-width">
                         <input matInput placeholder="Service Provider" aria-label="Client" [matAutocomplete]="auto"
                           [formControl]="ServiceProviderCtrl">
                       </mat-form-field>
                       <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngFor="let client of filteredServiceProviders | async" [value]="client.fname">
+                        <mat-option *ngFor="let client of filteredServiceProviders | async" [value]="client.username">
                           <span>{{client.fname}} </span>
-                          <small>City : </small>
+                          <small>type : {{client.type}} </small>
                         </mat-option>
                       </mat-autocomplete>
-                      <br>
+                      
+                      <button (click)=" getPkgs()" class="btn btn-success">Check</button>
                     </form>
                   </div>
-                </div>
+                  <input type="type="hidden formControlName="sp_id" class="form-control" [(ngModel)]="Sp_id">
+                <!-- <div class="col-md-6">
+                  <label for="SP">SP </label>
+                  
+                </div> -->
+
+                <div class="col-md-6">
+                    <label for="packages">Package</label>
+                    <!-- <input type="text"  class="form-control"> -->
+                    <select class="form-control" formControlName="pkg_id">
+                      <option value="">Select a SP</option>
+                      <option *ngFor="let a of pkgs" [value]="a._id"> {{a.name}} </option>{{a._id}}
+                    </select>
+                  </div>
 
                 <div class="col-md-6">
                   <label for="description">Description</label>

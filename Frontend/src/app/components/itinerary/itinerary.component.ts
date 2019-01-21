@@ -33,6 +33,7 @@ export class ItineraryComponent implements OnInit {
   note: String = "Client Name";
   clientId: String = "";
   clients: Client[] = [];
+  ClientName:String;
   
   constructor(
     public clientService:ClientService,
@@ -62,6 +63,7 @@ export class ItineraryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.ClientName = "";
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
@@ -80,7 +82,7 @@ export class ItineraryComponent implements OnInit {
     });
   }
   get EventList() {
-    console.log(JSON.stringify(this.eventService.getAllEvents()));
+    //console.log(JSON.stringify(this.eventService.getAllEvents()));
     return this.eventService.getAllEvents();
   }
 
@@ -99,10 +101,13 @@ export class ItineraryComponent implements OnInit {
     for(var i in this.clients){
       if(this.clients[i].email == this.clientCtrl.value){
         this.clientId = this.clients[i]._id;
+        this.ClientName = this.clients[i].fname;
+        break;
       }
     }
+    
 
-    this.clients
+   
   }
 
   addEvent() {
@@ -138,7 +143,7 @@ export class ItineraryComponent implements OnInit {
 
     console.log("In add itinerary" + this.itineraryName);
     this.itinerary.name = this.itineraryName;
-    this.itinerary.note = this.note;
+    this.itinerary.note = this.ClientName;
     this.itinerary.date_time = this.itineraryService.getDate();
     this.itinerary.totalPrice = this.getTotalAmount(this.EventList);
     this.itinerary.clientId = this.clientId;
