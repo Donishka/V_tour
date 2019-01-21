@@ -64,8 +64,8 @@ router.put('/:id', (req, res) => {
             name: req.body.name,
             traveAgentName: req.body.traveAgentName,
             events: req.body.events,
-            clientId: req.body.clientId,
-            totalPrice: req.body.totPrice
+            //clientId: req.body.clientId,
+            totalPrice: req.body.totalPrice
         }
     }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }

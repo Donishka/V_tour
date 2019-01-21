@@ -6,6 +6,6 @@ export class Itinerary {
     note:String;
     traveAgentName:string;
     events:Event[];
-    clientId:String;
-    totalPrice:number;
+    clientId ?: String;
+    totalPrice ?: number;
 }

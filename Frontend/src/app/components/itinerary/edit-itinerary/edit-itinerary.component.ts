@@ -97,6 +97,7 @@ export class EditItineraryComponent implements OnInit {
     var tot = 0;
     for (var i in eventList) {
       tot = tot + eventList[i].price;
+      console.log("Total price in edit itinerary mood: "+tot);
     }
     return tot;
   }
@@ -136,6 +137,7 @@ export class EditItineraryComponent implements OnInit {
     this.itinerary._id = this.id;
     this.itinerary.events = this.itineraryService.getAllEvents();
     this.itinerary.totalPrice = this.getTotalAmount(this.EventList);
+    console.log("add itineray total cost: "+ this.itinerary.totalPrice);
     this.itineraryService.putItinerry(this.itinerary).subscribe((res) => {
 
       alert('Itinerary Updated');
