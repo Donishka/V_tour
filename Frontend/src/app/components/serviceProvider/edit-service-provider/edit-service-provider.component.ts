@@ -19,7 +19,7 @@ const URL = 'http://localhost:4201/serviceproviders/api/upload';
   providers:[ServiceProviderService]
 })
 export class EditServiceProviderComponent implements OnInit {
-user:any;
+  user: any = { _id: "id" };
 rePassword:any;
   constructor(public serviceProviderService:ServiceProviderService,
     private authService:AuthService,

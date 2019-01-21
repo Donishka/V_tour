@@ -20,7 +20,7 @@ const URL = 'http://localhost:4201/travelagents/api/upload';
   providers: [TravelAgentService]
 })
 export class EditTravelAgentComponent implements OnInit {
-  user: any;
+  user: any = {_id:"id"};
   rePassword:any;
   constructor(public travelAgentService: TravelAgentService,
     private authService: AuthService,

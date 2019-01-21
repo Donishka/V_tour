@@ -1,19 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ItineraryService } from '../../../services/itinerary-service/itinerary.service';
 import { Itinerary } from '../../../services/itinerary-service/model/itinerary.model';
 import { SharedataService } from '../../../services/sharedata/sharedata.service';
 import { EditItineraryComponent } from '../edit-itinerary/edit-itinerary.component';
 import { ItineraryComponent } from '../itinerary.component';
+import { TravelagentPaymentService } from '../../../services/sharedata/travelagent-payment.service';
+import { ServiceProviderService} from '../../../services/user-service/serviceProvider/serviceprovider.service'
+import { PackageService } from './../../../services/package-service/package.service';
+
 import { MatDialog } from '@angular/material';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas'; 
-import { TravelagentPaymentService } from '../../../services/sharedata/travelagent-payment.service';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-view-itinerary',
   templateUrl: './view-itinerary.component.html',
-  styleUrls: ['./view-itinerary.component.css']
+  styleUrls: ['./view-itinerary.component.css'],
+  providers: [ServiceProviderService,PackageService]
 })
 export class ViewItineraryComponent implements OnInit {
 
@@ -21,11 +28,20 @@ export class ViewItineraryComponent implements OnInit {
   view: boolean = true;
   isPopupOpened = false;
   Itinerary: any;
-
+  message:any;
+  data: any;
+  user: any;
+  package: any;
+  event: any;
+  sp: any;
+  spid: any;
+  mail:any;
   constructor(
     public itineraryService: ItineraryService,
     private dataS: SharedataService,
     public travelagentPaymentService: TravelagentPaymentService,
+    private serviceProviderService: ServiceProviderService,
+    private packageService:PackageService,
     private router: Router,
     private spinner: NgxSpinnerService,
     private dialog?: MatDialog
@@ -105,6 +121,40 @@ export class ViewItineraryComponent implements OnInit {
     this.travelagentPaymentService.index=eventIndex;
     this.router.navigateByUrl('/travel-agent-payment');
 
+  }
+
+  display1: boolean = false;
+  makeBooking(Itenararyid: string, eventIndex: number) {
+    this.travelagentPaymentService.itenararyid = Itenararyid;
+    this.travelagentPaymentService.index = eventIndex;
+
+    this.itineraryService.getOneItinerry(this.travelagentPaymentService.itenararyid).subscribe((res) => {
+      this.data = res;
+      this.event = this.data.events[this.travelagentPaymentService.index - 1];
+      this.spid = this.event.sp_id;
+      
+      this.serviceProviderService.get1ServiceProvider(this.spid).subscribe((res:any) => {
+        this.sp = res;
+        console.log(res);
+        if (res) {
+          this.display1 = true;
+        } else {
+          console.log("B")
+        }
+      })
+      this.packageService.getOnePackageList(this.event.pkg_id).subscribe((res) => {
+        this.package = res;
+      })
+    });
+    
+  }
+
+  booking(message: any) {
+    this.mail={msg:message,mail:this.sp.email}
+    this.itineraryService.postEmail(this.mail).subscribe((res:any) => {
+    alert(res.msg);
+    this.display1 = false;
+    });
   }
 
 }

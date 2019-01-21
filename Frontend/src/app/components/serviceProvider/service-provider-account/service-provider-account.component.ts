@@ -7,6 +7,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 
 import { ServiceProviderService } from '../../../services/user-service/serviceProvider/serviceprovider.service';
 import { ServiceProvider } from '../../../services/user-service/serviceProvider/serviceprovider.model';
+import { isNullOrUndefined } from 'util';
 
 @Component({
   selector: 'app-service-provider-account',
@@ -16,7 +17,7 @@ import { ServiceProvider } from '../../../services/user-service/serviceProvider/
 })
 export class ServiceProviderAccountComponent implements OnInit {
 
-  user:any;
+  user: any = { profilepic: null, lname: "Last name", usertype: "travelagent" };
   constructor(
     private authService:AuthService,
     private router:Router,

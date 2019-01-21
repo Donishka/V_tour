@@ -59,9 +59,11 @@ export class ItineraryService {
   getItinerrytList(itinerary: Itinerary) {
     return this.http.get(this.baseURL + `/${itinerary.traveAgentName}`);
   }
+
   getItinerrytList1() {
     return this.http.get(this.baseURL);
   }
+
   getOneItinerry(id: String) {
     return this.http.get(this.baseURL + `/id/` + `${id}`);
   }
@@ -72,6 +74,11 @@ export class ItineraryService {
 
   deleteItinerary(_id: String) {
     return this.http.delete(this.baseURL + `/${_id}`);
+  }
+
+  postEmail(message:any){
+    console.log(this.baseURL + `/email`);
+    return this.http.post(this.baseURL+`/email`, message);
   }
 
 }

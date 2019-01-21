@@ -24,7 +24,7 @@ export class ClientAccountComponent implements OnInit {
   view: boolean = true;
   isPopupOpened = false;
   Itinerary: any;
-  user: any;
+  user: any = { profilepic: "profilepic" };
 
   constructor(
     private authService: AuthService,
