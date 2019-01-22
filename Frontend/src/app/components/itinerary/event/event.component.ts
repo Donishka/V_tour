@@ -42,6 +42,8 @@ export class EventComponent implements OnInit {
   formType: String = "Custom";
   Sp_name:String;
   Sp_id:String;
+  price:number;
+  location:String[] = [];
 
 
 
@@ -74,6 +76,15 @@ export class EventComponent implements OnInit {
       );
 
  this.getPkgs();
+  }
+
+  setCost(){
+    for(var i in this.packages){
+      if(this.pkgs[i]._id == this.eventForm.value.pkg_id){
+        this.eventForm.patchValue({cost: this.pkgs[i].price});
+        break;
+      }
+    }
   }
 
 
@@ -136,6 +147,11 @@ var count = 0;
     return min_date;
   }
 
+  setLocation(){
+    
+    this.eventForm.patchValue({location: "" });
+  }
+
   ngOnInit() {
 
     this.get_SP_PKG();
@@ -151,6 +167,7 @@ var count = 0;
       description: [this.data.description],
       sp_id: [this.data.sp_id],
       pkg_id: [this.data.pkg_id],
+      location: [this.data.location],
       cost: [this.data.cost, [Validators.required]],
       check_in_time: [this.data.check_in_time], // for loading purpose
       duration: [this.data.duration], // for hotel

@@ -13,6 +13,7 @@ var Event = mongoose.model('Event', {
     venue: {
         type: String,
     },
+    location: [String],
 
     date_from: { type: String },
 

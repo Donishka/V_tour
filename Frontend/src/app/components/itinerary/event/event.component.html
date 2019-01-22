@@ -82,7 +82,7 @@
                 <div class="col-md-6">
                     <label for="packages">Package</label>
                     <!-- <input type="text"  class="form-control"> -->
-                    <select class="form-control" formControlName="pkg_id">
+                    <select class="form-control" formControlName="pkg_id" (ngModelChange)="setCost()">
                       <option value="">Select a SP</option>
                       <option *ngFor="let a of pkgs" [value]="a._id"> {{a.name}} </option>{{a._id}}
                     </select>
@@ -95,7 +95,7 @@
 
                 <div class="col-md-6">
                   <label for="Name">price</label>
-                  <input type="number" formControlName="price" class="form-control">
+                  <input type="number" formControlName="price" class="form-control" [(ngModel)] = "price">
                 </div>
 
                 <div class="col-md-6">
