@@ -106,6 +106,44 @@ router.post('/email',(req,res)=>{
         }
     });
     res.json({ state: true, msg: "Email sent sucessfully" });
-})
+});
+
+
+router.put('/paymentstatus/:id', (req, res) => {
+    var index=req.body.eventIndex-1;
+    console.log(req.body.Itenararyid);
+    Itinerary.findOneAndUpdate(
+    {
+        "_id": req.body.Itenararyid,
+        "events._id": req.body.eventId,
+    },
+    {
+        "$set": {
+                'events.$.payment_status': "paid"
+        }
+    }, 
+    { new: true }, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in Itinerary Update :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+
+router.put('/booking/:id', (req, res) => {
+    var index = req.body.eventIndex - 1;
+    Itinerary.findOneAndUpdate(
+        {
+            "_id": req.body.Itenararyid,
+            "events._id": req.body.eventId,
+        },
+        {
+            "$set": {
+                'events.$.booking_status': "paid"
+            }
+        },
+        { new: true }, (err, doc) => {
+            if (!err) { res.send(doc); }
+            else { console.log('Error in Itinerary Update :' + JSON.stringify(err, undefined, 2)); }
+        });
+});
 
 module.exports = router;
