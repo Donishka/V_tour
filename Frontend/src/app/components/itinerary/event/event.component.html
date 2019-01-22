@@ -69,16 +69,15 @@
                       <button (click)=" getPkgs()" class="btn btn-success">Check</button>
                     </form>
                   </div>
-                  <input type="type="hidden formControlName="sp_id" class="form-control" [(ngModel)]="Sp_id">
+                  <input type="hidden" formControlName="sp_id" class="form-control" [(ngModel)]="Sp_id">
+                  
 
                 <div class="col-md-6">
                     <label for="packages">Package</label>
-<<<<<<< HEAD
+                    <input type="hidden" formControlName="lng" class="form-control" [(ngModel)]="lng"  >
+                  <input type="hidden" formControlName="lat" class="form-control" [(ngModel)]="lat" >
                     <!-- <input type="text"  class="form-control"> -->
                     <select class="form-control" formControlName="pkg_id" (ngModelChange)="setCost()">
-=======
-                    <select class="form-control" formControlName="pkg_id">
->>>>>>> d9f237d37cf62f66e5c4fbe89aa7d62b2190f2e2
                       <option value="">Select a SP</option>
                       <option *ngFor="let a of pkgs" [value]="a._id"> {{a.name}} </option>{{a._id}}
                     </select>
@@ -429,13 +428,15 @@
 
         </div>
       </div>
-      <!-- <div class="desc2 animate-box">
-        <div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
-          <p>Create new Event</p>
-          <h2>vTour Itinerary</h2>
-          <h3>Itinerary One</h3>
-        </div>
-      </div> -->
+      <div class="col-md-6">
+       
+        <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onChoseClick($event)">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+
+        <button class="btn btn-success" (click)="setLocation()"> Pic Location</button>
+      </div> 
+      
     </div>
   </div>
 

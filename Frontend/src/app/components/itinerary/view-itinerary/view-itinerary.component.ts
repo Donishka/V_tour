@@ -38,6 +38,11 @@ export class ViewItineraryComponent implements OnInit {
   mail:any;
   paymentdata:any;
 
+  lat: number = 6.978554010342724;
+  lng: number = 79.96221732040647;
+
+  positions:any[]=[];
+
   constructor(
     public itineraryService: ItineraryService,
     private dataS: SharedataService,
@@ -54,6 +59,15 @@ export class ViewItineraryComponent implements OnInit {
       this.itinerary.traveAgentName = traveAgentdata.username;
       this.refreshItinerryList();
     });
+  }
+
+  map(tourm:Itinerary){
+    this.positions = [];
+    for(var i in tourm.events){
+      this.positions[i] = {name: tourm.events[i].venue, lat: tourm.events[i].lat, lng: tourm.events[i].lng };
+    }
+    this.display = true;
+    console.log(JSON.stringify(this.positions));
   }
 
   editItinerary(itinerary: Itinerary) {
@@ -127,6 +141,7 @@ export class ViewItineraryComponent implements OnInit {
   }
 
   display1: boolean = false;
+  display: boolean = false;
 
   makeBooking(Itenararyid: string, eventIndex: number) {
     this.travelagentPaymentService.itenararyid = Itenararyid;
