@@ -36,6 +36,8 @@ export class ViewItineraryComponent implements OnInit {
   sp: any;
   spid: any;
   mail:any;
+  paymentdata:any;
+
   constructor(
     public itineraryService: ItineraryService,
     private dataS: SharedataService,
@@ -59,7 +61,6 @@ export class ViewItineraryComponent implements OnInit {
     this.itineraryService.id = itinerary._id;
     console.log("id " + this.itineraryService.id);
     const dialogRef = this.dialog.open(EditItineraryComponent, {
-
       data: { id: this.itineraryService.id,
               itineraryName : itinerary.name,
               note: itinerary.note
@@ -71,8 +72,8 @@ export class ViewItineraryComponent implements OnInit {
       this.refreshItinerryList();
     });
     this.itineraryService.eventList = [];
-
   }
+
   deleteItinerary(id: String) {
     this.itineraryService.deleteItinerary(id).subscribe(res => {
       alert("Itinerary deleted");
@@ -116,14 +117,17 @@ export class ViewItineraryComponent implements OnInit {
     });
   } 
 
-  makePayment(Itenararyid:string,eventIndex:number){
+  makePayment(Itenararyid:string,eventIndex:number,eventId:string){
+    this.paymentdata={Itenararyid,eventIndex,eventId}
+    this.itineraryService.changePaymentStatus(this.paymentdata).subscribe((res)=>{
+    })
     this.travelagentPaymentService.itenararyid=Itenararyid;
     this.travelagentPaymentService.index=eventIndex;
     this.router.navigateByUrl('/travel-agent-payment');
-
   }
 
   display1: boolean = false;
+
   makeBooking(Itenararyid: string, eventIndex: number) {
     this.travelagentPaymentService.itenararyid = Itenararyid;
     this.travelagentPaymentService.index = eventIndex;
@@ -155,6 +159,13 @@ export class ViewItineraryComponent implements OnInit {
     alert(res.msg);
     this.display1 = false;
     });
+  }
+
+  confirmBooking(Itenararyid: string, eventIndex: number, eventId: string){
+    this.paymentdata = { Itenararyid, eventIndex, eventId }
+    this.itineraryService.changeBookingStatus(this.paymentdata).subscribe((res) => {
+    });
+    this.refreshItinerryList();
   }
 
 }

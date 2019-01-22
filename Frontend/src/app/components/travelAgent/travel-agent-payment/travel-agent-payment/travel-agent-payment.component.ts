@@ -38,7 +38,7 @@ export class TravelAgentPaymentComponent implements OnInit {
   ) { }
 
   data:any;
-  user:any;
+  user: any = { fname: "First name"};  
   package:any;
   event:any;
   sp:any;
