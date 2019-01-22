@@ -10,8 +10,7 @@ import { PackageService } from '../../../services/package-service/package.servic
 import { ServiceProviderService } from '../../../services/user-service/serviceProvider/serviceprovider.service';
 import { moveItemInArray, CdkDragDrop } from '@angular/cdk/drag-drop';
 import { map, startWith } from 'rxjs/operators';
-import { Jsonp } from '@angular/http';
-import { SrvRecord } from 'dns';
+
 
 @Component({
   selector: 'app-event',
