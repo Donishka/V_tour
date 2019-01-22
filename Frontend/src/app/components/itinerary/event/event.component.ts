@@ -12,6 +12,7 @@ import { moveItemInArray, CdkDragDrop } from '@angular/cdk/drag-drop';
 import { map, startWith } from 'rxjs/operators';
 import { Jsonp } from '@angular/http';
 
+
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
