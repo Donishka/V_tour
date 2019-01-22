@@ -11,7 +11,6 @@ import { ServiceProviderService } from '../../../services/user-service/servicePr
 import { moveItemInArray, CdkDragDrop } from '@angular/cdk/drag-drop';
 import { map, startWith } from 'rxjs/operators';
 import { Jsonp } from '@angular/http';
-import { SrvRecord } from 'dns';
 
 @Component({
   selector: 'app-event',

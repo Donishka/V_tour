@@ -77,8 +77,14 @@ export class ItineraryService {
   }
 
   postEmail(message:any){
-    console.log(this.baseURL + `/email`);
     return this.http.post(this.baseURL+`/email`, message);
+  }
+
+  changeBookingStatus(data: any) {
+    return this.http.put(this.baseURL + `/booking` + `/${data.Itenararyid}`, data);
+  }
+  changePaymentStatus(data: any) {
+    return this.http.put(this.baseURL + `/paymentstatus`+`/${data.Itenararyid}`, data);
   }
 
 }
