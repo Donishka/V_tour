@@ -15,7 +15,7 @@
           <div class="row">
             <div class="col-md-6">
               <label for="cost">Event type</label>
-              <select class="form-control" [(ngModel)]="formType">
+              <select class="form-control" [(ngModel)]="formType" required>
                 <option>Hotel</option>
                 <option>Custom</option>
                 <option>Travel</option>
@@ -32,12 +32,12 @@
 
                 <div class="col-md-6">
                   <label for="Name">Event Name</label>
-                  <input type="text" formControlName="name" class="form-control">
+                  <input type="text" formControlName="name" class="form-control" required>
                 </div>
 
                 <div class="col-md-6">
-                  <label for="Venue">Venue</label>
-                  <input type="text" formControlName="venue" class="form-control">
+                  <label for="Venue">Location Name</label>
+                  <input type="text" formControlName="venue" class="form-control" required>
                 </div>
 
                 <div class="col-md-6">
@@ -67,7 +67,7 @@
                         <label for="packages">SP username</label>
                       <mat-form-field class="example-full-width">
                         <input matInput placeholder="Service Provider" aria-label="Client" [matAutocomplete]="auto"
-                          [formControl]="ServiceProviderCtrl" [(ngModel)] = "SPusername">
+                          [formControl]="ServiceProviderCtrl" [(ngModel)] = "SPusername" required>
                       </mat-form-field>
                       <mat-autocomplete #auto="matAutocomplete">
                         <mat-option *ngFor="let client of filteredServiceProviders | async" [value]="client.username">
@@ -88,7 +88,7 @@
                     <label for="packages">Package</label>
                     
                     <!-- <input type="text"  class="form-control"> -->
-                    <select class="form-control" formControlName="pkg_id" (ngModelChange)="setCost()">
+                    <select class="form-control" formControlName="pkg_id" (ngModelChange)="setCost()" required>
                       <option value="pol" selected="selected">{{SelectedPkg}}</option>
                       <option *ngFor="let a of pkgs" [value]="a._id"> {{a.name}} </option>{{a._id}}
                     </select>
@@ -100,12 +100,12 @@
                 </div>
 
                 <div class="col-md-6">
-                  <label for="Name">price</label>
+                  <label for="Name">price</label required>
                   <input type="number" formControlName="price" class="form-control" >
                 </div>
 
                 <div class="col-md-6">
-                  <label for="cost">cost</label>
+                  <label for="cost">cost</label required>
                   <input type="number" formControlName="cost" class="form-control">
                 </div>
 
