@@ -73,12 +73,8 @@
 
                 <div class="col-md-6">
                     <label for="packages">Package</label>
-<<<<<<< HEAD
                     <!-- <input type="text"  class="form-control"> -->
                     <select class="form-control" formControlName="pkg_id" (ngModelChange)="setCost()">
-=======
-                    <select class="form-control" formControlName="pkg_id">
->>>>>>> d9f237d37cf62f66e5c4fbe89aa7d62b2190f2e2
                       <option value="">Select a SP</option>
                       <option *ngFor="let a of pkgs" [value]="a._id"> {{a.name}} </option>{{a._id}}
                     </select>
