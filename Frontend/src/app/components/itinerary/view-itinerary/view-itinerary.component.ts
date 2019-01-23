@@ -178,6 +178,7 @@ export class ViewItineraryComponent implements OnInit {
   }
 
   confirmBooking(Itenararyid: string, eventIndex: number, eventId: string){
+    this.refreshItinerryList();
     this.paymentdata = { Itenararyid, eventIndex, eventId }
     this.itineraryService.changeBookingStatus(this.paymentdata).subscribe((res) => {
     });
