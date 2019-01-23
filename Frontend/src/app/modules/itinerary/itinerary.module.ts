@@ -12,7 +12,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ViewItineraryComponent } from '../../components/itinerary/view-itinerary/view-itinerary.component';
 import { EditItineraryComponent } from '../../components/itinerary/edit-itinerary/edit-itinerary.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import {MatAutocompleteModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import { MatAutocompleteModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { DialogModule } from 'primeng/dialog';
 import { AgmCoreModule } from '@agm/core';
@@ -44,17 +44,17 @@ import { AgmCoreModule } from '@agm/core';
     ViewItineraryComponent,
     EditItineraryComponent
   ],
-  exports:[
+  exports: [
     EventComponent,
     ItineraryComponent,
     ViewItineraryComponent,
     EditItineraryComponent
   ],
-  providers:[
+  providers: [
     ItineraryService,
     { provide: MAT_DIALOG_DATA, useValue: {} },
-     { provide: MatDialogRef, useValue: {} }
+    { provide: MatDialogRef, useValue: {} }
   ],
-  entryComponents:[EventComponent]
+  entryComponents: [EventComponent]
 })
 export class ItineraryModule { }
