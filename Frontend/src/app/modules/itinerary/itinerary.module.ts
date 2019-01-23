@@ -15,9 +15,13 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import {MatAutocompleteModule, MatFormFieldModule, MatInputModule} from '@angular/material';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { DialogModule } from 'primeng/dialog';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA47KAw6KspzlmDSqtmVZodOu212gJwMAw'
+    }),
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

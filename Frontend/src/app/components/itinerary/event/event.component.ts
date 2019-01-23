@@ -45,6 +45,8 @@ export class EventComponent implements OnInit {
   Sp_id:String;
   price:number;
   location:String[] = [];
+  lat: number = 6.978554010342724;
+  lng: number = 79.96221732040647;
 
 
 
@@ -116,6 +118,12 @@ var count = 0;
     
   }
 
+  onChoseClick(event){
+    console.log(event);
+    this.lat = event.coords.lat;
+    this.lng = event.coords.lng;
+  }
+
   private SP_filterStates(value: string): ServiceProvider[] {
     const filterValue = value.toLowerCase();
     return this.serviceProviders.filter(sp => sp.fname.toLowerCase().indexOf(filterValue) === 0);
@@ -150,7 +158,9 @@ var count = 0;
 
   setLocation(){
     
-    this.eventForm.patchValue({location: "" });
+    this.eventForm.patchValue({lng: this.lng });
+    this.eventForm.patchValue({lat: this.lat });
+    console.log(this.eventForm.value.location);
   }
 
   ngOnInit() {
@@ -168,7 +178,8 @@ var count = 0;
       description: [this.data.description],
       sp_id: [this.data.sp_id],
       pkg_id: [this.data.pkg_id],
-      location: [this.data.location],
+      lng: [this.data.lng],
+      lat: [this.data.lat],
       cost: [this.data.cost, [Validators.required]],
       check_in_time: [this.data.check_in_time], // for loading purpose
       duration: [this.data.duration], // for hotel
@@ -182,6 +193,10 @@ var count = 0;
     console.log("wvt tyo pera"+ this.formType);
     this.formType = this.eventForm.value.event_type;
     console.log("wvt tyo pasu"+ this.formType);
+   // this.lng = this.eventForm.value.lng;
+    //this.lat = this.eventForm.value.lat;
+
+    //console.log("lat "+this.eventForm.value.lng +" lng "+this.eventForm.value.lat);
 
 
 

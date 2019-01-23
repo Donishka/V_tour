@@ -1,5 +1,6 @@
 <app-nav-white></app-nav-white>
 <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+ 
 <div class="container" *ngIf="view">
   <div class="card" *ngFor="let iT of itineraryService.iT; let i = index">
     <div class="card-header" id="contentToConvert1">
@@ -20,7 +21,9 @@
           <p id="contentToConvert3" *ngIf="event.sp_id!=null && event.payment_status!='not_paid'">Paid</p>
         </div>
       </div>
-      <button href="#" class="btn btn-primary" (click)="editItinerary(iT)">Edit</button>
+      <button href="#" class="btn btn-primary" (click)="editItinerary(iT)">Edit</button> 
+      <hr>
+      <button href="#" class="btn btn-primary" (click)="map(iT)">View Map </button>
       <hr>
       <button href="#" class="btn btn-primary" (click)="deleteItinerary(iT._id)">Delete</button>
     </div>
@@ -47,3 +50,17 @@
     </form>
   </div>
 </p-dialog>
+<div>
+
+</div>
+<p-dialog [(visible)]="display" [modal]="true" [responsive]="true" [width]="900">
+  <div >
+       
+    <agm-map [latitude]="lat" [longitude]="lng">
+      <agm-marker *ngFor ="let p of positions" [latitude]="p.lat" [longitude]="p.lng">{{p.venue}}</agm-marker>
+    </agm-map>
+  
+  </div>
+
+</p-dialog>
+

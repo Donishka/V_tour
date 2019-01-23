@@ -13,7 +13,12 @@ var Event = mongoose.model('Event', {
     venue: {
         type: String,
     },
-    location: [String],
+    lng: { 
+        type: String 
+    },
+    lat: { 
+        type: String 
+    },
 
     date_from: { type: String },
 
@@ -34,7 +39,7 @@ var Event = mongoose.model('Event', {
     depature_time: { type: String }, // When travel by train
     event_type: { type: String }, // for editing purpose
     travel_category: { type: String },
-    
+
     payment_status: { type: String },
     booking_status: { type: String }
 
