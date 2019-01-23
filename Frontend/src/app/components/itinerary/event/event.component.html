@@ -42,12 +42,22 @@
 
                 <div class="col-md-6">
                   <label for="date_from">Date from</label>
-                  <input type="date" formControlName="date_from" [value]="minimum_date" [min]="minimum_date" class="form-control">
+                  <input type="date" formControlName="date_from"  [min]="minimum_date" class="form-control">
                 </div>
 
                 <div class="col-md-6">
                   <label for="date_to">Date to</label>
-                  <input type="date" formControlName="date_to" [value]="minimum_date" [min]="minimum_date" class="form-control">
+                  <input type="date" formControlName="date_to"  [min]="minimum_date" class="form-control">
+                </div>
+
+                <div class="col-md-6"  *ngIf="formType != 'Travel' && formType != 'Hotel'">
+                  <label for="in_time">Time In</label>
+                  <input type="time" formControlName="intime"  class="form-control" >
+                </div>
+
+                <div class="col-md-6"  *ngIf="formType != 'Travel' && formType != 'Hotel'" >
+                  <label for="in_time">End time</label>
+                  <input type="time" formControlName="outtime"  class="form-control" >
                 </div>
 
                 
@@ -57,7 +67,7 @@
                         <label for="packages">SP username</label>
                       <mat-form-field class="example-full-width">
                         <input matInput placeholder="Service Provider" aria-label="Client" [matAutocomplete]="auto"
-                          [formControl]="ServiceProviderCtrl">
+                          [formControl]="ServiceProviderCtrl" [(ngModel)] = "SPusername">
                       </mat-form-field>
                       <mat-autocomplete #auto="matAutocomplete">
                         <mat-option *ngFor="let client of filteredServiceProviders | async" [value]="client.username">
@@ -70,15 +80,16 @@
                     </form>
                   </div>
                   <input type="hidden" formControlName="sp_id" class="form-control" [(ngModel)]="Sp_id">
+                  <input type="hidden" formControlName="lng" class="form-control" [(ngModel)]="lng"  >
+                  <input type="hidden" formControlName="lat" class="form-control" [(ngModel)]="lat" >
                   
 
                 <div class="col-md-6">
                     <label for="packages">Package</label>
-                    <input type="hidden" formControlName="lng" class="form-control" [(ngModel)]="lng"  >
-                  <input type="hidden" formControlName="lat" class="form-control" [(ngModel)]="lat" >
+                    
                     <!-- <input type="text"  class="form-control"> -->
                     <select class="form-control" formControlName="pkg_id" (ngModelChange)="setCost()">
-                      <option value="">Select a SP</option>
+                      <option value="pol" selected="selected">{{SelectedPkg}}</option>
                       <option *ngFor="let a of pkgs" [value]="a._id"> {{a.name}} </option>{{a._id}}
                     </select>
                   </div>
@@ -90,7 +101,7 @@
 
                 <div class="col-md-6">
                   <label for="Name">price</label>
-                  <input type="number" formControlName="price" class="form-control" [(ngModel)] = "price">
+                  <input type="number" formControlName="price" class="form-control" >
                 </div>
 
                 <div class="col-md-6">
