@@ -24,10 +24,23 @@
             <div class="col-md-6 bdr_shadow">
               <div class="input_cover">
                 <div class="form-group">
-                  <label for="fname" class="control-label">FIRST NAME</label>
+                  <label for="fname" class="control-label">NAME</label>
                   <div class="text_cover">
                     <div class="input-group ip1">
                       <input type="text" class="form-control _fname" name="fname" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.fname"  required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="username" class="control-label">USER NAME</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="text" class="form-control _username" name="username" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.username"
+                        required>
                     </div>
                   </div>
                 </div>
@@ -50,6 +63,7 @@
                 </div>
               </div>
             </div>
+            
 
           </div>
 
