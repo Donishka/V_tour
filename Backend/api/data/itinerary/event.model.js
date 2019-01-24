@@ -19,6 +19,8 @@ var Event = mongoose.model('Event', {
     lat: { 
         type: String 
     },
+    intime:{type:String},
+    outtime: {type:String},
 
     date_from: { type: String },
 

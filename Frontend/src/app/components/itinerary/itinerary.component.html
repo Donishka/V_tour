@@ -10,7 +10,7 @@
       <div>
         <form class="example-form">
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Client Name" aria-label="Client" [matAutocomplete]="auto" [formControl]="clientCtrl">
+            <input matInput placeholder="Client Name" aria-label="Client" [matAutocomplete]="auto" [formControl]="clientCtrl" required>
           </mat-form-field>
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let client of filteredClients | async" [value]="client.email">
@@ -23,7 +23,7 @@
       </div>
       <div class="row">
         <!-- <input type="text" [(ngModel)]="ClientName"> -->
-        <input type="text" [(ngModel)]="itineraryName">
+        <input type="text" [(ngModel)]="itineraryName" required>
         <button class="btn btn-primary" (click)="addEvent()">Add event</button>
       </div>
       <br>

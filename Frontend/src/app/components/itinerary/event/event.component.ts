@@ -17,7 +17,7 @@ import { Jsonp } from '@angular/http';
   selector: 'app-event',
   templateUrl: './event.component.html',
   styleUrls: ['./event.component.css'],
-  providers:[ServiceProviderService, PackageService]
+  providers: [ServiceProviderService, PackageService]
 
 })
 export class EventComponent implements OnInit {
@@ -41,12 +41,16 @@ export class EventComponent implements OnInit {
   pkgs: Package[] = [];
 
   formType: String = "Custom";
-  Sp_name:String;
-  Sp_id:String;
-  price:number;
-  location:String[] = [];
+  Sp_name: String;
+  Sp_id: String;
+  pkg_id: String;
+  //price:number;
+  location: String[] = [];
   lat: number = 6.978554010342724;
   lng: number = 79.96221732040647;
+  SPusername = "SP username";
+  SelectedPkg = "Select a SP from";
+
 
 
 
@@ -78,32 +82,34 @@ export class EventComponent implements OnInit {
         map(sp => sp ? this.SP_filterStates(sp) : this.serviceProviders.slice())
       );
 
- this.getPkgs();
+    this.getPkgs();
   }
 
-  setCost(){
-    for(var i in this.packages){
-      if(this.pkgs[i]._id == this.eventForm.value.pkg_id){
-        this.eventForm.patchValue({cost: this.pkgs[i].price});
+
+
+  setCost() {
+    for (var i in this.packages) {
+      if (this.pkgs[i]._id == this.eventForm.value.pkg_id) {
+        this.eventForm.patchValue({ cost: this.pkgs[i].price });
         break;
       }
     }
   }
 
 
-  getPkgs(){
-    console.log("cntrl vl: "+this.ServiceProviderCtrl.value);
-    for(var i in this.serviceProviders){
-      if(this.serviceProviders[i].username == this.ServiceProviderCtrl.value){
+  getPkgs() {
+    console.log("cntrl vl: " + this.ServiceProviderCtrl.value);
+    for (var i in this.serviceProviders) {
+      if (this.serviceProviders[i].username == this.ServiceProviderCtrl.value) {
         this.Sp_id = this.serviceProviders[i]._id;
         break;
       }
     }
-var count = 0;
+    var count = 0;
 
-  this.pkgs = [];
-    for(var i in this.packages){
-      if(this.packages[i].spid == this.Sp_id){
+    this.pkgs = [];
+    for (var i in this.packages) {
+      if (this.packages[i].spid == this.Sp_id) {
         this.pkgs[count] = this.packages[i];
         count = count + 1;
         console.log(JSON.stringify(this.pkgs[count]));
@@ -115,10 +121,10 @@ var count = 0;
     //     console.log("sp naem : "+this.Sp_name);
     //   }
     // }
-    
+
   }
 
-  onChoseClick(event){
+  onChoseClick(event) {
     console.log(event);
     this.lat = event.coords.lat;
     this.lng = event.coords.lng;
@@ -156,16 +162,16 @@ var count = 0;
     return min_date;
   }
 
-  setLocation(){
-    
-    this.eventForm.patchValue({lng: this.lng });
-    this.eventForm.patchValue({lat: this.lat });
+  setLocation() {
+
+    this.eventForm.patchValue({ lng: this.lng });
+    this.eventForm.patchValue({ lat: this.lat });
     console.log(this.eventForm.value.location);
   }
 
   ngOnInit() {
 
-    this.get_SP_PKG();
+
 
     this.minimum_date = this.min_date();
     this.eventForm = this.formBuilder.group({
@@ -180,6 +186,8 @@ var count = 0;
       pkg_id: [this.data.pkg_id],
       lng: [this.data.lng],
       lat: [this.data.lat],
+      intime: [this.data.intime],
+      outtime: [this.data.outtime],
       cost: [this.data.cost, [Validators.required]],
       check_in_time: [this.data.check_in_time], // for loading purpose
       duration: [this.data.duration], // for hotel
@@ -190,10 +198,29 @@ var count = 0;
       booking_status: "not_booked",
 
     });
-    console.log("wvt tyo pera"+ this.formType);
+    console.log("wvt tyo pera" + this.formType);
     this.formType = this.eventForm.value.event_type;
-    console.log("wvt tyo pasu"+ this.formType);
-   // this.lng = this.eventForm.value.lng;
+    this.Sp_id = this.eventForm.value.sp_id;
+    this.pkg_id = this.eventForm.value.pkg_id;
+
+    if (this.eventForm.value.lat != null && this.eventForm.value.lng != null) {
+      this.lat = parseFloat(this.eventForm.value.lat);
+      this.lng = parseFloat(this.eventForm.value.lng);
+    }
+
+    console.log("longitude " + this.lng);
+    console.log("latitude " + this.lat);
+
+    console.log("wvt tyo pasu" + this.formType);
+    console.log("sp id: " + this.Sp_id);
+
+    console.log("time " + this.eventForm.value.intime);
+    console.log("form values " + JSON.stringify(this.eventForm.value));
+
+
+
+    this.get_SP_PKG();
+    // this.lng = this.eventForm.value.lng;
     //this.lat = this.eventForm.value.lat;
 
     //console.log("lat "+this.eventForm.value.lng +" lng "+this.eventForm.value.lat);
@@ -202,20 +229,67 @@ var count = 0;
 
   }
 
-  get_SP_PKG() {
+  getSPusername(id: String) {
 
-    this.ServiceProviderService.getServiceProviderList().subscribe((res) => {
-      this.ServiceProviderService.sp = res as ServiceProvider[];
-      this.serviceProviders = this.ServiceProviderService.sp;
-      //console.log("SP lsit: " + JSON.stringify(this.serviceProviders));
-
-    });
+    //console.log("id passes "+ id+ " SP s " + JSON.stringify(this.serviceProviders));
+    for (var i in this.serviceProviders) {
+      //console.log("id passes in  "+ this.serviceProviders[i]._id);
+      if (this.serviceProviders[i]._id == id) {
+        this.SPusername = this.serviceProviders[i].username;
+        //console.log("Loaded user name "+ this.SPusername);
+        break;
+      }
+    }
 
     this.PackageService.getPackageList().subscribe((res) => {
       this.PackageService.package = res as Package[];
       this.packages = this.PackageService.package;
       //console.log("packages list: " + JSON.stringify(this.packages));
 
+      var count = 0;
+      this.pkgs = [];
+      console.log("pkg id passes " + JSON.stringify(this.packages));
+      for (var i in this.packages) {
+        console.log("pkg id" + this.packages);
+        if (this.packages[i].spid == this.Sp_id) {
+          this.pkgs[count] = this.packages[i];
+          count = count + 1;
+          console.log(JSON.stringify(this.pkgs[count]));
+        }
+      }
+      this.getPkgs();
+    });
+
+
+  }
+  getOnePkg(id: String) {
+    console.log("pkg list " + JSON.stringify(this.packages) + "id " + id);
+    for (var i in this.packages) {
+      console.log("pkg id passes in  " + this.packages[i]._id);
+      if (this.packages[i]._id == id) {
+        this.SelectedPkg = this.packages[i].name;
+        console.log("Loaded pkg  name " + this.SelectedPkg);
+        break;
+      }
+    }
+  }
+
+  get_SP_PKG() {
+
+    this.ServiceProviderService.getServiceProviderList().subscribe((res) => {
+      this.ServiceProviderService.sp = res as ServiceProvider[];
+      this.serviceProviders = this.ServiceProviderService.sp;
+      //console.log("SP lsit: " + JSON.stringify(this.serviceProviders));
+      this.getSPusername(this.Sp_id);
+
+    });
+
+
+
+    this.PackageService.getPackageList().subscribe((res) => {
+      this.PackageService.package = res as Package[];
+      this.packages = this.PackageService.package;
+      //console.log("packages list: " + JSON.stringify(this.packages));
     });
 
   }

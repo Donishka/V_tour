@@ -77,7 +77,8 @@ export class ViewItineraryComponent implements OnInit {
     const dialogRef = this.dialog.open(EditItineraryComponent, {
       data: { id: this.itineraryService.id,
               itineraryName : itinerary.name,
-              note: itinerary.note
+              note: itinerary.note,
+              clientId: itinerary.clientId
        }
     });
     dialogRef.afterClosed().subscribe(result => {
