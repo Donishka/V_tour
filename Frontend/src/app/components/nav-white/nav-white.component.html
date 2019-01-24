@@ -38,13 +38,11 @@
       </li>
 
       <li *ngIf="user.usertype!='client'" class="dropdown nav-item " dropdown>
-        <a class="nav-link" dropdownToggle role="button"><i class="fas"></i> PAYMENTS & BOOKINGS<span class="caret"></span></a>
+        <a class="nav-link" dropdownToggle role="button"><i class="fas"></i> PAYMENTS <span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
           <a *ngIf="user.usertype=='travelagent'" class="dropdown-item" [routerLink]="['/viewclientpayment']">View Itenarary Payments</a>
           <a *ngIf="user.usertype=='travelagent'" class="dropdown-item" [routerLink]="['/view-sp-payments']">View Package Payments</a>
           <a *ngIf="user.usertype=='serviceprovider'" class="dropdown-item" [routerLink]="['/view-ta-payments']">View Package Payments</a>
-          <a class="dropdown-item" href="#">View Bookings</a>
-          <a class="dropdown-item">Make Booking</a>
         </div>
       </li>
 
@@ -52,7 +50,6 @@
         <a class="nav-link" dropdownToggle role="button"><i class="far"></i>ACCOUNT<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
           <a class=" dropdown-item" (click)="selectProfile()">Profile</a>
-          <a class="dropdown-item">Settings</a>
           <a class="dropdown-item" href="" (click)="logoutUser()">Logout</a>
         </div>
       </li>

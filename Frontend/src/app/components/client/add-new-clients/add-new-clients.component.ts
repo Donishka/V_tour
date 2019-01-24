@@ -19,13 +19,33 @@ export class AddNewClientsComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private router:Router) { }
     rePassword:any;
+  minimum_date:any;
 
   ngOnInit() {
+    this.minimum_date = this.min_date();
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
     }, 2000);
     this.resetForm();
+  }
+    min_date() {
+    var min_date;
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+    var day = dd.toString();
+    var month = mm.toString();
+    if (dd < 10) {
+      day = '0' + dd;
+    }
+    if (mm < 10) {
+      month = '0' + mm;
+    }
+    min_date = yyyy + '-' + month + '-' + day;
+    console.log(min_date);
+    return min_date;
   }
 
   resetForm(form?: NgForm) {

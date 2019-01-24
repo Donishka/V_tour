@@ -149,7 +149,7 @@
               <input type="password" class="form-control" name="password" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.password"
                 required>
             </div>
-            <password-strength-meter [password]="serviceProviderService.selectedServiceProvider.password"></password-strength-meter>
+            <password-strength-meter [minPasswordLength]="8" [enableFeedback]="true" [password]="serviceProviderService.selectedServiceProvider.password"></password-strength-meter>
           </div>
         </div>
 

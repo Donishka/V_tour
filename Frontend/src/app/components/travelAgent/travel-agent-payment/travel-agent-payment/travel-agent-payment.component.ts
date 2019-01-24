@@ -24,7 +24,8 @@ export class TravelAgentPaymentComponent implements OnInit {
   today: number = Date.now();
   public current_date = new Date();
   time: any;
-
+  fname:any;
+  _id:any;
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -38,7 +39,7 @@ export class TravelAgentPaymentComponent implements OnInit {
   ) { }
 
   data:any;
-  user: any = { fname: "First name"};  
+  user: any = { _id: "_id",fname: "First name"};  
   package:any;
   event:any;
   sp:any;
