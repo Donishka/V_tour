@@ -78,7 +78,7 @@
                       <input type="password" class="form-control _password" name="password" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.password"  required>
                     </div>
                   </div>
-                  <password-strength-meter [password]="serviceProviderService.selectedServiceProvider.password"></password-strength-meter>
+                  <password-strength-meter [minPasswordLength]="8" [enableFeedback]="true" [password]="serviceProviderService.selectedServiceProvider.password"></password-strength-meter>
                 </div>
               </div>
             </div>
@@ -109,6 +109,19 @@
                   <div class="text_cover">
                     <div class="input-group ip2">
                       <input type="text" class="form-control _address" name="address" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.address" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col bdr_shadow">
+              <div class="input_cover_add">
+                <div class="form-group">
+                  <label for="discription" class="control-label">DESCRIPTION</label>
+                  <div class="text_cover">
+                    <div class="input-group ip2">
+                      <input type="text" class="form-control _discription" name="discription" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.discription"
+                        required>
                     </div>
                   </div>
                 </div>

@@ -19,13 +19,33 @@ export class AddNewClientsComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private router:Router) { }
     rePassword:any;
+  minimum_date:any;
 
   ngOnInit() {
+    this.minimum_date = this.min_date();
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
     }, 2000);
     this.resetForm();
+  }
+    min_date() {
+    var min_date;
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+    var day = dd.toString();
+    var month = mm.toString();
+    if (dd < 10) {
+      day = '0' + dd;
+    }
+    if (mm < 10) {
+      month = '0' + mm;
+    }
+    min_date = yyyy + '-' + month + '-' + day;
+    console.log(min_date);
+    return min_date;
   }
 
   resetForm(form?: NgForm) {
@@ -53,12 +73,15 @@ export class AddNewClientsComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
-      this.clientService.postClient(form.value).subscribe((res) => {
-        this.resetForm(form);
-        this.flashMessage.show('Client Saved', { cssClass: 'alert-success', timeout: 4000 });
-        alert('Client Saved');
-        console.log("Saved");
-        this.router.navigateByUrl('/travelagent-account');
+      this.clientService.postClient(form.value).subscribe((res:any) => {
+        if (res.state == false) {
+          alert(res.msg);
+        } else {
+          this.resetForm(form);
+          this.flashMessage.show('Client Saved', { cssClass: 'alert-success', timeout: 4000 });
+          alert('Client Saved');
+          this.router.navigateByUrl('/travelagent-account');
+        }
       });
     }
     else {
