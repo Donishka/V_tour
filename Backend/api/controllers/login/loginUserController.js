@@ -147,7 +147,7 @@ function verifyToken(req,res,next){
             res.json({msg:"Unauthorize access"});
         }
     }else{
-        res.json({msg:"Unauthorize"});
+        res.json({msg:"Unauthorized"});
     }
 };
 
