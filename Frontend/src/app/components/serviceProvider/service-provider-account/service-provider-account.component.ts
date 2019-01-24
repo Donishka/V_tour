@@ -36,11 +36,16 @@ export class ServiceProviderAccountComponent implements OnInit {
 
     this.getProfileDetails();
   }
+  getDetails(_id: string) {
+    this.serviceProviderService.get1ServiceProvider(_id).subscribe((res: any) => {
+      this.user = res;
+    })
+  }
 
   getProfileDetails() {
     this.authService.getProfile().subscribe(res => {
       this.user = res.data.user;
-      console.log(this.user);
+      this.getDetails(this.user._id);
     });
   }
 

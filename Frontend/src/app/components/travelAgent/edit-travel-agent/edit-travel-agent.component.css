@@ -53,7 +53,7 @@
 }
 
 
-._fname,._lname,._telephone,._email,._isadmin{
+._fname,._lname,._telephone,._email,._isadmin,_username{
   margin-bottom: -8px;
   border-right: 0px;
   border-left: 0px;
