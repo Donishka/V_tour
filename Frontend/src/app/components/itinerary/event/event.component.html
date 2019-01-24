@@ -66,7 +66,7 @@
                     <form class="example-form">
                         <label for="packages">SP username</label>
                       <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Service Provider" aria-label="Client" [matAutocomplete]="auto"
+                        <input class="form-control" matInput placeholder="Service Provider" aria-label="Client" [matAutocomplete]="auto"
                           [formControl]="ServiceProviderCtrl" [(ngModel)] = "SPusername" required>
                       </mat-form-field>
                       <mat-autocomplete #auto="matAutocomplete">
@@ -127,7 +127,7 @@
                 </div>
                 <div *ngIf="formType == 'Travel'">
                   <label for="depature_time">Depature time </label>
-                  <input type="text" formControlName="depature_time" class="form-control">
+                  <input type="time" formControlName="depature_time" class="form-control">
                 </div>
               </div>
             </div>
