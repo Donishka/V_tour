@@ -53,12 +53,15 @@ export class AddNewClientsComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
-      this.clientService.postClient(form.value).subscribe((res) => {
-        this.resetForm(form);
-        this.flashMessage.show('Client Saved', { cssClass: 'alert-success', timeout: 4000 });
-        alert('Client Saved');
-        console.log("Saved");
-        this.router.navigateByUrl('/travelagent-account');
+      this.clientService.postClient(form.value).subscribe((res:any) => {
+        if (res.state == false) {
+          alert(res.msg);
+        } else {
+          this.resetForm(form);
+          this.flashMessage.show('Client Saved', { cssClass: 'alert-success', timeout: 4000 });
+          alert('Client Saved');
+          this.router.navigateByUrl('/travelagent-account');
+        }
       });
     }
     else {

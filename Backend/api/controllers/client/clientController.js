@@ -8,6 +8,7 @@ var smtpTransport = require('nodemailer-smtp-transport');
 var { Client }  = require('../../data/client/client.model.js');
 var  ClientModel = require('../../data/client/client.model.js');
 //var Hashing = require('../../functions/hashing.js');
+const loginModel = require('../../data/login/login.model');
 
 var transporter = nodemailer.createTransport(smtpTransport({
     host: 'smtp.gmail.com', port: 465, secure: true, // 
@@ -33,46 +34,53 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    var client = new Client({
-        fname: req.body.fname,
-        lname:req.body.lname,
-        password: req.body.password,
-        email:req.body.email,
-        telephone: req.body.telephone,
-        address: req.body.address,
-        city: req.body.city,
-        country: req.body.country,
-        postalcode:req.body.postalcode,
-        noofvisitors: req.body.noofvisitors,
-        foodprefer:req.body.foodprefer,
-        intactivities:req.body.intactivities,
-        agegroup:req.body.agegroup,
-        datefrom:req.body.datefrom,
-        dateto:req.body.dateto,
-        usertype:"client"
+    var emailcheck = req.body.email;
+    loginModel.findByClientEmail(emailcheck, function (err, user) {
+    if (err) throw err;
+    if (!user) {
+        var client = new Client({
+            fname: req.body.fname,
+            lname: req.body.lname,
+            password: req.body.password,
+            email: req.body.email,
+            telephone: req.body.telephone,
+            address: req.body.address,
+            city: req.body.city,
+            country: req.body.country,
+            postalcode: req.body.postalcode,
+            noofvisitors: req.body.noofvisitors,
+            foodprefer: req.body.foodprefer,
+            intactivities: req.body.intactivities,
+            agegroup: req.body.agegroup,
+            datefrom: req.body.datefrom,
+            dateto: req.body.dateto,
+            usertype: "client"
+        });
+        ClientModel.saveUser(client, (err, doc) => {
+            if (err) {
+                res.json({ state: false, msg: "data not inserted" });
+            }
+            if (doc) {
+                res.json({ state: true, msg: "data  inserted" });
+                var mailOptions = {
+                    from: 'anemanda175@gmail.com',
+                    to: req.body.email,
+                    subject: 'V Tour Account Credentials',
+                    html: '<p>Please Use --- ' + req.body.password + ' --- as your login password and use link below to login</p>' + '<a href="http://localhost:4200/login">Click Here</a>'
+                };
+                transporter.sendMail(mailOptions, function (error, info) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log('Email sent: ' + info.response);
+                    }
+                });
+            }
+        });
+    }else{
+        res.json({ state: false, msg: "User Already Exsits" });    
+    }
     });
-    ClientModel.saveUser(client,(err, doc) => {
-        if(err){
-            res.json({state:false,msg:"data not inserted"});
-        }
-        if(doc){
-            res.json({state:true,msg:"data  inserted"});
-            var mailOptions = {
-                from: 'anemanda175@gmail.com',
-                to: req.body.email,
-                subject: 'V Tour Account Credentials',
-                html: '<p>Please Use --- ' + req.body.password + ' --- as your login password and use link below to login</p>' + '<a href="http://localhost:4200/login">Click Here</a>'
-            };
-
-            transporter.sendMail(mailOptions, function (error, info) {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log('Email sent: ' + info.response);
-                }
-            });
-        }}
-);
 });
 
 
