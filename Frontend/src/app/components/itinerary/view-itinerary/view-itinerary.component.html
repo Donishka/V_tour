@@ -57,7 +57,11 @@
   <div >
        
     <agm-map [latitude]="lat" [longitude]="lng">
-      <agm-marker *ngFor ="let p of positions" [latitude]="p.lat" [longitude]="p.lng">{{p.venue}}</agm-marker>
+      <agm-marker *ngFor ="let p of positions" [latitude]="p.lat" [longitude]="p.lng">{{p.venue}}
+          <agm-marker *ngFor="let p of positions" [latitude]="p.lat" [longitude]="p.lng">
+              <agm-info-window>{{p.name}}</agm-info-window>
+            </agm-marker>
+      </agm-marker>
     </agm-map>
   
   </div>

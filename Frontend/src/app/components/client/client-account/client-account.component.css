@@ -94,6 +94,10 @@ body {
         list-style: none;
         color: black;
 }
+
+agm-map {
+    height: 500px;
+  }
     
  
      

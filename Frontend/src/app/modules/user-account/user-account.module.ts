@@ -15,8 +15,13 @@ import { DialogModule } from 'primeng/dialog';
 import {CardModule} from 'primeng/card';
 import { SharedModule } from './../shared.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA47KAw6KspzlmDSqtmVZodOu212gJwMAw'
+    }),
     CommonModule,
     FormsModule,
     FlashMessagesModule,

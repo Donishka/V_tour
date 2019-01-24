@@ -25,6 +25,10 @@ export class ClientAccountComponent implements OnInit {
   isPopupOpened = false;
   Itinerary: any;
   user: any = { profilepic: "profilepic" };
+  positions:any[]=[];
+  display:boolean= false;
+  lat: number = 6.978554010342724;
+  lng: number = 79.96221732040647;
 
   constructor(
     private authService: AuthService,
@@ -67,6 +71,15 @@ export class ClientAccountComponent implements OnInit {
     this.itineraryService.getItinerrytList1().subscribe((res) => {
       this.itineraryService.itenarary = res as Itinerary[];
     });
+  }
+
+  map(tourm:Itinerary){
+    this.positions = [];
+    for(var i in tourm.events){
+      this.positions[i] = {name: tourm.events[i].venue, lat: tourm.events[i].lat, lng: tourm.events[i].lng };
+    }
+    this.display = true;
+    console.log(JSON.stringify(this.positions));
   }
 
   onPayment(i: number) {

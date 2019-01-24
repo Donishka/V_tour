@@ -94,6 +94,7 @@ export class ViewItineraryComponent implements OnInit {
       alert("Itinerary deleted");
       this.refreshItinerryList();
     })
+    this.closePDialog(false);
   }
 
   ngOnInit() {
@@ -140,9 +141,13 @@ export class ViewItineraryComponent implements OnInit {
     this.travelagentPaymentService.index=eventIndex;
     this.router.navigateByUrl('/travel-agent-payment');
   }
-
+  display2: boolean = false;
   display1: boolean = false;
   display: boolean = false;
+
+  closePDialog(event:boolean){
+    this.display2 = event;
+  }
 
   makeBooking(Itenararyid: string, eventIndex: number) {
     this.travelagentPaymentService.itenararyid = Itenararyid;
