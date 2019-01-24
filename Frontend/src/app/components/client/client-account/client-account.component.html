@@ -5,7 +5,8 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="card" style="width:100%">
-          <img *ngIf="user.profilepic==null" class="image card-img-top" src="../../../../assets/default.png" alt="Card image" style="width:300px;height:100%">
+          <img *ngIf="user.profilepic==null" class="image card-img-top" src="../../../../assets/default.png" alt="Card image"
+            style="width:300px;height:100%">
           <div class="card-body">
             <h4 class="card-title">{{user.fname}} {{user.lname}}</h4>
             <div class="address">
@@ -48,6 +49,8 @@
                   <button class="btn btn-primary" type="button" *ngIf="sp.status=='Waiting for Confirmation'" (click)="onPayment(i)">Make Payment</button>
                 </div>
               </div>
+              <button class="btn btn-primary" type="button" (click)="map(iT)">View Map</button>
+              <button class="btn btn-primary" type="button" (click)="onPayment(i)">Make Payment</button>
             </div>
           </div>
         </div>
@@ -58,3 +61,15 @@
   </div>
 </div>
 
+<p-dialog [(visible)]="display" [modal]="true" [responsive]="true" [width]="900">
+  <div>
+
+    <agm-map [latitude]="lat" [longitude]="lng">
+      <agm-marker *ngFor="let p of positions" [latitude]="p.lat" [longitude]="p.lng">
+        <agm-info-window>{{p.name}}</agm-info-window>
+      </agm-marker>
+    </agm-map>
+
+  </div>
+
+</p-dialog>
