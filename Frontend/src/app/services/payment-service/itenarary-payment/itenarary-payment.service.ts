@@ -16,7 +16,6 @@ export class ItenararyPaymentService {
   constructor(private http: HttpClient) { }
 
   postItenararyPayment(p: ItenararyPayment) {
-    console.log(p);
     return this.http.post(this.baseURL, p);
   }
 
@@ -26,6 +25,10 @@ export class ItenararyPaymentService {
 
   putItenararyPayment(p: ItenararyPayment) {
     return this.http.put(this.baseURL + `/${p._id}`, p);
+  }
+
+  putItenararyPaymentReject(p: ItenararyPayment) {
+    return this.http.put(this.baseURL +"/reject"+ `/${p._id}`, p);
   }
 
   deleteItenararyPayment(_id: string) {

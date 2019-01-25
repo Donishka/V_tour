@@ -90,11 +90,12 @@ export class ViewItineraryComponent implements OnInit {
   }
 
   deleteItinerary(id: String) {
-    this.itineraryService.deleteItinerary(id).subscribe(res => {
-      alert("Itinerary deleted");
-      this.refreshItinerryList();
-    })
-    this.closePDialog(false);
+    if (confirm("Delete Itinerary ?")){
+      this.itineraryService.deleteItinerary(id).subscribe(res => {
+        this.refreshItinerryList();
+      })
+      this.closePDialog(false);
+    }
   }
 
   ngOnInit() {
@@ -134,12 +135,14 @@ export class ViewItineraryComponent implements OnInit {
   } 
 
   makePayment(Itenararyid:string,eventIndex:number,eventId:string){
-    this.paymentdata={Itenararyid,eventIndex,eventId}
-    this.itineraryService.changePaymentStatus(this.paymentdata).subscribe((res)=>{
-    })
-    this.travelagentPaymentService.itenararyid=Itenararyid;
-    this.travelagentPaymentService.index=eventIndex;
-    this.router.navigateByUrl('/travel-agent-payment');
+    if (confirm("Proceed to Payment ?")){
+      this.paymentdata = { Itenararyid, eventIndex, eventId }
+      this.itineraryService.changePaymentStatus(this.paymentdata).subscribe((res) => {
+      })
+      this.travelagentPaymentService.itenararyid = Itenararyid;
+      this.travelagentPaymentService.index = eventIndex;
+      this.router.navigateByUrl('/travel-agent-payment');
+    }
   }
   display2: boolean = false;
   display1: boolean = false;
@@ -183,11 +186,12 @@ export class ViewItineraryComponent implements OnInit {
   }
 
   confirmBooking(Itenararyid: string, eventIndex: number, eventId: string){
-    this.refreshItinerryList();
-    this.paymentdata = { Itenararyid, eventIndex, eventId }
-    this.itineraryService.changeBookingStatus(this.paymentdata).subscribe((res) => {
-    });
-    this.refreshItinerryList();
+    if (confirm("Confirm Booking ?")){
+      this.refreshItinerryList();
+      this.paymentdata = { Itenararyid, eventIndex, eventId }
+      this.itineraryService.changeBookingStatus(this.paymentdata).subscribe((res) => {
+      });
+      this.refreshItinerryList();
+    }
   }
-
 }

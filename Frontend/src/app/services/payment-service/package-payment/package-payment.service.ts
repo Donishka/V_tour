@@ -29,6 +29,9 @@ export class PackagePaymentService {
   putPackagePayment(p: PackagePayment) {
     return this.http.put(this.baseURL + `/${p._id}`, p);
   }
+  putPackagePaymentReject(p: PackagePayment) {
+    return this.http.put(this.baseURL + "/reject" + `/${p._id}`, p);
+  }
 
   deletePackagePayment(_id: string) {
     return this.http.delete(this.baseURL + `/${_id}`);
