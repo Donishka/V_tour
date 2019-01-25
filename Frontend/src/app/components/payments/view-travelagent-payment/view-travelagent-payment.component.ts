@@ -39,10 +39,21 @@ export class ViewTravelagentPaymentComponent implements OnInit {
   }
 
   onConfirm(packagepayment: PackagePayment) {
-    this.packagePaymentService.putPackagePayment(packagepayment).subscribe((res) => {
-      this.refreshPaymentList();
-      this.flashMessage.show('Payment Status Updated', { cssClass: 'alert-success', timeout: 4000 });
-    });
+    if (confirm('Are you sure to confirm this payment ?') == true){
+      this.packagePaymentService.putPackagePayment(packagepayment).subscribe((res) => {
+        this.refreshPaymentList();
+        this.flashMessage.show('Payment Status Updated', { cssClass: 'alert-success', timeout: 4000 });
+      });
+    }
+  }
+
+  onReject(packagepayment: PackagePayment) {
+    if (confirm("Are you sure to REJECT this payment ?")) {
+      this.packagePaymentService.putPackagePaymentReject(packagepayment).subscribe((res) => {
+        this.refreshPaymentList();
+        this.flashMessage.show('Payment Status Updated', { cssClass: 'alert-success', timeout: 4000 });
+      });
+    }
   }
 
   onDelete(_id: string) {
