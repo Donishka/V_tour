@@ -1,7 +1,68 @@
-<app-nav></app-nav>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+<div class="container-fluid">
+  <div class="row nav_row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8 nav_col">
+      <app-nav-white></app-nav-white>
+    </div>
+  </div>
+  <div class="row top_padding">
+    <div class="col-md-1 col-xs-1"></div>
+    <div class="col-md-10 col-xs-10">
+      <div class="row">
+        <div class="col-lg-6 labelCover">
+          <h4 id="h4l">MANAGE PACKAGE PAYMENTS</h4>
+        </div>
+        <div class="col-lg-6 searchBar">
+          <div class="searchCover">
+            <div class=" search form-group search_bar">
+              <input type="text" class="form-control" name="search" placeholder="search Here..." [(ngModel)]="searchKeyword">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1 col-xs-1"></div>
+  </div>
+
+  <div class="row content_row">
+    <div class="col-md-1 col-xs-1"></div>
+    <div class="col-md-10 col-xs-10">
+      <div class="row">
+        <div class="col-lg-6 card_col" *ngFor="let pkg of packagePaymentService.packagepayment| PackagePaymentFilter:searchKeyword">
+          <div class="row card_cover">
+            <div class="col-3 Pro_Pic_cover">
+              <img class="Pro_Pic" id="pp1" alt="Thumbnail [200x250]" src="../../../../../source/images/icon/cash.png">
+            </div>
+            <div class="col-6 textParent">
+              <div class="textDev">
+                <h4>{{pkg.packagename}}</h4>
+                <p class="email">{{pkg.travelagentname}}</p>
+                <p class="email">{{pkg.date}}</p>
+                <p class="email">{{pkg.amount}}</p>
+                <p class="email">{{pkg.status}}</p>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="row" style="height: 100%">
+                <div class="col-7 icn_container" style="padding: 0px" *ngIf="pkg.status=='Waiting for Confirmation'" (click)="onConfirm(pkg)">
+                  <img class="edit_icn" src="../../../../../source/images/icon/icons8-edit-file-100.png">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1 col-xs-1"></div>
+  </div>
+  <div class="row bottom_padding"></div>
+</div>
+
+<!--app-nav></app-nav>
 <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
 <div class="container bg-info">
-  <div class="row">
+  <div-- class="row">
     <div class="col"></div>
     <div class="col-10">
       <div class=" search form-group">
@@ -20,13 +81,13 @@
                     <div class="mb-1 text-muted">Amount : {{pkg.amount}}</div>
                     <div class="mb-1 text-muted">Date : {{pkg.date}}</div>
                     <div class="mb-1 text-muted">Status : {{pkg.status}}</div>
-                    <a *ngIf="pkg.status=='Waiting for Confirmation'" class="action-btn" (click)="onConfirm(pkg)">
+                    <a-- *ngIf="pkg.status=='Waiting for Confirmation'" class="action-btn" (click)="onConfirm(pkg)">
                       <i class="fas fa-money-alt  btn-outline-primary btn-sm">Confirm Payment</i>
-                    </a>
+                    </a-->
                     <!--a class="action-btn" (click)="onDelete(sp._id)">
                       <i class="fas fa-trash-alt  btn-outline-primary btn-sm"> delete</i>
                     </a-->
-                  </div>
+                  <!--/div>
                 </div>
               </div>
             </td>
@@ -36,4 +97,4 @@
     </div>
     <div class="col"></div>
   </div>
-</div>
+</div-->
