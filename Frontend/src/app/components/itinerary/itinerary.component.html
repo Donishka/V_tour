@@ -1,6 +1,5 @@
-<app-nav></app-nav>
 <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
-<mat-card>
+<!--mat-card>
   <mat-card-content>
     <div class="container">
       <div class="row">
@@ -21,9 +20,9 @@
           <br>
         </form>
       </div>
-      <div class="row">
+      <div class="row"-->
         <!-- <input type="text" [(ngModel)]="ClientName"> -->
-        <input type="text" [(ngModel)]="itineraryName" required>
+        <!--input type="text" [(ngModel)]="itineraryName" required>
         <button class="btn btn-primary" (click)="addEvent()">Add event</button>
       </div>
       <br>
@@ -48,4 +47,269 @@
       <button class="btn btn-primary" (click)="addItinerary()">Save</button>
     </div>
   </mat-card-content>
-</mat-card>
+</mat-card-->
+<!--JANITH-->
+
+<div class="container-fluid">
+  <div class="row nav_row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8 nav_col">
+      <app-nav-white></app-nav-white>
+    </div>
+  </div>
+
+  <div class="row top_padding"></div>
+
+  <mat-card style="padding: 0; box-shadow: none">
+    <mat-card-content>
+      <div class="row content_row">
+        <div class="col-md-5 crt-it-col">
+          <div class="row" style="height: 100%">
+            <div class="col"></div>
+            <div class="col-sm-10 form-cover">
+              <div class="row form_heading">
+                <h4>CREATE ITINERARY</h4>
+              </div>
+              <!--<form class="example-form">-->
+              <!--<mat-form-field class="example-full-width">-->
+              <!--<input matInput placeholder="Client Name" aria-label="Client" [matAutocomplete]="auto" [formControl]="clientCtrl" >-->
+              <!--</mat-form-field>-->
+              <!--<mat-autocomplete #auto="matAutocomplete">-->
+              <!--<mat-option *ngFor="let client of filteredClients | async" [value]="client.email">-->
+              <!--<span>{{client.fname}} </span>-->
+              <!--<small>City : {{client.city}}</small>-->
+              <!--</mat-option>-->
+              <!--</mat-autocomplete>-->
+              <!--<br>-->
+              <!--</form>-->
+
+
+              <div class="row" style="margin-bottom: 2%">
+                <div class="col"></div>
+                <div class="col-md-11 bdr_shadow">
+                  <form class="example-form">
+                    <!--<div class="input_cover">-->
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Client Name" aria-label="Client" [matAutocomplete]="auto"
+                        [formControl]="clientCtrl">
+                    </mat-form-field>
+                    <!--</div>-->
+                    <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option *ngFor="let client of filteredClients | async" [value]="client.email">
+                        <span>{{client.fname}} </span>
+                        <small>City : {{client.city}}</small>
+                      </mat-option>
+                    </mat-autocomplete>
+                    <br>
+                  </form>
+                </div>
+                <div class="col"></div>
+              </div>
+              <!--<div class="row" style="margin-bottom: 2%">-->
+              <!--<div class="col"></div>-->
+              <!--<div class="col-md-11 bdr_shadow">-->
+              <!--<div class="input_cover">-->
+              <!--<div class="form-group">-->
+              <!--<label class="control-label">CLIENT NAME</label>-->
+              <!--<div class="text_cover">-->
+              <!--<div class="input-group ip1">-->
+              <!--&lt;!&ndash;<input type="text" class="form-control _note" name="fname" #name="ngModel" [(ngModel)]="note"&ndash;&gt;-->
+              <!--&lt;!&ndash;required>&ndash;&gt;-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--<div class="col"></div>-->
+              <!--</div>-->
+              <div class="row" style="margin-bottom: 2%">
+                <div class="col"></div>
+                <div class="col-md-11 bdr_shadow">
+                  <div class="input_cover">
+                    <div class="form-group">
+                      <label class="control-label">NOTES</label>
+                      <div class="text_cover">
+                        <div class="input-group ip1">
+                          <input type="text" class="form-control _note" name="fname" #name="ngModel" [(ngModel)]="note"
+                            required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col"></div>
+              </div>
+              <div class="row" style="margin-bottom: 2%">
+                <div class="col"></div>
+                <div class="col-md-11 bdr_shadow">
+                  <div class="input_cover">
+                    <div class="form-group">
+                      <label class="control-label">ITINERARY NAME</label>
+                      <div class="text_cover">
+                        <div class="input-group ip1">
+                          <input type="text" class="form-control _itname" name="fname" #name="ngModel" [(ngModel)]="itineraryName"
+                            required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col"></div>
+              </div>
+              <div class="row">
+                <div class="col"></div>
+                <div class="col-md-11">
+                  <div class="btn_cvr">
+                    <button class="btn btn-primary save_btn" (click)="addItinerary()">SAVE</button>
+                  </div>
+                  <div class="btn_cvr">
+                    <button class="btn btn-primary save_btn addBtn" (click)="addEvent()">ADD EVENT</button>
+                  </div>
+                </div>
+                <div class="col"></div>
+              </div>
+
+            </div>
+            <div class="col"></div>
+          </div>
+        </div>
+        <div class="col-md-7 lst-evnt-col">
+          <!--<cdk-drop (dropped)="onDrop($event)">-->
+          <!--<div *ngFor="let item of EventList; let i = index" cdkDrag>-->
+          <!--<div class="card text-center">-->
+          <!--<div class="card-header" cdkDragHandle>-->
+          <!--Event {{i+1}}-->
+          <!--</div>-->
+          <!--<div class="card-body">-->
+          <!--<h5 class="card-title">{{item.name}}</h5>-->
+          <!--<p class="card-text">{{item.venue}}</p>-->
+          <!--<button class="btn btn-primary" (click)="editEvent(item.id)" style="margin: 5px;">Edit</button>-->
+          <!--<button class="btn btn-primary" (click)="deleteEvent(item.id)">Delete</button>-->
+          <!--</div>-->
+          <!--<div class="card-footer text-muted">-->
+          <!--2 days ago-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</cdk-drop>-->
+          <div class="event_cover">
+            <cdk-drop (dropped)="onDrop($event)">
+              <div class="event_item_cover" *ngFor="let item of EventList; let i = index" cdkDrag style="height: 70px;margin-bottom: 10px; margin-top: 15px">
+                <div class="row" style="height: 70px">
+                  <div cdkDragHandle class="col-1 drg_col">
+                    <img class="drag_icon" src="../../../../source/images/icon/drag.png">
+                  </div>
+                  <!--<label cdkDragHandle >Drag</label>-->
+                  <div class="col-1 num_col">
+                    {{i+1}}
+                  </div>
+                  <div class="col-2 title_col">
+                    <p class="card-text item_name">{{item.name}}</p>
+                  </div>
+                  <div class="col-2 ven_col">
+                    <p class="card-text item_ven">{{item.venue}}</p>
+                  </div>
+                  <div class="col-2 stdate_col">
+                    <div class="datetimeWrap">
+                      <div class="row">
+                        <p class="event_date">{{item.date_from}}</p>
+                      </div>
+                      <div class="row">
+                        <p class="event_time">{{item.intime}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-2 enddate_col">
+                    <div class="datetimeWrap">
+                      <div class="row">
+                        <p class="event_date">{{item.date_to}}</p>
+                      </div>
+                      <div class="row">
+                        <p class="event_time">{{item.outtime}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-1">
+                    <div class="row">
+                      <div class="col-6"></div>
+                      <div class="col-6">
+
+                      </div>
+                    </div>
+                    <!--<img (click)="editEvent(item.id)" class="edit_icn" src="../../../../source/images/icon/icons8-edit-file-100.png">-->
+                    <!--<div class="icn_container" style="padding: 0px">-->
+                    <!--<img (click)="editEvent(item.id)" class="edit_icn" src="../../../../source/images/icon/icons8-edit-file-100.png">-->
+                    <!--</div>-->
+                  </div>
+                  <div class="col-1">
+                    <div class="row" style="height: 100%;padding: 0">
+                      <div class="col-6 edt_col" style="padding: 0">
+                        <img (click)="editEvent(item.id)" class="edit_icn" src="../../../../source/images/icon/icons8-edit-file-100.png">
+                      </div>
+                      <div class="col-6 dlt_col" style="height: 100%;padding:0">
+                        <img (click)="deleteEvent(item.id)" class="delete_icn" src="../../../../source/images/icon/icons8-delete-bin-100.png">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </cdk-drop>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
+<!--<mat-card>-->
+<!--<mat-card-content>-->
+<!--<div class="container">-->
+<!--<div class="row">-->
+<!--<h1>Itinerary Information</h1>-->
+<!--<hr>-->
+<!--</div>-->
+<!--<div>-->
+<!--<form class="example-form">-->
+<!--<mat-form-field class="example-full-width">-->
+<!--<input matInput placeholder="Client Name" aria-label="Client" [matAutocomplete]="auto" [formControl]="clientCtrl" >-->
+<!--</mat-form-field>-->
+<!--<mat-autocomplete #auto="matAutocomplete">-->
+<!--<mat-option *ngFor="let client of filteredClients | async" [value]="client.email">-->
+<!--<span>{{client.fname}} </span>-->
+<!--<small>City : {{client.city}}</small>-->
+<!--</mat-option>-->
+<!--</mat-autocomplete>-->
+<!--<br>-->
+<!--</form>-->
+<!--</div>-->
+<!--<div class="row">-->
+<!--<input type="text" [(ngModel)]="note">-->
+<!--<input type="text" [(ngModel)]="itineraryName">-->
+<!--<button class="btn btn-primary" (click)="addEvent()">Add event</button>-->
+<!--</div>-->
+
+
+<!--<br>-->
+<!--<cdk-drop (dropped)="onDrop($event)">-->
+<!--<div *ngFor="let item of EventList; let i = index" cdkDrag>-->
+<!--<div class="card text-center">-->
+<!--<div class="card-header" cdkDragHandle>-->
+<!--Event {{i+1}}-->
+<!--</div>-->
+<!--<div class="card-body">-->
+<!--<h5 class="card-title">{{item.name}}</h5>-->
+<!--<p class="card-text">{{item.venue}}</p>-->
+<!--<button class="btn btn-primary" (click)="editEvent(item.id)" style="margin: 5px;">Edit</button>-->
+<!--<button class="btn btn-primary" (click)="deleteEvent(item.id)">Delete</button>-->
+<!--</div>-->
+<!--<div class="card-footer text-muted">-->
+<!--2 days ago-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</cdk-drop>-->
+<!--<button class="btn btn-primary" (click)="addItinerary()">Save</button>-->
+<!--</div>-->
+<!--</mat-card-content>-->
+<!--</mat-card>-->

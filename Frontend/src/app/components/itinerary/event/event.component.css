@@ -1,3 +1,100 @@
 agm-map {
     height: 300px;
   }
+
+.topCardTitle{
+  font-size: larger;
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  color: #393939;
+}
+.cardTitle{
+  color: #7C7C7C;
+  font-size: small;
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+}
+
+.input_cover{
+  border:1px solid rgba(112,112,112,0.24);
+  border-radius: 7px;
+  padding-bottom: 0px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  width:90%;
+  margin-bottom: 4%;
+  height: 60px;
+}
+.text_cover{
+  margin-left:  0px;
+}
+
+._itname{
+  margin-bottom: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 1px solid rgba(112,112,112,0.6);
+  border-radius: 0px;
+  height:1em;
+}
+
+._itdate{
+  margin-bottom: 0px;
+  border:0;
+  border-radius: 0px;
+  height:1em;
+}
+
+.ip1{
+  width:93%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+}
+
+.spSelect{
+  height: 50px;
+  border:1px solid rgba(112,112,112,0.24);
+  border-radius: 7px;
+
+}
+
+.mapBtn{
+  position: absolute;
+  z-index: 10;
+  margin:5px;
+}
+
+._map{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /*z-index: -1*/
+}
+
+.btnHighlight{
+  width: 120px;
+  height: 45px;
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  font-size: medium;
+  border-radius: 7px;
+  background-color: #4AB4B2;
+  border: none;
+}
+
+.btnBorder{
+  background-color: white;
+  color: #4AB4B2;
+  border: 2px solid #4AB4B2;
+  border-radius: 7px;
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  font-size: medium;
+}
+
+.chk-btn{
+  margin-bottom: 10px;
+}

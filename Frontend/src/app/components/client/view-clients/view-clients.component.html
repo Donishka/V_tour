@@ -1,52 +1,62 @@
-<app-nav></app-nav>
 <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
-<div class="container bg-info">
-  <div class="row">
-    <div class="col"></div>
-    <div class="col-10">
-      <div class="form-group">
-        <input type="text" class=" search form-control" name="search" placeholder="search for..." [(ngModel)]="searchKeyword">
-      </div>
-      <div>
-        <table class="table table-responsive-sm	">
-          <tr *ngFor="let client of clientService.client | ClientFilter:searchKeyword">
-            <td align="center">
-              <div class="col-md-8">
-                <div class="card bg-light flex-md-row mb-4 shadow-sm h-md-250">
-                  <div class="card-body d-flex flex-column align-items-start">
-                    <strong class="d-inline-block mb-2 text-primary">{{client.fname}} {{client.lname}}</strong>
-                    <h6 class="mb-0"></h6>
-                    <div class="mb-1 text-muted small">{{client.email}}</div>
-                    <br>
-                    <p class="card-text mb-auto">Telephone : {{client.telephone}}
-                      <br>Address : {{client.address}}
-                      <br>City : {{client.city}}
-                      <br>Country : {{client.country}}
-                      <br>Postal Code : {{client.postalcode}}
-                      <br>Date From : {{client.datefrom}}
-                      <br>Date To : {{client.dateto}}
-                      <br>No Of Visitors : {{client.noofvisitors}}
-                      <br>Food : {{client.foodprefer}}
-                      <br>Activities : {{client.intactivities}}
-                      <br>Age Group : {{client.agegroup}}</p>
-                    <a class="action-btn" (click)="onEdit(client)">
-                      <i class="fas fa-pencil-alt  btn-outline-primary btn-sm" (click)="showDialog()"> edit</i>
-                    </a>
-                    <a class="action-btn" (click)="onDelete(client._id)">
-                      <i class="fas fa-trash-alt  btn-outline-primary btn-sm"> delete</i>
-                    </a>
-                  </div>
-                  <img class="image card-img-top" src="../../../../assets/default.png" alt="Card image" style="width: 200px; height: 80%;">
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
+<div class="container-fluid">
+  <div class="row nav_row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8 nav_col">
+      <app-nav-white></app-nav-white>
+    </div>
+  </div>
+  <div class="row top_padding">
+    <div class="col-md-3 col-xs-3"></div>
+    <div class="col-md-3 col-xs-3"></div>
+    <div class="col-md-3 col-xs-3"></div>
+    <div class="col-md-3 searchBar">
+      <div class=" search form-group search_bar">
+        <input type="text" class="form-control" name="search" placeholder="search Here..." [(ngModel)]="searchKeyword">
       </div>
     </div>
-    <div class="col"></div>
+  </div>
+  <div class="row content_row">
+    <div class="col-md-3 spSlot" *ngFor="let client of clientService.client | ClientFilter:searchKeyword">
+      <div class="row card_pic">
+        <!--img src="../../../../../source/images/85861600.jpg"-->
+        <img class="Pro_Pic" id="pp1" alt="Thumbnail [200x250]" src="../../../../../source/images/Travel1.jpg">
+      </div>
+      <div class="title_">
+        <span class="white_bg">{{client.fname}}</span>
+      </div>
+      <div class="row card_info">
+        <p class="des_item"><span style="padding-right: 5px">MAIL :</span> {{client.email}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">PHONE :</span>{{client.telephone}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">ADDRESS :</span>{{client.address}}, {{client.city}}, {{client.country}}, {{client.postalcode}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">DURATION :</span>{{client.datefrom}} - {{client.dateto}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">NO OF VISITORS :</span>{{client.noofvisitors}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">FOOD :</span>{{client.foodprefer}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">ACTIVITIES :</span>{{client.intactivities}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">AGE GROUP :</span>{{client.agegroup}}</p>
+
+      </div>
+      <div class="row btn_row1">
+        <span>
+          <button class="btn btn-info action-btn editBtn" (click)="onEdit(client)">
+            <p (click)="showDialog()">EDIT</p>
+          </button>
+          <button class="btn btn-info action-btn delBTn" (click)="onDelete(client._id)">
+            <p>DELETE</p>
+          </button>
+        </span>
+      </div>
+    </div>
   </div>
 </div>
+
 <p-dialog [(visible)]="display" [modal]="true" [responsive]="true" [width]="600">
 <div class="container">
   <div class="row">
