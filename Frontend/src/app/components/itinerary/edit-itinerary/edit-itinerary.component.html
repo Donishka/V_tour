@@ -48,7 +48,8 @@
                 <div class="col-1">
                   <div class="row" style="height: 100%;">
                     <div class="col-6 edt_col">
-                      <img (click)="editEvent(item.id)" class="edit_icn" src="../../../../../source/images/icon/icons8-edit-file-100.png">
+                      <img *ngIf = "item.payment_status == 'not_paid' && item.booking_status == 'not_booked' " (click)="editEvent(item.id)" class="edit_icn" src="../../../../../source/images/icon/icons8-edit-file-100.png">
+                      <img *ngIf = "item.payment_status == 'paid' || item.booking_status == 'booked'  " onClick="window.alert('Unable to edit due to Confirmation')" class="edit_icn" src="../../../../../source/images/icon/icons8-edit-file-100-s.png">
                     </div>
                     <div class="col-6 dlt_col">
                       <img (click)="deleteEvent(item.id)" class="delete_icn" src="../../../../../source/images/icon/icons8-delete-bin-100.png">
