@@ -1,73 +1,128 @@
-<mat-card-header>
-  <mat-toolbar class="toolbar">
-    <mat-card-title>Event Information</mat-card-title>
-    <span class="toobar-spacer"></span>
-    <mat-icon (click)="onNoClick()">cancle</mat-icon>
-  </mat-toolbar>
-</mat-card-header>
-<mat-card-content>
 
-
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-5 col-md-5">
-        <div class="tabulation animate-box">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="cost">Event type</label>
-              <select class="form-control" [(ngModel)]="formType" required>
-                <option>Hotel</option>
-                <option>Custom</option>
-                <option>Travel</option>
-              </select>
+  <!--/mat-card-content-->
+  <mat-card-header style="padding: 0;">
+    <mat-toolbar class="toolbar" style="background-color: white; padding: 0;">
+      <p class="topCardTitle">EVENT INFORMATION</p>
+      <span class="toobar-spacer"></span>
+      <mat-icon (click)="onNoClick()">cancle</mat-icon>
+    </mat-toolbar>
+  </mat-card-header>
+  <mat-card-content style="padding: 0">
+  
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="tabulation animate-box" style="background-color: white">
+            <div class="row">
+  
+              <div class="col-md-6 bdr_shadow">
+                <!--<div class="input_cover">-->
+                <label class="control-label cardTitle" for="cost">EVENT TYPE</label>
+                <div class="text_cover" style="width: 93%;">
+                  <div class="ip1">
+                    <select class="form-control spSelect" [(ngModel)]="formType" style="margin-bottom: 4%">
+                      <option>Hotel</option>
+                      <option>Cutom</option>
+                      <option>Travel</option>
+                    </select>
+                  </div>
+                </div>
+                <!--</div>-->
+              </div>
+  
+              <!--<div class="col-md-6">-->
+              <!--<label for="cost">Event type</label>-->
+              <!--<select class="form-control" [(ngModel)]="formType">-->
+              <!--<option>Hotel</option>-->
+              <!--<option>Cutom</option>-->
+              <!--<option>Travel</option>-->
+              <!--</select>-->
+              <!--</div>-->
             </div>
-          </div>
-
-          <form action="" [formGroup]="eventForm" (submit)="onSubmit()">
+  
+            <form action="" [formGroup]="eventForm" (submit)="onSubmit()">
               <input type="hidden" formControlName="event_type" class="form-control" [(ngModel)]="formType">
-            <div class="form-group">
-              <div class="row">
+              <div class="form-group">
+                <div class="row">
+  
+                  <div class="col-md-6 bdr_shadow">
+                    <div class="input_cover">
+                      <label class="control-label cardTitle" for="Name">EVENT NAME</label>
+                      <div class="text_cover">
+                        <div class="ip1">
+                          <input type="text" formControlName="name" class="form-control _itname">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-md-6 bdr_shadow">
+                    <div class="input_cover">
+                      <label class="control-label cardTitle" for="Venue">VENUE</label>
+                      <div class="text_cover">
+                        <div class="ip1">
+                          <input type="text" formControlName="venue" class="form-control _itname">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-md-6 bdr_shadow">
+                    <div class="input_cover">
+                      <label class="control-label cardTitle" for="date_from">DATE FROM</label>
+                      <div class="text_cover">
+                        <div class="ip1">
+                          <input type="date" formControlName="date_from" [value]="minimum_date" [min]="minimum_date"
+                            class="form-control _itdate">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-md-6 bdr_shadow">
+                    <div class="input_cover">
+                      <label class="control-label cardTitle" for="date_to">DATE TO</label>
+                      <div class="text_cover">
+                        <div class="ip1">
+                          <input type="date" formControlName="date_to" [value]="minimum_date" [min]="minimum_date" class="form-control _itdate">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
+                  <div class="col-md-6 bdr_shadow" *ngIf="formType != 'Travel' && formType != 'Hotel'">
+                    <div class="input_cover">
+                      <label class="control-label cardTitle" for="date_to">START TIME</label>
+                      <div class="text_cover">
+                        <div class="ip1">
+                          <input type="time" formControlName="intime" class="form-control _itdate">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-
-                <div class="col-md-6">
-                  <label for="Name">Event Name</label>
-                  <input type="text" formControlName="name" class="form-control" required>
-                </div>
-
-                <div class="col-md-6">
-                  <label for="Venue">Location Name</label>
-                  <input type="text" formControlName="venue" class="form-control" required>
-                </div>
-
-                <div class="col-md-6">
-                  <label for="date_from">Date from</label>
-                  <input type="date" formControlName="date_from"  [min]="minimum_date" class="form-control">
-                </div>
-
-                <div class="col-md-6">
-                  <label for="date_to">Date to</label>
-                  <input type="date" formControlName="date_to"  [min]="minimum_date" class="form-control">
-                </div>
-
-                <div class="col-md-6"  *ngIf="formType != 'Travel' && formType != 'Hotel'">
-                  <label for="in_time">Time In</label>
-                  <input type="time" formControlName="intime"  class="form-control" >
-                </div>
-
-                <div class="col-md-6"  *ngIf="formType != 'Travel' && formType != 'Hotel'" >
-                  <label for="in_time">End time</label>
-                  <input type="time" formControlName="outtime"  class="form-control" >
-                </div>
-
-                
-
-                <div class="col-md-6">
+                  <div class="col-md-6 bdr_shadow" *ngIf="formType != 'Travel' && formType != 'Hotel'">
+                    <div class="input_cover">
+                      <label class="control-label cardTitle" for="date_to">END TIME</label>
+                      <div class="text_cover">
+                        <div class="ip1">
+                          <input type="time" formControlName="outtime" class="form-control _itdate">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <!--<div class="col-md-6">-->
+                  <!--<label for="date_to">Date to</label>-->
+                  <!--<input type="date" formControlName="date_to" [value]="minimum_date" [min]="minimum_date" class="form-control">-->
+                  <!--</div>-->
+  
+                  <div class="col-md-6">
                     <form class="example-form">
-                        <label for="packages">SP username</label>
+                      <label for="packages" class="control-label cardTitle">SP Name : </label>
                       <mat-form-field class="example-full-width">
-                        <input class="form-control" matInput placeholder="Service Provider" aria-label="Client" [matAutocomplete]="auto"
-                          [formControl]="ServiceProviderCtrl" [(ngModel)] = "SPusername" required>
+                        <input matInput placeholder="Service Provider" aria-label="Client" [matAutocomplete]="auto"
+                          [formControl]="ServiceProviderCtrl">
                       </mat-form-field>
                       <mat-autocomplete #auto="matAutocomplete">
                         <mat-option *ngFor="let client of filteredServiceProviders | async" [value]="client.username">
@@ -75,102 +130,261 @@
                           <small>type : {{client.type}} </small>
                         </mat-option>
                       </mat-autocomplete>
-                      
-                      <button (click)=" getPkgs()" class="btn btn-success">Check</button>
+  
+                      <button (click)=" getPkgs()" class="btn btn-success btnBorder chk-btn">CHECK</button>
                     </form>
                   </div>
                   <input type="hidden" formControlName="sp_id" class="form-control" [(ngModel)]="Sp_id">
-                  <input type="hidden" formControlName="lng" class="form-control" [(ngModel)]="lng"  >
-                  <input type="hidden" formControlName="lat" class="form-control" [(ngModel)]="lat" >
-                  
-
-                <div class="col-md-6">
-                    <label for="packages">Package</label>
-                    
-                    <!-- <input type="text"  class="form-control"> -->
-                    <select class="form-control" formControlName="pkg_id" (ngModelChange)="setCost()" required>
-                      <option value="pol" selected="selected">{{SelectedPkg}}</option>
-                      <option *ngFor="let a of pkgs" [value]="a._id"> {{a.name}} </option>{{a._id}}
-                    </select>
+  
+  
+                  <div class="col-md-6 bdr_shadow">
+                    <!--<div class="input_cover">-->
+                    <label class="control-label cardTitle" for="packages">PACKAGE</label>
+                    <div class="text_cover" style="width: 93%;">
+                      <div class="ip1">
+                        <input type="hidden" formControlName="lng" class="form-control" [(ngModel)]="lng">
+                        <input type="hidden" formControlName="lat" class="form-control" [(ngModel)]="lat">
+                        <select class="form-control spSelect" formControlName="pkg_id" (ngModelChange)="setCost()">
+                          <option value="">SELECT A SERVICE PROVIDER</option>
+                          <option *ngFor="let a of pkgs" [value]="a._id"> {{a.name}} </option>
+                        </select>
+                      </div>
+                    </div>
+                    <!--</div>-->
                   </div>
-
-                <div class="col-md-6">
-                  <label for="description">Description</label>
-                  <input type="textarea" formControlName="description" class="form-control">
-                </div>
-
-                <div class="col-md-6">
-                  <label for="Name">price</label >
-                  <input type="number" formControlName="price" class="form-control" required>
-                </div>
-
-                <div class="col-md-6">
-                  <label for="cost">cost</label>
-                  <input type="number" formControlName="cost" class="form-control" required>
-                </div>
-
-
-
-                <div class="col-md-6" *ngIf="formType == 'Hotel'">
-                  <label for="check_in_time">Check-in time</label>
-                  <input type="text" formControlName="check_in_time" class="form-control">
-                </div>
-
-                <div class="col-md-6" *ngIf="formType == 'Hotel'">
-                  <label for="duration">Duration</label>
-                  <input type="text" formControlName="duration" class="form-control">
-                </div>
-
-                <div *ngIf="formType == 'Travel'">
-                  <label for="travel_category">Travel category</label>
-                  <input type="text" formControlName="travel_category" class="form-control">
-                </div>
-                <div *ngIf="formType == 'Travel'">
-                  <label for="depature_time">Depature time </label>
-                  <input type="time" formControlName="depature_time" class="form-control">
+  
+                  <!--<div class="col-md-6">-->
+                  <!--<label for="packages">Package</label>-->
+                  <!--<input type="hidden" formControlName="lng" class="form-control" [(ngModel)]="lng"  >-->
+                  <!--<input type="hidden" formControlName="lat" class="form-control" [(ngModel)]="lat" >-->
+                  <!--&lt;!&ndash; <input type="text"  class="form-control"> &ndash;&gt;-->
+                  <!--<select class="form-control" formControlName="pkg_id" (ngModelChange)="setCost()">-->
+                  <!--<option value="">Select a SP</option>-->
+                  <!--<option *ngFor="let a of pkgs" [value]="a._id"> {{a.name}} </option>{{a._id}}-->
+                  <!--</select>-->
+                  <!--</div>-->
+  
+                  <div class="col-md-6 bdr_shadow">
+                    <div class="input_cover">
+                      <label class="control-label cardTitle" for="description">DESCRIPTION</label>
+                      <div class="text_cover">
+                        <div class="ip1">
+                          <input type="textarea" formControlName="description" class="form-control _itname">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-md-6 bdr_shadow">
+                    <div class="input_cover">
+                      <label class="control-label cardTitle" for="Name">PRICE</label>
+                      <div class="text_cover">
+                        <div class="ip1">
+                          <input type="number" min="0" formControlName="price" class="form-control _itname" >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+  
+                  <!--<div class="col-md-6">-->
+                  <!--<label for="Name">price</label>-->
+                  <!--<input type="number" formControlName="price" class="form-control" [(ngModel)] = "price">-->
+                  <!--</div>-->
+  
+                  <div class="col-md-6 bdr_shadow">
+                    <div class="input_cover">
+                      <label class="control-label cardTitle" for="cost">COST</label>
+                      <div class="text_cover">
+                        <div class="ip1">
+                          <input type="number" min="0" formControlName="cost" class="form-control _itname">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <!--<div class="col-md-6">-->
+                  <!--<label for="cost">cost</label>-->
+                  <!--<input type="number" formControlName="cost" class="form-control">-->
+                  <!--</div>-->
+  
+                  <div class="col-md-6 bdr_shadow" *ngIf="formType == 'Hotel'">
+                    <div class="input_cover">
+                      <label class="control-label cardTitle" for="check_in_time">CHECK-IN TIME</label>
+                      <div class="text_cover">
+                        <div class="ip1">
+                          <input type="time" formControlName="check_in_time" class="form-control _itname">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <!--<div class="col-md-6" *ngIf="formType == 'Hotel'">-->
+                  <!--<label for="check_in_time">Check-in time</label>-->
+                  <!--<input type="text" formControlName="check_in_time" class="form-control">-->
+                  <!--</div>-->
+  
+                  <div class="col-md-6 bdr_shadow" *ngIf="formType == 'Hotel'">
+                    <div class="input_cover">
+                      <label class="control-label cardTitle" for="duration">DURATION</label>
+                      <div class="text_cover">
+                        <div class="ip1">
+                          <input type="text" formControlName="duration" class="form-control _itname">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <!--<div class="col-md-6" *ngIf="formType == 'Hotel'">-->
+                  <!--<label for="duration">Duration</label>-->
+                  <!--<input type="text" formControlName="duration" class="form-control">-->
+                  <!--</div>-->
+  
+  
+                  <div class="col-md-6 bdr_shadow" *ngIf="formType == 'Travel'">
+                    <div class="input_cover">
+                      <label class="control-label cardTitle" for="travel_category">TRAVEL CATEGORY</label>
+                      <div class="text_cover">
+                        <div class="ip1">
+                          <input type="text" formControlName="travel_category" class="form-control _itname">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+  
+  
+                  <!--<div *ngIf="formType == 'Travel'">-->
+                  <!--<label for="travel_category">Travel category</label>-->
+                  <!--<input type="text" formControlName="travel_category" class="form-control">-->
+                  <!--</div>-->
+  
+                  <div class="col-md-6 bdr_shadow" *ngIf="formType == 'Travel'">
+                    <div class="input_cover">
+                      <label class="control-label cardTitle" for="depature_time">DEPARTURE TIME</label>
+                      <div class="text_cover">
+                        <div class="ip1">
+                          <input type="time" formControlName="depature_time" class="form-control _itname">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+  
+                  <!--<div *ngIf="formType == 'Travel'">-->
+                  <!--<label for="depature_time">Depature time </label>-->
+                  <!--<input type="text" formControlName="depature_time" class="form-control">-->
+                  <!--</div>-->
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-success btnHighlight">ADD EVENT</button>
+                  </div>
                 </div>
               </div>
+              <!--<div class="row">-->
+              <!--<button type="submit" class="btn btn-success">Add event</button>-->
+              <!--</div>-->
+            </form>
+  
+            <!-- Tab panes -->
+            <div class="tab-content">
+  
+              <div role="tabpanel" class="tab-pane" id="custom">
+                <div class="tab-pane active">
+                  <form action="" [formGroup]="eventForm" (submit)="onSubmit()">
+                    <div class="form-group">
+                      <div class="row">
+  
+  
+                        <div class="col-md-6">
+                          <label for="Name">EVENT NAME</label>
+                          <input type="text" formControlName="name" class="form-control">
+                        </div>
+  
+                        <div class="col-md-6">
+                          <label for="Venue">VENUE</label>
+                          <input type="text" formControlName="venue" class="form-control">
+                        </div>
+  
+                        <div class="col-md-6">
+                          <label for="date_from">DATE FROM</label>
+                          <input type="date" formControlName="date_from" [value]="minimum_date" [min]="minimum_date"
+                            class="form-control">
+                        </div>
+  
+                        <div class="col-md-6">
+                          <label for="date_to">DATE TO</label>
+                          <input type="date" formControlName="date_to" [value]="minimum_date" [min]="minimum_date" class="form-control">
+                        </div>
+  
+                        <div class="col-md-6">
+                          <label for="packages">PACKAGE</label>
+                          <input type="text" formControlName="pkg_id" class="form-control">
+                        </div>
+  
+                        <div class="col-md-6">
+                          <label for="SP">SERVICE PROVIDER</label>
+                          <input type="text" formControlName="sp_id" class="form-control">
+                        </div>
+  
+                        <div class="col-md-6">
+                          <label for="description">DESCRIPTION</label>
+                          <input type="textarea" formControlName="description" class="form-control">
+                        </div>
+  
+                        <div class="col-md-6">
+                          <label for="Name">PRICE</label>
+                          <input type="number" formControlName="price" class="form-control">
+                        </div>
+  
+                        <div class="col-md-6">
+                          <label for="cost">COST</label>
+                          <input type="number" formControlName="cost" class="form-control">
+                        </div>
+  
+                        <div class="col-md-6" *ngIf="formType == 'Hotel'">
+                          <label for="check_in_time">CHECK IN TIME</label>
+                          <input type="time" formControlName="check_in_time" class="form-control">
+                        </div>
+  
+                        <div class="col-md-6" *ngIf="formType == 'Hotel'">
+                          <label for="duration">DURATION</label>
+                          <input type="text" formControlName="duration" class="form-control">
+                        </div>
+  
+                        <div *ngIf="formType == 'Travel'">
+                          <label for="travel_category">TRAVEL CATAGORY</label>
+                          <input type="text" formControlName="travel_category" class="form-control">
+                        </div>
+                        <div *ngIf="formType == 'Travel'">
+                          <label for="depature_time">DEAPRTURE TIME</label>
+                          <input type="time" formControlName="depature_time" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <button type="submit" class="btn btn-success">ADD EVENT</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+  
             </div>
-            <div class="row">
-              <button type="submit" class="btn btn-success">Add event</button>
-            </div>
-          </form>
-
-          <!-- Nav tabs -->
-          <!--   <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation">
-              <a href="#custom" aria-controls="custom" role="tab" data-toggle="tab" class="nav-link">Event</a>
-            </li>
-             <li role="presentation" class="nav-item">
-              <a href="#foods" aria-controls="foods" role="tab" data-toggle="tab" class="nav-link">Food</a>
-            </li>
-            <li role="presentation">
-              <a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab" class="nav-link">Hotels</a>
-            </li>
-            <li role="presentation">
-              <a href="#packages" aria-controls="packages" role="tab" data-toggle="tab" class="nav-link">Packages</a>
-            </li> 
-          </ul>
-          -->
-
-          <!-- Tab panes -->
-          
-
+  
+          </div>
         </div>
+        <div class="col-md-6" style="padding: 0;position: relative">
+  
+          <agm-map class="_map" [latitude]="lat" [longitude]="lng" (mapClick)="onChoseClick($event)">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+  
+          <button class="btn btn-success mapBtn btnBorder" (click)="setLocation()"> PICK LOCATION</button>
+        </div>
+  
       </div>
-      <div class="col-md-6">
-       
-        <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onChoseClick($event)">
-          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-        </agm-map>
-
-        <button class="btn btn-success" (click)="setLocation()"> Pic Location</button>
-      </div> 
-      
     </div>
-  </div>
-
-  <!-- to here -->
-
-
-  <!-- </mat-card-content> -->
+  
+    <!-- to here -->
+  
+  
+    <!-- </mat-card-content> -->

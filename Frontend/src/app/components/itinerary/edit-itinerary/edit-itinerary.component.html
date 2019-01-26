@@ -1,43 +1,89 @@
-<div style=" height: 500px; overflow:auto;">
-<mat-card >
-  <mat-card-content>
-    <div class="container">
-      <div >
-          <div class="row" >
-              <h1>Itinerary</h1>
-              <hr>
+
+<div style=" height: 500px; overflow:auto; width:600px">
+  <mat-card style="box-shadow: none;">
+    <mat-card-content style="height: 100%">
+      <div class="container" style="padding: 0">
+        <div class="header_cover">
+            <div class="row" >
+              <div class="col-sm-12">
+                <h1> <input class="iti_title" type="text" [(ngModel)]="itineraryName"></h1>
+              </div>
+              <div class="col-sm-12">
+                <span class="note_title">NOTES : </span><input class="iti_note" type="text" [(ngModel)]="note">
+              </div>
             </div>
-            <div class="row">
-                <input type="text" [(ngModel)]="note" class="col-sm">
-                <input type="text" [(ngModel)]="itineraryName" class="col-sm">
-              <button  class=" btn btn-primary col-sm" (click)="addEvent()"style="margin:10px ">Add event</button>
-              <button class=" btn btn-primary col-sm" (click)="addItinerary()" style="margin:10px " >Update</button>
-              
-            </div>
-      </div>
-      
-      <br>
-      <div class="container">
-      <cdk-drop (dropped)="onDrop($event)">
-          <div *ngFor="let item of EventList; let i = index" cdkDrag>
-              <div class="card text-center">
-                  <div class="card-header" cdkDragHandle>
-                    Event {{i+1}}
-                  </div>
-                  <div class="card-body" >
-                    <h5 class="card-title" >{{item.name}}</h5>
-                    <p class="card-text">{{item.venue}}</p>
-                    <button class="btn btn-primary" (click)="editEvent(item.id)" style="margin: 5px;">Edit</button>
-                    <button class="btn btn-primary" (click)="deleteEvent(item.id)">Delete</button>
-                  </div>
-                  <div class="card-footer text-muted">
-                    2 days ago
+        </div>
+  
+        <br>
+        <div class="container">
+  
+          <cdk-drop (dropped)="onDrop($event)">
+            <div class="event_item_cover" *ngFor="let item of EventList; let i = index" cdkDrag style="height: 70px;margin-bottom: 10px; margin-top: 15px; padding: 0">
+              <div class="row" style="height: 100%; margin: 0" >
+                <div cdkDragHandle class="col-1 drg_col">
+                  <img class="drag_icon" src="../../../../../source/images/icon/drag.png">
+                </div>
+                <!--<label cdkDragHandle >Drag</label>-->
+                <div class="col-1 num_col">
+                  {{i+1}}
+                </div>
+                <div class="col-3 title_col">
+                  <p class="card-text item_name">{{item.name}}</p>
+                </div>
+                <div class="col-2 ven_col">
+                  <p class="card-text item_ven">{{item.venue}}</p>
+                </div>
+                <div class="col-2 stdate_col">
+                  <div class="datetimeWrap">
+                    <div class="row"><p class="event_date">01/01/2019</p></div>
+                    <div class="row"><p class="event_time">09:30</p></div>
                   </div>
                 </div>
-          </div>
-        </cdk-drop>
+                <div class="col-2 enddate_col">
+                  <div class="datetimeWrap">
+                    <div class="row"><p class="event_date">01/01/2019</p></div>
+                    <div class="row"><p class="event_time">09:30</p></div>
+                  </div>
+                </div>
+                <div class="col-1">
+                  <div class="row" style="height: 100%;">
+                    <div class="col-6 edt_col">
+                      <img (click)="editEvent(item.id)" class="edit_icn" src="../../../../../source/images/icon/icons8-edit-file-100.png">
+                    </div>
+                    <div class="col-6 dlt_col">
+                      <img (click)="deleteEvent(item.id)" class="delete_icn" src="../../../../../source/images/icon/icons8-delete-bin-100.png">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </cdk-drop>
+  
+          <!--<cdk-drop (dropped)="onDrop($event)">-->
+              <!--<div *ngFor="let item of EventList; let i = index" cdkDrag>-->
+                  <!--<div class="card text-center">-->
+                      <!--<div class="card-header" cdkDragHandle>-->
+                        <!--Event {{i+1}}-->
+                      <!--</div>-->
+                      <!--<div class="card-body" >-->
+                        <!--<h5 class="card-title" >{{item.name}}</h5>-->
+                        <!--<p class="card-text">{{item.venue}}</p>-->
+                        <!--<button class="btn btn-primary" (click)="editEvent(item.id)" style="margin: 5px;">Edit</button>-->
+                        <!--<button class="btn btn-primary" (click)="deleteEvent(item.id)">Delete</button>-->
+                      <!--</div>-->
+                      <!--<div class="card-footer text-muted">-->
+                        <!--2 days ago-->
+                      <!--</div>-->
+                    <!--</div>-->
+              <!--</div>-->
+            <!--</cdk-drop>-->
+        </div>
       </div>
-    </div>
-  </mat-card-content>
-</mat-card>
-</div>
+    </mat-card-content>
+  </mat-card>
+  </div>
+  <div class="row" style="padding-left: 50px">
+    <button  class=" btn btn-primary addbtn" (click)="addEvent()"style="margin:10px ">ADD EVENT</button>
+    <button class=" btn btn-primary savebtn" (click)="addItinerary()" style="margin:10px " >UPDATE</button>
+  </div>
+  

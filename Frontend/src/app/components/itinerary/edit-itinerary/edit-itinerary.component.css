@@ -1,0 +1,144 @@
+.iti_title{
+    font-size: 30px;
+    font-family: Helvetica;
+    font-weight: bold;
+    color: #3C3C3C;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    border:1px solid rgba(112,112,112,0.24);
+    border-radius: 5px;
+  }
+  
+  .note_title{
+    font-family: Helvetica;
+    font-weight: bold;
+    color: #7C7C7C;
+    font-size: medium;
+  }
+  .iti_note{
+    font-family: Helvetica;
+    color: #7C7C7C;
+    font-size: medium;
+    border:1px solid rgba(112,112,112,0.24);
+    border-radius: 5px;
+  }
+  
+  .header_cover{
+    background-color: #FDFDFD;
+    padding: 10px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.10);
+  }
+  
+  
+  .event_item_cover{
+    width: 100%;
+    display: inline-block;
+    border:1px solid rgba(112,112,112,0.24);
+    border-radius: 7px;
+    height: 70px;
+  }
+  
+  .delete_icn{
+    width:20px;
+  }
+  .edit_icn{
+    width: 18px;
+  }
+  
+  .icn_container,.dlt_col{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .edt_col{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding: 0px;
+  }
+  
+  .dlt_col{
+    background-color: #4AB4B2;
+    border-radius: 0px 7px 7px 0px;
+    height:100%;
+    padding:0;
+  }
+  
+  .icn_extra{
+    border:1px solid #24ADAB;
+    border-radius: 0 6px 6px 0;
+  }
+  
+  .num_col,.title_col,.ven_col,.drg_col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .drg_col{
+    padding-left: auto;
+    padding-right: auto;
+    /*background-color: #20a8d8;*/
+  }
+  
+  .drag_icon{
+    height: 20px;
+    display: inline-block;
+  }
+  
+  
+  .stdate_col,.enddate_col{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  
+  .item_name{
+    font-size: large;
+    font-family: Helvetica;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #5F5F5F;
+  }
+  
+  .item_ven{
+    font-size: medium;
+    font-family: Helvetica;
+    font-weight: normal;
+    color: #7C7C7C;
+  }
+  
+  .event_date{
+    font-size: small;
+    font-family: Helvetica;
+    color:#7C7C7C;
+  }
+  .event_time {
+    font-size: small;
+    font-family: Helvetica;
+    font-weight: bold;
+    color:#7C7C7C;
+  }
+  
+  .savebtn{
+    width: 120px;
+    height: 45px;
+    font-family: "Helvetica Neue";
+    font-weight: bold;
+    font-size: medium;
+    border-radius: 7px;
+    background-color: #4AB4B2;
+    border: none;
+  }
+  .addbtn{
+    background-color: white;
+    color: #4AB4B2;
+    border: 2px solid #4AB4B2;
+    font-family: "Helvetica Neue";
+    font-weight: bold;
+    font-size: medium;
+    border-radius: 7px;
+  }
+  
