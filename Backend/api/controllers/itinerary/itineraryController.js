@@ -8,7 +8,8 @@ var { Itinerary } = require('../../data/itinerary/itineraty.model.js');
 
 var transporter = nodemailer.createTransport(smtpTransport({
     host: 'smtp.gmail.com', port: 465, secure: true, // 
-    service: 'Gmail', auth: { user: 'anemanda175@gmail.com', pass: 'vtourtempory' },
+    service: 'Gmail', auth: {
+        user: 'vtourofficial@gmail.com', pass: 'vtourpassword' },
     tls: { rejectUnauthorized: false }
 }));
 
@@ -93,7 +94,7 @@ router.delete('/:id', (req, res) => {
 
 router.post('/email',(req,res)=>{
     var mailOptions = {
-        from: 'anemanda175@gmail.com',
+        from: 'vtourofficial@gmail.com',
         to: req.body.mail,
         subject: 'Making a Booking',
         html: req.body.msg,
@@ -137,7 +138,7 @@ router.put('/booking/:id', (req, res) => {
         },
         {
             "$set": {
-                'events.$.booking_status': "paid"
+                'events.$.booking_status': "booked"
             }
         },
         { new: true }, (err, doc) => {

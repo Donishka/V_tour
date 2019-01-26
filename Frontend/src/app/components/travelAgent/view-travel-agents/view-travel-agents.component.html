@@ -25,33 +25,36 @@
     <div class="col-md-1 col-xs-1"></div>
   </div>
 
-
   <div class="row content_row">
     <div class="col-md-1 col-xs-1"></div>
     <div class="col-md-10 col-xs-10">
       <div class="row">
         <div class="col-lg-6 card_col" *ngFor="let tagent of travelAgentService.tagent | TravelAgentFilter:searchKeyword">
-          <div class="row card_cover">
-            <div class="col-3 Pro_Pic_cover">
-              <img  *ngIf="tagent.profilepic==null" class="Pro_Pic" id ="pp1" alt="Thumbnail [200x250]" src="../../../../assets/default.png">
-              <img  *ngIf="tagent.profilepic!=null" class="Pro_Pic" id ="pp1" alt="Thumbnail [200x250]" src="../../../../assets/{{tagent.profilepic}}">
-            </div>
-            <div class="col-6 textParent">
-              <div class="textDev">
-                <h4>{{tagent.fname}} {{tagent.lname}}</h4>
-                <p class="email">{{tagent.email}}</p>
+          <div *ngIf="user.agencyname==tagent.agencyname">
+            <div class="row card_cover">
+              <div class="col-3 Pro_Pic_cover">
+                <img *ngIf="tagent.profilepic==null" class="Pro_Pic" id="pp1" alt="Thumbnail [200x250]" src="../../../../assets/default.png">
+                <img *ngIf="tagent.profilepic!=null" class="Pro_Pic" id="pp1" alt="Thumbnail [200x250]" src="../../../../assets/{{tagent.profilepic}}">
               </div>
-            </div>
-            <div class="col-3">
-              <div class="row" style="height: 100%">
-                <div class="col-7 icn_container" style="padding: 0px" *ngIf="user.isadmin==true" (click)="onEdit(tagent)">
-                  <img (click)="showDialog()" class="edit_icn" src="../../../../../source/images/icon/icons8-edit-file-100.png">
-                </div>
-                <div class="col-5 icn_container icn_extra" style="background-color: #24ADAB; padding: 0px" *ngIf="user.isadmin==true" (click)="onDelete(tagent._id)">
-                  <img class="delete_icn" src="../../../../../source/images/icon/icons8-delete-bin-100.png">
+              <div class="col-6 textParent">
+                <div class="textDev">
+                  <h4>{{tagent.fname}} {{tagent.lname}}</h4>
+                  <p class="email">{{tagent.email}}</p>
                 </div>
               </div>
+              <div class="col-3">
+                <div class="row" style="height: 100%">
+                  <div class="col-7 icn_container" style="padding: 0px" *ngIf="user.isadmin==true" (click)="onEdit(tagent)">
+                    <img (click)="showDialog()" class="edit_icn" src="../../../../../source/images/icon/icons8-edit-file-100.png">
+                  </div>
+                  <div class="col-5 icn_container icn_extra" style="background-color: #24ADAB; padding: 0px" *ngIf="user.isadmin==true"
+                    (click)="onDelete(tagent._id)">
+                    <img class="delete_icn" src="../../../../../source/images/icon/icons8-delete-bin-100.png">
+                  </div>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
       </div>

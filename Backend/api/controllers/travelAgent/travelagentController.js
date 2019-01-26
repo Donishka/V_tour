@@ -5,13 +5,21 @@ var ObjectId = require('mongoose').Types.ObjectId;
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
 
 const loginModel = require('../../data/login/login.model');
 
 var { TravelAgent }  = require('../../data/travelAgent/travelagent.model.js');
 var  TravelAgentModel  = require('../../data/travelAgent/travelagent.model.js');
 var picture=null;
-
+var transporter = nodemailer.createTransport(smtpTransport({
+    host: 'smtp.gmail.com', port: 465, secure: true, // 
+    service: 'Gmail', auth: {
+        user: 'vtourofficial@gmail.com', pass: 'vtourpassword'
+    },
+    tls: { rejectUnauthorized: false }
+}));
 router.get('/', (req, res) => {
     TravelAgent.find((err, docs) => {
         if (!err) { res.send(docs); }
@@ -39,6 +47,7 @@ router.post('/', (req, res) => {
                 fname: req.body.fname,
                 lname: req.body.lname,
                 username: req.body.username,
+                agencyname:req.body.agencyname,
                 password: req.body.password,
                 email: req.body.email,
                 telephone: req.body.telephone,
@@ -53,6 +62,19 @@ router.post('/', (req, res) => {
                 }
                 if (doc) {
                     res.json({ state: true, msg: "data  inserted" });
+                    var mailOptions = {
+                        from: 'vtourofficial@gmail.com',
+                        to: req.body.email,
+                        subject: 'V Tour Account Credentials',
+                        html: '<p>Please Use --- ' + req.body.password + ' --- as your login password and use link below to login</p>' + '<a href="http://localhost:4200/login">Click Here</a>'
+                    };
+                    transporter.sendMail(mailOptions, function (error, info) {
+                        if (error) {
+                            console.log(error);
+                        } else {
+                            console.log('Email sent: ' + info.response);
+                        }
+                    });
                 }
             }
             );
@@ -89,6 +111,7 @@ router.put('/:id', (req, res) => {
         fname: req.body.fname,
         lname:req.body.lname,
         username: req.body.username,
+        agencyname:req.body.agencyname,
         email:req.body.email,
         telephone: req.body.telephone,
         address: req.body.address,

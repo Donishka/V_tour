@@ -55,7 +55,6 @@ export class ViewServiceproviderPaymentComponent implements OnInit {
   getProfileDetails() {
     this.authService.getProfile().subscribe(res => {
       this.user = res.data.user;
-      console.log(this.user);
     });
   }
 

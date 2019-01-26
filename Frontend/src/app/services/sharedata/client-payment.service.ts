@@ -8,7 +8,7 @@ export class ClientPaymentService {
   amount:Number;
   itenararyname:String;
   itenararyid:String;
-
+  tausername:String;
   constructor() { }
 
   

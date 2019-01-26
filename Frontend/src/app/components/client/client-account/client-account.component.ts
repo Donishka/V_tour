@@ -86,6 +86,7 @@ export class ClientAccountComponent implements OnInit {
     this.clientPaymentService.amount = this.itineraryService.itenarary[i].totalPrice;
     this.clientPaymentService.itenararyid = this.itineraryService.itenarary[i]._id;
     this.clientPaymentService.itenararyname = this.itineraryService.itenarary[i].name;
+    this.clientPaymentService.tausername = this.itineraryService.itenarary[i].traveAgentName;
     this.router.navigateByUrl('/client-payment');
   }
 

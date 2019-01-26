@@ -1,3 +1,4 @@
+import { AuthService } from './../../../services/auth.service';
 import { ItenararyPayment } from './../../../services/payment-service/itenarary-payment/itenarary-payment.model';
 import { ItenararyPaymentService } from './../../../services/payment-service/itenarary-payment/itenarary-payment.service';
 import { Component, OnInit } from '@angular/core';
@@ -19,9 +20,13 @@ export class ViewClientPaymentsComponent implements OnInit {
     private itenararyPayment: ItenararyPayment,
     private flashMessage: FlashMessagesService,
     private router: Router,
-    private spinner: NgxSpinnerService) { }
+    private spinner: NgxSpinnerService,
+    public authService:AuthService) { }
+
+    user:any;
 
   ngOnInit() {
+    this.getProfileDetails();
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
@@ -60,6 +65,11 @@ export class ViewClientPaymentsComponent implements OnInit {
         this.refreshPaymentList();
       });
     }
+  }
+  getProfileDetails() {
+    this.authService.getProfile().subscribe(res => {
+      this.user = res.data.user;
+    });
   }
 
 }

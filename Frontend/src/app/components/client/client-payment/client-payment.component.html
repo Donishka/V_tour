@@ -14,7 +14,7 @@
             <input type="hidden" name="cancel_url" value="http://localhost:4200/client-account">
             <input type="hidden" name="notify_url" value="http://sample.com/notify">
             <input type="hidden" name="order_id" value={{user._id}}>
-            <input type="hidden" name="items" value="clientPaymentService.itenararyname"><br>
+            <input type="hidden" name="items" value="{{clientPaymentService.itenararyname}}"><br>
             <input type="hidden" name="currency" value="LKR">
 
             <h3>Client Details</h3>
@@ -48,8 +48,10 @@
             <h3>Itenarary Details</h3>
             <input type="hidden" name="itenararyid" #name="ngModel" [(ngModel)]="itid">
             Itenarary Name :
-            <input class="input1" type="text" name="itenararyname" #name="ngModel" [(ngModel)]="itname"><br><br><br>
-
+            <input class="input1" type="text" name="itenararyname" #name="ngModel" [(ngModel)]="itname">
+            <!--ADD THIS TO JANITH UI-->
+            <input class="input1" type="text" name="tausername" #name="ngModel" [(ngModel)]="tausername" hidden><br><br><br>
+            <!---->
             <flash-messages></flash-messages>
             <div class="form-group ">
               <button class="btn btn-primary btn-lg btn-block login-button" type="submit" (click)="form.submit()"[disabled]="!userForm.valid">Make ItenararyPayment</button>

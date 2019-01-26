@@ -29,32 +29,36 @@
     <div class="col-md-1 col-xs-1"></div>
     <div class="col-md-10 col-xs-10">
       <div class="row">
-        <div class="col-lg-6 card_col" *ngFor="let pkg of packagePaymentService.packagepayment| PackagePaymentFilter:searchKeyword">
-          <div class="row card_cover">
-            <div class="col-3 Pro_Pic_cover">
-              <img class="Pro_Pic" id="pp1" alt="Thumbnail [200x250]" src="../../../../../source/images/icon/payment.png">
-            </div>
-            <div class="col-6 textParent">
-              <div class="textDev">
-                <h4>{{pkg.packagename}}</h4>
-                <p class="email">{{pkg.travelagentname}}</p>
-                <p class="email">{{pkg.date}}</p>
-                <p class="email">{{pkg.amount}}</p>
-                <p class="email">{{pkg.status}}</p>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="row" style="height: 100%">
-                <div class="col-7 icn_container" style="padding: 0px" *ngIf="pkg.status=='Waiting for Confirmation'" (click)="onConfirm(pkg)">
-                  <img class="edit_icn" src="../../../../../source/images/icon/confirm.png">
+        <ng-container *ngFor="let pkg of packagePaymentService.packagepayment| PackagePaymentFilter:searchKeyword">
+          <div class="col-lg-6" *ngIf="user._id==pkg.spid">
+            <div class=" card_col">
+              <div class="row card_cover">
+                <div class="col-3 Pro_Pic_cover">
+                  <img class="Pro_Pic" id="pp1" alt="Thumbnail [200x250]" src="../../../../../source/images/icon/payment.png">
                 </div>
-                <div class="col-5 icn_container " style="padding:0px" *ngIf="pkg.status=='Waiting for Confirmation'" (click)="onReject(pkg)">
-                  <img class="delete_icn" src="../../../../../source/images/icon/reject.png">
+                <div class="col-6 textParent">
+                  <div class="textDev">
+                    <h4>{{pkg.packagename}}</h4>
+                    <p class="email">{{pkg.travelagentname}}</p>
+                    <p class="email">{{pkg.date}}</p>
+                    <p class="email">{{pkg.amount}}</p>
+                    <p class="email">{{pkg.status}}</p>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="row" style="height: 100%">
+                    <div class="col-7 icn_container" style="padding: 0px" *ngIf="pkg.status=='Waiting for Confirmation'" (click)="onConfirm(pkg)">
+                      <img class="edit_icn" src="../../../../../source/images/icon/confirm.png">
+                    </div>
+                    <div class="col-5 icn_container " style="padding:0px" *ngIf="pkg.status=='Waiting for Confirmation'" (click)="onReject(pkg)">
+                      <img class="delete_icn" src="../../../../../source/images/icon/reject.png">
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </ng-container>
       </div>
     </div>
     <div class="col-md-1 col-xs-1"></div>

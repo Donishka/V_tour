@@ -13,6 +13,9 @@ var ItenararyPayment = mongoose.model('ItenararyPayment', {
     itenararyname: {
         type: String,
     },
+    tausername:{
+        type:String,
+    },
     amount: {
         type: String,
     },

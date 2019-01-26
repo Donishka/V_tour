@@ -20,7 +20,8 @@ var nodemailer = require('nodemailer');
 
 var transporter = nodemailer.createTransport(smtpTransport({ 
     host: 'smtp.gmail.com', port: 465, secure: true, // 
-    service: 'Gmail', auth: { user: 'anemanda175@gmail.com', pass: 'vtourtempory' }, 
+    service: 'Gmail', auth: {
+        user: 'vtourofficial@gmail.com', pass: 'vtourpassword' }, 
     tls: { rejectUnauthorized: false } }));
 /*var transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -46,10 +47,8 @@ router.post('/reset', function (req, res) {
                             if (err) throw err;
 
                             if (!user) {
-                                console.log('NO USER');
                                 res.json({ state: false, msg: "No user found" });
                             } else {
-                                console.log('TA');
                                 var payload = {
                                     id: user._id,
                                     email: emailAddress
@@ -58,7 +57,7 @@ router.post('/reset', function (req, res) {
 
                                 var token = jwt.encode(payload, secret);
                                 var mailOptions = {
-                                    from: 'anemanda175@gmail.com',
+                                    from: 'vtourofficial@gmail.com',
                                     to: user.email,
                                     subject: 'Password Reset V Tour',
                                     html: '<p>Please use below link to reset your password</p>'+'<a href="http://localhost:4200/resetpassword/' + payload.id + '/' + token + '">Click Here</a>'
@@ -74,7 +73,6 @@ router.post('/reset', function (req, res) {
                             }
                         });
                     }else{
-                        console.log('SP');
                         var payload = {
                             id: user._id,
                             email: emailAddress
@@ -84,7 +82,7 @@ router.post('/reset', function (req, res) {
                         var token = jwt.encode(payload, secret);
 
                         var mailOptions = {
-                            from: 'anemanda175@gmail.com',
+                            from: 'vtourofficial@gmail.com',
                             to: user.email,
                             subject: 'Password Reset V Tour',
                             html: '<p>Please use below link to reset your password</p>' + '<a href="http://localhost:4200/resetpassword/' + payload.id + '/' + token + '">Click Here</a>'
@@ -101,7 +99,6 @@ router.post('/reset', function (req, res) {
                     
                 });
             }else{
-                console.log('C');
                 var payload = {
                     id: user._id,
                     email: emailAddress
@@ -112,7 +109,7 @@ router.post('/reset', function (req, res) {
                 var token = jwt.encode(payload, secret);
 
                 var mailOptions = {
-                    from: 'anemanda175@gmail.com',
+                    from: 'vtourofficial@gmail.com',
                     to: user.email,
                     subject: 'Password Reset V Tour',
                     html: '<p>Please use below link to reset your password</p>' + '<a href="http://localhost:4200/resetpassword/' + payload.id + '/' + token + '">Click Here</a>'

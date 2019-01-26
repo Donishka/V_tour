@@ -8,9 +8,17 @@ const fs = require('fs');
 //var Hashing = require('../../functions/hashing.js');
 var { ServiceProvider }  = require('../../data/serviceProvider/serviceprovider.model.js');
 var  ServiceProviderModel  = require('../../data/serviceProvider/serviceprovider.model.js');
+var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
 
 const loginModel = require('../../data/login/login.model');
-
+var transporter = nodemailer.createTransport(smtpTransport({
+    host: 'smtp.gmail.com', port: 465, secure: true, // 
+    service: 'Gmail', auth: {
+        user: 'vtourofficial@gmail.com', pass: 'vtourpassword'
+    },
+    tls: { rejectUnauthorized: false }
+}));
 
 router.get('/', (req, res) => {
     ServiceProvider.find((err, docs) => {
@@ -52,6 +60,19 @@ router.post('/', (req, res) => {
                 }
                 if(doc){
                     res.json({state:true,msg:"data  inserted"});
+                    var mailOptions = {
+                        from: 'vtourofficial@gmail.com',
+                        to: req.body.email,
+                        subject: 'V Tour Account Credentials',
+                        html: '<p>Please Use --- ' + req.body.password + ' --- as your login password and use link below to login</p>' + '<a href="http://localhost:4200/login">Click Here</a>'
+                    };
+                    transporter.sendMail(mailOptions, function (error, info) {
+                        if (error) {
+                            console.log(error);
+                        } else {
+                            console.log('Email sent: ' + info.response);
+                        }
+                    });
                 }}
             );
         }else{
