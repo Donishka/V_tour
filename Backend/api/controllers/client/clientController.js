@@ -12,7 +12,8 @@ const loginModel = require('../../data/login/login.model');
 
 var transporter = nodemailer.createTransport(smtpTransport({
     host: 'smtp.gmail.com', port: 465, secure: true, // 
-    service: 'Gmail', auth: { user: 'anemanda175@gmail.com', pass: 'vtourtempory' },
+    service: 'Gmail', auth: {
+        user: 'vtourofficial@gmail.com', pass: 'vtourpassword' },
     tls: { rejectUnauthorized: false }
 }));
 
@@ -63,7 +64,7 @@ router.post('/', (req, res) => {
             if (doc) {
                 res.json({ state: true, msg: "data  inserted" });
                 var mailOptions = {
-                    from: 'anemanda175@gmail.com',
+                    from: 'vtourofficial@gmail.com',
                     to: req.body.email,
                     subject: 'V Tour Account Credentials',
                     html: '<p>Please Use --- ' + req.body.password + ' --- as your login password and use link below to login</p>' + '<a href="http://localhost:4200/login">Click Here</a>'

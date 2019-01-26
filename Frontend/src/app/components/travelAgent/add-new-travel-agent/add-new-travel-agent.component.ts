@@ -42,6 +42,7 @@ export class AddNewTravelAgentComponent implements OnInit {
     fname:"",
     lname:"",
     username:"",
+    agencyname:"",
     password:"",
     email:"",
     telephone:[""],

@@ -37,6 +37,7 @@ export class ViewItineraryComponent implements OnInit {
   spid: any;
   mail:any;
   paymentdata:any;
+  searchKeyword: string;
 
   lat: number = 6.978554010342724;
   lng: number = 79.96221732040647;

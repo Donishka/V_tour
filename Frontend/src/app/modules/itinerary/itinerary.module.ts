@@ -1,7 +1,7 @@
+import { ItineraryFilterPipe } from './../../components/itinerary/itinerary-filter.pipe';
 import { HeaderBarModule } from './../header-bar/header-bar.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { EventComponent } from '../../components/itinerary/event/event.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule, MatDialogModule, MatToolbarModule, MatIconModule } from '@angular/material';
@@ -42,7 +42,8 @@ import { AgmCoreModule } from '@agm/core';
     EventComponent,
     ItineraryComponent,
     ViewItineraryComponent,
-    EditItineraryComponent
+    EditItineraryComponent,
+    ItineraryFilterPipe
   ],
   exports: [
     EventComponent,

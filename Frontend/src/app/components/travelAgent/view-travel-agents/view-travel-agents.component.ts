@@ -56,6 +56,7 @@ export class ViewTravelAgentsComponent implements OnInit {
     fname:"",
     lname:"",
     username:"",
+    agencyname:"",
     password:"",
     email:"",
     telephone:[""],
