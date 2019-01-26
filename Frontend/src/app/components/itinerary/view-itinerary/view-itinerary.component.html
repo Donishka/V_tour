@@ -53,8 +53,8 @@
     <div class="card" *ngFor="let iT of itineraryService.iT| ItineraryFilter:searchKeyword; let i = index " style="border: 0">
       <div class="card-header it_header" id="contentToConvert1">
         <p class="itName">{{iT.name}}</p>
-        <p class="agentName">{{iT.traveAgentName}}</p>
-        <p class="note">{{iT.note}}</p>
+        <p class="agentName"> Agent Name: {{iT.traveAgentName}}</p>
+        <p class="note">Client: {{iT.note}}</p>
         <p class="lastUpdated">Last updated {{iT.date_time}}</p>
       </div>
       <div class="card-body event_cover">
@@ -67,10 +67,10 @@
               <p class="card-text item_name">{{event.name}} </p>
             </div>
             <div class="col-1 stdate_col">
-              <p class="event_time">07:30</p>
+              <p class="event_time">{{event.intime}}</p>
             </div>
             <div class="col-2 enddate_col">
-              <p class="event_time">09:30</p>
+              <p class="event_time">{{event.outtime}}</p>
             </div>
             <div class="col-2 btn_col">
               <button class="btn btn-primary cspbtn" *ngIf="event.sp_id!=null" (click)="makeBooking(iT._id,event.id)">CONTACT
