@@ -15,6 +15,8 @@ import * as html2canvas from 'html2canvas';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { NgForm } from '@angular/forms';
+import * as pdfMake from 'pdfmake/build/pdfmake';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 
 @Component({
   selector: 'app-view-itinerary',
@@ -116,9 +118,8 @@ export class ViewItineraryComponent implements OnInit {
       // }
     });
   }
-  public generatePDF(name: string) {
-
-    var data2 = document.getElementById('contentToConvert2');
+  public generatePDF(name:string,id:string) {
+    var data2 = document.getElementById(id);
 
     html2canvas(data2).then(canvas => {
       // Few necessary setting options 

@@ -6,3 +6,226 @@
     width: 100%;
     height: 75%;
 }
+
+.FixedHeightContainer{
+  height: 70vh;
+}
+
+._scrollable{
+  height: 70vh;
+  overflow:auto;
+}
+
+.FixedHeightContainer2{
+  margin-top: 30px;
+  height: 70vh;
+  width:100%;
+  padding: 0;
+}
+
+._scrollable2{
+  height: 70vh;
+  overflow:auto;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+
+.editBtn{
+  width: 120px;
+  height: 40px;
+  float:right;
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  font-size: medium;
+  border-radius: 7px;
+  background-color: white;
+  color: #4AB4B2;
+  border: 2px solid #4AB4B2;
+  margin-left: 5px;
+}
+
+
+.delBTn{
+  width: 120px;
+  height: 40px;
+  float:right;
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  font-size: medium;
+  border-radius: 7px;
+  background-color: #4AB4B2;
+  border: none;
+  margin-left: 5px;
+
+}
+
+.pkg_title{
+  font-size: medium;
+  font-family: Helvetica;
+  text-transform: uppercase;
+  font-weight: bold;
+  color:#3C3C3C;
+}
+
+.pkg_desc{
+  font-size: small;
+  font-family: Helvetica;
+  font-weight: bold;
+  color:#7C7C7C;
+}
+
+.col_3{
+  height: 90vh;
+  /*border:1px solid rgba(112,112,112,0.24);*/
+}
+
+/* CSS FROM ADD NEW TRAVEL AGENT*/
+
+#h4l{
+  font-size: 22px;
+  color: #2A433C;
+  /*margin-top: 10%;*/
+}
+
+.labelCover {
+  /*text-align: center;*/
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.input_cover{
+  border:1px solid rgba(112,112,112,0.24);
+  border-radius: 7px;
+  padding-bottom: 0px;
+  width:100%;
+  margin-bottom: 4%;
+}
+.input_cover_add{
+  border:1px solid rgba(112,112,112,0.24);
+  border-radius: 7px;
+  padding-bottom: 0px;
+  width:100%;
+  margin-bottom: 3%;
+}
+
+.bdr_shadow{
+  padding: 10px;
+}
+
+
+._fname,._lname,._telephone,._email,._isadmin,._username,._password{
+  margin-bottom: -8px;
+  border-right: 0px;
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 1px solid rgba(112,112,112,0.6);
+  border-radius: 0px;
+  height:2em;
+}
+
+._address{
+  margin-bottom: -8px;
+  border-right: 0px;
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 1px solid rgba(112,112,112,0.6);
+  border-radius: 0px;
+  height:2em;
+}
+
+.ip1{
+  width:93%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+}
+
+.ip2{
+  width:96%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+}
+
+input{
+  padding-bottom: 0px;
+}
+
+.form-group{
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
+.control-label{
+  margin-left: 3.5%;
+  margin-top: 1%;
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  font-size: 14px;
+  color:#7C7C7C;
+}
+
+.control-label_add{
+  margin-left: 1.75%;
+  margin-top: 0.5%;
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  font-size: 14px;
+  color:#7C7C7C;
+}
+
+.text_cover{
+  margin-left:  0px;
+}
+
+.btn_col{
+  padding-top: 6%;
+
+}
+
+.btn_add_agent,.btn_reset{
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  font-size: medium;
+  padding-bottom: 5px;
+  border-radius: 7px;
+}
+
+
+.btn_add_agent{
+  width: 200px;
+  height: 45px;
+  margin-left: 5px;
+  background-color: #4AB4B2;
+  color:white;
+  border: 0;
+
+}
+
+.btn_reset{
+  width: 200px;
+  height: 45px;
+  background-color: white;
+  color:#4AB4B2;
+  border: 2px solid;
+}
+
+.form_Title{
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  font-size: large;
+  color:#7C7C7C;
+  margin-top: 5px;
+  margin-bottom: -5px;
+}
+
+.form_Title1{
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  font-size: large;
+  color:#7C7C7C;
+  margin-left: 20px;
+  margin-bottom: 25px;
+}
