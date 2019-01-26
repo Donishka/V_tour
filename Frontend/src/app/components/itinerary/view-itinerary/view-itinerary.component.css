@@ -6,8 +6,22 @@ agm-map {
   min-height: 15vh;
   /*background-color: #4AB4B2;*/
 }
+
+.nav_col{
+  padding-top:2%;
+  padding-bottom: auto;
+  padding-left: 0px;
+  /* media @xl
+  padding-right: 50px;
+   */
+  padding-right: 10px;
+  border-bottom: 1px solid #7C7C7C;
+}
+
+
 .search{
   margin-top:30px;
+  margin-bottom: 30px;
 }
 
 .search_bar{
@@ -21,19 +35,6 @@ agm-map {
   height: 50px;
   border:1px solid rgba(112,112,112,0.24);
   border-radius: 10px;
-}
-.nav_col{
-  padding-top:2%;
-  padding-bottom: auto;
-  padding-left: 0px;
-  /* media @xl
-  padding-right: 50px;
-   */
-  padding-right: 10px;
-  border-bottom: 1px solid #7C7C7C;
-}
-.top_padding{
-  height: 5vh;
 }
 
 .it_header{

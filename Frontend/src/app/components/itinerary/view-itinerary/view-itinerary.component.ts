@@ -116,11 +116,10 @@ export class ViewItineraryComponent implements OnInit {
     });
   }
   public generatePDF(name:string) {
-    var data1 = document.getElementById('contentToConvert1');
+    //var data1 = document.getElementById('contentToConvert1');
     var data2 = document.getElementById('contentToConvert2');
-    var data3 = document.getElementById('contentToConvert3');
-    var data4 = document.getElementById('contentToConvert4');
-    html2canvas(data1,data2,data3,data4).then(canvas => {
+
+    html2canvas(data2).then(canvas => {
       // Few necessary setting options 
       var imgWidth = 208;
       var pageHeight = 295;
