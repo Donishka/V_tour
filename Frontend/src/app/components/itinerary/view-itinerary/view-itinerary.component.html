@@ -37,11 +37,20 @@
     </div>
   </div>
 
-  <div class="row top_padding"></div>
+  <div class="row top_padding">
+    <div class="col-md-3 col-xs-3"></div>
+    <div class="col-md-3 col-xs-3"></div>
+    <div class="col-md-3 col-xs-3"></div>
+    <div class="col-md-3 searchBar">
+      <div class=" search form-group search_bar">
+        <input type="text" class="form-control" name="search" placeholder="search Here..." [(ngModel)]="searchKeyword">
+      </div>
+    </div>
+  </div>
 
   <div class="card-columns" *ngIf="view">
 
-    <div class="card" *ngFor="let iT of itineraryService.iT; let i = index" style="border: 0">
+    <div class="card" *ngFor="let iT of itineraryService.iT| ItineraryFilter:searchKeyword; let i = index " style="border: 0">
       <div class="card-header it_header" id="contentToConvert1">
         <p class="itName">{{iT.name}}</p>
         <p class="agentName">{{iT.traveAgentName}}</p>
@@ -153,4 +162,3 @@
   </div>
 
 </p-dialog-->
-

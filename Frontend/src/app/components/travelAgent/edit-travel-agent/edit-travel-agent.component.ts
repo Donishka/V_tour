@@ -64,6 +64,7 @@ export class EditTravelAgentComponent implements OnInit {
       fname: "",
       lname: "",
       username: "",
+      agencyname:"",
       password: "",
       email: "",
       telephone: [""],

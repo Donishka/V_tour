@@ -30,26 +30,30 @@
     <div class="col-md-1 col-xs-1"></div>
     <div class="col-md-10 col-xs-10">
       <div class="row">
-        <div class="col-lg-6 card_col" *ngFor="let pkg of packagePaymentService.packagepayment| PackagePaymentFilter:searchKeyword">
-          <div class="row card_cover">
-            <div class="col-3 Pro_Pic_cover">
-              <img class="Pro_Pic" id="pp1" alt="Thumbnail [200x250]" src="../../../../../source/images/icon/payment.png">
-            </div>
-            <div class="col-6 textParent">
-              <div class="textDev">
-                <h4>{{pkg.packagename}}</h4>
-                <p class="email">{{pkg.spname}}</p>
-                <p class="email">{{pkg.date}}</p>
-                <p class="email">{{pkg.amount}}</p>
-                <p class="email">{{pkg.status}}</p>
+        <ng-container *ngFor="let pkg of packagePaymentService.packagepayment| PackagePaymentFilter:searchKeyword">
+        <div class="col-lg-6" *ngIf="user._id==pkg.travelagentid">
+          <div class="card_col">
+            <div class="row card_cover">
+              <div class="col-3 Pro_Pic_cover">
+                <img class="Pro_Pic" id="pp1" alt="Thumbnail [200x250]" src="../../../../../source/images/icon/payment.png">
               </div>
-            </div>
-            <div class="col-3">
-              <div class="row" style="height: 100%">
+              <div class="col-6 textParent">
+                <div class="textDev">
+                  <h4>{{pkg.packagename}}</h4>
+                  <p class="email">{{pkg.spname}}</p>
+                  <p class="email">{{pkg.date}}</p>
+                  <p class="email">{{pkg.amount}}</p>
+                  <p class="email">{{pkg.status}}</p>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="row" style="height: 100%">
+                </div>
               </div>
             </div>
           </div>
         </div>
+        </ng-container>
       </div>
     </div>
     <div class="col-md-1 col-xs-1"></div>

@@ -12,6 +12,9 @@ var TravelAgent =  mongoose.model('TravelAgent', {
     username:{
         type:String,
     },
+    agencyname: {
+        type: String,
+    },
     password : {
         type:String,
         required:true

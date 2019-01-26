@@ -29,6 +29,7 @@ router.post('/', (req, res) => {
         clientname: req.body.clientname,
         itenararyid: req.body.itenararyid,
         itenararyname: req.body.itenararyname,
+        tausername:req.body.tausername,
         amount: req.body.amount,
         date: req.body.date,
         status: "Waiting for Confirmation",

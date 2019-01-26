@@ -23,6 +23,7 @@ export class ClientPaymentComponent implements OnInit {
   amount:any;
   itname:any;
   itid:any;
+  tausername:any;
 
   constructor(
     private authService: AuthService,
@@ -44,6 +45,7 @@ export class ClientPaymentComponent implements OnInit {
     this.itname=this.clientPaymentService.itenararyname;
     this.amount=this.clientPaymentService.amount;
     this.itid=this.clientPaymentService.itenararyid;
+    this.tausername=this.clientPaymentService.tausername;
   }
 
   resetForm(form?: NgForm) {
@@ -53,6 +55,7 @@ export class ClientPaymentComponent implements OnInit {
       _id: "",
       clientid: "",
       clientname:"",
+      tausername:"",
       itenararyid:"",
       itenararyname:"",
       amount: "",
@@ -67,6 +70,7 @@ export class ClientPaymentComponent implements OnInit {
         _id: "",
         clientid: "",
         clientname: "",
+        tausername:"",
         itenararyid: "",
         itenararyname: "",
         amount: "",
@@ -80,12 +84,10 @@ export class ClientPaymentComponent implements OnInit {
     this.itenararyPaymentService.postItenararyPayment(form.value).subscribe((res) => {
       this.flashMessage.show('Purchased', { cssClass: 'alert-success', timeout: 4000 });
       this.resetForm1(form);
-      console.log(form.value);
     });
   }
 
   getProfileDetails() {
-    console.log('get details');
     this.authService.getProfile().subscribe(res => {
       this.user = res.data.user;
       console.log(this.user);

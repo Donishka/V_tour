@@ -6,6 +6,7 @@ export class ItenararyPayment {
     itenararyname:string;
     amount: string;
     date: string;
+    tausername:String;
     status: string;
 
 }
