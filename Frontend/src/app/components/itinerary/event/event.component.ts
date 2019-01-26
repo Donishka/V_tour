@@ -51,6 +51,8 @@ export class EventComponent implements OnInit {
   SPusername = "SP username";
   SelectedPkg = "Select a SP from";
 
+  _id="id";
+
 
 
 

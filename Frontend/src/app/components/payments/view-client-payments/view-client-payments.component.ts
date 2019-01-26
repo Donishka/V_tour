@@ -37,12 +37,21 @@ export class ViewClientPaymentsComponent implements OnInit {
   }
 
   onConfirm(itenararypayment: ItenararyPayment) {
-    this.itenararyPaymentService.putItenararyPayment(itenararypayment).subscribe((res) => {
-      this.refreshPaymentList();
-      this.flashMessage.show('Payment Status Updated', { cssClass: 'alert-success', timeout: 4000 });
-      console.log("Updated");
-      console.log(itenararypayment);
-    });  
+    if(confirm("Are you sure to ACCEPT this payment ?")){
+      this.itenararyPaymentService.putItenararyPayment(itenararypayment).subscribe((res) => {
+        this.refreshPaymentList();
+        this.flashMessage.show('Payment Status Updated', { cssClass: 'alert-success', timeout: 4000 });
+      });  
+    }
+  }
+
+  onReject(itenararypayment: ItenararyPayment) {
+    if (confirm("Are you sure to REJECT this payment ?")) {
+      this.itenararyPaymentService.putItenararyPaymentReject(itenararypayment).subscribe((res) => {
+        this.refreshPaymentList();
+        this.flashMessage.show('Payment Status Updated', { cssClass: 'alert-success', timeout: 4000 });
+      });
+    }
   }
 
   onDelete(_id: string) {

@@ -1,3 +1,154 @@
-.search{
-    margin-top: 25px;
+.nav_col{
+  padding-top:2%;
+  padding-bottom: auto;
+  padding-left: 0px;
+  /* media @xl
+  padding-right: 50px;
+   */
+  padding-right: 10px;
+  border-bottom: 1px solid rgba(112,112,112,0.7);
 }
+
+.search{
+  margin-top:30px;
+}
+.test{
+  background-color: red;
+}
+
+.nav_row{
+  min-height: 15vh;
+}
+
+.top_padding{
+  min-height: 13vh;
+}
+
+.content_row{
+  height: 68vh;
+}
+
+#h4l{
+  font-size: 22px;
+  color: #5C5C5C;
+}
+
+.labelCover,.searchBar{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.labelCover{
+
+}
+.searchBar{
+
+}
+.search_bar{
+  max-width: 390px;
+  width: 80%;
+  float: right;
+}
+
+.search_bar input{
+  height: 50px;
+  border:1px solid rgba(112,112,112,0.24);
+  border-radius: 10px;
+}
+
+
+.card_cover{
+  border:1px solid rgba(112,112,112,0.24);
+  border-radius: 7px;
+  padding-bottom: 0px;
+  width:90%;
+  height: 120px;
+  margin-bottom: 4%;
+  padding-right: 0px;
+}
+
+.searchCover{
+  width:87%;
+  min-width: 400px;
+  max-width: 600px;
+
+}
+
+.email{
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Helvetica Neue";
+  color: #797979;
+}
+
+.name{
+  font-weight: bold;
+  font-family: "Helvetica Neue";
+  color:#555353;
+}
+
+.delete_icn{
+  display: block;
+  width: 70%;
+
+}
+.edit_icn{
+  width: 40%;
+}
+
+.icn_container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.icn_extra{
+  border:1px solid #24ADAB;
+  border-radius: 0 6px 6px 0;
+}
+
+.textParent{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+
+}
+
+.textDev{
+
+}
+
+.card_col{
+  margin-bottom: 2.5%;
+}
+
+.Pro_Pic_cover{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  padding-right: 0px;
+}
+
+.Pro_Pic{
+  display: block;
+  max-height: 90%;
+  width: auto;
+  max-width: 90%;
+  border-radius: 100%;
+}
+
+
+.card_cover{
+  min-width: 400px;
+  max-width: 600px;
+  background-color: ghostwhite;
+}
+
+
+/*
+<img *ngIf="tagent.profilepic==null" class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="../../../../assets/default.png"
+style="width: 200px; height: 200px;">
+                                    <img *ngIf="tagent.profilepic!=null" class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="../../../../assets/{{tagent.profilepic}}">
+*/
