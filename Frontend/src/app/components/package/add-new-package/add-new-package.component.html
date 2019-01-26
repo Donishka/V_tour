@@ -1,5 +1,165 @@
-<!--ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner-->
 <div class='row'>
+  <div class='col-lg-7 col_2' style="padding-top: 5px; padding-left: 0;padding-right: 0">
+    <p class="form_Title1">PACKAGES</p>
+    <div class="FixedHeightContainer">
+      <div class="_scrollable">
+
+        <div *ngFor="let pkg of packageService.package | PackageFilter:searchKeyword" style="width: 100%;margin: 0 auto;">
+          <div *ngIf="pkg.spid==user._id" align="center" style="width: 100%">
+            <div class="card" style="margin-left: 10px;width: 95%">
+              <div class="row no-gutters">
+                <div class="col-auto">
+                  <img *ngIf="pkg.picture!=null" class="img-fluid" alt="Thumbnail [200x250]" src="../../../../assets/{{pkg.picture}}"
+                    style="width: 200px;height: 200px;">
+                  <img *ngIf="pkg.picture==null" class="img-fluid" alt="Thumbnail [200x250]" src="//placehold.it/200">
+                </div>
+                <div class="col">
+                  <div class="card-block px-2" style="padding: 10px">
+                    <h4 class="card-title pkg_title">{{pkg.name}}</h4>
+                    <p class="card-text pkg_desc">{{pkg.discription}}</p>
+                    <p class="card-text">Type : {{pkg.type}}</p>
+                    <p class="card-text">Availability : {{pkg.availability}}</p>
+                    <p class="card-text">Prize : {{pkg.price}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer w-100 text-muted" style="border-top: 0">
+                <button class="btn btn-info action-btn delBTn" (click)="onDelete(pkg._id)">
+                  <p>DELETE</p>
+                </button>
+                <button class="btn btn-info action-btn editBtn" (click)="onEdit(pkg)">
+                  <p>EDIT</p>
+                </button>
+                <button class="btn btn-info action-btn editBtn" (click)="showDialog3()" (click)="sendProfilePic(pkg._id)">
+                  <p>ADD PHOTO</p>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='col-lg-5 col_3'>
+    <p class="form_Title">EDIT / ADD PACKAGES</p>
+    <div class="FixedHeightContainer2">
+      <div class="_scrollable2">
+        <form style="width: 100%; padding: 5px" #packageForm="ngForm" (ngSubmit)="onSubmit(packageForm)">
+          <fieldset>
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="packageService.selectedPackage._id">
+            <div class="row row1">
+              <div class="col-md-12 bdr_shadow">
+                <div class="input_cover">
+                  <div class="form-group">
+                    <label for="name" class="control-label">NAME</label>
+                    <div class="text_cover">
+                      <div class="input-group ip1">
+                        <input type="text" class="form-control _fname" name="name" #name="ngModel" [(ngModel)]="packageService.selectedPackage.name"
+                          required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row row2">
+              <div class="col-md-12 bdr_shadow">
+                <div class="input_cover">
+                  <div class="form-group">
+                    <label for="availability" class="control-label">AVAILABILITY</label>
+                    <div class="text_cover">
+                      <div class="input-group ip1">
+                        <input type="text" class="form-control _username" name="availability" #name="ngModel"
+                          [(ngModel)]="packageService.selectedPackage.availability">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row row3">
+              <div class="col-md-12 bdr_shadow">
+                <div class="input_cover">
+                  <div class="form-group">
+                    <label for="type" class="control-label">PACKAGE TYPE</label>
+                    <div class="text_cover">
+                      <div class="input-group ip1">
+                        <input type="text" class="form-control _username" name="type" #name="ngModel" [(ngModel)]="packageService.selectedPackage.type"
+                          required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="row row4">
+
+              <div class="col-md-12 bdr_shadow">
+                <div class="input_cover_add">
+                  <div class="form-group">
+                    <label for="discription" class="control-label">DESCRIPTION</label>
+                    <div class="text_cover">
+                      <div class="input-group ip1">
+                        <input type="text" class="form-control _username" name="discription" #name="ngModel"
+                          [(ngModel)]="packageService.selectedPackage.discription" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="row row5">
+
+              <div class="col-md-12 bdr_shadow">
+                <div class="input_cover">
+                  <div class="form-group">
+                    <label for="price" class="control-label">PRICE</label>
+                    <div class="text_cover">
+                      <div class="input-group ip1">
+                        <input type="number" class="form-control" name="price" #name="ngModel" [(ngModel)]="packageService.selectedPackage.price">
+                      </div>
+                    </div>
+                  </div>
+                  <input type="hidden" class="form-control" name="spid" #name="ngModel" [(ngModel)]="user._id">
+                  <input type="hidden" class="form-control" name="spname" #name="ngModel" [(ngModel)]="user.fname">
+                  <flash-messages></flash-messages>
+                </div>
+              </div>
+
+            </div>
+            <div class="row row6">
+
+              <div class="col-md-6 bdr_shadow">
+                <div class="form-group ">
+                  <button class=" bt1 btn btn-primary right btn_reset" type="button" (click)="resetForm(packageForm)">RESET</button>
+                  <button class=" bt1 btn btn-primary btn-lg btn-block login-button btn_add_agent" type="submit">ADD
+                    PACKAGE</button>
+                </div>
+              </div>
+
+            </div>
+
+
+          </fieldset>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<p-dialog [(visible)]="display3" [modal]="true" [responsive]="true">
+  <input type="file" name="photo" ng2FileSelect [uploader]="uploader">
+  <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">Upload
+    an Image</button>
+</p-dialog>
+
+
+<!--ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner-->
+<!--div class='row'>
   <div class='col col_2'>
     <div class="container">
       <div class="row">
@@ -138,8 +298,8 @@
   </div>
 </div>
 
-<p-dialog [(visible)]="display3" [modal]="true" [responsive]="true">
+<p-dialog-- [(visible)]="display3" [modal]="true" [responsive]="true">
   <input type="file" name="photo" ng2FileSelect [uploader]="uploader">
   <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">Upload
     an Image</button>
-</p-dialog>
+</p-dialog-->

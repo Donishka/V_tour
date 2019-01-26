@@ -6,21 +6,23 @@ import { SharedataService } from '../../../services/sharedata/sharedata.service'
 import { EditItineraryComponent } from '../edit-itinerary/edit-itinerary.component';
 import { ItineraryComponent } from '../itinerary.component';
 import { TravelagentPaymentService } from '../../../services/sharedata/travelagent-payment.service';
-import { ServiceProviderService} from '../../../services/user-service/serviceProvider/serviceprovider.service'
+import { ServiceProviderService } from '../../../services/user-service/serviceProvider/serviceprovider.service'
 import { PackageService } from './../../../services/package-service/package.service';
 
 import { MatDialog } from '@angular/material';
 import * as jspdf from 'jspdf';
-import html2canvas from 'html2canvas'; 
+import * as html2canvas from 'html2canvas';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { NgForm } from '@angular/forms';
+import * as pdfMake from 'pdfmake/build/pdfmake';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 
 @Component({
   selector: 'app-view-itinerary',
   templateUrl: './view-itinerary.component.html',
   styleUrls: ['./view-itinerary.component.css'],
-  providers: [ServiceProviderService,PackageService]
+  providers: [ServiceProviderService, PackageService]
 })
 export class ViewItineraryComponent implements OnInit {
 
@@ -28,28 +30,28 @@ export class ViewItineraryComponent implements OnInit {
   view: boolean = true;
   isPopupOpened = false;
   Itinerary: any;
-  message:any;
+  message: any;
   data: any;
   user: any;
   package: any;
   event: any;
   sp: any;
   spid: any;
-  mail:any;
-  paymentdata:any;
+  mail: any;
+  paymentdata: any;
   searchKeyword: string;
 
   lat: number = 6.978554010342724;
   lng: number = 79.96221732040647;
 
-  positions:any[]=[];
+  positions: any[] = [];
 
   constructor(
     public itineraryService: ItineraryService,
     private dataS: SharedataService,
     public travelagentPaymentService: TravelagentPaymentService,
     private serviceProviderService: ServiceProviderService,
-    private packageService:PackageService,
+    private packageService: PackageService,
     private router: Router,
     private spinner: NgxSpinnerService,
     private dialog?: MatDialog
@@ -62,10 +64,10 @@ export class ViewItineraryComponent implements OnInit {
     });
   }
 
-  map(tourm:Itinerary){
+  map(tourm: Itinerary) {
     this.positions = [];
-    for(var i in tourm.events){
-      this.positions[i] = {name: tourm.events[i].venue, lat: tourm.events[i].lat, lng: tourm.events[i].lng };
+    for (var i in tourm.events) {
+      this.positions[i] = { name: tourm.events[i].venue, lat: tourm.events[i].lat, lng: tourm.events[i].lng };
     }
     this.display = true;
     console.log(JSON.stringify(this.positions));
@@ -76,11 +78,12 @@ export class ViewItineraryComponent implements OnInit {
     this.itineraryService.id = itinerary._id;
     console.log("id " + this.itineraryService.id);
     const dialogRef = this.dialog.open(EditItineraryComponent, {
-      data: { id: this.itineraryService.id,
-              itineraryName : itinerary.name,
-              note: itinerary.note,
-              clientId: itinerary.clientId
-       }
+      data: {
+        id: this.itineraryService.id,
+        itineraryName: itinerary.name,
+        note: itinerary.note,
+        clientId: itinerary.clientId
+      }
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
@@ -91,7 +94,7 @@ export class ViewItineraryComponent implements OnInit {
   }
 
   deleteItinerary(id: String) {
-    if (confirm("Delete Itinerary ?")){
+    if (confirm("Delete Itinerary ?")) {
       this.itineraryService.deleteItinerary(id).subscribe(res => {
         this.refreshItinerryList();
       })
@@ -115,12 +118,10 @@ export class ViewItineraryComponent implements OnInit {
       // }
     });
   }
-  public generatePDF(name:string) {
-    var data1 = document.getElementById('contentToConvert1');
-    var data2 = document.getElementById('contentToConvert2');
-    var data3 = document.getElementById('contentToConvert3');
-    var data4 = document.getElementById('contentToConvert4');
-    html2canvas(data1,data2,data3,data4).then(canvas => {
+  public generatePDF(name:string,id:string) {
+    var data2 = document.getElementById(id);
+
+    html2canvas(data2).then(canvas => {
       // Few necessary setting options 
       var imgWidth = 208;
       var pageHeight = 295;
@@ -131,12 +132,14 @@ export class ViewItineraryComponent implements OnInit {
       let pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF 
       var position = 0;
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
-      pdf.save(name+'.pdf'); // Generated PDF  
+      pdf.save(name + '.pdf'); // Generated PDF  
     });
-  } 
 
-  makePayment(Itenararyid:string,eventIndex:number,eventId:string){
-    if (confirm("Proceed to Payment ?")){
+    //var data1 = document.getElementById('contentToConvert1');
+  }
+
+  makePayment(Itenararyid: string, eventIndex: number, eventId: string) {
+    if (confirm("Proceed to Payment ?")) {
       this.paymentdata = { Itenararyid, eventIndex, eventId }
       this.itineraryService.changePaymentStatus(this.paymentdata).subscribe((res) => {
       })
@@ -149,7 +152,7 @@ export class ViewItineraryComponent implements OnInit {
   display1: boolean = false;
   display: boolean = false;
 
-  closePDialog(event:boolean){
+  closePDialog(event: boolean) {
     this.display2 = event;
   }
 
@@ -161,8 +164,8 @@ export class ViewItineraryComponent implements OnInit {
       this.data = res;
       this.event = this.data.events[this.travelagentPaymentService.index - 1];
       this.spid = this.event.sp_id;
-      
-      this.serviceProviderService.get1ServiceProvider(this.spid).subscribe((res:any) => {
+
+      this.serviceProviderService.get1ServiceProvider(this.spid).subscribe((res: any) => {
         this.sp = res;
         console.log(res);
         if (res) {
@@ -175,19 +178,19 @@ export class ViewItineraryComponent implements OnInit {
         this.package = res;
       })
     });
-    
+
   }
 
   booking(message: any) {
-    this.mail={msg:message,mail:this.sp.email}
-    this.itineraryService.postEmail(this.mail).subscribe((res:any) => {
-    alert(res.msg);
-    this.display1 = false;
+    this.mail = { msg: message, mail: this.sp.email }
+    this.itineraryService.postEmail(this.mail).subscribe((res: any) => {
+      alert(res.msg);
+      this.display1 = false;
     });
   }
 
-  confirmBooking(Itenararyid: string, eventIndex: number, eventId: string){
-    if (confirm("Confirm Booking ?")){
+  confirmBooking(Itenararyid: string, eventIndex: number, eventId: string) {
+    if (confirm("Confirm Booking ?")) {
       this.refreshItinerryList();
       this.paymentdata = { Itenararyid, eventIndex, eventId }
       this.itineraryService.changeBookingStatus(this.paymentdata).subscribe((res) => {
