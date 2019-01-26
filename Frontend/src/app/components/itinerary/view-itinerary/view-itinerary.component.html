@@ -50,14 +50,14 @@
 
   <div class="card-columns" *ngIf="view">
 
-    <div class="card" *ngFor="let iT of itineraryService.iT| ItineraryFilter:searchKeyword; let i = index " style="border: 0">
+    <div id="contentToConvert2" class="card" *ngFor="let iT of itineraryService.iT| ItineraryFilter:searchKeyword; let i = index " style="border: 0">
       <div class="card-header it_header">
         <p  class="itName">{{iT.name}}</p>
         <p  class="agentName">{{iT.traveAgentName}}</p>
         <p class="note">{{iT.note}}</p>
         <p class="lastUpdated">Last Updated {{iT.date_time}}</p>
       </div>
-      <div id="contentToConvert2" class="card-body event_cover">
+      <div class="card-body event_cover">
         <div class="event_item_cover" *ngFor="let event of iT.events; let i = index" style="height: 70px;margin-bottom: 7px; margin-top: 10px" >
           <div class="row" style="height: 70px;padding: 5px;width: 100%">
             <div class="col-1 num_col" >
@@ -66,11 +66,11 @@
             <div class="col-3 title_col" >
               <p class="card-text item_name">{{event.name}} </p>
             </div>
-            <div class="col-1 stdate_col" >
-              <p class="event_time">07:30</p>
+            <div class="col-1 stdate_col">
+              <p class="event_time">{{event.intime}}</p>
             </div>
-            <div class="col-2 enddate_col" >
-              <p class="event_time">09:30</p>
+            <div class="col-2 enddate_col">
+              <p class="event_time">{{event.outtime}}</p>
             </div>
             <div class="col-2 btn_col">
               <button class="btn btn-primary cspbtn" *ngIf="event.sp_id!=null" (click)="makeBooking(iT._id,event.id)">CONTACT

@@ -116,22 +116,26 @@ export class ViewItineraryComponent implements OnInit {
     });
   }
   public generatePDF(name:string) {
+    setTimeout(() => {
+      var data2 = document.getElementById('contentToConvert2');
+
+      html2canvas(data2).then(canvas => {
+        // Few necessary setting options 
+        var imgWidth = 208;
+        var pageHeight = 295;
+        var imgHeight = canvas.height * imgWidth / canvas.width;
+        var heightLeft = imgHeight;
+
+        const contentDataURL = canvas.toDataURL('image/png')
+        let pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF 
+        var position = 0;
+        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+        pdf.save(name + '.pdf'); // Generated PDF  
+      });
+      
+    },0);
+
     //var data1 = document.getElementById('contentToConvert1');
-    var data2 = document.getElementById('contentToConvert2');
-
-    html2canvas(data2).then(canvas => {
-      // Few necessary setting options 
-      var imgWidth = 208;
-      var pageHeight = 295;
-      var imgHeight = canvas.height * imgWidth / canvas.width;
-      var heightLeft = imgHeight;
-
-      const contentDataURL = canvas.toDataURL('image/png')
-      let pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF 
-      var position = 0;
-      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
-      pdf.save(name+'.pdf'); // Generated PDF  
-    });
   } 
 
   makePayment(Itenararyid:string,eventIndex:number,eventId:string){
