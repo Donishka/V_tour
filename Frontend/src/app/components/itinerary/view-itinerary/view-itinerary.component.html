@@ -51,7 +51,6 @@
   <div class="card-columns" *ngIf="view">
 
     <div class="card" *ngFor="let iT of itineraryService.iT| ItineraryFilter:searchKeyword; let i = index " style="border: 0">
-      <div id=i>
       <div class="card-header it_header">
         <p  class="itName">{{iT.name}}</p>
         <p  class="agentName">{{iT.traveAgentName}}</p>
@@ -68,10 +67,10 @@
               <p class="card-text item_name">{{event.name}} </p>
             </div>
             <div class="col-1 stdate_col">
-              <p class="event_time">{{event.intime}}</p>
+              <p class="event_time">{{event.date_from}}<br>{{event.intime}}{{event.depature_time}}{{event.check_in_time}}</p>
             </div>
             <div class="col-2 enddate_col">
-              <p class="event_time">{{event.outtime}}</p>
+              <p class="event_time">{{event.date_to}}<br>{{event.outtime}}</p>
             </div>
             <div class="col-2 btn_col">
               <button class="btn btn-primary cspbtn" *ngIf="event.sp_id!=null" (click)="makeBooking(iT._id,event.id)">CONTACT SP</button>
@@ -91,74 +90,47 @@
         <button href="#" class="btn btn-primary editbtn" (click)="editItinerary(iT)"><img class="edit_img" src="../../../../../source/images/icon/icons8-edit-file-100.png"></button>
         <button href="#" class="btn btn-primary mapbtn" (click)="map(iT)"><img class="edit_img" src="../../../../../source/images/icon/globe.png"></button>
         <button href="#" class="btn btn-primary delbtn" (click)="deleteItinerary(iT._id)"><img class="edit_img" src="../../../../../source/images/icon/delete.png"></button>
-        <button class="btn btn-primary pdfbtn" (click)="generatePDF(iT.name)"><img class="edit_img" src="../../../../../source/images/icon/pdf.png"></button>
+        <button class="btn btn-primary pdfbtn" (click)="viewPDF(iT)"><img class="edit_img" src="../../../../../source/images/icon/icons8-view-90.png"></button>
       </div>
     </div>
   </div>
 </div>
-<!--div class="container" *ngIf="view">
-  <div class="card" *ngFor="let iT of itineraryService.iT; let i = index">
-    <div class="card-header" id="contentToConvert1">
-      <h4>Itinerary name: {{iT.name}}</h4>
-      <h5>{{i+1}}.Tranvel Agent: {{iT.traveAgentName}}</h5>
-      <h6>Client: {{iT.note}}</h6>
-      <h6>Last updated {{iT.date_time}}</h6>
-    </div>
-    <div class="card-body">
-      <div *ngFor="let event of iT.events; let i = index">
-        <h5 class="card-title" id="contentToConvert2">{{i+1}}. {{event.name}} </h5>
-        <div>
-          <button class="btn btn-link" *ngIf="event.sp_id!=null"  (click)="makeBooking(iT._id,event.id)">Contact Service Provider</button>
-          <button class="btn btn-link" *ngIf="event.sp_id!=null && event.payment_status=='not_paid'"  (click)="makePayment(iT._id,event.id,event._id)">Payment</button>
-          <button class="btn btn-link" *ngIf="event.sp_id!=null && event.booking_status=='not_booked'" (click)="confirmBooking(iT._id,event.id,event._id)" >Confirm Booking</button>
-
-          <p id="contentToConvert4" *ngIf="event.sp_id!=null && event.booking_status!='not_booked'">Booked</p>
-          <p id="contentToConvert3" *ngIf="event.sp_id!=null && event.payment_status!='not_paid'">Paid</p>
-        </div>
-      </div>
-      <button href="#" class="btn btn-primary" (click)="editItinerary(iT)">Edit</button> 
-      <hr>
-      <button href="#" class="btn btn-primary" (click)="map(iT)">View Map </button>
-      <hr>
-      <button href="#" class="btn btn-primary" (click)="deleteItinerary(iT._id)">Delete</button>
-    </div>
-    <button class="btn btn-primary" (click)="generatePDF(iT.name)">Genarate PDF</button>
-  </div>
-</div>
-<div class="container" *ngIf="!view">
-  <h2>
-    No Itineraries created yet...!
-  </h2>
-</div>
-
-<p-dialog [(visible)]="display1" [modal]="true" [responsive]="true">
-  <div id="c1" class="container">
-    <form style="margin:10px">
-      <fieldset>
-        <h5>Compose Email Here</h5>
-        <hr>
-        <div class="form-group">
-          <textarea cols="50" rows="5" class="form-control" name="message" #name="ngModel" [(ngModel)]="message" required></textarea>
-        </div>
-        <button type="submit" (click)="booking(message)" class="btn btn-primary" style="float: right">Send Email</button>
-      </fieldset>
-    </form>
-  </div>
-</p-dialog>
 <div>
+  <p-dialog [(visible)]="display3" [modal]="true" [responsive]="true">
+    <div id="contentToConvert1" class="container">
+      <div class="card-header it_header">
+        <p class="itName">{{pdf.name}}</p>
+        <p class="agentName">{{pdf.traveAgentName}}</p>
+        <p class="note">{{pdf.note}}</p>
+        <p class="lastUpdated">Last Updated {{pdf.date_time}}</p>
+      </div>
+      <div class="card-body event_cover">
+        <div class="event_item_cover" *ngFor="let event of pdf.events; let i = index" style="height: 70px;margin-bottom: 7px; margin-top: 10px">
+          <div class="row" style="height: 70px;padding: 5px;width: 100%">
+            <div class="col-1 num_col">
+              {{i+1}}
+            </div>
+            <div class="col-3 title_col">
+              <p class="card-text item_name">{{event.name}} - </p><br>
+              <p class="card-text item_name"> {{event.venue}} </p>
+            </div>
+            
+            <div class="col-1 stdate_col">
+              <p class="event_time">{{event.date_from}}<br>{{event.intime}}{{event.depature_time}}{{event.check_in_time}}</p>
+            </div>
+            <div class="col-2 enddate_col">
+              <p class="event_time">{{event.date_to}}<br>{{event.outtime}}</p>
+            </div>
 
-</div>
-<p-dialog-- [(visible)]="display" [modal]="true" [responsive]="true" [width]="900">
-  <div >
-       
-    <agm-map [latitude]="lat" [longitude]="lng">
-      <agm-marker *ngFor ="let p of positions" [latitude]="p.lat" [longitude]="p.lng">{{p.venue}}
-          <agm-marker *ngFor="let p of positions" [latitude]="p.lat" [longitude]="p.lng">
-              <agm-info-window>{{p.name}}</agm-info-window>
-            </agm-marker>
-      </agm-marker>
-    </agm-map>
-  
-  </div>
-
-</p-dialog-->
+            <div class="col-2 btn_col">
+              <p *ngIf="event.sp_id!=null && event.payment_status!='not_paid'" style="font-weight: bold; font-size: smaller">PAID</p>
+            </div>
+            <div class="col-1 btn_col">
+              <p *ngIf="event.sp_id!=null && event.booking_status!='not_booked'" style="font-weight: bold; font-size: smaller">BOOKED</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary pdfbtn" (click)="generatePDF(pdf.name)"><img class="edit_img" src="../../../../../source/images/icon/pdf.png"></button>
+  </p-dialog>

@@ -27,6 +27,7 @@ import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 export class ViewItineraryComponent implements OnInit {
 
   itinerary: Itinerary = new Itinerary();
+  pdf: Itinerary = new Itinerary();
   view: boolean = true;
   isPopupOpened = false;
   Itinerary: any;
@@ -118,11 +119,10 @@ export class ViewItineraryComponent implements OnInit {
       // }
     });
   }
-  public generatePDF(name:string,id:string) {
-    var data2 = document.getElementById(id);
+  public generatePDF(name:string) {
+    var data2 = document.getElementById("contentToConvert1");
 
     html2canvas(data2).then(canvas => {
-      // Few necessary setting options 
       var imgWidth = 208;
       var pageHeight = 295;
       var imgHeight = canvas.height * imgWidth / canvas.width;
@@ -134,6 +134,7 @@ export class ViewItineraryComponent implements OnInit {
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
       pdf.save(name + '.pdf'); // Generated PDF  
     });
+    this.display3=false;
 
     //var data1 = document.getElementById('contentToConvert1');
   }
@@ -198,4 +199,14 @@ export class ViewItineraryComponent implements OnInit {
       this.refreshItinerryList();
     }
   }
+
+  viewPDF(iT:any){
+    console.log("VIEW");
+    console.log(iT);
+    this.pdf=iT;
+    console.log(this.pdf);
+    this.display3=true;
+  }
+
+  display3 : boolean=false;
 }

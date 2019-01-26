@@ -69,6 +69,10 @@ agm-map {
   border-radius: 7px;
   height: 70px;
 }
+
+.event_time{
+  font-size: 10px;
+}
 .num_col,.title_col,.btn_col,.stdate_col,.enddate_col{
   display: flex;
   justify-content: center;
