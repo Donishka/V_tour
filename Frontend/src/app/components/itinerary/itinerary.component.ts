@@ -29,9 +29,9 @@ export class ItineraryComponent implements OnInit {
   
   itinerary: Itinerary = new Itinerary();
   isPopupOpened = false;
-  itineraryName: String = "Itinerary Name";
-  note: String = "Client Name";
-  clientId: String = "";
+  itineraryName: String ;
+  note: String = "Client";
+  clientId: String ;
   clients: Client[] = [];
   ClientName:String;
   
@@ -140,6 +140,7 @@ export class ItineraryComponent implements OnInit {
 
   addItinerary() {
     this.getClientId();
+    
 
     console.log("In add itinerary" + this.itineraryName);
     this.itinerary.name = this.itineraryName;
@@ -149,6 +150,11 @@ export class ItineraryComponent implements OnInit {
     this.itinerary.clientId = this.clientId;
     // this.itinerary.itineraryName = this.eventService;
     this.itinerary.events = this.eventService.getAllEvents();
+    if(this.itinerary.name == null){
+      window.alert("Set Itineraty name");
+    }else if(this.itinerary.clientId == null){
+      window.alert("Set Client name");
+    }else{
     this.itineraryService.postItinerary(this.itinerary).subscribe((res) => {
       this.itineraryService.eventList = [];
 
@@ -158,6 +164,7 @@ export class ItineraryComponent implements OnInit {
       console.log(JSON.stringify(this.itinerary));
 
     });
+  }
   }
 
 
