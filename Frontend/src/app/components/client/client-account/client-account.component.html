@@ -41,6 +41,8 @@
               <div class="card-title" *ngFor="let event of iT.events; let i = index">
                 <h5>{{i+1}}. {{event.name}}</h5>
                 <p>{{event.venue}}</p>
+                <p> From : {{event.date_from}}  {{event.timein}}{{event.departure_time}}{{event.check_in_time}}</p>
+                <p>To : {{event.date_to}}  {{event.timeout}}</p>
               </div>
               <h5>Total Amount : {{iT.totalPrice}}</h5>
               <div *ngFor="let sp of itenararyPaymentService.itenararypayment">

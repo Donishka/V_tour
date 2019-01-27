@@ -37,6 +37,22 @@ router.get('/:id', (req, res) => {
     });
 });
 
+router.post('/payment',(req,res)=>{
+    var mailOptions = {
+        from: 'vtourofficial@gmail.com',
+        to: req.body.email,
+        subject: 'Payment Through V Tour',
+        html: '<p>Payment has been done through V TOUR. Please check your bank account and VTOUR account and update the status of payment</p>'
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+});
+
 router.post('/', (req, res) => {
     var emailcheck = req.body.email;
     loginModel.findBySPEmail(emailcheck, function (err, user) {

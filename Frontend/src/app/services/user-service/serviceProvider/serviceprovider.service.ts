@@ -19,6 +19,10 @@ export class ServiceProviderService {
     return this.http.post(this.baseURL, sp);
   }
 
+  postServiceProviderPaymentEmail(sp: ServiceProvider) {
+    return this.http.post(this.baseURL+"/payment", sp);
+  }
+
   getServiceProviderList() {
     return this.http.get(this.baseURL);
   }
