@@ -1,4 +1,103 @@
-<app-nav></app-nav>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+<div class="container-fluid" id="body-container-fluid" style="height: 100vh">
+  <div class="row background_row"></div>
+  <div class="row nav_row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8 nav_col">
+      <app-nav></app-nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+
+      <div class="row" style="padding: 10px">
+
+        <div class="col-lg-6" style="height: 87vh">
+
+
+          <div class="card profile_card FixedHeightContainer3" style="width: 80%; margin: auto; height: 98%">
+
+            <div class="_scrollable3">
+
+              <img class="card-img-top client_pic" *ngIf="user.profilepic==null" src="../../../../assets/default.png"
+                alt="Card image" style="width:70%;height:auto">
+              <div class="card-body">
+                <h5 class="card-title client_name">{{user.fname}} {{user.lname}}</h5>
+                <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+              </div>
+              <ul class="list-group list-group-flush" style="width:100%">
+                <li class="list-group-item"><span class="item_name">EMAIL </span><span class="item_value">{{user.email}}</span></li>
+                <li class="list-group-item"><span class="item_name">TELEPHONE </span><span class="item_value">{{user.telephone}}</span></li>
+                <li class="list-group-item"><span class="item_name">ADDRESS </span><span class="item_value">{{user.address}},
+                    {{user.city}}, {{user.country}}. {{user.postalcode}}</span></li>
+                <li class="list-group-item"><span class="item_name">FOOD PREFERENCES </span><span class="item_value">{{user.foodprefer}}</span></li>
+                <li class="list-group-item"><span class="item_name">ACTIVITIES </span><span class="item_value">{{user.intactivities}}</span></li>
+                <li class="list-group-item"><span class="item_name">AGE GROUP </span><span class="item_value">{{user.agegroup}}</span></li>
+                <li class="list-group-item"><span class="item_name">DATE </span><span class="item_value">{{user.datefrom}}
+                    TO {{user.dateto}}</span></li>
+              </ul>
+              <div class="card-body">
+                <!--<a href="#" class="card-link">Card link</a>-->
+                <!--<a href="#" class="card-link">Another link</a>-->
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!--new card-->
+        </div>
+        <div class="col-lg-6" style="height: 87vh">
+          <div class="tripsWrapper FixedHeightContainer">
+            <div class="headWrapper" style="width: 100%; text-align: center">
+              <h3 class="rightColHeading">YOUR TOURS</h3>
+            </div>
+            <div class="_scrollable">
+              <div class="card iti_card" *ngFor="let iT of itineraryService.itenarary; let i = index">
+                <div class="" *ngIf="user._id==iT.clientId">
+                  <div class="card-header ITnameCover">
+                    <h4 class="ITname">{{iT.name}}</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="FixedHeightContainer2">
+                      <div class="_scrollable2">
+                        <div class="card-title" *ngFor="let event of iT.events; let i = index">
+                          <h5>{{i+1}}. {{event.name}}</h5>
+                          <p>{{event.venue}}</p>
+                          <p><span style="font-weight: bold; font-size: small">FROM</span> : {{event.date_from}}
+                            {{event.timein}}{{event.departure_time}}{{event.check_in_time}}</p>
+                          <p><span style="font-weight: bold; font-size: small">TO</span> : {{event.date_to}}
+                            {{event.timeout}}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="iti_card_footer">
+                      <p><span class="mb-1 text-muted">TOTAL AMOUNT : </span><span class="priceV">Rs.{{iT.totalPrice}}.00</span></p>
+                      <div *ngFor="let sp of itenararyPaymentService.itenararypayment">
+                        <div *ngIf="user._id==sp.clientid">
+                          <div class="mb-1 text-muted"> PAYMENT STATUS : {{sp.status}}</div>
+                          <button class="btn btn-primary paybtn" *ngIf="sp.status=='Waiting for Confirmation'" type="button" (click)="onPayment(i)">MAKE PAYMENT</button>
+                        </div>
+                      </div>
+                      <button class="btn btn-primary mapbtn" type="button" (click)="map(iT)">VIEW MAP</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+</div>
+
+
+
+<!--app-nav></app-nav>
 <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
 <div class="container-fluid" id="body-container-fluid">
   <div class="container">
@@ -63,7 +162,7 @@
   </div>
 </div>
 
-<p-dialog [(visible)]="display" [modal]="true" [responsive]="true" [width]="900">
+<p-dialog-- [(visible)]="display" [modal]="true" [responsive]="true" [width]="900">
   <div>
 
     <agm-map [latitude]="lat" [longitude]="lng">
@@ -74,4 +173,4 @@
 
   </div>
 
-</p-dialog>
+</p-dialog-->
