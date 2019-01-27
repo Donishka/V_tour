@@ -1,3 +1,4 @@
+import { ClientService } from './../../services/user-service/client/client.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ItineraryService } from '../../services/itinerary-service/itinerary.service';
@@ -10,10 +11,10 @@ import { Event } from '../../services/itinerary-service/model/event.model';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { ClientService } from '../../services/user-service/client/client.service';
 import { Client } from '../../services/user-service/client/client.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { TravelagentPaymentService } from '../../services/sharedata/travelagent-payment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-itinerary',
@@ -39,12 +40,12 @@ export class ItineraryComponent implements OnInit {
     public clientService:ClientService,
     private dataS: SharedataService,
     public travelagentPaymentService: TravelagentPaymentService,
+    public router:Router,
     private spinner: NgxSpinnerService,
     private dialog?: MatDialog,
     private eventService?: ItineraryService,
     public itineraryService?: ItineraryService,
   ) {
-    console.log("In constructor" + this.itineraryName);
     this.filteredClients = this.clientCtrl.valueChanges
       .pipe(
         startWith(''),
@@ -163,11 +164,13 @@ export class ItineraryComponent implements OnInit {
       this.clientId = null;
 
       alert('Itinerary Saved');
-
-      console.log("Saved"+this.itinerary.totalPrice);
-      console.log(JSON.stringify(this.itinerary));
-
     });
+    this.clientService.get1Client(this.clientId).subscribe((res:any)=>{
+      this.clientService.postItinerary(res).subscribe((res=>{
+        
+      }));
+    });
+    this.router.navigateByUrl('/view-itinerary');
   }
   }
 

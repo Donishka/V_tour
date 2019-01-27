@@ -59,18 +59,16 @@ export class AddNewTravelAgentComponent implements OnInit {
               if(res.state==false){
                 alert(res.msg);
               }else{
-                this.flashMessage.show('Travel Agent Saved', { cssClass: 'alert-success', timeout: 4000 });
-                this.resetForm(form);
                 alert('Travel Agent Saved');
+                this.resetForm(form);
                 this.router.navigateByUrl('/travelagent-account');
               }               
             });
         }
         else {
             this.travelAgentService.putTravelAgent(form.value).subscribe((res:any) => {
+              alert('Travel Agent Updated');
                 this.resetForm(form);
-                this.flashMessage.show('Travel Agent Updated', { cssClass: 'alert-success', timeout: 4000 });
-                alert('Travel Agent Updated');
                 this.router.navigateByUrl('/travelagent-account');
             });
         }

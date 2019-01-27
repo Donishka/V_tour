@@ -110,8 +110,147 @@
   position: relative;
 }
 
+.test2{
+  overflow:auto;
+}
+
 .card_bottom{
   margin-top: 120%;
 }
 
 
+agm-map {
+    height: 500px;
+  }
+
+.nav_row{
+  min-height: 15vh;
+  /*background-color: #4AB4B2;*/
+}
+
+.nav_col{
+  padding-top:2%;
+  padding-bottom: auto;
+  padding-left: 0px;
+  /* media @xl
+  padding-right: 50px;
+   */
+  padding-right: 10px;
+  border-bottom: 1px solid #7C7C7C;
+}
+
+
+.search{
+  margin-top:30px;
+  margin-bottom: 30px;
+}
+
+.search_bar{
+  max-width: 390px;
+  width: 100%;
+  margin-right: 18%;
+  float:right;
+}
+
+.search_bar input{
+  height: 50px;
+  border:1px solid rgba(112,112,112,0.24);
+  border-radius: 10px;
+}
+
+.it_header{
+  background-color: #4AB4B2;
+}
+
+.itName{
+  font-size: large;
+  font-family: Helvetica;
+  font-weight: bold;
+  color: #3C3C3C;
+  text-transform: uppercase;
+}
+.agentName,.note,.lastUpdated{
+  font-size: small;
+  font-family: Helvetica;
+  font-weight: bold;
+  color:white;
+  text-transform: uppercase;
+
+}
+.event_cover{
+  /*background-color: blanchedalmond;*/
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+
+.event_item_cover{
+  width:100%;
+  display: inline-block;
+  border:1px solid rgba(112,112,112,0.24);
+  border-radius: 7px;
+  height: 70px;
+}
+
+.event_time{
+  font-size: 10px;
+}
+.num_col,.title_col,.btn_col,.stdate_col,.enddate_col{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item_name{
+  font-size: small;
+  font-weight: bold;
+  font-family: Helvetica;
+}
+
+.btn_col,.stdate_col,.enddate_col{
+  font-size: small;
+}
+
+.cspbtn,.paybtn,.bkdbtn{
+  font-size: smaller;
+  padding: 3px;
+  background-color: white;
+  color: #4AB4B2;
+  border: 2px solid #4AB4B2;
+  border-radius: 5px;
+}
+
+.edit_img{
+  width: 20px;
+}
+
+.editbtn,.mapbtn,.delbtn,.pdfbtn{
+  margin-left: 5px;
+  background-color: white;
+  color: #4AB4B2;
+  border: 2px solid #4AB4B2;
+  border-radius: 10px;
+}
+
+.it_header{
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+
+@media (min-width: 540px) {
+  .card-columns {
+    column-count: 1;
+  }
+}
+
+@media (min-width: 982px) {
+  .card-columns {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1290px) {
+  .card-columns {
+    column-count: 3;
+  }
+}
