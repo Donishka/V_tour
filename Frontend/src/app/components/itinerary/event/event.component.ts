@@ -52,7 +52,7 @@ export class EventComponent implements OnInit {
   SelectedPkg = "Select a SP from";
   eventbutton = "ADD EVENT";
 
-  _id="id";
+  _id = "id";
 
 
 
@@ -235,6 +235,41 @@ export class EventComponent implements OnInit {
 
   }
 
+  getDateDuration(d1: String, d2: string): any {
+
+    var m1 = d1.slice(5, 7);
+    var m2 = d2.slice(5, 7);
+    var dy1 = d1.slice(8, 10);
+    var dy2 = d2.slice(8, 10);
+    var y1 = d1.slice(0, 4);
+    var y2 = d1.slice(0, 4);
+    console.log("m1: " + m1 + " m2: " + m2 + " dy1: " + dy1 + " dy2: " + dy2);
+
+    var m11 = Number(m1);
+    var m22 = Number(m2);
+    var dy11 = Number(dy1);
+    var dy22 = Number(dy2);
+    var y11 = Number(y1);
+    var y22 = Number(y2);
+
+    // var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+    // var firstDate = new Date(y11, m11, dy11);
+    // var secondDate = new Date(y22, m22, dy22);
+
+    // var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / (oneDay)));
+
+    if (m11 == m22) {
+      console.log(dy22 - dy11);
+      return dy22 - dy11 + " Days";
+    } else {
+      var m30 = [9, 4, 6, 11];
+      if (m30.includes(m11)) {
+        return (30 - dy11) + dy22 + " Days";
+      } else
+        return (31 - dy11) + dy22 + " Days";
+    }
+  }
+
   getSPusername(id: String) {
 
     //console.log("id passes "+ id+ " SP s " + JSON.stringify(this.serviceProviders));
@@ -302,12 +337,11 @@ export class EventComponent implements OnInit {
 
   onSubmit() {
     if (isNaN(this.data.id)) {
-      if(this.eventForm.value.lat != 6.978554010342724 || this.eventForm.value.lng != 79.96221732040647)
-      {
-      this.eventService.addEvent(this.eventForm.value);
-      console.log(JSON.stringify(this.eventForm.value.id));
-      this.dialogRef.close();
-      }else{window.alert("Please select the location on map");}
+      if (this.eventForm.value.lat != 6.978554010342724 || this.eventForm.value.lng != 79.96221732040647) {
+        this.eventService.addEvent(this.eventForm.value);
+        console.log(JSON.stringify(this.eventForm.value.id));
+        this.dialogRef.close();
+      } else { window.alert("Please select the location on map"); }
     } else {
       this.eventService.editEvent(this.eventForm.value);
       this.dialogRef.close();

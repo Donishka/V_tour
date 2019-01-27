@@ -84,7 +84,7 @@
                       <label class="control-label cardTitle" for="date_to">DATE TO</label>
                       <div class="text_cover">
                         <div class="ip1">
-                          <input type="date" formControlName="date_to"  [min]="minimum_date" class="form-control _itdate">
+                          <input type="date" formControlName="date_to"  [min]="this.eventForm.value.date_from" class="form-control _itdate">
                         </div>
                       </div>
                     </div>
@@ -229,7 +229,7 @@
                       <label class="control-label cardTitle" for="duration">DURATION</label>
                       <div class="text_cover">
                         <div class="ip1">
-                          <input type="text" formControlName="duration" class="form-control _itname">
+                          <input type="text" formControlName="duration" class="form-control _itname" [value]="getDateDuration(this.eventForm.value.date_from,this.eventForm.value.date_to)">
                         </div>
                       </div>
                     </div>
