@@ -50,6 +50,7 @@ export class EventComponent implements OnInit {
   lng: number = 79.96221732040647;
   SPusername = "SP username";
   SelectedPkg = "Select a SP from";
+  eventbutton = "ADD EVENT";
 
   _id="id";
 
@@ -200,6 +201,9 @@ export class EventComponent implements OnInit {
       booking_status: "not_booked",
 
     });
+
+    if (!(isNaN(this.data.id))) { this.eventbutton = "UPDATE"; }
+
     console.log("wvt tyo pera" + this.formType);
     this.formType = this.eventForm.value.event_type;
     this.Sp_id = this.eventForm.value.sp_id;
