@@ -150,13 +150,17 @@ export class ItineraryComponent implements OnInit {
     this.itinerary.clientId = this.clientId;
     // this.itinerary.itineraryName = this.eventService;
     this.itinerary.events = this.eventService.getAllEvents();
-    if(this.itinerary.name == null){
+    if(this.itinerary.name == null || this.itinerary.name == ""){
       window.alert("Set Itineraty name");
     }else if(this.itinerary.clientId == null){
       window.alert("Set Client name");
+    }else if(this.itineraryService.eventList.length == 0){
+      window.alert("Add at least one event");
     }else{
     this.itineraryService.postItinerary(this.itinerary).subscribe((res) => {
       this.itineraryService.eventList = [];
+      this.itineraryName = null;
+      this.clientId = null;
 
       alert('Itinerary Saved');
 
