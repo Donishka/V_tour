@@ -42,7 +42,7 @@
     "ngx-bootstrap": "^3.0.1",
     "ngx-smart-modal": "^7.1.0",
     "ngx-spinner": "^6.1.2",
-    "pdfmake": "^0.1.40",
+    "pdfmake": "^0.1.41",
     "popper.js": "^1.14.3",
     "primeicons": "^1.0.0",
     "primeng": "^7.0.0-beta.1",
