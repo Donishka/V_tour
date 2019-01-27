@@ -1,3 +1,4 @@
+import { TravelAgentService } from './../../../../services/user-service/travelAgent/travelagent.service';
 import { PackagePaymentService } from './../../../../services/payment-service/package-payment/package-payment.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../../services/auth.service';
@@ -11,12 +12,11 @@ import { ItineraryService} from '../../../../services/itinerary-service/itinerar
 import { ServiceProviderService } from '../../../../services/user-service/serviceProvider/serviceprovider.service';
 import { PackageService } from './../../../../services/package-service/package.service';
 
-
 @Component({
   selector: 'app-travel-agent-payment',
   templateUrl: './travel-agent-payment.component.html',
   styleUrls: ['./travel-agent-payment.component.css'],
-  providers: [PackagePaymentService, ServiceProviderService, PackageService]
+  providers: [PackagePaymentService, ServiceProviderService, PackageService, TravelAgentService]
 
 })
 export class TravelAgentPaymentComponent implements OnInit {
@@ -35,7 +35,8 @@ export class TravelAgentPaymentComponent implements OnInit {
     public packagePaymentService: PackagePaymentService,
     private serviceProviderService: ServiceProviderService,
     private packageService: PackageService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    public TravelAgentService: TravelAgentService
   ) { }
 
   data:any;
@@ -105,12 +106,14 @@ export class TravelAgentPaymentComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    confirm("Please confirm to proceed");
-    this.packagePaymentService.postPackagePayment(form.value).subscribe((res) => {
-      this.flashMessage.show('Purchased', { cssClass: 'alert-success', timeout: 4000 });
-      this.resetForm1(form);
-      console.log(form.value);
-    });
+    if (confirm("Please confirm to proceed")){
+      this.packagePaymentService.postPackagePayment(form.value).subscribe((res) => {
+        this.resetForm1(form);
+      });
+      this.serviceProviderService.postServiceProviderPaymentEmail(this.sp).subscribe((res)=>{
+
+      });
+    }
   }
 
   getProfileDetails() {

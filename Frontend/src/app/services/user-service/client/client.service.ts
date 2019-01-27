@@ -23,6 +23,14 @@ export class ClientService {
     return this.http.get(this.baseURL);
   }
 
+  get1Client(_id:String){
+    return this.http.get(this.baseURL+`/${_id}`);
+  }
+
+  postItinerary(client:Client){
+    return this.http.post(this.baseURL +"/finished",client);
+  }
+
   putClient(client: Client) {
     return this.http.put(this.baseURL + `/${client._id}`, client);
   }

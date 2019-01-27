@@ -1,6 +1,54 @@
-.input1{
-    margin: 2px;
-    background-color:lightsteelblue;
-    
+.nav_col{
+  padding-top:2%;
+  padding-bottom: auto;
+  padding-left: 0px;
+  /*
+  save for media @xl
+  padding-right: 50px;
+   */
+  padding-right: 10px;
 }
 
+.background_row{
+  height: 25vh;
+  z-index: -1;
+  margin-bottom: -25vh;
+  background-color: #4AB4B2;
+}
+
+
+.input1{
+  width: 90%;
+  overflow: auto;
+}
+
+span{
+  font-family: "Helvetica Neue";
+  font-size: small;
+  font-weight: bold;
+  color:#5C5C5C;
+}
+
+.card-title{
+  font-family: "Helvetica Neue";
+  font-size: large;
+  font-weight: bold;
+  color:#3C3C3C;
+  background-color: #4AB4B2;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.paybtn{
+  background-color: #C9AC49;
+  font-family: "Helvetica Neue";
+  font-size: large;
+  font-weight: bold;
+  border: 0;
+  margin: auto;
+}
+
+.card1{
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
+}

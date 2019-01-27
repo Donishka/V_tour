@@ -34,6 +34,23 @@ router.get('/:id', (req, res) => {
     });
 });
 
+
+router.post('/finished',(req,res)=>{
+    var mailOptions = {
+        from: 'vtourofficial@gmail.com',
+        to: req.body.email,
+        subject: 'V Tour Account Credentials',
+        html: '<p>Your tour has been created, Please log into your account and check details. Dont hesitate to contact us if there is any changes to be made.</p>'
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+});
+
 router.post('/', (req, res) => {
     var emailcheck = req.body.email;
     loginModel.findByClientEmail(emailcheck, function (err, user) {

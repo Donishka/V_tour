@@ -7,7 +7,7 @@ const path = require('path');
 const fs = require('fs');
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
-
+const travelAgentModel = require('../../data/travelAgent/travelagent.model');
 const loginModel = require('../../data/login/login.model');
 
 var { TravelAgent }  = require('../../data/travelAgent/travelagent.model.js');
@@ -40,45 +40,52 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     var emailcheck=req.body.email;
+    var usernamecheck=req.body.username;
     loginModel.findByTAgentEmail(emailcheck, function (err, user) {
         if (err) throw err;
         if (!user) {
-            var travelagent = new TravelAgent({
-                fname: req.body.fname,
-                lname: req.body.lname,
-                username: req.body.username,
-                agencyname:req.body.agencyname,
-                password: req.body.password,
-                email: req.body.email,
-                telephone: req.body.telephone,
-                address: req.body.address,
-                isadmin: req.body.isadmin,
-                profilepic: null,
-                usertype: "travelagent"
-            });
-            TravelAgentModel.saveUser(travelagent, (err, doc) => {
-                if (err) {
-                    res.json({ state: false, msg: "data not inserted" });
-                }
-                if (doc) {
-                    res.json({ state: true, msg: "data  inserted" });
-                    var mailOptions = {
-                        from: 'vtourofficial@gmail.com',
-                        to: req.body.email,
-                        subject: 'V Tour Account Credentials',
-                        html: '<p>Please Use --- ' + req.body.password + ' --- as your login password and use link below to login</p>' + '<a href="http://localhost:4200/login">Click Here</a>'
-                    };
-                    transporter.sendMail(mailOptions, function (error, info) {
-                        if (error) {
-                            console.log(error);
-                        } else {
-                            console.log('Email sent: ' + info.response);
-                        }
+            findByTAgentUserName(usernamecheck, function (err, username) {
+                if (err) throw err;
+                if (!username) {
+                    var travelagent = new TravelAgent({
+                        fname: req.body.fname,
+                        lname: req.body.lname,
+                        username: req.body.username,
+                        agencyname: req.body.agencyname,
+                        password: req.body.password,
+                        email: req.body.email,
+                        telephone: req.body.telephone,
+                        address: req.body.address,
+                        isadmin: req.body.isadmin,
+                        profilepic: null,
+                        usertype: "travelagent"
                     });
+                    TravelAgentModel.saveUser(travelagent, (err, doc) => {
+                        if (err) {
+                            res.json({ state: false, msg: "data not inserted" });
+                        }
+                        if (doc) {
+                            res.json({ state: true, msg: "data  inserted" });
+                            var mailOptions = {
+                                from: 'vtourofficial@gmail.com',
+                                to: req.body.email,
+                                subject: 'V Tour Account Credentials',
+                                html: '<p>Please Use --- ' + req.body.password + ' --- as your login password and use link below to login</p>' + '<a href="http://localhost:4200/login">Click Here</a>'
+                            };
+                            transporter.sendMail(mailOptions, function (error, info) {
+                                if (error) {
+                                    console.log(error);
+                                } else {
+                                    console.log('Email sent: ' + info.response);
+                                }
+                            });
+                        }
+                    }
+                    );
+                } else {
+                    res.json({ state: false, msg: "Username Already Exsits" });
                 }
-            }
-            );
-            
+            });
         } else {
             res.json({ state: false, msg: "User Already Exsits" });
         }
@@ -175,6 +182,11 @@ router.post('/api/upload', upload.single('photo'), function (req, res) {
         })
     }
 });
+
+findByTAgentUserName = function (username, callback) {
+    const query = { username: username };
+    travelAgentModel.TravelAgent.findOne(query, callback);
+};
 
 
 module.exports = router;

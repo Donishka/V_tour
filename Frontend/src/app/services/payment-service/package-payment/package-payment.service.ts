@@ -18,7 +18,6 @@ export class PackagePaymentService {
   constructor(private http: HttpClient) { }
 
   postPackagePayment(p: PackagePayment) {
-    console.log(p);
     return this.http.post(this.baseURL, p);
   }
 

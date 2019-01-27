@@ -1,7 +1,120 @@
-<app-nav></app-nav>
 <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
 <div class="container-fluid">
+  <div class="row background_row"></div>
+  <div class="row nav_row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8 nav_col">
+    </div>
+  </div>
   <div class="row">
+    <div class="col"></div>
+    <div class="col-md-6">
+      <div class="main-login main-center">
+        <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" method="POST" target="_blank" action="https://sandbox.payhere.lk/pay/checkout"
+          #form>
+          <fieldset>
+
+            <input type="hidden" name="merchant_id" value="1211720">
+            <input type="hidden" name="return_url" value="http://localhost:4200/client-account">
+            <input type="hidden" name="cancel_url" value="http://localhost:4200/client-account">
+            <input type="hidden" name="notify_url" value="http://sample.com/notify">
+            <input type="hidden" name="order_id" value={{user._id}}>
+            <input type="hidden" name="items" value="clientPaymentService.itenararyname"><br>
+            <input type="hidden" name="currency" value="LKR">
+
+            <div class="card card1" style="width: 100%">
+              <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+              <div class="row">
+                <div class="col-6">
+
+                  <div class="card-body" style="text-align: center">
+                    <h5 class="card-title">CLIENT DETAILS</h5>
+                  </div>
+                  <ul class="list-group list-group-flush" style="padding: 10px">
+                    <li class="list-group-item" style="border-top: 0">
+                      <span>CLIENT NAME </span><br><input class="input1" type="text" name="first_name" value="{{user.fname}} {{user.lname}}"
+                        readonly>
+                    </li>
+                    <!--<li class="list-group-item">-->
+                    <!--<span>LAST NAME</span><br><input class="input1" type="text" name="last_name" value="{{user.lname}}" readonly>-->
+                    <!--</li>-->
+                    <li class="list-group-item">
+                      <span>EMAIL</span><br><input class="input1" type="text" name="email" value="{{user.email}}"
+                        readonly>
+                    </li>
+                    <li class="list-group-item">
+                      <span>TELEPHONE</span><br><input class="input1" type="text" name="phone" value="{{user.telephone}}"
+                        readonly>
+                    </li>
+                    <li class="list-group-item">
+                      <span>ADDRESS</span><br><input class="input1" type="text" name="address" value="{{user.address}} {{user.city}}"
+                        readonly>
+                    </li>
+                    <!--<li class="list-group-item">-->
+                    <!--<span>CITY</span><br><input class="input1" type="text" name="city" value="{{user.city}}"readonly>-->
+                    <!--</li>-->
+                    <li class="list-group-item" style="border-bottom: 0">
+                      <span>COUNTRY</span><br><input class="input1" type="text" name="country" value="{{user.country}}"
+                        readonly>
+                    </li>
+                    <input type="hidden" name="city" #name="ngModel" [(ngModel)]=user.city>
+                    <input type="hidden" name="clientname" #name="ngModel" [(ngModel)]=user.fname>
+                    <input type="hidden" name="last_name" #name="ngModel" [(ngModel)]=user.lname>
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="itenararyPaymentService.selectedItenararyPayment._id">
+                  </ul>
+
+                </div>
+                <div class="col-6">
+
+                  <div class="card-body" style="text-align: center">
+                    <h5 class="card-title">PAYMENT DETAILS</h5>
+                  </div>
+                  <input type="hidden" name="clientid" #name="ngModel" [(ngModel)]="user._id" required>
+                  <ul class="list-group list-group-flush" style="padding: 10px">
+                    <li class="list-group-item" style="border-top: 0">
+                      <span>AMOUNT</span><br><input class="input1" type="text" name="amount" #name="ngModel"
+                        [(ngModel)]="amount" readonly>
+                    </li>
+                    <li class="list-group-item">
+                      <span>DATE</span><br><input class="input1" type="text" name="date" #name="ngModel" [(ngModel)]="current_date">
+                    </li>
+                  </ul>
+                  <div class="card-body" style="text-align: center">
+                    <h5 class="card-title">ITINERARY DETAILS</h5>
+                  </div>
+                  <input type="hidden" name="itenararyid" #name="ngModel" [(ngModel)]="itid">
+                  <input type="text" name="tausername" #name="ngModel" [(ngModel)]="tausername" hidden><br>
+                  <ul class="list-group list-group-flush" style="padding: 10px">
+                    <li class="list-group-item" style="border-top: 0">
+                      <span>ITINERARY NAME</span><br><input class="input1" type="text" name="itenararyname" #name="ngModel"
+                        [(ngModel)]="itname">
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
+
+              <div class="card-body">
+                <button class="btn btn-primary btn-lg btn-block login-button paybtn" type="submit" (click)="form.submit()"
+                  [disabled]="!userForm.valid">PROCEED WITH PAYMENT</button>
+              </div>
+
+            </div>
+
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+
+
+
+<!--app-nav></app-nav>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+<div class="container-fluid">
+  <div-- class="row">
     <div class="col"></div>
     <div class="col-6">
       <div class="main-login main-center">
@@ -48,19 +161,19 @@
             <h3>Itenarary Details</h3>
             <input type="hidden" name="itenararyid" #name="ngModel" [(ngModel)]="itid">
             Itenarary Name :
-            <input class="input1" type="text" name="itenararyname" #name="ngModel" [(ngModel)]="itname">
+            <input class="input1" type="text" name="itenararyname" #name="ngModel" [(ngModel)]="itname"-->
             <!--ADD THIS TO JANITH UI-->
-            <input class="input1" type="text" name="tausername" #name="ngModel" [(ngModel)]="tausername" hidden><br><br><br>
+            <!--input class="input1" type="text" name="tausername" #name="ngModel" [(ngModel)]="tausername" hidden><br><br><br-->
             <!---->
-            <flash-messages></flash-messages>
+            <!--flash-messages></flash-messages>
             <div class="form-group ">
-              <button class="btn btn-primary btn-lg btn-block login-button" type="submit" (click)="form.submit()"[disabled]="!userForm.valid">Make ItenararyPayment</button>
+              <button-- class="btn btn-primary btn-lg btn-block login-button" type="submit" (click)="form.submit()"[disabled]="!userForm.valid">Make ItenararyPayment</button-->
               <!--button class="btn btn-primary btn-lg btn-block login-button" type="button" >Reset</button-->
-            </div>
+            <!--/div>
           </fieldset>
         </form>
       </div>
     </div>
     <div class="col"></div>
   </div>
-</div>
+</div-->
