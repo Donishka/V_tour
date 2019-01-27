@@ -298,9 +298,12 @@ export class EventComponent implements OnInit {
 
   onSubmit() {
     if (isNaN(this.data.id)) {
+      if(this.eventForm.value.lat != 6.978554010342724 || this.eventForm.value.lng != 79.96221732040647)
+      {
       this.eventService.addEvent(this.eventForm.value);
       console.log(JSON.stringify(this.eventForm.value.id));
       this.dialogRef.close();
+      }else{window.alert("Please select the location on map");}
     } else {
       this.eventService.editEvent(this.eventForm.value);
       this.dialogRef.close();
