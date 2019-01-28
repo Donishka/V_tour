@@ -118,7 +118,6 @@ router.put('/:id', (req, res) => {
         fname: req.body.fname,
         lname:req.body.lname,
         username: req.body.username,
-        agencyname:req.body.agencyname,
         email:req.body.email,
         telephone: req.body.telephone,
         address: req.body.address,
