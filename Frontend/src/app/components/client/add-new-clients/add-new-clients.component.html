@@ -1,4 +1,306 @@
-<app-nav></app-nav>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+<div class="container-fluid">
+  <div class="row nav_row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8 nav_col">
+      <app-nav-white></app-nav-white>
+    </div>
+  </div>
+  <div class="row top_padding">
+    <div class="col-lg-3 labelCover">
+      <h4 id="h4l">ADD NEW CLIENT</h4>
+    </div>
+    <div class="col-lg-9"></div>
+  </div>
+
+  <div class="row content_row">
+    <div class="col-lg-3 img_col"></div>
+    <div class="col-lg-8">
+      <form style="margin-top: 25px;" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+        <fieldset>
+          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="clientService.selectedClient._id">
+          <div class="row row1">
+
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="fname" class="control-label">FIRST NAME</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="text" class="form-control _fname" name="fname" #name="ngModel" [(ngModel)]="clientService.selectedClient.fname"
+                        required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="lname" class="control-label">LAST NAME</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="text" class="form-control _fname" name="lname" #name="ngModel" [(ngModel)]="clientService.selectedClient.lname"
+                        required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row row2">
+
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="email" class="control-label">EMAIL</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="email" class="form-control _email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                        name="email" #emailref="ngModel" [(ngModel)]="clientService.selectedClient.email" required>
+                    </div>
+                    <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
+                      <div [hidden]="!emailref.errors?.pattern">
+                        Invalid Email Address
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="telephone" class="control-label">TELEPHONE</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="text" class="form-control _telephone" name="telephone" #name="ngModel" [(ngModel)]="clientService.selectedClient.telephone"
+                        required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row row3">
+
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="password" class="control-label">PASSWORD</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="password" class="form-control _password" name="password" #name="ngModel" [(ngModel)]="clientService.selectedClient.password"
+                        required>
+                    </div>
+                  </div>
+                  <password-strength-meter [password]="clientService.selectedClient.password"></password-strength-meter>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="password" class="control-label">RE-ENTER PASSWORD</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="password" class="form-control _password" name="rePassword" #name="ngModel"
+                        [(ngModel)]="rePassword" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <p style="color:red" *ngIf="clientService.selectedClient.password!='' && clientService.selectedClient.password!=rePassword">Passwords
+                  Do Not Match !</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="row row4">
+
+            <div class="col-md-4 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="address" class="control-label">ADDRESS</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="text" class="form-control _telephone" name="address" #name="ngModel" [(ngModel)]="clientService.selectedClient.address"
+                        required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="city" class="control-label">CITY</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="text" class="form-control _telephone" name="city" #name="ngModel" [(ngModel)]="clientService.selectedClient.city"
+                        required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="country" class="control-label">COUNTRY</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="text" class="form-control _telephone" name="country" #name="ngModel" [(ngModel)]="clientService.selectedClient.country"
+                        required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row row5">
+
+            <div class="col-md-4 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="postalcode" class="control-label">POSTAL CODE</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="text" class="form-control _fname" name="postalcode" #name="ngModel" [(ngModel)]="clientService.selectedClient.postalcode"
+                        required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col"></div>
+
+          </div>
+          <div class="row row6">
+
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="datefrom" class="control-label">DATE FROM</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="date" class="form-control  _fnam" name="datefrom" #name="ngModel" [(ngModel)]="clientService.selectedClient.datefrom"
+                        required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="dateto" class="control-label">DATE TO</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="date" class="form-control  _fnam" name="dateto" #name="ngModel" [(ngModel)]="clientService.selectedClient.dateto"
+                        required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row row7">
+
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="noofvisitors" class="control-label">NO. OF VISITORS</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="text" class="form-control _fname" name="noofvisitors" #name="ngModel" [(ngModel)]="clientService.selectedClient.noofvisitors"
+                        required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="foodprefer" class="control-label">FOOD PREFERENCE</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="text" class="form-control _fname" name="foodprefer" #name="ngModel" [(ngModel)]="clientService.selectedClient.foodprefer"
+                        required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="row row8">
+
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="intactivities" class="control-label">INTERESTED ACTIVITIES</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="text" class="form-control _fname" name="intactivities" #name="ngModel" [(ngModel)]="clientService.selectedClient.intactivities"
+                        required0>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 bdr_shadow">
+              <div class="input_cover">
+                <div class="form-group">
+                  <label for="agegroup" class="control-label">AGE GROUP</label>
+                  <div class="text_cover">
+                    <div class="input-group ip1">
+                      <input type="text" class="form-control _fname" name="agegroup" #name="ngModel" [(ngModel)]="clientService.selectedClient.agegroup">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+          <div class="row row6">
+
+            <div class="col-md-6"></div>
+            <div class="col-md-6 bdr_shadow">
+              <div class="form-group ">
+                <button class="btn btn-info btn_reset" type="button" (click)="resetForm(userForm)">RESET</button>
+                <button class="btn btn-info btn_add_agent" type="submit" [disabled]="!userForm.valid">ADD CLIENT</button>
+              </div>
+            </div>
+
+          </div>
+
+
+        </fieldset>
+      </form>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- <app-nav></app-nav>
 <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
 <div class="container">
   <div class="row">
@@ -196,4 +498,4 @@
     </div>
     <div class="col"></div>
   </div>
-</div>
+</div> -->

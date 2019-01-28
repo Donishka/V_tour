@@ -2,7 +2,7 @@
   background-color: transparent;
 
 }
-ul li a{
+._nav{
   color: #7C7C7C;
   font-family: "Helvetica Neue";
   /* save for media at xl
@@ -15,7 +15,13 @@ ul li a{
 
 
 .dropdown-menu{
-  background-color: #3f5efb;
+  background-color: white;
+}
+
+.dropdown-item{
+  font-size:smaller;
+  font-weight: bold;
+  color: #7C7C7C;
 }
 
 .login,.logout{

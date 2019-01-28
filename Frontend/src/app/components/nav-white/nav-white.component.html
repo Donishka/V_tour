@@ -1,69 +1,77 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div *ngIf="authService.loggedIn()" class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
 
       <li *ngIf="user.usertype=='travelagent'" class="dropdown nav-item" dropdown>
-        <a class="nav-link" dropdownToggle role="button"><i class="fas"></i> ITINERARY<span class="caret"></span></a>
+        <a class="nav-link _nav" dropdownToggle role="button"><i class="fas"></i> ITINERARY<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu dropdown-primary">
-          <a class="dropdown-item" [routerLink]="['/itinerary']">Create New Itenarary</a>
-          <a class="dropdown-item" [routerLink]="['/view-itinerary']">View Itenararies</a>
+          <a class="dropdown-item" [routerLink]="['/itinerary']">CREATE NEW ITINERARY</a>
+          <a class="dropdown-item" [routerLink]="['/view-itinerary']">VIEW ITINERARIES</a>
         </div>
       </li>
 
       <li *ngIf="user.usertype=='travelagent'" class="dropdown nav-item " dropdown>
-        <a class="nav-link" dropdownToggle role="button"><i class="fas"></i>TRAVEL AGENT<span class="caret"></span></a>
+        <a class="nav-link _nav" dropdownToggle role="button"><i class="fas"></i>TRAVEL AGENT<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
-          <a *ngIf="user.isadmin==true" class="dropdown-item" [routerLink]="['/addnewtravelagent']">Add New Agent</a>
-          <a class="dropdown-item" [routerLink]="['/viewtravelagents']">View Agents</a>
+          <a *ngIf="user.isadmin==true" class="dropdown-item" [routerLink]="['/addnewtravelagent']">ADD NEW AGENT</a>
+          <a class="dropdown-item" [routerLink]="['/viewtravelagents']">VIEW AGENTS</a>
         </div>
       </li>
 
       <li *ngIf="user.usertype=='travelagent'" class="dropdown nav-item " dropdown>
-        <a class="nav-link" dropdownToggle role="button"><i class="fab"></i> SERVICE PROVIDER<span class="caret"></span></a>
+        <a class="nav-link _nav" dropdownToggle role="button"><i class="fab"></i> SERVICE PROVIDER<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
-          <a *ngIf="user.isadmin==true" class="dropdown-item" [routerLink]="['/addnewserviceprovider']">Add Service Provider</a>
-          <a class="dropdown-item" [routerLink]="['/viewserviceproviders']">View Service Providers</a>
+          <a *ngIf="user.isadmin==true" class="dropdown-item" [routerLink]="['/addnewserviceprovider']">ADD SERVICE
+            PROVIDER</a>
+          <a class="dropdown-item" [routerLink]="['/viewserviceproviders']">VIEW SERVICE PROVIDERS</a>
         </div>
       </li>
 
       <li *ngIf="user.usertype=='travelagent'" class="dropdown nav-item " dropdown>
-        <a class="nav-link" dropdownToggle role="button"><i class="fas"></i>CLIENTS<span class="caret"></span></a>
+        <a class="nav-link _nav" dropdownToggle role="button"><i class="fas"></i>CLIENTS<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
-          <a class="dropdown-item" [routerLink]="['/addnewclient']">Add New Client</a>
-          <a class="dropdown-item" [routerLink]="['/viewclients']">View Clients</a>
+          <a class="dropdown-item" [routerLink]="['/addnewclient']">ADD NEW CLIENT</a>
+          <a class="dropdown-item" [routerLink]="['/viewclients']">VIEW CLIENTS</a>
         </div>
       </li>
 
       <li *ngIf="user.usertype!='client'" class="dropdown nav-item " dropdown>
-        <a class="nav-link" dropdownToggle role="button"><i class="fas"></i> PAYMENTS <span class="caret"></span></a>
+        <a class="nav-link _nav" dropdownToggle role="button"><i class="fas"></i> PAYMENTS & BOOKINGS<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
-          <a *ngIf="user.usertype=='travelagent'" class="dropdown-item" [routerLink]="['/viewclientpayment']">View Itenarary Payments</a>
-          <a *ngIf="user.usertype=='travelagent'" class="dropdown-item" [routerLink]="['/view-sp-payments']">View Package Payments</a>
-          <a *ngIf="user.usertype=='serviceprovider'" class="dropdown-item" [routerLink]="['/view-ta-payments']">View Package Payments</a>
+          <a *ngIf="user.usertype=='travelagent'" class="dropdown-item" [routerLink]="['/viewclientpayment']">VIEW
+            ITINERARY PAYMENTS</a>
+          <a *ngIf="user.usertype=='travelagent'" class="dropdown-item" [routerLink]="['/view-sp-payments']">VIEW
+            PACKAGE PAYMENTS</a>
+          <a *ngIf="user.usertype=='serviceprovider'" class="dropdown-item" [routerLink]="['/view-ta-payments']">VIEW
+            PACKAGE PAYMENTS</a>
+          <!--<a class="dropdown-item" href="#">View Bookings</a>-->
+          <!--<a class="dropdown-item">Make Booking</a>-->
         </div>
       </li>
 
       <li class="dropdown nav-item " dropdown>
-        <a class="nav-link" dropdownToggle role="button"><i class="far"></i>ACCOUNT<span class="caret"></span></a>
+        <a class="nav-link _nav" dropdownToggle role="button"><i class="far "></i>ACCOUNT<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
-          <a class=" dropdown-item" (click)="selectProfile()">Profile</a>
-          <a class="dropdown-item" href="" (click)="logoutUser()">Logout</a>
+          <a class="dropdown-item" (click)="selectProfile()">PROFILE</a>
+          <a class="dropdown-item">SETTINGS</a>
+          <a class="dropdown-item" href="" (click)="logoutUser()">LOGOUT</a>
         </div>
       </li>
 
     </ul>
     <span class="navbar-text">
       <ul>
-      <li  *ngIf="!authService.loggedIn()" class="nav navbar-nav">
-        <a  class="nav-link login" [routerLink]="['/login']">LOGIN</a>
-      </li>
-      <li  *ngIf="authService.loggedIn()" class="nav navbar-nav">
-        <a class="nav-link logout" href="" (click)="logoutUser()">LOGOUT</a>
-      </li>
-    </ul>
+        <li *ngIf="!authService.loggedIn()" class="nav navbar-nav">
+          <a class="nav-link login" [routerLink]="['/login']">LOGIN</a>
+        </li>
+        <li *ngIf="authService.loggedIn()" class="nav navbar-nav  _nav">
+          <a class="nav-link logout " href="" (click)="logoutUser()">LOGOUT</a>
+        </li>
+      </ul>
     </span>
   </div>
 </nav>

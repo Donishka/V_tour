@@ -2,7 +2,7 @@ nav{
   background-color: transparent;
 }
 
-ul li a{
+._nav{
   color: white;
   font-family: "Helvetica Neue";
   font-size:15px;
@@ -10,7 +10,14 @@ ul li a{
 }
 
 .dropdown-menu{
-  background-color: #3f5efb;
+  background-color: white;
+
+}
+
+.dropdown-item{
+  font-size:smaller;
+  font-weight: bold;
+  color: #7C7C7C;
 }
 
 .login,.logout{
@@ -23,3 +30,7 @@ ul li a{
   padding-right: 0px;
 }
 
+.logout{
+  color: white;
+  font-weight: bold;
+}
