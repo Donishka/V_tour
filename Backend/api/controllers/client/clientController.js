@@ -39,8 +39,8 @@ router.post('/finished',(req,res)=>{
     var mailOptions = {
         from: 'vtourofficial@gmail.com',
         to: req.body.email,
-        subject: 'V Tour Account Credentials',
-        html: '<p>Your tour has been created, Please log into your account and check details. Dont hesitate to contact us if there is any changes to be made.</p>'
+        subject: 'V Tour',
+        html: '<p>Your tour has been created, Please log into your account and check details. Do not hesitate to contact us if there is any changes to be made.</p>'
     };
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
