@@ -183,6 +183,14 @@ router.post('/api/upload', upload.single('photo'), function (req, res) {
     }
 });
 
+/*
+router.get('/:username', (req, res) => {
+    findByTAgentUserName(req.params.id, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in Retriving Travel Agent :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+*/
 findByTAgentUserName = function (username, callback) {
     const query = { username: username };
     travelAgentModel.TravelAgent.findOne(query, callback);
