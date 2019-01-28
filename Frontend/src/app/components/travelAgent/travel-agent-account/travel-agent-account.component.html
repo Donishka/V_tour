@@ -42,7 +42,7 @@
   <div class="row background_row"></div>
   <div class="row nav_row">
     <div class="col-md-4"></div>
-    <div class="col-md-8 nav_col">
+    <div class="col-md-8 nav_col" style=" border: 0">
       <app-nav></app-nav>
     </div>
   </div>
@@ -67,41 +67,44 @@
     <div class="col-lg-8 col-md-6 test2">
       <div class="row iti_container" style="height: 100%">
         <div class="col-lg-11 right_item">
-          <div class="card" *ngFor="let iT of itineraryService.iT; let i = index " style="border: 0">
-            <div class="card-header it_header">
-              <p class="itName">{{iT.name}}</p>
-              <p class="agentName">{{iT.traveAgentName}}</p>
-              <p class="note">{{iT.note}}</p>
-              <p class="lastUpdated">Last Updated {{iT.date_time}}</p>
-            </div>
-            <div class="card-body event_cover">
-              <div class="event_item_cover" *ngFor="let event of iT.events; let i = index" style="height: 70px;margin-bottom: 7px; margin-top: 10px">
-                <div class="row" style="height: 70px;padding: 5px;width: 100%">
-                  <div class="col-1 num_col">
-                    {{i+1}}
-                  </div>
-                  <div class="col-3 title_col">
-                    <p class="card-text item_name">{{event.name}} </p>
-                  </div>
-                  <div class="col-1 stdate_col">
-                    <p class="event_time">{{event.date_from}}<br>{{event.intime}}{{event.depature_time}}{{event.check_in_time}}</p>
-                  </div>
-                  <div class="col-2 enddate_col">
-                    <p class="event_time">{{event.date_to}}<br>{{event.outtime}}</p>
-                  </div>
-                  <div class="col-2 btn_col">
-
-                  </div>
-                  <div class="col-2 btn_col">
-                    <p *ngIf="event.sp_id!=null && event.payment_status!='not_paid'" style="font-weight: bold; font-size: smaller">PAID</p>
-                  </div>
-                  <div class="col-1 btn_col">
-                    <p *ngIf="event.sp_id!=null && event.booking_status!='not_booked'" style="font-weight: bold; font-size: smaller">BOOKED</p>
+          <div class="_scrollable1" style="height: 98%; overflow: auto;">
+              <div *ngFor="let iT of itineraryService.iT; let i = index " style="border: 0;">
+                <br>
+                <div class="card-header it_header">
+                  <p class="itName">{{iT.name}}</p>
+                  <p class="agentName">{{iT.traveAgentName}}</p>
+                  <p class="note">{{iT.note}}</p>
+                  <p class="lastUpdated">Last Updated {{iT.date_time}}</p>
+                </div>
+                <div>
+                  <div class="event_item_cover" *ngFor="let event of iT.events; let i = index" style="height: 70px;margin-bottom: 7px; margin-top: 10px">
+                    <div class="row" style="height: 70px;padding: 5px;width: 100%">
+                      <div class="col-1 num_col">
+                        {{i+1}}
+                      </div>
+                      <div class="col-3 title_col">
+                        <p class="card-text item_name">{{event.name}} </p>
+                      </div>
+                      <div class="col-1 stdate_col">
+                        <p class="event_time">{{event.date_from}}<br>{{event.intime}}{{event.depature_time}}{{event.check_in_time}}</p>
+                      </div>
+                      <div class="col-2 enddate_col">
+                        <p class="event_time">{{event.date_to}}<br>{{event.outtime}}</p>
+                      </div>
+                      <div class="col-2 btn_col">
+              
+                      </div>
+                      <div class="col-2 btn_col">
+                        <p *ngIf="event.sp_id!=null && event.payment_status!='not_paid'" style="font-weight: bold; font-size: smaller">PAID</p>
+                      </div>
+                      <div class="col-1 btn_col">
+                        <p *ngIf="event.sp_id!=null && event.booking_status!='not_booked'" style="font-weight: bold; font-size: smaller">BOOKED</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+          </div> 
         </div>
         <div class="col"></div>
       </div>

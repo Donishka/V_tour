@@ -1,3 +1,4 @@
+import { TravelAgentService } from './../../../services/user-service/travelAgent/travelagent.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { NgForm } from '@angular/forms';
@@ -6,12 +7,11 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ItenararyPaymentService } from '../../../services/payment-service/itenarary-payment/itenarary-payment.service';
 import { ClientPaymentService } from '../../../services/sharedata/client-payment.service';
-
 @Component({
   selector: 'app-client-payment',
   templateUrl: './client-payment.component.html',
   styleUrls: ['./client-payment.component.css'],
-  providers: [ItenararyPaymentService]
+  providers: [ItenararyPaymentService, TravelAgentService]
 })
 export class ClientPaymentComponent implements OnInit {
 
@@ -28,6 +28,7 @@ export class ClientPaymentComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
+    private TravelAgentService: TravelAgentService,
     private spinner: NgxSpinnerService,
     public itenararyPaymentService: ItenararyPaymentService,
     private flashMessage: FlashMessagesService,
@@ -80,11 +81,16 @@ export class ClientPaymentComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    confirm("Please confirm to proceed");
-    this.itenararyPaymentService.postItenararyPayment(form.value).subscribe((res) => {
-      this.flashMessage.show('Purchased', { cssClass: 'alert-success', timeout: 4000 });
-      this.resetForm1(form);
-    });
+    if (confirm("Please confirm to proceed")){
+      this.itenararyPaymentService.postItenararyPayment(form.value).subscribe((res) => {
+        this.flashMessage.show('Purchased', { cssClass: 'alert-success', timeout: 4000 });
+        this.resetForm1(form);
+      });
+      /*this.TravelAgentService.getTravelAgentByUserName(form.value.tausername).subscribe((res=>{
+        console.log("TA");
+        console.log(res);
+      }));*/
+    }
   }
 
   getProfileDetails() {

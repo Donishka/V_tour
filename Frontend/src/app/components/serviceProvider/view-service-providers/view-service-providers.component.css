@@ -60,7 +60,7 @@
 
 .spSlot{
   margin-left: 4%;
-  height: 470px;
+  height: 500px;
   min-width: 400px;
   margin-bottom: 50px;
   max-width: 80%;
@@ -107,38 +107,75 @@
 .btn_row1{
   display: block;
   text-align: center;
-  margin-top:30px;
 }
 
-.btn_row2{
-  display: block;
-  text-align: center;
-}
 
 .editBtn,.delBTn{
-  width: 130px;
+  width: 100px;
   height: 40px;
-  margin-bottom: 8px;
-  border-radius: 18px;
+  border-radius: 10px;
   background-color: white;
   color: #7C7C7C;
   border: 1px solid #7C7C7C;
   font-family: "Helvetica Neue";
   font-weight: bold;
   font-size: medium;
+  margin-right: 10px;
 }
-.editBtn{
-  margin-right: 5px;
-}
-.delBTn{
-  margin-left: 5px;
-}
+/*.editBtn{*/
+  /*margin-right: 5px;*/
+/*}*/
+/*.delBTn{*/
+  /*margin-left: 5px;*/
+/*}*/
 
 .vpBtn{
-  width:272px;
+  width:110px;
   height: 40px;
-  border-radius: 18px;
+  border-radius: 10px;
   font-family: "Helvetica Neue";
   font-weight: bold;
   font-size: medium;
+}
+
+.cardTextCover{
+  height: 50px;
+  width:100%;
+  border-bottom: 1px solid rgba(112,112,112,0.3);
+  padding: 0px;
+}
+
+.cardTextCover1{
+  height: 50px;
+  width:100%;
+  padding: 0px;
+}
+
+
+.text_col1{
+  padding-left: 0px;
+}
+.text_col2{
+  overflow: auto;
+  height: 50px;
+}
+
+._cardtitle{
+  text-align: left;
+  vertical-align: top;
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  font-size: small;
+  color: #7C7C7C;
+}
+
+._cardDetail{
+  text-align: left;
+  vertical-align: middle;
+  line-height: 50px;
+  font-family: "Helvetica Neue";
+  font-weight:normal;
+  font-size: large;
+  color: #3C3C3C;
+  overflow: auto;
 }

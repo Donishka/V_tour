@@ -1,6 +1,6 @@
 <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
 <div class="container-fluid">
-  <div class = "row nav_row">
+  <div class="row nav_row">
     <div class="col-md-4"></div>
     <div class="col-md-8 nav_col">
       <app-nav-white></app-nav-white>
@@ -10,7 +10,7 @@
     <div class="col-md-3 col-xs-3"></div>
     <div class="col-md-3 col-xs-3"></div>
     <div class="col-md-3 col-xs-3"></div>
-    <div class= "col-md-3 searchBar">
+    <div class="col-md-3 searchBar">
       <div class=" search form-group search_bar">
         <input type="text" class="form-control" name="search" placeholder="search Here..." [(ngModel)]="searchKeyword">
       </div>
@@ -19,37 +19,67 @@
   <div class="row content_row">
     <div class="col-md-3 spSlot" *ngFor="let sp of serviceProviderService.sp | ServiceProviderFilter:searchKeyword">
       <div class="row card_pic">
-        <!--img src="../../../../../source/images/85861600.jpg"-->
-        <img *ngIf="sp.profilepic==null" class="Pro_Pic" id="pp1" alt="Thumbnail [200x250]" src="../../../../../source/images/85861600.jpg">
-        <img *ngIf="sp.profilepic!=null" class="Pro_Pic" id="pp1" alt="Thumbnail [200x250]" src="../../../../assets/{{sp.profilepic}}">
+        <img *ngIf="sp.profilepic == null" src="../../../../../source/images/85861600.jpg">
+        <img *ngIf="sp.profilepic != null" src="../../../../assets/{{sp.profilepic}}">
       </div>
       <div class="title_">
         <span class="white_bg">{{sp.fname}}</span>
       </div>
-      <div class="row card_info">
-        <p class="des_item"><span style="padding-right: 5px">MAIL :</span> {{sp.email}}</p>
-        <br>
-        <p class="des_item"><span style="padding-right: 5px">PHONE :</span>{{sp.telephone}}</p>
-        <br>
-        <p class="des_item"><span style="padding-right: 5px">ADDRESS :</span>{{sp.address}}</p>
-        <br>
-        <p class="des_item"><span style="padding-right: 5px">INFO :</span>{{sp.discription}}</p>
+      <div class="row card_info" style="height: 235px">
+
+        <div class=" row cardTextCover">
+          <div class="col-2 text_col1">
+            <p class="_cardtitle">MAIL</p>
+          </div>
+          <div class="col-9 text_col2">
+            <p class="_cardDetail">{{sp.email}}</p>
+          </div>
+          <div class="col-1"></div>
+        </div>
+
+        <div class=" row cardTextCover">
+          <div class="col-2 text_col1">
+            <p class="_cardtitle">PHONE</p>
+          </div>
+          <div class="col-9 text_col2">
+            <p class="_cardDetail">{{sp.telephone}}</p>
+          </div>
+          <div class="col-1"></div>
+        </div>
+
+        <div class=" row cardTextCover">
+          <div class="col-2 text_col1">
+            <p class="_cardtitle">ADDRESS</p>
+          </div>
+          <div class="col-9 text_col2">
+            <p class="_cardDetail">{{sp.address}}</p>
+          </div>
+          <div class="col-1"></div>
+        </div>
+
+        <div class=" row cardTextCover1">
+          <div class="col-2 text_col1">
+            <p class="_cardtitle">INFO</p>
+          </div>
+          <div class="col-9 text_col2">
+            <p class="_cardDetail">{{sp.discription}}</p>
+          </div>
+          <div class="col-1"></div>
+        </div>
+
       </div>
       <div class="row btn_row1">
-        <span>
-          <!--button *ngIf="user.isadmin==true" class="btn btn-info action-btn editBtn" (click)="onEdit(sp)">
-            <p (click)="showDialog()">EDIT</p>
-          </button-->
-          <!--button *ngIf="user.isadmin==true" class="btn btn-info action-btn delBTn" (click)="onDelete(sp._id)">
-            <p>DELETE</p>
-          </button-->
-        </span>
-      </div>
-      <div class="row btn_row2">
+        <!-- <button *ngIf="user.isadmin==true" class="btn btn-info action-btn editBtn" (click)="onEdit(sp)">
+          <p (click)="showDialog()">EDIT</p>
+        </button>
+        <button *ngIf="user.isadmin==true" class="btn btn-info action-btn delBTn" (click)="onDelete(sp._id)">
+          <p>DELETE</p>
+        </button> -->
         <button class="btn btn-info action-btn vpBtn" (click)="onViewPackages(sp._id)">
-          <p>VIEW PACKAGES</p>
+          <p>PACKAGES</p>
         </button>
       </div>
+
     </div>
   </div>
 
@@ -72,7 +102,7 @@
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
                     <input type="text" class="form-control" name="fname" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.fname"
-                           required>
+                      required>
                   </div>
                 </div>
               </div>
@@ -82,7 +112,7 @@
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
                     <input type="text" class="form-control" name="username" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.username"
-                           required>
+                      required>
                   </div>
                 </div>
               </div>
@@ -91,8 +121,8 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
-                    <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #emailref="ngModel"
-                           [(ngModel)]="serviceProviderService.selectedServiceProvider.email" required>
+                    <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email"
+                      #emailref="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.email" required>
                   </div>
                   <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
                     <div [hidden]="!emailref.errors?.pattern">
@@ -106,7 +136,8 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.telephone" required>
+                    <input type="text" class="form-control" name="telephone" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.telephone"
+                      required>
                   </div>
                 </div>
               </div>
@@ -115,7 +146,8 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.address" required>
+                    <input type="text" class="form-control" name="address" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.address"
+                      required>
                   </div>
                 </div>
               </div>
@@ -124,7 +156,8 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="type" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.type" required>
+                    <input type="text" class="form-control" name="type" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.type"
+                      required>
                   </div>
                 </div>
               </div>
@@ -133,13 +166,15 @@
                 <div class="cols-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="discription" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.discription" required>
+                    <input type="text" class="form-control" name="discription" #name="ngModel" [(ngModel)]="serviceProviderService.selectedServiceProvider.discription"
+                      required>
                   </div>
                 </div>
               </div>
               <flash-messages></flash-messages>
               <div class="form-group ">
-                <button style="margin-top:5px;" class="btn btn-primary btn-lg btn-block login-button" type="submit" [disabled]="!userForm.valid">Update Service Provider</button>
+                <button style="margin-top:5px;" class="btn btn-primary btn-lg btn-block login-button" type="submit"
+                  [disabled]="!userForm.valid">Update Service Provider</button>
                 <button style="margin-top:5px;" class="btn btn-primary btn-lg btn-block" type="button" (click)="resetForm(userForm)">Reset</button>
               </div>
             </fieldset>

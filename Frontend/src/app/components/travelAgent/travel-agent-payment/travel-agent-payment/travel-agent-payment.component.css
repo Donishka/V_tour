@@ -1,3 +1,7 @@
+.nav_row{
+  min-height: 15vh;
+}
+
 .nav_col{
   padding-top:2%;
   padding-bottom: auto;
@@ -15,6 +19,7 @@
   margin-bottom: -25vh;
   background-color: #4AB4B2;
 }
+
 
 
 .input1{

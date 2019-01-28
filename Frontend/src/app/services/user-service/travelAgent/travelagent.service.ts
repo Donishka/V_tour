@@ -24,6 +24,10 @@ export class TravelAgentService {
     return this.http.get(this.baseURL + `/${_id}`);
   }
 
+  /*getTravelAgentByUserName(_username: string) {
+    return this.http.get(this.baseURL + `/${_username}`);
+  }*/
+
   getTravelAgentList() {
     return this.http.get(this.baseURL);
   }
