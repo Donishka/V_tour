@@ -36,16 +36,16 @@ export class TravelAgentAccountComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
     }, 3000);
-
-    this.refreshTravelAgentList();
-    this.getProfileDetails();
-    this.dataS.shareUserData();
     this.dataS.currentMessge.subscribe(traveAgentdata => {
       this.user = traveAgentdata;
       this.itinerary.traveAgentName = traveAgentdata.username;
       this.refreshItinerryList();
-      console.log("user in account "+JSON.stringify(this.user));
+      console.log("user in account " + JSON.stringify(this.user));
     });
+
+    this.refreshTravelAgentList();
+    this.getProfileDetails();
+    this.dataS.shareUserData();
   }
 
   refreshTravelAgentList() {

@@ -174,7 +174,7 @@
                   <label for="telephone" class="control-label">TELEPHONE</label>
                   <div class="text_cover">
                     <div class="input-group ip1">
-                      <input type="text" class="form-control _telephone" name="telephone" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.telephone"
+                      <input type="number" min="0000000000" class="form-control _telephone" name="telephone" #name="ngModel" [(ngModel)]="travelAgentService.selectedTravelAgent.telephone"
                         required>
                     </div>
                   </div>
