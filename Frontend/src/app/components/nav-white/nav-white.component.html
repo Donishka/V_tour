@@ -40,7 +40,7 @@
       </li>
 
       <li *ngIf="user.usertype!='client'" class="dropdown nav-item " dropdown>
-        <a class="nav-link _nav" dropdownToggle role="button"><i class="fas"></i> PAYMENTS & BOOKINGS<span class="caret"></span></a>
+        <a class="nav-link _nav" dropdownToggle role="button"><i class="fas"></i> PAYMENTS<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
           <a *ngIf="user.usertype=='travelagent'" class="dropdown-item" [routerLink]="['/viewclientpayment']">VIEW
             ITINERARY PAYMENTS</a>
