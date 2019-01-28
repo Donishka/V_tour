@@ -67,7 +67,7 @@
     <div class="col-lg-8 col-md-6 test2">
       <div class="row iti_container" style="height: 100%">
         <div class="col-lg-11 right_item">
-          <div class="_scrollable1" style="height: 98%; overflow: auto;">
+          <div class="_scrollable1" style="height: 98%;width:98%; overflow: auto; margin: auto">
               <div *ngFor="let iT of itineraryService.iT; let i = index " style="border: 0;">
                 <br>
                 <div class="card-header it_header">
@@ -85,14 +85,11 @@
                       <div class="col-3 title_col">
                         <p class="card-text item_name">{{event.name}} </p>
                       </div>
-                      <div class="col-1 stdate_col">
+                      <div class="col-3 stdate_col">
                         <p class="event_time">{{event.date_from}}<br>{{event.intime}}{{event.depature_time}}{{event.check_in_time}}</p>
                       </div>
                       <div class="col-2 enddate_col">
                         <p class="event_time">{{event.date_to}}<br>{{event.outtime}}</p>
-                      </div>
-                      <div class="col-2 btn_col">
-              
                       </div>
                       <div class="col-2 btn_col">
                         <p *ngIf="event.sp_id!=null && event.payment_status!='not_paid'" style="font-weight: bold; font-size: smaller">PAID</p>
@@ -104,7 +101,7 @@
                   </div>
                 </div>
               </div>
-          </div> 
+          </div>
         </div>
         <div class="col"></div>
       </div>

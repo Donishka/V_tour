@@ -47,6 +47,7 @@
   width:85%;
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
   border: 0px;
+  margin-bottom: 10px;
 
 }
 
@@ -69,9 +70,9 @@
 .right_item{
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
   background-color: white;
-  border: 0px;
-
-
+  padding:5px;
+  margin-bottom: 10px;
+  border-radius: 7px;
 }
 
 
@@ -162,6 +163,7 @@ agm-map {
 
 .it_header{
   background-color: #4AB4B2;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 4px 7px 0 rgba(0, 0, 0, 0.19);
 }
 
 .itName{
@@ -181,7 +183,7 @@ agm-map {
 }
 .event_cover{
   /*background-color: blanchedalmond;*/
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 4px 7px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
 }
 
