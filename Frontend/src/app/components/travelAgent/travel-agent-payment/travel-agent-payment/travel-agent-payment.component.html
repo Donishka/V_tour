@@ -1,6 +1,12 @@
-<app-nav></app-nav>
 <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
 <div class="container-fluid">
+    <div class="row background_row"></div>
+    <div class="row nav_row">
+        <div class="col-md-4"></div>
+        <div class="col-md-8 nav_col">
+            <app-nav></app-nav>
+        </div>
+    </div>
     <div class="row">
         <div class="col"></div>
         <div class="col-6">
@@ -16,7 +22,8 @@
                         <input type="hidden" name="order_id" value={{event._id}}>
                         <input type="hidden" name="items" value="{{package.name}}"><br>
                         <input type="hidden" name="currency" value="LKR">
-                        <!--new code -->
+
+                
                         <div class="card card1" style="width: 100%">
                             <!--<img class="card-img-top" src="..." alt="Card image cap">-->
                             <div class="row">
@@ -106,6 +113,7 @@
         <div class="col"></div>
     </div>
 </div>
+
 
 
 
