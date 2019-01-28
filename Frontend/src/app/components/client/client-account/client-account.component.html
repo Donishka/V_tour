@@ -78,10 +78,11 @@
                       <div *ngFor="let sp of itenararyPaymentService.itenararypayment">
                         <div *ngIf="user._id==sp.clientid">
                           <div class="mb-1 text-muted"> PAYMENT STATUS : {{sp.status}}</div>
-                          <button class="btn btn-primary paybtn" *ngIf="sp.status=='Waiting for Confirmation'" type="button" (click)="onPayment(i)">MAKE PAYMENT</button>
                         </div>
                       </div>
                       <button class="btn btn-primary mapbtn" type="button" (click)="map(iT)">VIEW MAP</button>
+                      <button class="btn btn-primary paybtn" type="button" (click)="onPayment(i)">MAKE PAYMENT</button>
+
                     </div>
                   </div>
                 </div>
