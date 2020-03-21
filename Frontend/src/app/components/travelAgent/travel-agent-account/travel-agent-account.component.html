@@ -1,4 +1,42 @@
-
+<!--
+<app-nav></app-nav>
+<div class="container-fluid" id="body-container-fluid">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="card" style="width:100%">
+        <img *ngIf="user.profilepic==null" class="image card-img-top" src="../../../../assets/default.png" alt="Card image" style="width:auto;height:300px">
+        <img *ngIf="user.profilepic!=null" class="image card-img-top" src="../../../../assets/{{user.profilepic}}" alt="Card image"  style="width:auto;height:400px">
+        <div class="card-body">
+          <h4 class="card-title">{{user.fname}} {{user.lname}}</h4>
+          <div class="address">
+            <ul class="list1 w3-ul w3-small">
+              <br>
+              <li><i class="fas fa-envelope" aria-hidden="true"></i> Email : {{user.email}}</li><br>
+              <li><i class="fas fa-phone-square" aria-hidden="true"></i> Telephone : {{user.telephone}}</li><br>
+              <li><i class="fas fa-home" aria-hidden="true"></i> Address : {{user.address}}</li><br>
+            </ul>
+            <button class="btn btn-primary" type="button" [routerLink]='["/edittravelagent"]'>Edit Details</button><br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8" style="background-color:lightblue;">
+      <div class ='container-fluid'>
+        <div class = 'row'>
+          <div class ='col col_2'>
+          </div>
+        </div>
+        <br><br>
+        <div class ='container-fluid'>
+          <div class = 'row'>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+<!-- NEW CONTENT -->
 <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
 <div class="container-fluid" id="body-container-fluid">
   <div class="row background_row"></div>
@@ -10,7 +48,7 @@
   </div>
   <div class="row bottom_row_1">
     <div class="col-lg-4 col-md-6 test">
-      <div class="card card_1" style="height: 75vh">
+      <div class="card card_1">
         <img class="card_background" *ngIf="user.profilepic==null" src="../../../../assets/default.png" style="z-index: 2">
         <img class="card_background" *ngIf="user.profilepic!=null" src="../../../../assets/{{user.profilepic}}" style="z-index: 2">
         <div class="card-body">
@@ -27,9 +65,9 @@
 
     </div>
     <div class="col-lg-8 col-md-6 test2">
-      <div class="row iti_container">
+      <div class="row iti_container" style="height: 100%">
         <div class="col-lg-11 right_item">
-          <div class="_scrollable1" style="height: 75vh;width:98%; overflow: auto; margin: auto">
+          <div class="_scrollable1" style="height: 98%;width:98%; overflow: auto; margin: auto">
               <div *ngFor="let iT of itineraryService.iT; let i = index " style="border: 0;">
                 <br>
                 <div class="card-header it_header">
