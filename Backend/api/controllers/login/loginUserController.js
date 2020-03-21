@@ -124,17 +124,13 @@ router.post("/login",function(req,res){
 });
 
 router.get("/profile",verifyToken, function(req,res){
-
-    jwt.verify(req.token,"vtoursecretkey",function(err,data){
-        
-        
+    jwt.verify(req.token,"vtoursecretkey",function(err,data){       
         if(err) {
             res.json({msg:"Acess denied"});
         }else{
             res.json({msg:"U can acess",data})
         }
     })
-    
 });
 
 function verifyToken(req,res,next){

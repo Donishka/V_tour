@@ -29,7 +29,7 @@
     <div class="col-md-1 col-xs-1"></div>
     <div class="col-md-10 col-xs-10">
       <div class="row">
-        <ng-container *ngFor="let tagent of travelAgentService.tagent | TravelAgentFilter:searchKeyword">
+        <ng-container>ng-container *ngFor="let tagent of travelAgentService.tagent | TravelAgentFilter:searchKeyword">
         <div class="col-lg-6" *ngIf="user.agencyname==tagent.agencyname">
           <div class="card_col">
             <div class="row card_cover">
