@@ -7,7 +7,7 @@
     <ul class="navbar-nav mr-auto">
 
       <li *ngIf="user.usertype=='travelagent'" class="dropdown nav-item" dropdown>
-        <a class="nav-link _nav" dropdownToggle role="button"><i class="fas"></i> ITINERARY<span class="caret"></span></a>
+        <a class="nav-link _nav" dropdownToggle role="button"><i class="fas"></i><span class="navItem">ITINERARY</span><span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu dropdown-primary">
           <a class="dropdown-item" [routerLink]="['/itinerary']">CREATE NEW ITINERARY</a>
           <a class="dropdown-item" [routerLink]="['/view-itinerary']">VIEW ITINERARIES</a>
@@ -15,7 +15,7 @@
       </li>
 
       <li *ngIf="user.usertype=='travelagent'" class="dropdown nav-item " dropdown>
-        <a class="nav-link _nav" dropdownToggle role="button"><i class="fas"></i>TRAVEL AGENT<span class="caret"></span></a>
+        <a class="nav-link _nav" dropdownToggle role="button"><i class="fas"></i><span class="navItem">TRAVEL AGENT</span><span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
           <a *ngIf="user.isadmin==true" class="dropdown-item" [routerLink]="['/addnewtravelagent']">ADD NEW AGENT</a>
           <a class="dropdown-item" [routerLink]="['/viewtravelagents']">VIEW AGENTS</a>
@@ -23,7 +23,7 @@
       </li>
 
       <li *ngIf="user.usertype=='travelagent'" class="dropdown nav-item " dropdown>
-        <a class="nav-link _nav" dropdownToggle role="button"><i class="fab"></i> SERVICE PROVIDER<span class="caret"></span></a>
+        <a class="nav-link _nav" dropdownToggle role="button"><i class="fab"></i><span class="navItem">SERVICE PROVIDER</span><span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
           <a *ngIf="user.isadmin==true" class="dropdown-item" [routerLink]="['/addnewserviceprovider']">ADD SERVICE
             PROVIDER</a>
@@ -32,7 +32,7 @@
       </li>
 
       <li *ngIf="user.usertype=='travelagent'" class="dropdown nav-item " dropdown>
-        <a class="nav-link _nav" dropdownToggle role="button"><i class="fas"></i>CLIENTS<span class="caret"></span></a>
+        <a class="nav-link _nav" dropdownToggle role="button"><i class="fas"></i><span class="navItem">CLIENTS</span><span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
           <a class="dropdown-item" [routerLink]="['/addnewclient']">ADD NEW CLIENT</a>
           <a class="dropdown-item" [routerLink]="['/viewclients']">VIEW CLIENTS</a>
@@ -40,7 +40,7 @@
       </li>
 
       <li *ngIf="user.usertype!='client'" class="dropdown nav-item " dropdown>
-        <a class="nav-link _nav" dropdownToggle role="button"><i class="fas"></i> PAYMENTS<span class="caret"></span></a>
+        <a class="nav-link _nav" dropdownToggle role="button"><i class="fas"></i><span class="navItem">PAYMENTS</span><span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
           <a *ngIf="user.usertype=='travelagent'" class="dropdown-item" [routerLink]="['/viewclientpayment']">VIEW
             ITINERARY PAYMENTS</a>
@@ -54,7 +54,7 @@
       </li>
 
       <li class="dropdown nav-item " dropdown>
-        <a class="nav-link _nav" dropdownToggle role="button"><i class="far"></i>ACCOUNT<span class="caret"></span></a>
+        <a class="nav-link _nav" dropdownToggle role="button"><i class="far"></i><span class="navItem">ACCOUNT</span><span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu">
           <a class=" dropdown-item" (click)="selectProfile()">PROFILE</a>
           <!--<a class="dropdown-item">Settings</a>-->
@@ -66,10 +66,10 @@
     <span class="navbar-text">
       <ul>
         <li *ngIf="!authService.loggedIn()" class="nav navbar-nav">
-          <a class="nav-link login" [routerLink]="['/login']">LOGIN</a>
+          <a class="nav-link login" [routerLink]="['/login']"><span class="navItem">LOGIN</span></a>
         </li>
         <li *ngIf="authService.loggedIn()" class="nav navbar-nav">
-          <a class="nav-link logout" href="" (click)="logoutUser()">LOGOUT</a>
+          <a class="nav-link logout" href="" (click)="logoutUser()"><span class="navItem">LOGOUT</span></a>
         </li>
       </ul>
     </span>
