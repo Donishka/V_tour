@@ -22,26 +22,27 @@
         <!--img src="../../../../../source/images/85861600.jpg"-->
         <img class="Pro_Pic" id="pp1" alt="Thumbnail [200x250]" src="../../../../../source/images/Travel1.jpg">
       </div>
-        <div class="title_">
-          <span class="white_bg">{{client.fname}}</span>
-        </div>
-        <div class="row card_info" style="position:absolute">
-          <p class="des_item"><span style="padding-right: 5px">MAIL :</span> {{client.email}}</p>
-          <br>
-          <p class="des_item"><span style="padding-right: 5px">PHONE :</span>{{client.telephone}}</p>
-          <br>
-          <p class="des_item"><span style="padding-right: 5px">ADDRESS :</span>{{client.address}}, {{client.city}}, {{client.country}}, {{client.postalcode}}</p>
-          <br>
-          <p class="des_item"><span style="padding-right: 5px">DURATION :</span>{{client.datefrom}} - {{client.dateto}}</p>
-          <br>
-          <p class="des_item"><span style="padding-right: 5px">NO OF VISITORS :</span>{{client.noofvisitors}}</p>
-          <br>
-          <p class="des_item"><span style="padding-right: 5px">FOOD :</span>{{client.foodprefer}}</p>
-          <br>
-          <p class="des_item"><span style="padding-right: 5px">ACTIVITIES :</span>{{client.intactivities}}</p>
-          <br>
-          <p class="des_item"><span style="padding-right: 5px">AGE GROUP :</span>{{client.agegroup}}</p>
-        </div>
+      <div class="title_">
+        <span class="white_bg">{{client.fname}}</span>
+      </div>
+      <div class="row card_info">
+        <p class="des_item"><span style="padding-right: 5px">MAIL :</span> {{client.email}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">PHONE :</span>{{client.telephone}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">ADDRESS :</span>{{client.address}}, {{client.city}}, {{client.country}}, {{client.postalcode}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">DURATION :</span>{{client.datefrom}} - {{client.dateto}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">NO OF VISITORS :</span>{{client.noofvisitors}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">FOOD :</span>{{client.foodprefer}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">ACTIVITIES :</span>{{client.intactivities}}</p>
+        <br>
+        <p class="des_item"><span style="padding-right: 5px">AGE GROUP :</span>{{client.agegroup}}</p>
+
+      </div>
       <div class="row btn_row1">
         <span>
           <button class="btn btn-info action-btn editBtn" (click)="onEdit(client)">
