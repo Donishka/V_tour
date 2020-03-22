@@ -19,8 +19,8 @@
   <div class="row content_row">
     <div class="col-md-3 spSlot" *ngFor="let sp of serviceProviderService.sp | ServiceProviderFilter:searchKeyword">
       <div class="row card_pic">
-        <img *ngIf="sp.profilepic == null" src="../../../../../source/images/85861600.jpg">
-        <img *ngIf="sp.profilepic != null" src="../../../../assets/{{sp.profilepic}}">
+        <img *ngIf="sp.profilepic == null" src="../../../../../source/images/85861600.jpg" style="height:200px">
+        <img *ngIf="sp.profilepic != null" src="../../../../assets/{{sp.profilepic}}" style="height:200px">
       </div>
       <div class="title_">
         <span class="white_bg">{{sp.fname}}</span>
@@ -69,12 +69,6 @@
 
       </div>
       <div class="row btn_row1">
-        <!-- <button *ngIf="user.isadmin==true" class="btn btn-info action-btn editBtn" (click)="onEdit(sp)">
-          <p (click)="showDialog()">EDIT</p>
-        </button>
-        <button *ngIf="user.isadmin==true" class="btn btn-info action-btn delBTn" (click)="onDelete(sp._id)">
-          <p>DELETE</p>
-        </button> -->
         <button class="btn btn-info action-btn vpBtn" (click)="onViewPackages(sp._id)">
           <p>PACKAGES</p>
         </button>

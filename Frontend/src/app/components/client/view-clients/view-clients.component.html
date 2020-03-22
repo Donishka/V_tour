@@ -19,8 +19,7 @@
   <div class="row content_row">
     <div class="col-md-3 spSlot" *ngFor="let client of clientService.client | ClientFilter:searchKeyword">
       <div class="row card_pic">
-        <!--img src="../../../../../source/images/85861600.jpg"-->
-        <img class="Pro_Pic" id="pp1" alt="Thumbnail [200x250]" src="../../../../../source/images/Travel1.jpg">
+        <img class="Pro_Pic" id="pp1" alt="Thumbnail [200x250]" src="../../../../../source/images/Travel1.jpg" style="height:200px"> 
       </div>
       <div class="title_">
         <span class="white_bg">{{client.fname}}</span>
