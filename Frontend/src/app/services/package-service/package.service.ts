@@ -9,7 +9,7 @@ import { Package } from './package.model';
 export class PackageService {
   selectedPackage: Package;
   package: Package[];
-  readonly baseURL = 'http://localhost:4201/packages';
+  readonly baseURL = 'http://13.232.48.250:4201/packages';
 
   constructor(private http: HttpClient) { }
 

@@ -20,8 +20,8 @@ export class ChangePasswordService {
   selectedServiceProvider: ServiceProvider;
   sp: ServiceProvider[];
 
-  readonly baseURL1 = 'http://localhost:4201/travelagents/changepassword';
-  readonly baseURL2 = 'http://localhost:4201/serviceproviders/changepassword';
+  readonly baseURL1 = 'http://13.232.48.250:4201/travelagents/changepassword';
+  readonly baseURL2 = 'http://13.232.48.250:4201/serviceproviders/changepassword';
 
   constructor(private http: HttpClient) { }
 

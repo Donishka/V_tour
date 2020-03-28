@@ -10,7 +10,7 @@ import { ServiceProviderService } from '../../../services/user-service/servicePr
 import { ServiceProvider } from '../../../services/user-service/serviceProvider/serviceprovider.model';
 
 declare var M: any;
-const URL = 'http://localhost:4201/serviceproviders/api/upload';
+const URL = 'http://13.232.48.250:4201/serviceproviders/api/upload';
 
 @Component({
   selector: 'app-edit-service-provider',

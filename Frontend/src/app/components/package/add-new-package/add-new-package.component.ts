@@ -12,7 +12,7 @@ import { ServiceProvider } from '../../../services/user-service/serviceProvider/
 import { PackageService } from '../../../services/package-service/package.service';
 import { Package } from '../../../services/package-service/package.model';
 
-const URL = 'http://localhost:4201/packages/api/upload';
+const URL = 'http://13.232.48.250:4201/packages/api/upload';
 
 @Component({
   selector: 'app-add-new-package',
