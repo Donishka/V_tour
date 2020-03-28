@@ -19,7 +19,7 @@
   <div class="row content_row">
     <div class="col-md-3 spSlot" *ngFor="let sp of serviceProviderService.sp | ServiceProviderFilter:searchKeyword">
       <div class="row card_pic">
-        <img *ngIf="sp.profilepic == null" src="../../../../../source/images/85861600.jpg" style="height:200px">
+        <img *ngIf="sp.profilepic == null" src="../../../../assets/source/images/85861600.jpg" style="height:200px">
         <img *ngIf="sp.profilepic != null" src="../../../../assets/{{sp.profilepic}}" style="height:200px">
       </div>
       <div class="title_">

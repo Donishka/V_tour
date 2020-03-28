@@ -21,7 +21,7 @@
             <div class="event_item_cover" *ngFor="let item of EventList; let i = index" cdkDrag style="height: 70px;margin-bottom: 10px; margin-top: 15px; padding: 0">
               <div class="row" style="height: 100%; margin: 0" >
                 <div cdkDragHandle class="col-1 drg_col">
-                  <img class="drag_icon" src="../../../../../source/images/icon/drag.png">
+                  <img class="drag_icon" src="../../../../assets/source/images/icon/drag.png">
                 </div>
                 <!--<label cdkDragHandle >Drag</label>-->
                 <div class="col-1 num_col">
@@ -48,11 +48,11 @@
                 <div class="col-1">
                   <div class="row" style="height: 100%;">
                     <div class="col-6 edt_col">
-                      <img *ngIf = "item.payment_status == 'not_paid' && item.booking_status == 'not_booked' " (click)="editEvent(item.id)" class="edit_icn" src="../../../../../source/images/icon/icons8-edit-file-100.png">
-                      <img *ngIf = "item.payment_status == 'paid' || item.booking_status == 'booked'  " onClick="window.alert('Unable to edit due to Confirmation')" class="edit_icn" src="../../../../../source/images/icon/icons8-edit-file-100-s.png">
+                      <img *ngIf = "item.payment_status == 'not_paid' && item.booking_status == 'not_booked' " (click)="editEvent(item.id)" class="edit_icn" src="../../../../assets/source/images/icon/icons8-edit-file-100.png">
+                      <img *ngIf = "item.payment_status == 'paid' || item.booking_status == 'booked'  " onClick="window.alert('Unable to edit due to Confirmation')" class="edit_icn" src="../../../../assets/source/images/icon/icons8-edit-file-100-s.png">
                     </div>
                     <div class="col-6 dlt_col">
-                      <img (click)="deleteEvent(item.id)" class="delete_icn" src="../../../../../source/images/icon/icons8-delete-bin-100.png">
+                      <img (click)="deleteEvent(item.id)" class="delete_icn" src="../../../../assets/source/images/icon/icons8-delete-bin-100.png">
                     </div>
                   </div>
                 </div>

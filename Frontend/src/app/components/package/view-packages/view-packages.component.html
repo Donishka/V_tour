@@ -20,8 +20,8 @@
     <ng-container *ngFor="let pkg of packageService.package | PackageFilter:searchKeyword">
           <div class="col-md-3 spSlot" *ngIf="pkg.spid==spid">
             <div class="row card_pic">
-              <!--img src="../../../../../source/images/85861600.jpg"-->
-              <img *ngIf="pkg.picture==null" class="Pro_Pic" id="pp1" alt="Thumbnail [200x250]" src="../../../../../source/images/85861600.jpg">
+              <!--img src="../../../../assets/source/images/85861600.jpg"-->
+              <img *ngIf="pkg.picture==null" class="Pro_Pic" id="pp1" alt="Thumbnail [200x250]" src="../../../../assets/source/images/85861600.jpg">
               <img *ngIf="pkg.picture!=null" class="Pro_Pic" id="pp1" alt="Thumbnail [200x250]" src="../../../../assets/{{pkg.picture}}">
             </div>
             <div class="title_">
