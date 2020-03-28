@@ -166,30 +166,12 @@
           </div>
         </div>
         <div class="col-md-7 lst-evnt-col">
-          <!--<cdk-drop (dropped)="onDrop($event)">-->
-          <!--<div *ngFor="let item of EventList; let i = index" cdkDrag>-->
-          <!--<div class="card text-center">-->
-          <!--<div class="card-header" cdkDragHandle>-->
-          <!--Event {{i+1}}-->
-          <!--</div>-->
-          <!--<div class="card-body">-->
-          <!--<h5 class="card-title">{{item.name}}</h5>-->
-          <!--<p class="card-text">{{item.venue}}</p>-->
-          <!--<button class="btn btn-primary" (click)="editEvent(item.id)" style="margin: 5px;">Edit</button>-->
-          <!--<button class="btn btn-primary" (click)="deleteEvent(item.id)">Delete</button>-->
-          <!--</div>-->
-          <!--<div class="card-footer text-muted">-->
-          <!--2 days ago-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--</cdk-drop>-->
           <div class="event_cover">
             <cdk-drop (dropped)="onDrop($event)">
               <div class="event_item_cover" *ngFor="let item of EventList; let i = index" cdkDrag style="height: 70px;margin-bottom: 10px; margin-top: 15px">
                 <div class="row" style="height: 70px">
                   <div cdkDragHandle class="col-1 drg_col">
-                    <img class="drag_icon" src="../../../../source/images/icon/drag.png">
+                    <img class="drag_icon" src="../../../assets/source/images/icon/drag.png">
                   </div>
                   <!--<label cdkDragHandle >Drag</label>-->
                   <div class="col-1 num_col">
@@ -228,18 +210,14 @@
 
                       </div>
                     </div>
-                    <!--<img (click)="editEvent(item.id)" class="edit_icn" src="../../../../source/images/icon/icons8-edit-file-100.png">-->
-                    <!--<div class="icn_container" style="padding: 0px">-->
-                    <!--<img (click)="editEvent(item.id)" class="edit_icn" src="../../../../source/images/icon/icons8-edit-file-100.png">-->
-                    <!--</div>-->
                   </div>
                   <div class="col-1">
                     <div class="row" style="height: 100%;padding: 0">
                       <div class="col-6 edt_col" style="padding: 0">
-                        <img (click)="editEvent(item.id)" class="edit_icn" src="../../../../source/images/icon/icons8-edit-file-100.png">
+                        <img (click)="editEvent(item.id)" class="edit_icn" src="../../../assets/source/images/icon/icons8-edit-file-100.png">
                       </div>
                       <div class="col-6 dlt_col" style="height: 100%;padding:0">
-                        <img (click)="deleteEvent(item.id)" class="delete_icn" src="../../../../source/images/icon/icons8-delete-bin-100.png">
+                        <img (click)="deleteEvent(item.id)" class="delete_icn" src="../../../assets/source/images/icon/icons8-delete-bin-100.png">
                       </div>
                     </div>
                   </div>

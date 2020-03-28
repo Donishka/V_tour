@@ -1,5 +1,5 @@
 .wrapper_1{
-  background: url(./../../../../source/images/photo-1531201890865-fb64780d16e9.jpeg)no-repeat center center fixed;
+  background: url(./../../../assets/source/images/photo-1531201890865-fb64780d16e9.jpeg)no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -62,7 +62,7 @@
 }
 
 .wrapper_1{
-  background: url(./../../../../source/images/photo-1531201890865-fb64780d16e9.jpeg)no-repeat center center fixed;
+  background: url(./../../../assets/source/images/photo-1531201890865-fb64780d16e9.jpeg)no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
