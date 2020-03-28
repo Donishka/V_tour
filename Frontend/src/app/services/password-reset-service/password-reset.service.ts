@@ -8,7 +8,7 @@ import { User } from '../../services/user-service/user.model';
 })
 export class PasswordResetService {
 
-  readonly baseURL = 'http://localhost:4201/forgotpassword';
+  readonly baseURL = 'http://13.232.48.250:4201/forgotpassword';
 
   constructor(private http: HttpClient) { }
 

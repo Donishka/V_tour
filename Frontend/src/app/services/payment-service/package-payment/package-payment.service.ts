@@ -13,7 +13,7 @@ export class PackagePaymentService {
   selectedPackagePayment: PackagePayment;
   packagepayment: PackagePayment[];
 
-  readonly baseURL = 'http://localhost:4201/packagepayments';
+  readonly baseURL = 'http://13.232.48.250:4201/packagepayments';
 
   constructor(private http: HttpClient) { }
 

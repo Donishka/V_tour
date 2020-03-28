@@ -27,7 +27,7 @@ export class AuthService {
     let headers = new Headers();
    headers.append('Content-Type','application/json');
 
-    return this.http.post("http://localhost:4201/login",user,{headers:headers}).pipe(map(res=>res.json()));
+    return this.http.post("http://13.232.48.250:4201/login",user,{headers:headers}).pipe(map(res=>res.json()));
   }
 
   storeData(token,userData){
@@ -42,7 +42,7 @@ export class AuthService {
     let headers = new Headers();
     headers.append('Authorization',this.authtoken);
     headers.append('Content-Type','application/json');
-     return this.http.get("http://localhost:4201/profile",{headers:headers}).pipe(map(res=>res.json()));  
+     return this.http.get("http://13.232.48.250:4201/profile",{headers:headers}).pipe(map(res=>res.json()));  
   }
 
   fetchToken(){

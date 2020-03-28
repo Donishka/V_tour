@@ -10,7 +10,7 @@ import { User } from './user.model';
 export class UserService {
   selectedUser: User;
   users: User[];
-  readonly baseURL = 'http://localhost:4201/users';
+  readonly baseURL = 'http://13.232.48.250:4201/users';
 
   constructor(private http: HttpClient) { }
 

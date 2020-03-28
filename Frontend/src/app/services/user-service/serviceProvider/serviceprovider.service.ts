@@ -10,7 +10,7 @@ import { ServiceProvider } from './serviceprovider.model';
 export class ServiceProviderService {
   selectedServiceProvider: ServiceProvider;
   sp: ServiceProvider[];
-  readonly baseURL = 'http://localhost:4201/serviceproviders';
+  readonly baseURL = 'http://13.232.48.250:4201/serviceproviders';
 
   constructor(private http: HttpClient) { }
 

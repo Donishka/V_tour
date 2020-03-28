@@ -50,7 +50,7 @@ export class ItineraryService {
     return datetime;
   }
 
-  readonly baseURL = 'http://localhost:4201/itinerary';
+  readonly baseURL = 'http://13.232.48.250:4201/itinerary';
 
   postItinerary(itinerary: Itinerary) {
     return this.http.post(this.baseURL, itinerary);

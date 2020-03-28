@@ -11,7 +11,7 @@ export class ItenararyPaymentService {
   selectedItenararyPayment: ItenararyPayment;
   itenararypayment: ItenararyPayment[];
   
-  readonly baseURL = 'http://localhost:4201/itenararypayments';
+  readonly baseURL = 'http://13.232.48.250:4201/itenararypayments';
 
   constructor(private http: HttpClient) { }
 

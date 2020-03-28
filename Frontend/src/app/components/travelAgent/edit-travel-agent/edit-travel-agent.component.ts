@@ -11,7 +11,7 @@ import { TravelAgent } from '../../../services/user-service/travelAgent/travelag
 
 declare var M: any;
 
-const URL = 'http://localhost:4201/travelagents/api/upload';
+const URL = 'http://13.232.48.250:4201/travelagents/api/upload';
 
 @Component({
   selector: 'app-edit-travel-agent',

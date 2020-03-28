@@ -12,7 +12,7 @@ export class TravelAgentService {
   tagent: TravelAgent[];
   type:string;
   
-  readonly baseURL = 'http://localhost:4201/travelagents';
+  readonly baseURL = 'http://13.232.48.250:4201/travelagents';
 
   constructor(private http: HttpClient) { }
 
